@@ -9,7 +9,42 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
+    <script>
+        // ESTA PÁGINA ES TAMBIÉN EL ROUTER DE ENLACES PROFUNDOS.
+        //
+        // El sitio es GitHub Pages: no hay reescrituras, así que rutas como
+        // /entry/{id} o /entry/create/tellme no existen como fichero y caen aquí.
+        // Con la app instalada da igual —iOS resuelve el universal link desde el
+        // AASA sin llegar a pedir la página—, pero sin ella este 404 es lo único
+        // que ve el usuario, y merece intentar abrir la app antes de rendirse.
+        //
+        // Las rutas son LAS MISMAS a los dos lados: la web /entry/create/call y
+        // el esquema sofia://entry/create/call significan lo mismo, así que
+        // traducir es quitar la barra inicial. La lista de abajo tiene que decir
+        // lo mismo que DeeplinkBusiness.routes y que los `components` del AASA;
+        // si divergen, este 404 deja de reconocer una ruta que la app sí abre.
+        (function () {
+            var ROUTES = [
+                /^\/user\/[^/]+$/,
+                /^\/entry\/create(\/[^/]+)?$/,
+                /^\/entry\/[^/]+$/,
+                /^\/chat(\/[^/]+)?$/,
+                /^\/settings\/goals(\/target\/create)?$/,
+                /^\/(reader|journal|goals|notifications|search)$/
+            ];
+
+            var path = window.location.pathname.replace(/\/+$/, '');
+            if (!path) return;
+
+            var known = ROUTES.some(function (route) { return route.test(path); });
+            if (!known) return;
+
+            // Sin `replace`: el usuario tiene que poder volver atrás si la app
+            // no está instalada y el navegador se queda donde está.
+            window.location.href = 'sofia://' + path.slice(1) + window.location.search;
+        })();
+    </script>
 </head>
 
 <body>
@@ -29,11 +64,11 @@
                 <p class="greeting">Página No Encontrada</p>
 
                 <div class="info-text">
-                    <p>La página que buscas no existe o se ha movido.</p>
+                    <p>La página que buscas no existe, se ha movido, o necesita la app de SofIA para abrirse.</p>
                 </div>
 
                 <div class="actions" style="margin-top: 30px;">
-                    <a href="index.html" class="btn-primary">Volver al Inicio</a>
+                    <a href="/index.html" class="btn-primary">Volver al Inicio</a>
                 </div>
             </div>
         </main>
