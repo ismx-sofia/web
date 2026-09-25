@@ -38,6 +38,10 @@
                     {
                         "/": "/search*",
                         "comment": "Search"
+                    },
+                    {
+                        "/": "/chat*",
+                        "comment": "A conversation (the list, or one chat by id or by the other user). Reached from pushes; no web page"
                     }
                 ]
             }

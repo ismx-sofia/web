@@ -4,7 +4,7 @@
             "delegate_permission/common.handle_all_urls"
         ],
         "target": {
-            "namespace": "com.ismx.sofia",
+            "namespace": "android_app",
             "package_name": "com.ismx.sofia",
             "sha256_cert_fingerprints": [
                 "FA:C6:17:45:35:53:03:C1:65:64:67:E4:46:52:9A:60:15:20:F5:BA:BB:F9:6E:5C:99:F9:5A:79:4D:85:29:EE"
