@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>SofIA - OTP AutoFill test</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; background: #0e1430; color: #e8ebf7; margin: 0; padding: 24px 16px; }
+  main { max-width: 420px; margin: 0 auto; }
+  h1 { font-size: 20px; } h2 { font-size: 15px; margin-top: 32px; color: #9aa6d6; }
+  p { font-size: 14px; line-height: 1.45; color: #b9c1e4; }
+  label { display: block; font-size: 13px; margin: 14px 0 6px; color: #9aa6d6; }
+  input { width: 100%; box-sizing: border-box; font-size: 20px; padding: 12px; border-radius: 10px; border: 1px solid #3b4a8f; background: #151d44; color: #fff; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Prueba de autorrelleno del código</h1>
+  <p>Página de diagnóstico. Toca un campo de código y mira si iOS ofrece el código de verificación de SofIA encima del teclado.</p>
+
+  <h2>A · Con usuario</h2>
+  <form onsubmit="return false">
+    <label for="a-user">Usuario</label>
+    <input id="a-user" name="username" autocomplete="username" value="isramatrix">
+    <label for="a-code">Código</label>
+    <input id="a-code" name="otp" autocomplete="one-time-code" inputmode="numeric" maxlength="6">
+  </form>
+
+  <h2>B · Solo código</h2>
+  <form onsubmit="return false">
+    <label for="b-code">Código</label>
+    <input id="b-code" name="otp" autocomplete="one-time-code" inputmode="numeric" maxlength="6">
+  </form>
+</main>
+</body>
+</html>
