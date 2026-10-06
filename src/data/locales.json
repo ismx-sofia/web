@@ -1,0 +1,16 @@
+{
+  "_doc": "Published languages. `dir` is the URL folder (two letters, root for Spanish); `lang` the html lang; `hreflang` the alternate code; `file` the src/i18n file; `col` the parameter_i18n column for app labels. /pt/ is prerendered in pt-BR and switched to pt-PT in the browser (Israel, 2026-10-06: «brasil y portugal ambas en /pt/»).",
+  "order": ["es", "en", "ca", "fr", "pt", "de", "it", "zh", "ja"],
+  "locales": {
+    "es": { "dir": "",   "lang": "es",      "hreflang": "es",      "og": "es_ES", "file": "es",    "col": "es_es", "name": "Español",   "carousel": "carrusel",   "card": "Ir a la tarjeta" },
+    "en": { "dir": "en", "lang": "en",      "hreflang": "en",      "og": "en_US", "file": "en",    "col": "en_us", "name": "English",   "carousel": "carousel",   "card": "Go to card" },
+    "ca": { "dir": "ca", "lang": "ca",      "hreflang": "ca",      "og": "ca_ES", "file": "ca",    "col": "ca_es", "name": "Català",    "carousel": "carrusel",   "card": "Ves a la targeta" },
+    "fr": { "dir": "fr", "lang": "fr",      "hreflang": "fr",      "og": "fr_FR", "file": "fr",    "col": "fr_fr", "name": "Français",  "carousel": "carrousel",  "card": "Aller à la carte" },
+    "pt": { "dir": "pt", "lang": "pt-BR",   "hreflang": "pt",      "og": "pt_BR", "file": "pt-BR", "col": "pt_br", "name": "Português", "carousel": "carrossel",  "card": "Ir para o cartão",
+            "variant": { "lang": "pt-PT", "file": "pt-PT", "col": "pt_pt", "og": "pt_PT", "region": "Portugal", "baseRegion": "Brasil" } },
+    "de": { "dir": "de", "lang": "de",      "hreflang": "de",      "og": "de_DE", "file": "de",    "col": "de_de", "name": "Deutsch",   "carousel": "Karussell",  "card": "Zur Karte" },
+    "it": { "dir": "it", "lang": "it",      "hreflang": "it",      "og": "it_IT", "file": "it",    "col": "it_it", "name": "Italiano",  "carousel": "carosello",  "card": "Vai alla scheda" },
+    "zh": { "dir": "zh", "lang": "zh-Hans", "hreflang": "zh-Hans", "og": "zh_CN", "file": "zh",    "col": "zh_cn", "name": "中文（简体）", "carousel": "轮播",       "card": "转到卡片" },
+    "ja": { "dir": "ja", "lang": "ja",      "hreflang": "ja",      "og": "ja_JP", "file": "ja",    "col": "ja_jp", "name": "日本語",     "carousel": "カルーセル",  "card": "カードへ移動" }
+  }
+}
