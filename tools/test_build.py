@@ -272,6 +272,9 @@ class BuildTest(unittest.TestCase):
                 self.assertIn('href="/privacy" hreflang="es"', summary, f"{c}: the summary leads to the binding text")
                 self.assertIn("legal@sofia.ismx.app", summary, f"{c}: privacy contact")
                 self.assertIn("B40623829", summary, f"{c}: controller")
+                self.assertIn("dpo@sofia.ismx.app", summary, f"{c}: data protection officer")
+        for page in ("privacy", "legal", "sensitive"):
+            self.assertIn("dpo@sofia.ismx.app", self.pages[f"{page}.html"], f"{page}: data protection officer")
 
     # 14b. the Spanish policy and its summaries point at each other, and legal tables read on a phone
     def test_privacy_summaries_and_legal_tables(self):
