@@ -201,7 +201,7 @@ class BuildTest(unittest.TestCase):
             for b in bad:
                 self.assertNotIn(b, text, f"{page}: {b}")
             for m in re.finditer(r"extremo a extremo", text):
-                self.assertIn("no es", text[max(0, m.start() - 40):m.start()], f"{page}: end-to-end claim")
+                self.assertIn("no es", text[max(0, m.start() - 40):m.start()].lower(), f"{page}: end-to-end claim")
 
     # 8. the URLs the app opens exist, and /faq keeps #seguridad
     def test_app_urls_exist(self):
@@ -265,7 +265,23 @@ class BuildTest(unittest.TestCase):
             self.assertIn("hello@sofia.ismx.app", delete, f"{c}: a way to ask without the app")
             self.assertRegex(delete, r"3\s?(años|years|anys|ans|anos|Jahre|anni|年)", f"{c}: retention")
             self.assertIn("hello@sofia.ismx.app", self.pages[self.site.out_path("help", c)])
-            self.assertIn('href="/privacy"', self.pages[self.site.out_path("index", c)])
+            privacy = self.site.url(build.PRIVACY_BASIC, c)
+            self.assertIn(f'href="{privacy}"', self.pages[self.site.out_path("index", c)], f"{c}: privacy in the footer")
+            if c != "es":
+                summary = self.pages[self.site.out_path(build.PRIVACY_BASIC, c)]
+                self.assertIn('href="/privacy" hreflang="es"', summary, f"{c}: the summary leads to the binding text")
+                self.assertIn("legal@sofia.ismx.app", summary, f"{c}: privacy contact")
+                self.assertIn("B40623829", summary, f"{c}: controller")
+
+    # 14b. the Spanish policy and its summaries point at each other, and legal tables read on a phone
+    def test_privacy_summaries_and_legal_tables(self):
+        full = self.pages["privacy.html"]
+        for c in LOC["order"]:
+            self.assertIn(f'hreflang="{LOC["locales"][c]["hreflang"]}" href="{build.HOST}{self.site.url(build.PRIVACY_BASIC, c)}"', full, c)
+        self.assertFalse(Path(self.out, "privacy-basic.html").exists())
+        for page in build.LEGAL_PAGES:
+            text = self.pages[f"{page}.html"]
+            self.assertNotIn("<td>", text, f"{page}: a cell without its column label")
 
     # 15. no generated page falls under a universal-link pattern of the AASA
     def test_pages_outside_universal_links(self):

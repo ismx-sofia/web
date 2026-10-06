@@ -21,3 +21,11 @@ not literal: see the brand guide in the project knowledge base (`07-identidad-y-
 
 `src/data/routes.json` mirrors `DeeplinkBusiness.routes` of the app and `src/data/app-labels.json` the
 Settings labels of `parameter_i18n`; update them when those change.
+
+Legal documents are published in Spanish only, at the root (`/privacy`, `/terms`, `/ia`, `/normas`,
+`/cookies`, `/legal`). Each source in `src/legal/` starts with
+`<!-- page: x · title: … · description: … · version: N · lede: … -->` and is written as
+`<section id="…" data-title="…">` blocks: the build adds the hero, the numbered headings, the table of
+contents and a column label to every table cell. `{path:a,b}` renders an app menu path from
+`app-labels.json`. Every other language gets a privacy summary at `/<lang>/privacy`
+(`src/pages/privacy-basic.html`, keys `pb.*`), linked from its footer and pointing to the Spanish text.

@@ -35,6 +35,68 @@
     },
     "profileMenuBlock": {
       "es_es": "Bloquear"
+    },
+    "settingsOptionIntelligence": {
+      "es_es": "Inteligencia"
+    },
+    "settingsOptionPreferences": {
+      "es_es": "Preferencias"
+    },
+    "settingsPreferencesInterests": {
+      "es_es": "Temas e intereses"
+    },
+    "settingsPreferencesInterestsPersonalize": {
+      "es_es": "Usar mis intereses para ordenar"
+    },
+    "settingsPreferencesInterestsReset": {
+      "es_es": "Restablecer intereses"
+    },
+    "settingsPreferencesSensitive": {
+      "es_es": "Contenidos sensibles"
+    },
+    "settingsPrivacyChat": {
+      "es_es": "Mensajes",
+      "en_us": "Messages"
+    },
+    "settingsPrivacyComment": {
+      "es_es": "Comentarios",
+      "en_us": "Comments"
+    },
+    "settingsPrivacyMentions": {
+      "es_es": "Pueden mencionarme"
+    },
+    "settingsPrivacyNearby": {
+      "es_es": "Aparecer en Cerca de ti"
+    },
+    "settingsPrivacyForyou": {
+      "es_es": "Aparecer en Para ti"
+    },
+    "settingsPrivacyPrivate": {
+      "es_es": "Perfil privado"
+    },
+    "settingsLegalData": {
+      "es_es": "Pedir mis datos"
+    },
+    "settingsOptionJournal": {
+      "es_es": "Personalizar"
+    },
+    "settingsJournalSummary": {
+      "es_es": "Mostrar resumen"
+    },
+    "settingsPrivacyMentionsScreen": {
+      "es_es": "Menciones"
+    },
+    "settingsPrivacySuggestions": {
+      "es_es": "Activar recomendaciones"
+    },
+    "settingsPrivacySessions": {
+      "es_es": "Sesiones abiertas"
+    },
+    "settingsPreferencesSpotlight": {
+      "es_es": "Buscar en el móvil"
+    },
+    "settingsOptionNotifications": {
+      "es_es": "Notificaciones"
     }
   }
 }

@@ -1,0 +1,89 @@
+<!-- page: ia · title: Política de IA · description: Qué hace la inteligencia artificial de SofIA con tus entradas, dónde funciona, qué no hace y qué puedes decidir. · version: 1 · lede: Qué hace la inteligencia artificial de SofIA con lo que escribes, dónde funciona, qué no hace nunca y qué puedes decidir tú. -->
+
+<section id="resumen" data-title="Lo esencial">
+<div class="callout">
+<p><b>Dónde funciona:</b> en nuestros propios servidores, en Alemania, con modelos abiertos que ejecutamos nosotros. Tus entradas no se envían a OpenAI, Anthropic, Google ni a ningún otro proveedor de IA.</p>
+<p><b>Lo que nunca hacemos:</b> entrenar modelos con tu diario, venderlo, ni usarlo para elegir anuncios.</p>
+<p><b>Lo que hace:</b> transcribir tus audios y vídeos, resumir tus entradas, detectar de qué temas hablan para buscarlas, recomendarlas y velar lo sensible a quien no quiere verlo, proponerte ideas sobre las que escribir y revisar lo que se comparte según las <a href="/normas">Normas</a>.</p>
+<p><b>Quién responde:</b> PROGRAMSAN, S.L., que presta SofIA (ver el <a href="/legal">Aviso legal</a>).</p>
+</div>
+</section>
+
+<section id="modelos" data-title="Qué modelos usamos y dónde">
+<div class="table"><table>
+<thead><tr><th>Modelo</th><th>Para qué</th><th>Dónde funciona</th></tr></thead>
+<tbody>
+<tr><td>Whisper (small)</td><td>Transcribir el audio y el vídeo</td><td>Nuestros servidores</td></tr>
+<tr><td>Qwen3 (8B)</td><td>Resumir, extraer temas y revisar lo que se comparte</td><td>Nuestros servidores</td></tr>
+<tr><td>BGE-M3</td><td>Convertir el texto en una representación numérica para buscar, recomendar y relacionar temas</td><td>Nuestros servidores</td></tr>
+<tr><td>El reconocimiento de voz de tu móvil</td><td>Dictar un pensamiento rápido</td><td>Tu móvil, sin conexión</td></tr>
+</tbody></table></div>
+<p>Nuestros servidores están alquilados a IONOS en Alemania y los modelos funcionan en una red privada, sin salida a servicios de IA de terceros. Cada resultado guarda qué modelo lo produjo.</p>
+</section>
+
+<section id="entradas" data-title="Qué hace con tus entradas">
+<p>Cada vez que guardas una entrada, nuestros servidores hacen estos pasos. Ocurren en <b>todas</b> las entradas, también en las privadas, porque son parte de cómo funciona el diario: sin ellos no podrías buscar en él, ver los subtítulos de un vídeo ni recibir recomendaciones.</p>
+<ul>
+<li><b>Transcripción.</b> El audio y el vídeo se convierten en texto, con el tiempo de cada palabra para los subtítulos.</li>
+<li><b>Resumen.</b> Una línea con la idea principal de la entrada. Tus lectores la ven antes de leerla si tienes activado {path:settingsTitle,settingsOptionJournal,settingsJournalSummary}.</li>
+<li><b>Temas.</b> El modelo propone los temas de los que habla la entrada y los comparamos con un catálogo cerrado de conceptos. Sirven para buscar, para recomendar y para tus estadísticas.</li>
+<li><b>Representación numérica.</b> El texto se convierte en vectores que permiten encontrar entradas parecidas.</li>
+</ul>
+<p>Todo esto se guarda mientras exista la entrada y se borra con ella o con tu cuenta. Los vectores no se incluyen en tu exportación porque no son legibles.</p>
+<h3 id="sensible">Temas sensibles</h3>
+<p>Algunos conceptos del catálogo están marcados como sensibles: sexualidad, sustancias, juego, salud, salud mental, reproducción, duelo, violencia, acoso y accidentes. Cuando una entrada trata uno de ellos, quien la lee la ve como haya elegido en {path:settingsTitle,settingsOptionPreferences,settingsPreferencesSensitive}: tal cual, difuminada u oculta. La marca no es una sanción ni afecta a quién puede leer la entrada. {{pending:G5 · marcar temas sensibles solo en entradas no privadas, o con consentimiento}}</p>
+</section>
+
+<section id="sugerencias" data-title="Ideas para escribir">
+<p>En Inicio y entre las entradas que lees, SofIA puede proponerte algo sobre lo que escribir. El tema no lo inventa un modelo: es el tema no sensible que más se repite en lo que lees o, si no hay ninguno, una de seis preguntas fijas.</p>
+<p>Si apagas «Habilitar inteligencia» en {path:settingsTitle,settingsOptionIntelligence}, la tarjeta de ideas de Inicio desaparece. Si apagas «Usar mis intereses para ordenar» o {path:settingsPrivacySuggestions} en {path:settingsTitle,settingsOptionPrivacy}, las ideas son siempre preguntas abiertas, nunca un tema sacado de lo que lees. Las preguntas abiertas entre las entradas siguen apareciendo.</p>
+</section>
+
+<section id="recomendaciones" data-title="Recomendaciones y búsqueda">
+<p>Con los temas de lo que lees, lo que te gusta, guardas o comentas, y los intereses que elegiste al registrarte, calculamos tus afinidades y las usamos para ordenar Para ti y la búsqueda. Los criterios están en la sección 3 de los <a href="/terms#recomendaciones">Términos</a>.</p>
+<p>Tus afinidades se calculan siempre; si apagas {path:settingsTitle,settingsOptionPreferences,settingsPreferencesInterests} › «Usar mis intereses para ordenar», dejan de usarse, y con «Restablecer intereses» empiezan de cero.</p>
+</section>
+
+<section id="moderacion" data-title="Moderación">
+<p>El mismo modelo de lenguaje revisa automáticamente lo que se comparte (las entradas que no son privadas, los pensamientos rápidos públicos, los comentarios, los mensajes y las biografías) y lo que se denuncia. Responde a una sola pregunta, si el elemento infringe un motivo concreto de las <a href="/normas">Normas</a>, con un grado de confianza:</p>
+<ul>
+<li>confianza alta: la infracción se confirma;</li>
+<li>intermedia: decide una persona;</li>
+<li>baja: se desestima.</li>
+</ul>
+<p>Las respuestas son deterministas: la misma pregunta sobre el mismo texto da la misma respuesta. Cada decisión guarda el modelo, la versión de las instrucciones y la confianza, y te dice si fue automatizada. Toda decisión se puede recurrir; en segunda instancia la revisa una persona. Hoy el modelo no revisa imágenes. El procedimiento completo está en la sección 6 de los <a href="/terms#moderacion">Términos</a>.</p>
+</section>
+
+<section id="voz" data-title="Dictado">
+<p>Puedes dictar un pensamiento rápido. El reconocimiento de voz lo hace tu móvil, sin conexión: el audio ni se guarda ni se envía, y solo nos llega el texto que acabas publicando. Si tu móvil no puede reconocer la voz sin conexión, la app no te ofrece dictar.</p>
+</section>
+
+<section id="no-hace" data-title="Lo que no hace">
+<ul>
+<li><b>No entrena modelos</b> con tu diario, ni lo usa para ajustarlos. Cuando un tema propuesto por el modelo no está en el catálogo, una persona decide si se añade el concepto; nunca se añade solo.</li>
+<li><b>No envía tu contenido a terceros</b> para que lo procese una IA.</li>
+<li><b>No toma decisiones con efectos jurídicos sobre ti</b>, salvo en moderación, donde siempre puedes recurrir y pedir que lo revise una persona.</li>
+<li><b>No es un consejo profesional</b>: ni médico, ni psicológico, ni jurídico, ni financiero.</li>
+<li><b>No interviene en los anuncios</b>: ningún dato de tu diario viaja en la petición de un anuncio.</li>
+</ul>
+<p>Algunas pantallas de la app anuncian herramientas de IA que todavía no están disponibles. Cuando lleguen, actualizaremos esta política antes de activarlas.</p>
+</section>
+
+<section id="ajustes" data-title="Lo que puedes decidir">
+<div class="table"><table>
+<thead><tr><th>Quieres…</th><th>Cómo</th></tr></thead>
+<tbody>
+<tr><td>Que tus lectores no vean el resumen</td><td>Apaga {path:settingsTitle,settingsOptionJournal,settingsJournalSummary}</td></tr>
+<tr><td>Quitar la tarjeta de ideas de Inicio</td><td>Apaga «Habilitar inteligencia» en {path:settingsTitle,settingsOptionIntelligence}</td></tr>
+<tr><td>Que las ideas no salgan de lo que lees</td><td>Apaga «Usar mis intereses para ordenar» o {path:settingsPrivacySuggestions} en {path:settingsTitle,settingsOptionPrivacy}</td></tr>
+<tr><td>Que no se use tu perfil para ordenar lo que ves</td><td>Apaga «Usar mis intereses para ordenar»</td></tr>
+<tr><td>No ver contenidos sensibles de otros</td><td>{path:settingsTitle,settingsOptionPreferences,settingsPreferencesSensitive}</td></tr>
+<tr><td>Que nada de una entrada siga procesado</td><td>Bórrala: a los 30 días desaparece con todo lo que la IA obtuvo de ella</td></tr>
+<tr><td>Que una decisión de moderación la revise una persona</td><td>Recúrrela en {path:settingsTitle,settingsOptionLegal,settingsLegalModeration}</td></tr>
+</tbody></table></div>
+<p>Hoy no hay un ajuste que apague la transcripción, el resumen o los temas de tus entradas, porque son parte del servicio. Si quieres oponerte a ellos, escríbenos a <b>legal@sofia.ismx.app</b>.</p>
+</section>
+
+<section id="cambios" data-title="Cambios">
+<p>Si cambiamos de modelo, añadimos una función de IA o empezamos a usar un proveedor externo, actualizaremos esta política antes y, si afecta a tus datos, te lo avisaremos en la app.</p>
+</section>

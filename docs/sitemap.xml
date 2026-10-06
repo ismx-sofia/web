@@ -432,9 +432,116 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/delete-account"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/delete-account"/>
   </url>
+  <url><loc>https://www.sofia.ismx.app/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/privacy"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/en/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/privacy"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/ca/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/privacy"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/fr/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/privacy"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/pt/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/privacy"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/de/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/privacy"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/it/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/privacy"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/zh/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/privacy"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/ja/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/privacy"/>
+  </url>
   <url><loc>https://www.sofia.ismx.app/legal</loc></url>
   <url><loc>https://www.sofia.ismx.app/terms</loc></url>
-  <url><loc>https://www.sofia.ismx.app/privacy</loc></url>
   <url><loc>https://www.sofia.ismx.app/ia</loc></url>
   <url><loc>https://www.sofia.ismx.app/normas</loc></url>
   <url><loc>https://www.sofia.ismx.app/cookies</loc></url>

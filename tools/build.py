@@ -28,6 +28,9 @@ APP_STORE_ID = "6757621393"
 ANDROID_PACKAGE = "com.ismx.sofia"
 
 LOCALIZED_PAGES = ["index", "faq", "help", "delete-account"]
+# The privacy summary in the visitor's language (GDPR art. 12). Spanish has the full policy instead, so
+# its Spanish URL is the legal document and it is built for every other language only.
+PRIVACY_BASIC = "privacy-basic"
 # Legal documents the app or the stores link to. The release build refuses to run without all of them.
 LEGAL_PAGES = {
     "legal": "Aviso legal",
@@ -82,13 +85,17 @@ class Site:
 
     # ---------- urls ----------
     def url(self, page: str, code: str) -> str:
-        if page in LEGAL_PAGES:
-            return f"/{page}"
+        if page in LEGAL_PAGES or (page == PRIVACY_BASIC and code == "es"):
+            return "/privacy" if page == PRIVACY_BASIC else f"/{page}"
+        if page == PRIVACY_BASIC:
+            return f"/{self.locales[code]['dir']}/privacy"
         prefix = "/" + self.locales[code]["dir"] if self.locales[code]["dir"] else ""
         return (prefix + "/") if page == "index" else f"{prefix}/{page}"
 
     def out_path(self, page: str, code: str) -> str:
         d = self.locales[code]["dir"]
+        if page == PRIVACY_BASIC:
+            page = "privacy"
         return (f"{d}/" if d else "") + f"{page}.html"
 
     # ---------- strings ----------
@@ -144,7 +151,7 @@ class Site:
     # ---------- chrome ----------
     def lang_menu(self, page: str, code: str, footer: bool) -> str:
         items = []
-        target = page if page in LOCALIZED_PAGES else "index"
+        target = page if page in LOCALIZED_PAGES or page == PRIVACY_BASIC else "index"
         for c in self.order:
             cfg = self.locales[c]
             href = self.url(target, c)
@@ -172,6 +179,8 @@ class Site:
         if code != "es":
             note = ('<p class="foot-note"><svg class="ico" aria-hidden="true"><use href="#i-world"></use></svg>'
                     f'<span data-i18n="legal.langnote">{{{{t:legal.langnote}}}}</span></p>')
+        privacy = self.url(PRIVACY_BASIC, code)
+        t = t.replace("{{privacylink}}", f'href="{privacy}"' + (' hreflang="es"' if code == "es" else ""))
         return t.replace("{{legalnote}}", note)
 
     def chrome(self, part: str, page: str, code: str, dict_name: str, col: str) -> str:
@@ -285,11 +294,43 @@ class Site:
                          alternates=alternates, extra=extra)
         return self.document(code=code, head=head, body=body, data=data)
 
+    @staticmethod
+    def label_cells(m) -> str:
+        """Each cell carries its column's heading, so a narrow screen can show the rows as cards."""
+        table = m.group(0)
+        heads = [re.sub(r"<[^>]+>", "", h) for h in re.findall(r"<th>(.*?)</th>", table, flags=re.S)]
+        def row(r):
+            cells = iter(heads)
+            return re.sub(r"<td>", lambda _: f'<td data-label="{html.escape(next(cells, ""), quote=True)}">', r.group(0))
+        return re.sub(r"<tr>.*?</tr>", row, table, flags=re.S)
+
+    def legal_wrap(self, page: str, meta: dict, body: str) -> str:
+        """Legal sources written as `<section id=".." data-title="..">` blocks get the shared frame:
+        hero with version and effective date, numbered headings and the table of contents."""
+        sections = re.findall(r'<section id="([^"]+)" data-title="([^"]+)">', body)
+        n = 0
+        def head(m):
+            nonlocal n
+            n += 1
+            return (f'<section id="{m.group(1)}">\n<h2><span class="n grad-text">{n}</span>{m.group(2)}'
+                    f'<a class="anchor" href="#{m.group(1)}" aria-label="Enlace a esta sección">#</a></h2>')
+        body = re.sub(r'<section id="([^"]+)" data-title="([^"]+)">', head, body)
+        body = re.sub(r"<table>.*?</table>", self.label_cells, body, flags=re.S)
+        toc = "".join(f'<li><a href="#{i}">{t}</a></li>' for i, t in sections)
+        return (f'<section class="page-hero" id="{page}">\n<div aria-hidden="true" class="mesh"><i></i><i></i><i></i></div>\n'
+                f'<div class="wrap">\n<span class="eyebrow">Legal</span>\n<h1><span class="grad-text">{meta["title"]}</span></h1>\n'
+                f'<p class="lede">{meta["lede"]}</p>\n<div class="meta-pills"><span>Versión {meta["version"]}</span>'
+                f'<span>Vigente desde el <b>{{{{pending:fecha de publicación}}}}</b></span></div>\n</div>\n</section>\n'
+                f'<div class="wrap doc-layout">\n<nav aria-label="En esta página" class="toc">\n<h2>En esta página</h2>\n<ol>{toc}</ol>\n</nav>\n'
+                f'<article class="prose">\n{body.strip()}\n</article>\n</div>\n')
+
     def build_legal(self, page: str) -> str:
         path = SRC / "legal" / f"{page}.html"
         if path.exists():
             meta, body_tpl = page_meta(path.read_text(encoding="utf-8"))
             title, description = meta.get("title", LEGAL_PAGES[page]), meta.get("description", LEGAL_PAGES[page])
+            if "version" in meta:
+                body_tpl = self.legal_wrap(page, meta, body_tpl)
         else:
             if self.release:
                 raise BuildError(f"legal document {page!r} is missing: write src/legal/{page}.html")
@@ -297,11 +338,14 @@ class Site:
             body_tpl = ('<section class="page-hero"><div class="wrap"><span class="eyebrow">Legal</span>'
                         f'<h1><span class="grad-text">{title}</span></h1>'
                         f'<p class="lede">{{{{pending:texto de «{title}» por escribir}}}}</p></div></section>')
-        main = self.fill(body_tpl, "es", "es", "es_es")
+        main = self.inline(self.fill(body_tpl, "es", "es", "es_es"), "es", "es_es")
         header = self.chrome("header", page, "es", "es", "es_es")
         footer = self.chrome("footer", page, "es", "es", "es_es")
+        alternates = []
+        if page == "privacy":
+            alternates = [(self.locales[c]["hreflang"], self.url(PRIVACY_BASIC, c)) for c in self.order] + [("x-default", "/privacy")]
         head = self.head(code="es", title=f"{title} · SofIA", description=description,
-                         canonical=f"/{page}", alternates=[])
+                         canonical=f"/{page}", alternates=alternates)
         return self.document(code="es", head=head, body=f"{header}\n<main>\n{main}\n</main>\n{footer}",
                              data={"words": {"carousel": "carrusel", "card": "Ir a la tarjeta"}})
 
@@ -350,7 +394,7 @@ class Site:
     def sitemap(self) -> str:
         rows = ['<?xml version="1.0" encoding="UTF-8"?>',
                 '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
-        for page in LOCALIZED_PAGES:
+        for page in LOCALIZED_PAGES + [PRIVACY_BASIC]:
             for c in self.order:
                 rows.append(f"  <url><loc>{HOST}{self.url(page, c)}</loc>")
                 for c2 in self.order:
@@ -358,7 +402,8 @@ class Site:
                 rows.append(f'    <xhtml:link rel="alternate" hreflang="x-default" href="{HOST}{self.url(page, "es")}"/>')
                 rows.append("  </url>")
         for page in LEGAL_PAGES:
-            rows.append(f"  <url><loc>{HOST}/{page}</loc></url>")
+            if page != "privacy":  # listed above, with the summaries as its alternates
+                rows.append(f"  <url><loc>{HOST}/{page}</loc></url>")
         rows.append("</urlset>")
         return "\n".join(rows) + "\n"
 
@@ -385,6 +430,9 @@ class Site:
         for page in LOCALIZED_PAGES:
             for c in self.order:
                 files[self.out_path(page, c)] = self.build_localized(page, c)
+        for c in self.order:
+            if c != "es":
+                files[self.out_path(PRIVACY_BASIC, c)] = self.build_localized(PRIVACY_BASIC, c)
         for page in LEGAL_PAGES:
             files[f"{page}.html"] = self.build_legal(page)
         files["404.html"] = self.build_404()
