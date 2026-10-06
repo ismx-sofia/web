@@ -1,0 +1,40 @@
+{
+  "_source": "core.parameter_i18n, read 2026-10-06. Settings labels the app shows; a missing locale falls back to es_es for the whole path.",
+  "labels": {
+    "settingsTitle": {
+      "es_es": "Ajustes"
+    },
+    "settingsOptionLegal": {
+      "es_es": "Legal"
+    },
+    "settingsLegalErase": {
+      "es_es": "Borrar cuenta"
+    },
+    "settingsLegalModeration": {
+      "es_es": "Estado de mi cuenta",
+      "en_us": "My account status"
+    },
+    "settingsOptionStorage": {
+      "es_es": "Almacenamiento"
+    },
+    "settingsStorageExport": {
+      "es_es": "Exportar mis datos"
+    },
+    "settingsOptionPrivacy": {
+      "es_es": "Privacidad"
+    },
+    "settingsPrivacyAds": {
+      "es_es": "Anuncios personalizados"
+    },
+    "settingsOptionHealth": {
+      "es_es": "Salud y bienestar"
+    },
+    "userLegalModerationReportMenu": {
+      "es_es": "Denunciar",
+      "en_us": "Report"
+    },
+    "profileMenuBlock": {
+      "es_es": "Bloquear"
+    }
+  }
+}

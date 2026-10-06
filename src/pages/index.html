@@ -1,0 +1,224 @@
+<!-- page: index · title-key: meta.title · description-key: meta.description -->
+<section class="hero" id="inicio">
+<div aria-hidden="true" class="mesh"><i></i><i></i><i></i></div>
+<div aria-hidden="true" class="grid-bg"></div>
+<div class="wrap hero-grid">
+<div>
+<span class="badge-new"><b data-i18n="hero.badge">{{t:hero.badge}}</b> <span data-i18n="hero.badgeText">{{t:hero.badgeText}}</span></span>
+<h1 data-i18n="hero.title">{{t:hero.title}}</h1>
+<p class="lede" data-i18n="hero.lede">{{t:hero.lede}}</p>
+<div class="actions" id="descargar">
+<div class="stores">
+<span aria-disabled="true" class="store"><svg aria-hidden="true" class="ico"><use href="#i-apple"></use></svg><span><small data-i18n="store.soon">{{t:store.soon}}</small><b>App Store</b></span></span>
+<span aria-disabled="true" class="store"><svg aria-hidden="true" class="ico"><use href="#i-play"></use></svg><span><small data-i18n="store.soon">{{t:store.soon}}</small><b>Google Play</b></span></span>
+</div>
+</div>
+<p class="fine"><svg aria-hidden="true" class="ico"><use href="#i-check"></use></svg><span data-i18n="hero.fine1">{{t:hero.fine1}}</span><svg aria-hidden="true" class="ico"><use href="#i-check"></use></svg><span data-i18n="hero.fine2">{{t:hero.fine2}}</span></p>
+</div>
+<div aria-label="{{a:hero.stageAria}}" class="stage" data-i18n-aria="hero.stageAria">
+<svg aria-hidden="true" class="star-deco" viewbox="0 0 24 24"><use href="#i-star"></use></svg>
+<div class="phone">
+<div class="screen">
+<span class="island"></span>
+<div class="scr-head"><b data-i18n="phone.today">{{t:phone.today}}</b><span data-i18n="phone.date">{{t:phone.date}}</span></div>
+<div aria-hidden="true" class="streak"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+<div class="scr-card">
+<div class="m"><span data-i18n="phone.cardMeta">{{t:phone.cardMeta}}</span></div>
+<h5 data-i18n="entry.coffee.title">{{t:entry.coffee.title}}</h5>
+<p data-i18n="phone.cardText">{{t:phone.cardText}}</p>
+</div>
+<div class="scr-card">
+<div class="m"><span data-i18n="entry.voice.meta">{{t:entry.voice.meta}}</span></div>
+<div aria-hidden="true" class="mini-wave"><i style="height:30%"></i><i style="height:70%"></i><i style="height:45%"></i><i style="height:90%"></i><i style="height:60%"></i><i style="height:35%"></i><i style="height:80%"></i><i style="height:50%"></i><i style="height:65%"></i><i style="height:30%"></i><i style="height:75%"></i><i style="height:40%"></i><i style="height:55%"></i><i style="height:25%"></i></div>
+</div>
+<div aria-hidden="true" class="tabbar">
+<svg class="ico"><use href="#i-home"></use></svg><svg class="ico"><use href="#i-search"></use></svg>
+<span class="fab"><svg class="ico"><use href="#i-plus"></use></svg></span>
+<svg class="ico"><use href="#i-book"></use></svg><svg class="ico"><use href="#i-bell"></use></svg>
+</div>
+</div>
+</div>
+<span class="float f1"><span class="dot"><svg aria-hidden="true" class="ico"><use href="#i-lock"></use></svg></span><span><span data-i18n="float.private">{{t:float.private}}</span><small data-i18n="float.privateSub">{{t:float.privateSub}}</small></span></span>
+<span class="float f2"><span class="dot"><svg aria-hidden="true" class="ico"><use href="#i-mic"></use></svg></span><span><span data-i18n="float.transcribed">{{t:float.transcribed}}</span><small data-i18n="float.transcribedSub">{{t:float.transcribedSub}}</small></span></span>
+<span class="float f3"><span class="dot"><svg aria-hidden="true" class="ico"><use href="#i-calendar"></use></svg></span><span><span data-i18n="float.streak">{{t:float.streak}}</span><small data-i18n="float.streakSub">{{t:float.streakSub}}</small></span></span>
+</div>
+</div>
+</section>
+<section class="section" id="empezar" style="padding-top:0">
+<div class="wrap">
+<div class="head"><div class="t">
+<span class="eyebrow" data-i18n="modes.eyebrow">{{t:modes.eyebrow}}</span>
+<h2 data-i18n="modes.title">{{t:modes.title}}</h2>
+</div></div>
+<div class="modes">
+<div aria-label="{{a:modes.eyebrow}}" class="seg" data-i18n-aria="modes.eyebrow" role="tablist">
+<button aria-controls="p-escribe" aria-selected="true" id="t-escribe" role="tab"><svg aria-hidden="true" class="ico"><use href="#i-pencil"></use></svg><b data-i18n="modes.write">{{t:modes.write}}</b><span data-i18n="modes.writeText">{{t:modes.writeText}}</span></button>
+<button aria-controls="p-habla" aria-selected="false" id="t-habla" role="tab" tabindex="-1"><svg aria-hidden="true" class="ico"><use href="#i-mic"></use></svg><b data-i18n="modes.talk">{{t:modes.talk}}</b><span data-i18n="modes.talkText">{{t:modes.talkText}}</span></button>
+<button aria-controls="p-recuerda" aria-selected="false" id="t-recuerda" role="tab" tabindex="-1"><svg aria-hidden="true" class="ico"><use href="#i-history"></use></svg><b data-i18n="modes.remember">{{t:modes.remember}}</b><span data-i18n="modes.rememberText">{{t:modes.rememberText}}</span></button>
+</div>
+<div class="mode-stage">
+<div aria-labelledby="t-escribe" class="panel" id="p-escribe" role="tabpanel">
+<article class="entry">
+<div class="m"><span>Valencia</span><span>·</span><span data-i18n="entry.coffee.date">{{t:entry.coffee.date}}</span><span class="chip"><svg aria-hidden="true" class="ico"><use href="#i-lock"></use></svg><span data-i18n="aud.0.chip">{{t:aud.0.chip}}</span></span></div>
+<h3 data-i18n="entry.coffee.title">{{t:entry.coffee.title}}</h3>
+<p data-i18n="entry.coffee.text">{{t:entry.coffee.text}}</p>
+</article>
+</div>
+<div aria-labelledby="t-habla" class="panel" hidden="" id="p-habla" role="tabpanel">
+<article class="entry">
+<div class="m"><span data-i18n="entry.voice.meta">{{t:entry.voice.meta}}</span><span class="chip"><svg aria-hidden="true" class="ico"><use href="#i-heart-users"></use></svg><span data-i18n="aud.1.chip">{{t:aud.1.chip}}</span></span></div>
+<div aria-hidden="true" class="wave"><span class="play"></span><i style="height:30%"></i><i style="height:60%"></i><i style="height:85%"></i><i style="height:50%"></i><i style="height:70%"></i><i style="height:35%"></i><i style="height:90%"></i><i style="height:55%"></i><i style="height:40%"></i><i style="height:75%"></i><i style="height:60%"></i><i style="height:30%"></i><i style="height:80%"></i><i style="height:45%"></i><i style="height:65%"></i><i style="height:38%"></i><i style="height:72%"></i><i style="height:52%"></i></div>
+<p data-i18n="entry.voice.text">{{t:entry.voice.text}}</p>
+<div class="transcript"><svg aria-hidden="true" class="ico"><use href="#i-text"></use></svg><span data-i18n="entry.voice.transcript">{{t:entry.voice.transcript}}</span></div>
+</article>
+</div>
+<div aria-labelledby="t-recuerda" class="panel" hidden="" id="p-recuerda" role="tabpanel">
+<article class="entry">
+<div class="m"><span data-i18n="entry.memory.meta">{{t:entry.memory.meta}}</span></div>
+<div class="timeline">
+<div><time data-i18n="entry.memory.d1">{{t:entry.memory.d1}}</time><span data-i18n="entry.memory.t1">{{t:entry.memory.t1}}</span></div>
+<div><time data-i18n="entry.memory.d2">{{t:entry.memory.d2}}</time><span data-i18n="entry.memory.t2">{{t:entry.memory.t2}}</span></div>
+<div><time data-i18n="entry.memory.d3">{{t:entry.memory.d3}}</time><span data-i18n="entry.coffee.titleDot">{{t:entry.coffee.titleDot}}</span></div>
+</div>
+<div aria-label="{{a:entry.memory.moodAria}}" class="mood" data-i18n-aria="entry.memory.moodAria"><span data-i18n="entry.memory.m1">{{t:entry.memory.m1}}</span><span data-i18n="entry.memory.m2">{{t:entry.memory.m2}}</span><span data-i18n="entry.memory.m3">{{t:entry.memory.m3}}</span></div>
+</article>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="funciones" style="background:linear-gradient(180deg,transparent,var(--bg-2) 30%,var(--bg-2) 70%,transparent)">
+<div class="wrap">
+<div class="head">
+<div class="t">
+<span class="eyebrow" data-i18n="pillars.eyebrow">{{t:pillars.eyebrow}}</span>
+<h2 data-i18n="pillars.title">{{t:pillars.title}}</h2>
+<p data-i18n="pillars.text">{{t:pillars.text}}</p>
+</div>
+<div class="ctrl" data-for="car-pilares">
+<button aria-label="{{a:carousel.prev}}" data-dir="-1" data-i18n-aria="carousel.prev" type="button"><svg aria-hidden="true" class="ico"><use href="#i-left"></use></svg></button>
+<button aria-label="{{a:carousel.next}}" data-dir="1" data-i18n-aria="carousel.next" type="button"><svg aria-hidden="true" class="ico"><use href="#i-right"></use></svg></button>
+</div>
+</div>
+<div class="carousel">
+<div aria-label="{{a:pillars.aria}}" aria-roledescription="carrusel" class="track" data-i18n-aria="pillars.aria" id="car-pilares" role="region" tabindex="0">
+<article class="feature"><span class="num">01 / 06</span><span class="tile"><svg aria-hidden="true" class="ico"><use href="#i-book"></use></svg></span><h3 data-i18n="p1.title">{{t:p1.title}}</h3><p data-i18n="p1.text">{{t:p1.text}}</p><ul><li><svg aria-hidden="true" class="ico"><use href="#i-check"></use></svg><span data-i18n="p1.b1">{{t:p1.b1}}</span></li><li><svg aria-hidden="true" class="ico"><use href="#i-check"></use></svg><span data-i18n="p1.b2">{{t:p1.b2}}</span></li><li><svg aria-hidden="true" class="ico"><use href="#i-check"></use></svg><span data-i18n="p1.b3">{{t:p1.b3}}</span></li></ul></article>
+<article class="feature"><span class="num">02 / 06</span><span class="tile"><svg aria-hidden="true" class="ico"><use href="#i-lock"></use></svg></span><h3 data-i18n="p2.title">{{t:p2.title}}</h3><p data-i18n="p2.text">{{t:p2.text}}</p><ul><li><svg aria-hidden="true" class="ico"><use href="#i-check"></use></svg><span data-i18n="p2.b1">{{t:p2.b1}}</span></li><li><svg aria-hidden="true" class="ico"><use href="#i-check"></use></svg><span data-i18n="p2.b2">{{t:p2.b2}}</span></li><li><svg aria-hidden="true" class="ico"><use href="#i-check"></use></svg><span data-i18n="p2.b3">{{t:p2.b3}}</span></li></ul></article>
+<article class="feature"><span class="num">03 / 06</span><span class="tile"><svg aria-hidden="true" class="ico"><use href="#i-sparkles"></use></svg></span><h3 data-i18n="p3.title">{{t:p3.title}}</h3><p data-i18n="p3.text">{{t:p3.text}}</p><ul><li><svg aria-hidden="true" class="ico"><use href="#i-check"></use></svg><span data-i18n="p3.b1">{{t:p3.b1}}</span></li><li><svg aria-hidden="true" class="ico"><use href="#i-check"></use></svg><span data-i18n="p3.b2">{{t:p3.b2}}</span></li><li><svg aria-hidden="true" class="ico"><use href="#i-check"></use></svg><span data-i18n="p3.b3">{{t:p3.b3}}</span></li></ul></article>
+<article class="feature"><span class="num">04 / 06</span><span class="tile"><svg aria-hidden="true" class="ico"><use href="#i-world"></use></svg></span><h3 data-i18n="p4.title">{{t:p4.title}}</h3><p data-i18n="p4.text">{{t:p4.text}}</p><ul><li><svg aria-hidden="true" class="ico"><use href="#i-check"></use></svg><span data-i18n="p4.b1">{{t:p4.b1}}</span></li><li><svg aria-hidden="true" class="ico"><use href="#i-check"></use></svg><span data-i18n="p4.b2">{{t:p4.b2}}</span></li><li><svg aria-hidden="true" class="ico"><use href="#i-check"></use></svg><span data-i18n="p4.b3">{{t:p4.b3}}</span></li></ul></article>
+<article class="feature"><span class="num">05 / 06</span><span class="tile"><svg aria-hidden="true" class="ico"><use href="#i-seedling"></use></svg></span><h3 data-i18n="p5.title">{{t:p5.title}}</h3><p data-i18n="p5.text">{{t:p5.text}}</p><ul><li><svg aria-hidden="true" class="ico"><use href="#i-check"></use></svg><span data-i18n="p5.b1">{{t:p5.b1}}</span></li><li><svg aria-hidden="true" class="ico"><use href="#i-check"></use></svg><span data-i18n="p5.b2">{{t:p5.b2}}</span></li><li><svg aria-hidden="true" class="ico"><use href="#i-check"></use></svg><span data-i18n="p5.b3">{{t:p5.b3}}</span></li></ul></article>
+<article class="feature"><span class="num">06 / 06</span><span class="tile"><svg aria-hidden="true" class="ico"><use href="#i-calendar"></use></svg></span><h3 data-i18n="p6.title">{{t:p6.title}}</h3><p data-i18n="p6.text">{{t:p6.text}}</p><ul><li><svg aria-hidden="true" class="ico"><use href="#i-check"></use></svg><span data-i18n="p6.b1">{{t:p6.b1}}</span></li><li><svg aria-hidden="true" class="ico"><use href="#i-check"></use></svg><span data-i18n="p6.b2">{{t:p6.b2}}</span></li><li><svg aria-hidden="true" class="ico"><use href="#i-check"></use></svg><span data-i18n="p6.b3">{{t:p6.b3}}</span></li></ul></article>
+</div>
+<div class="dots" data-for="car-pilares"></div>
+</div>
+</div>
+</section>
+<section class="section" id="privacidad">
+<div class="wrap">
+<div class="head"><div class="t">
+<span class="eyebrow" data-i18n="privacy.eyebrow">{{t:privacy.eyebrow}}</span>
+<h2 data-i18n="privacy.title">{{t:privacy.title}}</h2>
+<p data-i18n="privacy.text">{{t:privacy.text}}</p>
+</div></div>
+<div class="bento">
+<div class="cell c-aud">
+<div aria-label="{{a:privacy.pickerAria}}" class="aud-picker" data-i18n-aria="privacy.pickerAria" role="group">
+<button aria-pressed="true" data-aud="0" type="button"><svg aria-hidden="true" class="ico"><use href="#i-lock"></use></svg><span data-i18n="aud.0.label">{{t:aud.0.label}}</span></button>
+<button aria-pressed="false" data-aud="1" type="button"><svg aria-hidden="true" class="ico"><use href="#i-heart-users"></use></svg><span data-i18n="aud.1.label">{{t:aud.1.label}}</span></button>
+<button aria-pressed="false" data-aud="2" type="button"><svg aria-hidden="true" class="ico"><use href="#i-users"></use></svg><span data-i18n="aud.2.label">{{t:aud.2.label}}</span></button>
+<button aria-pressed="false" data-aud="3" type="button"><svg aria-hidden="true" class="ico"><use href="#i-world"></use></svg><span data-i18n="aud.3.label">{{t:aud.3.label}}</span></button>
+</div>
+<div class="aud-view">
+<article class="entry">
+<div class="m"><span data-i18n="entry.coffee.date">{{t:entry.coffee.date}}</span><span class="chip" id="aud-chip"><svg aria-hidden="true" class="ico"><use href="#i-lock"></use></svg><span data-i18n="aud.0.chip">{{t:aud.0.chip}}</span></span></div>
+<h3 data-i18n="privacy.entryTitle">{{t:privacy.entryTitle}}</h3>
+<p data-i18n="privacy.entryText">{{t:privacy.entryText}}</p>
+</article>
+<div aria-live="polite" class="who-sees">
+<b data-i18n="privacy.whoReads">{{t:privacy.whoReads}}</b>
+<div class="avatars" id="aud-avatars"><i></i><em data-i18n="aud.0.who">{{t:aud.0.who}}</em></div>
+<p data-i18n="aud.0.text" id="aud-text">{{t:aud.0.text}}</p>
+</div>
+</div>
+</div>
+<div class="cell c-1"><span class="ic"><svg aria-hidden="true" class="ico"><use href="#i-mask"></use></svg></span><h3 data-i18n="privacy.anonTitle">{{t:privacy.anonTitle}}</h3><p data-i18n="privacy.anonText">{{t:privacy.anonText}}</p></div>
+<div class="cell c-2"><span class="ic"><svg aria-hidden="true" class="ico"><use href="#i-clock"></use></svg></span><h3 data-i18n="privacy.schedTitle">{{t:privacy.schedTitle}}</h3><p data-i18n="privacy.schedText">{{t:privacy.schedText}}</p></div>
+<div class="cell c-3 c-dark"><span class="ic"><svg aria-hidden="true" class="ico"><use href="#i-faceid"></use></svg></span><h3 data-i18n="privacy.lockTitle">{{t:privacy.lockTitle}}</h3><p data-i18n="privacy.lockText">{{t:privacy.lockText}}</p></div>
+<div class="cell c-4"><span class="ic"><svg aria-hidden="true" class="ico"><use href="#i-download"></use></svg></span><h3 data-i18n="privacy.exportTitle">{{t:privacy.exportTitle}}</h3><p data-i18n="privacy.exportText">{{t:privacy.exportText}}</p><div class="fmt"><span>HTML</span><span data-i18n="privacy.formatText">{{t:privacy.formatText}}</span><span>Markdown</span></div></div>
+<div class="cell c-5"><span class="ic"><svg aria-hidden="true" class="ico"><use href="#i-trash"></use></svg></span><h3 data-i18n="privacy.deleteTitle">{{t:privacy.deleteTitle}}</h3><p data-i18n="privacy.deleteText">{{t:privacy.deleteText}}</p></div>
+</div>
+</div>
+</section>
+<section class="section" id="momentos" style="padding-top:0">
+<div class="wrap">
+<div class="head">
+<div class="t">
+<span class="eyebrow" data-i18n="moments.eyebrow">{{t:moments.eyebrow}}</span>
+<h2 data-i18n="moments.title">{{t:moments.title}}</h2>
+<p class="sample" data-i18n="moments.sample">{{t:moments.sample}}</p>
+</div>
+<div class="ctrl" data-for="car-momentos">
+<button aria-label="{{a:carousel.prev}}" data-dir="-1" data-i18n-aria="carousel.prev" type="button"><svg aria-hidden="true" class="ico"><use href="#i-left"></use></svg></button>
+<button aria-label="{{a:carousel.next}}" data-dir="1" data-i18n-aria="carousel.next" type="button"><svg aria-hidden="true" class="ico"><use href="#i-right"></use></svg></button>
+</div>
+</div>
+<div class="carousel">
+<div aria-label="{{a:moments.sample}}" aria-roledescription="carrusel" class="track" data-i18n-aria="moments.sample" id="car-momentos" role="region" tabindex="0">
+<div class="moment"><span class="who"><i></i><span data-i18n="m1.who">{{t:m1.who}}</span></span><article class="entry"><div class="m"><span data-i18n="m1.when">{{t:m1.when}}</span><span class="chip"><svg aria-hidden="true" class="ico"><use href="#i-world"></use></svg><span data-i18n="aud.3.chip">{{t:aud.3.chip}}</span></span></div><h3 data-i18n="m1.title">{{t:m1.title}}</h3><p data-i18n="m1.text">{{t:m1.text}}</p></article></div>
+<div class="moment b"><span class="who"><i></i><span data-i18n="m2.who">{{t:m2.who}}</span></span><article class="entry hand"><div class="m"><span data-i18n="m2.when">{{t:m2.when}}</span><span class="chip"><svg aria-hidden="true" class="ico"><use href="#i-mask"></use></svg><span data-i18n="m2.chip">{{t:m2.chip}}</span></span></div><p data-i18n="m2.text">{{t:m2.text}}</p></article></div>
+<div class="moment c"><span class="who"><i></i><span data-i18n="m3.who">{{t:m3.who}}</span></span><article class="entry"><div class="m"><span data-i18n="m3.when">{{t:m3.when}}</span><span class="chip"><svg aria-hidden="true" class="ico"><use href="#i-users"></use></svg><span data-i18n="aud.2.chip">{{t:aud.2.chip}}</span></span></div><div aria-hidden="true" class="wave"><span class="play"></span><i style="height:40%"></i><i style="height:70%"></i><i style="height:55%"></i><i style="height:85%"></i><i style="height:45%"></i><i style="height:65%"></i><i style="height:30%"></i><i style="height:75%"></i><i style="height:50%"></i><i style="height:35%"></i></div><p data-i18n="m3.text">{{t:m3.text}}</p></article></div>
+<div class="moment"><span class="who"><i></i><span data-i18n="m4.who">{{t:m4.who}}</span></span><article class="entry"><div class="m"><span data-i18n="m4.when">{{t:m4.when}}</span><span class="chip"><svg aria-hidden="true" class="ico"><use href="#i-world"></use></svg><span data-i18n="aud.3.chip">{{t:aud.3.chip}}</span></span></div><h3 data-i18n="m4.title">{{t:m4.title}}</h3><p data-i18n="m4.text">{{t:m4.text}}</p></article></div>
+<div class="moment b"><span class="who"><i></i><span data-i18n="m5.who">{{t:m5.who}}</span></span><article class="entry hand"><div class="m"><span data-i18n="m5.when">{{t:m5.when}}</span><span class="chip"><svg aria-hidden="true" class="ico"><use href="#i-users"></use></svg><span data-i18n="aud.2.chip">{{t:aud.2.chip}}</span></span></div><p data-i18n="m5.text">{{t:m5.text}}</p><div class="counter">55 / 255</div></article></div>
+</div>
+<div class="dots" data-for="car-momentos"></div>
+</div>
+</div>
+</section>
+<section class="section" id="ia" style="padding-top:0">
+<div class="wrap">
+<div class="ai">
+<div class="head"><div class="t">
+<span class="eyebrow" data-i18n="ai.eyebrow">{{t:ai.eyebrow}}</span>
+<h2 data-i18n="ai.title">{{t:ai.title}}</h2>
+<p data-i18n="ai.text">{{t:ai.text}}</p>
+</div></div>
+<div class="ai-steps">
+<div class="ai-step"><span class="k" data-i18n="ai.s1.k">{{t:ai.s1.k}}</span><h3 data-i18n="ai.s1.title">{{t:ai.s1.title}}</h3><p data-i18n="ai.s1.text">{{t:ai.s1.text}}</p><div class="chips"><span data-i18n="ai.s1.c1">{{t:ai.s1.c1}}</span><span data-i18n="ai.s1.c2">{{t:ai.s1.c2}}</span><span data-i18n="ai.s1.c3">{{t:ai.s1.c3}}</span></div></div>
+<div class="ai-step"><span class="k" data-i18n="ai.s2.k">{{t:ai.s2.k}}</span><h3 data-i18n="ai.s2.title">{{t:ai.s2.title}}</h3><p data-i18n="ai.s2.text">{{t:ai.s2.text}}</p><div class="chips"><span data-i18n="ai.s2.c1">{{t:ai.s2.c1}}</span><span data-i18n="ai.s2.c2">{{t:ai.s2.c2}}</span><span data-i18n="ai.s2.c3">{{t:ai.s2.c3}}</span></div></div>
+<div class="ai-step"><span class="k" data-i18n="ai.s3.k">{{t:ai.s3.k}}</span><h3 data-i18n="ai.s3.title">{{t:ai.s3.title}}</h3><p data-i18n="ai.s3.text">{{t:ai.s3.text}}</p><div class="chips"><span data-i18n="ai.s3.c1">{{t:ai.s3.c1}}</span><span data-i18n="ai.s3.c2">{{t:ai.s3.c2}}</span><span data-i18n="ai.s3.c3">{{t:ai.s3.c3}}</span></div></div>
+</div>
+<div class="trust">
+<span><svg aria-hidden="true" class="ico"><use href="#i-server"></use></svg><span data-i18n="ai.trust1">{{t:ai.trust1}}</span></span>
+<span><svg aria-hidden="true" class="ico"><use href="#i-check"></use></svg><span data-i18n="ai.trust2">{{t:ai.trust2}}</span></span>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="preguntas" style="padding-top:0">
+<div class="wrap">
+<div class="head"><div class="t">
+<span class="eyebrow" data-i18n="faq.eyebrow">{{t:faq.eyebrow}}</span>
+<h2 data-i18n="faq.title">{{t:faq.title}}</h2>
+</div></div>
+<div class="faq">
+<details open=""><summary data-i18n="faq.q1">{{t:faq.q1}}</summary><div class="ans"><p data-i18n="faq.a1">{{t:faq.a1}}</p></div></details>
+<details><summary data-i18n="faq.q2">{{t:faq.q2}}</summary><div class="ans"><p data-i18n="faq.a2">{{t:faq.a2}}</p></div></details>
+<details><summary data-i18n="faq.q3">{{t:faq.q3}}</summary><div class="ans"><p data-i18n="faq.a3">{{t:faq.a3}}</p></div></details>
+<details><summary data-i18n="faq.q4">{{t:faq.q4}}</summary><div class="ans"><p data-i18n="faq.a4">{{t:faq.a4}}</p></div></details>
+<details><summary data-i18n="faq.q5">{{t:faq.q5}}</summary><div class="ans"><p data-i18n="faq.a5">{{t:faq.a5}}</p></div></details>
+</div>
+</div>
+</section>
+<section aria-labelledby="cta-title" class="wrap">
+<div class="cta">
+<svg aria-hidden="true" class="star-deco" viewbox="0 0 24 24"><use href="#i-star"></use></svg>
+<div>
+<h2 data-i18n="cta.title" id="cta-title">{{t:cta.title}}</h2>
+<p data-i18n="cta.health">{{t:cta.health}}</p>
+</div>
+<div class="stores">
+<span aria-disabled="true" class="store"><svg aria-hidden="true" class="ico"><use href="#i-apple"></use></svg><span><small data-i18n="store.soon">{{t:store.soon}}</small><b>App Store</b></span></span>
+<span aria-disabled="true" class="store"><svg aria-hidden="true" class="ico"><use href="#i-play"></use></svg><span><small data-i18n="store.soon">{{t:store.soon}}</small><b>Google Play</b></span></span>
+</div>
+</div>
+</section>

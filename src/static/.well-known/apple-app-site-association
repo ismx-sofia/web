@@ -1,0 +1,55 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appIDs": [
+                    "4H5UZ8889Y.com.ismx.sofia"
+                ],
+                "components": [
+                    {
+                        "/": "/user/*",
+                        "comment": "User profile pages"
+                    },
+                    {
+                        "/": "/entry/*",
+                        "comment": "Entry pages, entry creation and its intelligence modes"
+                    },
+                    {
+                        "/": "/reader*",
+                        "comment": "Readings tab"
+                    },
+                    {
+                        "/": "/journal*",
+                        "comment": "Diary tab"
+                    },
+                    {
+                        "/": "/settings/*",
+                        "comment": "Settings screens reachable from a surface: goals and goal creation"
+                    },
+                    {
+                        "/": "/goals*",
+                        "comment": "Goals — historical alias of /settings/goals, kept because Apple caches this file"
+                    },
+                    {
+                        "/": "/notifications*",
+                        "comment": "Notification history"
+                    },
+                    {
+                        "/": "/search*",
+                        "comment": "Search"
+                    },
+                    {
+                        "/": "/chat*",
+                        "comment": "A conversation (the list, or one chat by id or by the other user). Reached from pushes; no web page"
+                    }
+                ]
+            }
+        ]
+    },
+    "webcredentials": {
+        "apps": [
+            "4H5UZ8889Y.com.ismx.sofia"
+        ]
+    }
+}
