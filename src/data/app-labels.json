@@ -1,0 +1,102 @@
+{
+  "_source": "core.parameter_i18n, read 2026-10-06. Settings labels the app shows; a missing locale falls back to es_es for the whole path.",
+  "labels": {
+    "settingsTitle": {
+      "es_es": "Ajustes"
+    },
+    "settingsOptionLegal": {
+      "es_es": "Legal"
+    },
+    "settingsLegalErase": {
+      "es_es": "Borrar cuenta"
+    },
+    "settingsLegalModeration": {
+      "es_es": "Estado de mi cuenta",
+      "en_us": "My account status"
+    },
+    "settingsOptionStorage": {
+      "es_es": "Almacenamiento"
+    },
+    "settingsStorageExport": {
+      "es_es": "Exportar mis datos"
+    },
+    "settingsOptionPrivacy": {
+      "es_es": "Privacidad"
+    },
+    "settingsPrivacyAds": {
+      "es_es": "Anuncios personalizados"
+    },
+    "settingsOptionHealth": {
+      "es_es": "Salud y bienestar"
+    },
+    "userLegalModerationReportMenu": {
+      "es_es": "Denunciar",
+      "en_us": "Report"
+    },
+    "profileMenuBlock": {
+      "es_es": "Bloquear"
+    },
+    "settingsOptionIntelligence": {
+      "es_es": "Inteligencia"
+    },
+    "settingsOptionPreferences": {
+      "es_es": "Preferencias"
+    },
+    "settingsPreferencesInterests": {
+      "es_es": "Temas e intereses"
+    },
+    "settingsPreferencesInterestsPersonalize": {
+      "es_es": "Usar mis intereses para ordenar"
+    },
+    "settingsPreferencesInterestsReset": {
+      "es_es": "Restablecer intereses"
+    },
+    "settingsPreferencesSensitive": {
+      "es_es": "Contenidos sensibles"
+    },
+    "settingsPrivacyChat": {
+      "es_es": "Mensajes",
+      "en_us": "Messages"
+    },
+    "settingsPrivacyComment": {
+      "es_es": "Comentarios",
+      "en_us": "Comments"
+    },
+    "settingsPrivacyMentions": {
+      "es_es": "Pueden mencionarme"
+    },
+    "settingsPrivacyNearby": {
+      "es_es": "Aparecer en Cerca de ti"
+    },
+    "settingsPrivacyForyou": {
+      "es_es": "Aparecer en Para ti"
+    },
+    "settingsPrivacyPrivate": {
+      "es_es": "Perfil privado"
+    },
+    "settingsLegalData": {
+      "es_es": "Pedir mis datos"
+    },
+    "settingsOptionJournal": {
+      "es_es": "Personalizar"
+    },
+    "settingsJournalSummary": {
+      "es_es": "Mostrar resumen"
+    },
+    "settingsPrivacyMentionsScreen": {
+      "es_es": "Menciones"
+    },
+    "settingsPrivacySuggestions": {
+      "es_es": "Activar recomendaciones"
+    },
+    "settingsPrivacySessions": {
+      "es_es": "Sesiones abiertas"
+    },
+    "settingsPreferencesSpotlight": {
+      "es_es": "Buscar en el móvil"
+    },
+    "settingsOptionNotifications": {
+      "es_es": "Notificaciones"
+    }
+  }
+}

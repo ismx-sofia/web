@@ -1,0 +1,105 @@
+{
+  "_source": "03-code apps/mobile/src/business/device/os/DeeplinkBusiness.ts @ f66c0c5e (main 0d533f18), 2026-10-06. Update this snapshot whenever DeeplinkBusiness.routes changes.",
+  "routes": [
+    {
+      "path": "user/:id?",
+      "action": "user",
+      "requires": [
+        "id"
+      ]
+    },
+    {
+      "path": "entry/create/:mode?",
+      "action": "entry-create",
+      "requires": []
+    },
+    {
+      "path": "entry/inbox/:batch",
+      "action": "entry-inbox",
+      "requires": [
+        "batch"
+      ]
+    },
+    {
+      "path": "entry/quick",
+      "action": "entry-quick",
+      "requires": []
+    },
+    {
+      "path": "entry/:id?",
+      "action": "entry",
+      "requires": [
+        "id"
+      ]
+    },
+    {
+      "path": "chat/:id?",
+      "action": "chat",
+      "requires": []
+    },
+    {
+      "path": "settings/goals/target/create",
+      "action": "goals-create",
+      "requires": []
+    },
+    {
+      "path": "settings/goals",
+      "action": "goals",
+      "requires": []
+    },
+    {
+      "path": "settings/privacy/mentions",
+      "action": "mentions",
+      "requires": []
+    },
+    {
+      "path": "settings/storage/export",
+      "action": "export",
+      "requires": []
+    },
+    {
+      "path": "recovery",
+      "action": "recovery",
+      "requires": []
+    },
+    {
+      "path": "reader",
+      "action": "reader",
+      "requires": []
+    },
+    {
+      "path": "journal",
+      "action": "journal",
+      "requires": []
+    },
+    {
+      "path": "goals",
+      "action": "goals",
+      "requires": []
+    },
+    {
+      "path": "notifications",
+      "action": "notifications",
+      "requires": []
+    },
+    {
+      "path": "search",
+      "action": "search",
+      "requires": []
+    }
+  ],
+  "webless": [
+    "recovery",
+    "settings/privacy/mentions",
+    "entry/inbox/:batch",
+    "settings/storage/export",
+    "entry/quick"
+  ],
+  "aliases": [
+    "goals"
+  ],
+  "hosts": [
+    "www.sofia.ismx.app",
+    "sofia.ismx.app"
+  ]
+}
