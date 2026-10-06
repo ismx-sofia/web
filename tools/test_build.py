@@ -283,6 +283,22 @@ class BuildTest(unittest.TestCase):
             text = self.pages[f"{page}.html"]
             self.assertNotIn("<td>", text, f"{page}: a cell without its column label")
 
+    # 14c. every versioned legal text says since when it is in force, and the LSSI data are complete
+    def test_legal_dates_and_lssi_data(self):
+        for page in build.LEGAL_PAGES:
+            path = build.SRC / "legal" / f"{page}.html"
+            if not path.exists():
+                continue
+            meta, _ = build.page_meta(path.read_text(encoding="utf-8"))
+            text = self.pages[f"{page}.html"]
+            self.assertRegex(text, r"Vigente desde el(?:</span>)?\s*<b>\d{1,2} de [a-z]+ de \d{4}</b>", page)
+            if "version" in meta:
+                self.assertRegex(meta.get("since", ""), r"^\d{1,2} de [a-z]+ de \d{4}$", f"{page}: since")
+        legal = self.pages["legal.html"]
+        for fact in ("B40623829", "Monte Carmelo, 6, BO", "46019 Valencia", "tomo 10772", "libro 8051",
+                     "folio 14", "hoja 191053", "hello@sofia.ismx.app"):
+            self.assertIn(fact, legal)
+
     # 15. no generated page falls under a universal-link pattern of the AASA
     def test_pages_outside_universal_links(self):
         aasa = json.loads((SRC / "static" / ".well-known" / "apple-app-site-association").read_text(encoding="utf-8"))

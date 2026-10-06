@@ -317,11 +317,13 @@ class Site:
                     f'<a class="anchor" href="#{m.group(1)}" aria-label="Enlace a esta sección">#</a></h2>')
         body = re.sub(r'<section id="([^"]+)" data-title="([^"]+)">', head, body)
         body = re.sub(r"<table>.*?</table>", self.label_cells, body, flags=re.S)
+        # `since` in the header: the date this version came into force; until it is set, the build says so.
+        since = meta.get("since") or "{{pending:fecha de publicación}}"
         toc = "".join(f'<li><a href="#{i}">{t}</a></li>' for i, t in sections)
         return (f'<section class="page-hero" id="{page}">\n<div aria-hidden="true" class="mesh"><i></i><i></i><i></i></div>\n'
                 f'<div class="wrap">\n<span class="eyebrow">Legal</span>\n<h1><span class="grad-text">{meta["title"]}</span></h1>\n'
                 f'<p class="lede">{meta["lede"]}</p>\n<div class="meta-pills"><span>Versión {meta["version"]}</span>'
-                f'<span>Vigente desde el <b>{{{{pending:fecha de publicación}}}}</b></span></div>\n</div>\n</section>\n'
+                f'<span>Vigente desde el <b>{since}</b></span></div>\n</div>\n</section>\n'
                 f'<div class="wrap doc-layout">\n<nav aria-label="En esta página" class="toc">\n<h2>En esta página</h2>\n<ol>{toc}</ol>\n</nav>\n'
                 f'<article class="prose">\n{body.strip()}\n</article>\n</div>\n')
 
