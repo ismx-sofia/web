@@ -39,6 +39,7 @@ LEGAL_PAGES = {
     "ia": "Política de IA",
     "normas": "Normas de la comunidad",
     "cookies": "Política de cookies",
+    "sensitive": "Consentimientos de datos sensibles",
 }
 
 TOKEN = re.compile(r"\{\{(t|a|steps|url|pending):([^}]*)\}\}")
