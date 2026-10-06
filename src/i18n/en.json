@@ -82,7 +82,7 @@
  "faq.a3": "It transcribes your audio, summarizes and organizes your entries and helps you spot the patterns. It runs on SofIA's servers and, in part, on your own phone. Your journal is never used to train models. The <a href=\"{{url:ia}}\">AI Policy</a> covers it in detail.",
  "faq.a4": "Right now the app is in Spanish, and you can write in whatever language you like. We're getting more languages ready.",
  "faq.a5": "Yes, both, whenever you want. We walk you through it in <a href=\"{{url:help}}\">Help</a> and <a href=\"{{url:delete-account}}\">Delete your account</a>.",
- "faq.a6": "Everything travels encrypted between your phone and our servers, and your entries are read only by the people you choose. Our servers need to read what you write to transcribe it, summarize it and deliver your messages, so it isn't end-to-end encryption. Your messages aren't reviewed automatically, only if someone reports them. On your phone, you can lock your journal with your fingerprint or your face.",
+ "faq.a6": "Everything travels encrypted between your phone and our servers, and your entries are read only by the people you choose. Our servers need to read what you write to transcribe it, summarize it and deliver your messages, so it isn't end-to-end encryption. We don't review your messages unless someone reports them. On your phone, you can lock your journal with your fingerprint or your face.",
  "faq.eyebrow": "FAQ",
  "faq.q1": "How much does it cost?",
  "faq.q2": "Who can read what I write?",

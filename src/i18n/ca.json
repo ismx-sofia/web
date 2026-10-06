@@ -82,7 +82,7 @@
  "faq.a3": "Transcriu els teus àudios, resumeix i ordena les teves entrades i t'ajuda a veure el que es repeteix. Funciona als servidors de SofIA i, en part, al teu propi mòbil. El teu diari mai no s'utilitza per entrenar models. T'ho expliquem amb detall a la <a href=\"{{url:ia}}\">Política d'IA</a>.",
  "faq.a4": "Ara per ara l'app és en castellà, i hi pots escriure en la llengua que vulguis. Estem preparant la resta d'idiomes.",
  "faq.a5": "Sí, les dues coses i quan vulguis. T'ho expliquem a <a href=\"{{url:help}}\">Ajuda</a> i a <a href=\"{{url:delete-account}}\">Esborrar el teu compte</a>.",
- "faq.a6": "Tot viatja xifrat entre el mòbil i els nostres servidors, i les teves entrades només les llegeix qui tu tries. Els nostres servidors han de llegir el que escrius per transcriure-ho, resumir-ho i lliurar els teus missatges, així que no és un xifratge d'extrem a extrem. Els teus missatges no es revisen automàticament: només si algú els denuncia. Al mòbil pots tancar el diari amb l'empremta o la cara.",
+ "faq.a6": "Tot viatja xifrat entre el mòbil i els nostres servidors, i les teves entrades només les llegeix qui tu tries. Els nostres servidors han de llegir el que escrius per transcriure-ho, resumir-ho i lliurar els teus missatges, així que no és un xifratge d'extrem a extrem. No revisem els teus missatges tret que algú els denunciï. Al mòbil pots tancar el diari amb l'empremta o la cara.",
  "faq.eyebrow": "Preguntes",
  "faq.q1": "Quant costa?",
  "faq.q2": "Qui pot llegir el que escric?",

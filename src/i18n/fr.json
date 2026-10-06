@@ -82,7 +82,7 @@
  "faq.a3": "Elle transcrit tes audios, résume et range tes entrées, et t'aide à repérer ce qui revient. Elle fonctionne sur les serveurs de SofIA et, en partie, directement sur ton téléphone. Ton journal ne sert jamais à entraîner des modèles. Tout est expliqué en détail dans la <a href=\"{{url:ia}}\">Politique d'IA</a>.",
  "faq.a4": "Pour l'instant, l'app est en espagnol, et tu peux écrire dans la langue de ton choix. Les autres langues sont en préparation.",
  "faq.a5": "Oui, les deux, quand tu veux. On t'explique tout dans <a href=\"{{url:help}}\">Aide</a> et dans <a href=\"{{url:delete-account}}\">Supprimer ton compte</a>.",
- "faq.a6": "Tout voyage chiffré entre ton téléphone et nos serveurs, et seules les personnes que tu choisis lisent tes entrées. Nos serveurs doivent lire ce que tu écris pour le transcrire, le résumer et livrer tes messages : ce n'est donc pas un chiffrement de bout en bout. Tes messages ne sont pas vérifiés automatiquement, seulement si quelqu'un les signale. Sur ton téléphone, tu peux verrouiller ton journal avec ton empreinte ou ton visage.",
+ "faq.a6": "Tout voyage chiffré entre ton téléphone et nos serveurs, et seules les personnes que tu choisis lisent tes entrées. Nos serveurs doivent lire ce que tu écris pour le transcrire, le résumer et livrer tes messages : ce n'est donc pas un chiffrement de bout en bout. Nous ne vérifions tes messages que si quelqu'un les signale. Sur ton téléphone, tu peux verrouiller ton journal avec ton empreinte ou ton visage.",
  "faq.eyebrow": "Questions",
  "faq.q1": "Combien ça coûte ?",
  "faq.q2": "Qui peut lire ce que j'écris ?",

@@ -82,7 +82,7 @@
  "faq.a3": "Transcreve os teus áudios, resume e organiza os teus registos e ajuda-te a ver o que se repete. Funciona nos servidores da SofIA e, em parte, no teu próprio telemóvel. O teu diário nunca é usado para treinar modelos. Está tudo explicado na <a href=\"{{url:ia}}\">Política de IA</a>.",
  "faq.a4": "Para já, a app está em espanhol, e escreves na língua que quiseres. Estamos a preparar as restantes línguas.",
  "faq.a5": "Sim, as duas coisas, quando quiseres. Explicamos-te tudo em <a href=\"{{url:help}}\">Ajuda</a> e em <a href=\"{{url:delete-account}}\">Eliminar a tua conta</a>.",
- "faq.a6": "Tudo viaja cifrado entre o teu telemóvel e os nossos servidores, e os teus registos só os lê quem tu escolhes. Os nossos servidores precisam de ler o que escreves para o transcrever, resumir e entregar as tuas mensagens, por isso não é uma cifragem de ponta a ponta. As tuas mensagens não são revistas automaticamente, só se alguém as denunciar. No telemóvel podes fechar o diário com a tua impressão digital ou a tua cara.",
+ "faq.a6": "Tudo viaja cifrado entre o teu telemóvel e os nossos servidores, e os teus registos só os lê quem tu escolhes. Os nossos servidores precisam de ler o que escreves para o transcrever, resumir e entregar as tuas mensagens, por isso não é uma cifragem de ponta a ponta. Só revemos as tuas mensagens se alguém as denunciar. No telemóvel podes fechar o diário com a tua impressão digital ou a tua cara.",
  "faq.eyebrow": "Perguntas",
  "faq.q1": "Quanto custa?",
  "faq.q2": "Quem pode ler o que escrevo?",

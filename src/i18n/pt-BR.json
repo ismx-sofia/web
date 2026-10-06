@@ -82,7 +82,7 @@
  "faq.a3": "Transcreve seus áudios, resume e organiza seus registros e te ajuda a perceber o que se repete. Funciona nos servidores da SofIA e, em parte, no seu próprio celular. Seu diário nunca é usado para treinar modelos. Os detalhes estão na <a href=\"{{url:ia}}\">Política de IA</a>.",
  "faq.a4": "Hoje o app está em espanhol, e você escreve no idioma que quiser. Os outros idiomas estão a caminho.",
  "faq.a5": "Sim, as duas coisas, quando quiser. Explicamos tudo em <a href=\"{{url:help}}\">Ajuda</a> e em <a href=\"{{url:delete-account}}\">Excluir sua conta</a>.",
- "faq.a6": "Tudo viaja criptografado entre o seu celular e os nossos servidores, e seus registros só são lidos por quem você escolhe. Nossos servidores precisam ler o que você escreve para transcrever, resumir e entregar suas mensagens, então não é uma criptografia de ponta a ponta. Suas mensagens não são revisadas automaticamente, só se alguém denunciá-las. No celular você pode trancar o diário com a sua digital ou o seu rosto.",
+ "faq.a6": "Tudo viaja criptografado entre o seu celular e os nossos servidores, e seus registros só são lidos por quem você escolhe. Nossos servidores precisam ler o que você escreve para transcrever, resumir e entregar suas mensagens, então não é uma criptografia de ponta a ponta. Só revisamos suas mensagens se alguém denunciá-las. No celular você pode trancar o diário com a sua digital ou o seu rosto.",
  "faq.eyebrow": "Perguntas",
  "faq.q1": "Quanto custa?",
  "faq.q2": "Quem pode ler o que eu escrevo?",

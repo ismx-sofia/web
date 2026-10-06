@@ -82,7 +82,7 @@
  "faq.a3": "Trascrive i tuoi audio, riassume e ordina le tue pagine e ti aiuta a vedere ciò che si ripete. Funziona sui server di SofIA e, in parte, direttamente sul tuo telefono. Il tuo diario non viene mai usato per addestrare modelli. Trovi tutti i dettagli nella <a href=\"{{url:ia}}\">Policy sull'IA</a>.",
  "faq.a4": "Per ora l'app è in spagnolo, e puoi scrivere nella lingua che preferisci. Le altre lingue sono in arrivo.",
  "faq.a5": "Sì, entrambe le cose e quando vuoi. Te lo spieghiamo in <a href=\"{{url:help}}\">Aiuto</a> e in <a href=\"{{url:delete-account}}\">Cancella il tuo account</a>.",
- "faq.a6": "Tutto viaggia cifrato tra il telefono e i nostri server, e le tue pagine le legge solo chi scegli tu. I nostri server devono leggere ciò che scrivi per trascriverlo, riassumerlo e consegnare i tuoi messaggi: quindi non è una cifratura end-to-end. I tuoi messaggi non vengono controllati automaticamente, solo se qualcuno li segnala. Sul telefono puoi chiudere il diario con l'impronta o il viso.",
+ "faq.a6": "Tutto viaggia cifrato tra il telefono e i nostri server, e le tue pagine le legge solo chi scegli tu. I nostri server devono leggere ciò che scrivi per trascriverlo, riassumerlo e consegnare i tuoi messaggi: quindi non è una cifratura end-to-end. Controlliamo i tuoi messaggi solo se qualcuno li segnala. Sul telefono puoi chiudere il diario con l'impronta o il viso.",
  "faq.eyebrow": "Domande",
  "faq.q1": "Quanto costa?",
  "faq.q2": "Chi può leggere quello che scrivo?",
