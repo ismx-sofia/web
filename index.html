@@ -1,50 +1,173 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SofIA - Legal e Información</title>
+    <title>SofIA - Tu Compañero de Historias</title>
     <meta name="description"
-        content="Enlaces oficiales para la aplicación SofIA: Tienda, Política de Privacidad y Términos de Uso.">
-    <meta name="apple-itunes-app" content="app-id=4H5UZ8889Y.com.ismx.sofia">
+        content="SofIA es tu diario personal con IA. Captura, revive y comprende tu vida con análisis emocional, privacidad total y más.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <!-- Meta for Apple -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-itunes-app" content="6757621393">
 </head>
 
-<body>
-    <div class="main-container">
-        <!-- Top Branding -->
-        <header class="header">
-            <h1 class="logo">SofIA</h1>
-        </header>
+<body class="landing-page">
 
-        <!-- Card Container -->
-        <main class="card">
-            <div class="card-header">
-                <h2>Bienvenido a SofIA</h2>
+    <!-- Sticky Header -->
+    <nav class="sticky-header">
+        <h1 class="logo">SofIA</h1>
+        <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="header-actions" id="mobileMenu">
+            <a href="privacy.html" class="btn-sm"
+                style="background: transparent; color: var(--text-primary);">Privacidad</a>
+            <a href="terms.html" class="btn-sm"
+                style="background: transparent; color: var(--text-primary);">Términos</a>
+            <a href="ia.html" class="btn-sm" style="background: transparent; color: var(--text-primary);">IA</a>
+            <a href="legal.html" class="btn-sm" style="background: transparent; color: var(--text-primary);">Legal</a>
+            <a href="faq.html" class="btn-sm" style="background: transparent; color: var(--text-primary);">FAQ</a>
+            <a href="#download" class="btn-sm">Descargar</a>
+        </div>
+    </nav>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            menu.classList.toggle('active');
+            btn.classList.toggle('active');
+        }
+    </script>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content fade-in-up">
+            <h2 class="hero-title">Tu compañero de historias personal.</h2>
+            <p class="hero-subtitle">Captura. Revive. Comprende.</p>
+            <div class="store-buttons" style="justify-content: center; margin-bottom: 40px;">
+                <a href="#" class="store-badge" style="max-width: 160px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                        alt="Get it on Google Play">
+                </a>
+                <a href="#" class="store-badge" style="max-width: 160px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
+                        alt="Download on the App Store">
+                </a>
             </div>
+        </div>
+        <div class="hero-image-container fade-in-up">
+            <img src="assets/hero_mockup_1767360781412.png" alt="SofIA App Interface" class="hero-image">
+        </div>
+    </section>
 
-            <div class="card-content">
-                <p class="greeting">Tu compañero de historias personal.</p>
-                <div class="actions">
-                    <a href="#" class="btn-primary">Descargar en la Tienda</a>
-                    <a href="privacy.html" class="btn-secondary">Política de Privacidad</a>
-                    <a href="terms.html" class="btn-secondary">Términos de Uso</a>
-                </div>
-                <div class="info-text">
-                    <p>Accede a toda nuestra información legal y descargas aquí.</p>
-                </div>
+    <!-- Feature 1: Multimedia Diary -->
+    <section class="feature-section fade-in-up">
+        <div class="feature-text">
+            <h2>Registra tu vida en todos los formatos.</h2>
+            <p>No te limites al texto. SofIA te permite crear un diario multimedia con fotos, vídeos y notas de audio.
+                Captura la esencia completa de cada momento.</p>
+        </div>
+        <div class="feature-image-wrapper">
+            <img src="assets/feature_diary_1767360796852.png" alt="Diario Multimedia" class="feature-image">
+        </div>
+    </section>
+
+    <!-- Feature 2: AI Analysis -->
+    <section class="feature-section reverse fade-in-up">
+        <div class="feature-text">
+            <h2>Comprende tus emociones con IA.</h2>
+            <p>Nuestra inteligencia artificial analiza tus entradas para ofrecerte perspectivas profundas y preguntas
+                que
+                fomentan la reflexión. Descubre patrones en tu bienestar emocional.</p>
+        </div>
+        <div class="feature-image-wrapper">
+            <img src="assets/feature_ai_1767360813430.png" alt="Análisis de IA" class="feature-image">
+        </div>
+    </section>
+
+    <!-- Feature 3: Privacy -->
+    <section class="feature-section fade-in-up">
+        <div class="feature-text">
+            <h2>Privacidad total. Tú tienes el control.</h2>
+            <p>Tus datos están seguros con cifrado de extremo a extremo. Tú decides qué es privado, qué compartes con
+                círculos íntimos y qué mantienes solo para ti.</p>
+        </div>
+        <div class="feature-image-wrapper">
+            <img src="assets/feature_privacy_1767360827570.png" alt="Privacidad y Seguridad" class="feature-image">
+        </div>
+    </section>
+
+    <!-- Bento Grid for Other Features -->
+    <div class="bento-container fade-in-up">
+        <div class="section-label">Más características</div>
+        <div class="bento-grid">
+            <div class="bento-item">
+                <div class="bento-icon">❤️</div>
+                <h3>Salud Emocional</h3>
+                <p>Monitoriza indicadores de ánimo y ansiedad para mejorar tu autoconocimiento.</p>
             </div>
-        </main>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <p>&copy; 2025 SofIA. Todos los derechos reservados.</p>
-        </footer>
+            <div class="bento-item">
+                <div class="bento-icon">💬</div>
+                <h3>Asistente Conversacional</h3>
+                <p>Dialoga con SofIA sobre tus entradas para obtener nuevas perspectivas.</p>
+            </div>
+            <div class="bento-item">
+                <div class="bento-icon">🛡️</div>
+                <h3>Legado Seguro</h3>
+                <p>Preserva tus recuerdos de forma segura para el futuro.</p>
+            </div>
+        </div>
     </div>
+
+    <!-- CTA Footer -->
+    <div class="cta-footer fade-in-up" id="download">
+        <h2>Empieza tu viaje hoy.</h2>
+        <div class="store-buttons" style="justify-content: center; margin-top: 30px;">
+            <a href="#" class="store-badge" style="max-width: 180px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                    alt="Get it on Google Play">
+            </a>
+            <a href="#" class="store-badge" style="max-width: 180px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
+                    alt="Download on the App Store">
+            </a>
+        </div>
+
+        <p style="margin-top: 30px; font-size: 0.8rem; color: #999;">&copy; 2025 SofIA. Todos los derechos reservados.
+        </p>
+    </div>
+
+    <!-- Scroll Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, observerOptions);
+
+            const animatedElements = document.querySelectorAll('.fade-in-up');
+            animatedElements.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 
 </html>

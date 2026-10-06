@@ -12,12 +12,39 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
-    <div class="main-container">
-        <!-- Top Branding -->
-        <header class="header">
+<body class="subpage">
+    <!-- Sticky Header -->
+    <nav class="sticky-header">
+        <a href="index.html" style="text-decoration: none;">
             <h1 class="logo">SofIA</h1>
-        </header>
+        </a>
+        <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="header-actions" id="mobileMenu">
+            <a href="privacy.html" class="btn-sm"
+                style="background: transparent; color: var(--text-primary);">Privacidad</a>
+            <a href="terms.html" class="btn-sm"
+                style="background: transparent; color: var(--text-primary);">Términos</a>
+            <a href="ia.html" class="btn-sm" style="background: transparent; color: var(--text-primary);">IA</a>
+            <a href="legal.html" class="btn-sm" style="background: transparent; color: var(--text-primary);">Legal</a>
+            <a href="faq.html" class="btn-sm" style="background: transparent; color: var(--text-primary);">FAQ</a>
+            <a href="index.html#download" class="btn-sm">Descargar</a>
+        </div>
+    </nav>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            menu.classList.toggle('active');
+            btn.classList.toggle('active');
+        }
+    </script>
+    <div class="main-container">
+
 
         <!-- Card Container -->
         <main class="card">
@@ -26,17 +53,285 @@
             </div>
 
             <div class="card-content text-left">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.</p>
+                <p><strong>Versión: 3.0</strong><br>
+                    <strong>Fecha de Entrada en Vigor:</strong> [RELLENAR FECHA]
+                </p>
 
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                    anim id est laborum.</p>
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
 
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-                    dicta sunt explicabo.</p>
+                <!-- Table of Contents -->
+                <!-- Table of Contents -->
+                <div class="toc-box">
+                    <h4 style="margin-top: 0; margin-bottom: 15px; color: var(--accent-dark);">Índice</h4>
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li style="margin-bottom: 8px;"><a href="#intro"
+                                style="text-decoration: none; color: var(--text-primary); font-weight: 500;">1.
+                                Introducción y Definiciones</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#datos"
+                                style="text-decoration: none; color: var(--text-primary); font-weight: 500;">2. Datos
+                                Recopilados</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#ia-tratamiento"
+                                style="text-decoration: none; color: var(--text-primary); font-weight: 500;">3.
+                                Tratamiento de IA y Terceros</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#transferencias"
+                                style="text-decoration: none; color: var(--text-primary); font-weight: 500;">4.
+                                Transferencias Internacionales</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#seguridad"
+                                style="text-decoration: none; color: var(--text-primary); font-weight: 500;">5.
+                                Seguridad y Brechas</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#derechos"
+                                style="text-decoration: none; color: var(--text-primary); font-weight: 500;">6. Derechos
+                                del Usuario</a></li>
+                        <li><a href="#disposiciones"
+                                style="text-decoration: none; color: var(--text-primary); font-weight: 500;">7.
+                                Disposiciones Finales</a></li>
+                    </ul>
+                </div>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+                <h3 id="intro" style="scroll-margin-top: 20px;">SECCIÓN 1: INTRODUCCIÓN, ÁMBITO Y DEFINICIONES</h3>
+
+                <p>Esta Política de Privacidad describe el tratamiento de datos personales por parte de SofIA ("la
+                    Aplicación") y su responsable. Nuestro compromiso es garantizar la transparencia y el cumplimiento
+                    de la legislación aplicable, principalmente el Reglamento General de Protección de Datos (Reglamento
+                    UE 2016/679) ("RGPD").</p>
+
+                <h4>1.1. Identificación y Contacto del Responsable del Tratamiento</h4>
+                <p>El Responsable del Tratamiento de sus datos personales es:</p>
+                <ul>
+                    <li>Nombre Comercial: SofIA</li>
+                    <li>Identidad Legal: Israel Sanjurjo Cuenca (Empresario Individual)</li>
+                    <li>NIF/CIF: [RELLENAR CIF/NIF]</li>
+                    <li>Domicilio Social: [RELLENAR DIRECCIÓN PROFESIONAL O FISCAL]</li>
+                    <li>Correo Electrónico de Privacidad: privacy@[RELLENAR DOMINIO DE SOFIA.COM]</li>
+                </ul>
+
+                <h4>1.2. Delegado de Protección de Datos (DPO)</h4>
+                <p>Actualmente, SofIA no tiene la obligación legal de designar un Delegado de Protección de Datos (DPO).
+                    Las consultas relativas a la protección de datos pueden dirigirse directamente al Responsable a
+                    través del correo electrónico de privacidad indicado.</p>
+
+                <h4>1.3. Definiciones Clave</h4>
+                <ul>
+                    <li><strong>Dato Personal:</strong> Toda información sobre una persona física identificada o
+                        identificable.</li>
+                    <li><strong>Tratamiento:</strong> Cualquier operación o conjunto de operaciones que se realice con
+                        datos personales (recogida, uso, almacenamiento, estructuración, etc.).</li>
+                    <li><strong>Responsable del Tratamiento:</strong> La persona o entidad que determina los fines y
+                        medios del tratamiento (Israel Sanjurjo Cuenca / SofIA).</li>
+                    <li><strong>Encargado del Tratamiento:</strong> El tercero que trata datos personales por cuenta del
+                        Responsable (ej. AWS, Google).</li>
+                    <li><strong>Datos de Categoría Especial (Datos Sensibles):</strong> Información sobre salud,
+                        orientación sexual, creencias, opiniones políticas, etc., que requiere un <strong>Consentimiento
+                            Explícito</strong> para su tratamiento.</li>
+                </ul>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+                <h3 id="datos" style="scroll-margin-top: 20px;">SECCIÓN 2: DATOS RECOPILADOS, FINALIDAD Y LEGITIMACIÓN
+                    DEL TRATAMIENTO</h3>
+
+                <p>A continuación, detallamos la tipología de datos que recogemos, el propósito de su uso y la base
+                    legal que legitima el tratamiento bajo el RGPD (Artículos 6 y 9).</p>
+
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Categoría de Dato</th>
+                                <th>Ejemplos de Datos Recopilados</th>
+                                <th>Finalidad del Tratamiento</th>
+                                <th>Base Legal (RGPD)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Identificación</strong></td>
+                                <td>Nombre de Usuario, Correo Electrónico, ID de Cuenta.</td>
+                                <td>Creación, gestión de la cuenta y autenticación.</td>
+                                <td>Ejecución del Contrato (Art. 6.1.b).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Perfil</strong></td>
+                                <td>Sexo, Pronombres, Fecha de Nacimiento, Fotos, Residencia.</td>
+                                <td>Personalización de la experiencia social y del perfil.</td>
+                                <td>Consentimiento del Usuario (Art. 6.1.a).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Contenido (UGC)</strong></td>
+                                <td>Diario Personal (texto, foto, vídeo, audio) y mensajes.</td>
+                                <td>Proveer el servicio principal de diario y red social.</td>
+                                <td>Ejecución del Contrato (Art. 6.1.b).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Datos Sensibles/Especiales</strong></td>
+                                <td>Inferencias sobre Salud, Creencias, Orientación.</td>
+                                <td><strong>Psicoanálisis Asistido por IA</strong> y entrenamiento del modelo de SofIA.
+                                </td>
+                                <td><strong>Consentimiento Explícito</strong> (Art. 9.2.a).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Metadatos y Uso</strong></td>
+                                <td>Datos de conexión (IP, tiempos de uso), interacciones con la interfaz.</td>
+                                <td>Mantenimiento, mejora técnica y prevención de fraude.</td>
+                                <td>Interés Legítimo (Art. 6.1.f).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Publicidad y Tracking</strong></td>
+                                <td>ID de Publicidad, Cookies de AdMob y Meta Audience Network.</td>
+                                <td>Mostrar publicidad personalizada para monetización.</td>
+                                <td>Consentimiento del Usuario (vía <em>Opt-in</em>).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p><strong>Legitimación del Tratamiento Detallada:</strong></p>
+                <ul>
+                    <li><strong>Ejecución del Contrato:</strong> El tratamiento es necesario para cumplir con los
+                        Términos y Condiciones que usted acepta al usar la aplicación.</li>
+                    <li><strong>Consentimiento Explícito:</strong> Se utiliza específicamente para el tratamiento de
+                        <strong>Datos Sensibles</strong> y para la recepción de publicidad personalizada. Usted puede
+                        revocar este consentimiento en cualquier momento.
+                    </li>
+                    <li><strong>Interés Legítimo:</strong> Utilizamos esta base para garantizar la seguridad de la red y
+                        de los datos, para la facturación interna y para el análisis de rendimiento general de la App,
+                        siempre que no prevalezcan sus derechos y libertades.</li>
+                </ul>
+
+                <h4>2.1. Permisos del Dispositivo</h4>
+                <p>Para el funcionamiento del Diario Multimedia, SofIA podrá solicitar acceso a:</p>
+                <ul>
+                    <li><strong>Cámara:</strong> Para capturar fotos/vídeos directamente en una entrada.</li>
+                    <li><strong>Micrófono:</strong> Para grabar notas de voz en el diario.</li>
+                    <li><strong>Galería/Almacenamiento:</strong> Para subir contenido existente.</li>
+                </ul>
+                <p><em>Usted puede revocar estos permisos en cualquier momento desde los ajustes de su dispositivo.</em>
+                </p>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+                <h3 id="ia-tratamiento" style="scroll-margin-top: 20px;">SECCIÓN 3: TRATAMIENTO DE LA IA Y TERCEROS</h3>
+
+                <h4>3.1. Tratamiento y Alcance de la IA</h4>
+                <p>El servicio de Psicoanálisis de SofIA utiliza el contenido de su Diario Personal y consultas para
+                    generar informes y respuestas personalizadas. Usted acepta que, para este fin, el contenido sea
+                    analizado y procesado. <strong>Sus datos de entrada son esenciales para entrenar y mejorar el modelo
+                        de IA de SofIA.</strong></p>
+
+                <h4>3.2. Uso de Encargados del Tratamiento y Sub-Encargados</h4>
+                <p>SofIA confía en los siguientes terceros para el procesamiento de datos:</p>
+                <ul>
+                    <li><strong>Proveedor de IA (Google Gemini API):</strong> Actúa como sub-encargado para el
+                        procesamiento del lenguaje del Diario.</li>
+                    <li><strong>Alojamiento (AWS):</strong> Actúa como encargado para el almacenamiento cifrado y seguro
+                        de la base de datos en la UE.</li>
+                    <li><strong>Analítica de Uso (Ej. Google Analytics for Firebase):</strong> Utilizamos herramientas
+                        de analítica para entender cómo se usa la aplicación y mejorar la experiencia (datos
+                        anonimizados o seudonimizados).</li>
+                </ul>
+
+                <h4>3.3. Mecanismo de Compartición Social del Diario</h4>
+                <p>SofIA garantiza que su Diario Personal es privado por diseño. Solo podrá ser consultado por la IA
+                    asociada a su círculo de amigos si usted ha otorgado el <strong>Consentimiento Explícito e
+                        Individual</strong> para esa función, o si ha configurado su contenido como público. Este
+                    consentimiento puede ser gestionado en la configuración de privacidad de cada entrada.</p>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+                <h3 id="transferencias" style="scroll-margin-top: 20px;">SECCIÓN 4: TRANSFERENCIAS INTERNACIONALES DE
+                    DATOS (TID)</h3>
+
+                <p>Debido a que nuestros proveedores de tecnología y publicidad son entidades globales, la gestión de
+                    sus datos implica su transferencia a países fuera del Espacio Económico Europeo (EEE),
+                    principalmente a <strong>Estados Unidos (EE. UU.)</strong>.</p>
+                <ul>
+                    <li><strong>Garantías de TID:</strong> Todas las transferencias internacionales de datos a los
+                        proveedores en EE. UU. (Google, Meta) se basan en la firma de las <strong>Cláusulas
+                            Contractuales Tipo (CCT)</strong> de la Comisión Europea (Decisión 2021/914), que obligan a
+                        estas empresas a proporcionar un nivel de protección sustancialmente equivalente al del RGPD.
+                    </li>
+                    <li><strong>Evaluación de Impacto:</strong> SofIA mantiene una Evaluación de Impacto sobre
+                        Transferencias (TIDIA) para evaluar las leyes de vigilancia de terceros países y aplicar medidas
+                        complementarias de seguridad si fuera necesario.</li>
+                </ul>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+                <h3 id="seguridad" style="scroll-margin-top: 20px;">SECCIÓN 5: SEGURIDAD DE LOS DATOS Y NOTIFICACIÓN DE
+                    BRECHAS</h3>
+
+                <h4>5.1. Medidas de Seguridad Aplicadas</h4>
+                <p>SofIA ha adoptado medidas técnicas y organizativas rigurosas para garantizar la seguridad de los
+                    datos sensibles, incluyendo:</p>
+                <ul>
+                    <li><strong>Cifrado Avanzado:</strong> Cifrado de datos en reposo y en tránsito (TLS/SSL).</li>
+                    <li><strong>Pseudonimización:</strong> Utilización de claves de seudominización para separar la
+                        identidad del contenido sensible del Diario.</li>
+                    <li><strong>Controles de Acceso:</strong> Implementación de principios de "Necesidad de Conocer"
+                        (Need-to-Know) y autenticación multifactor para el personal con acceso a datos.</li>
+                    <li><strong>Monitoreo Continuo:</strong> Vigilancia constante de la infraestructura de AWS para
+                        detectar actividades anómalas.</li>
+                </ul>
+
+                <h4>5.2. Notificación de Brechas de Seguridad</h4>
+                <p>En caso de que ocurra una violación de la seguridad de los datos que pueda suponer un riesgo para sus
+                    derechos y libertades, SofIA se compromete a:</p>
+                <ul>
+                    <li>Notificar a la Autoridad de Control competente (AEPD en España) en un plazo no superior a
+                        <strong>72 horas</strong> desde que tenga constancia del incidente.
+                    </li>
+                    <li>Notificar al Usuario afectado sin dilación indebida, describiendo la naturaleza de la brecha,
+                        las posibles consecuencias y las medidas adoptadas.</li>
+                </ul>
+
+                <h4>5.3. Plazos de Conservación (Retención)</h4>
+                <p>Mantendremos sus datos personales mientras su cuenta permanezca activa. Si decide eliminar su cuenta
+                    (Derecho de Supresión), sus datos se bloquearán durante un periodo de <strong>5 años</strong> para
+                    atender posibles responsabilidades legales, tras el cual serán eliminados definitivamente.</p>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+                <h3 id="derechos" style="scroll-margin-top: 20px;">SECCIÓN 6: DERECHOS DEL USUARIO Y RECLAMACIONES</h3>
+
+                <p>Usted puede ejercer en cualquier momento sus derechos ARCO-POL (Acceso, Rectificación, Supresión,
+                    Oposición, Portabilidad y Limitación) en los términos establecidos en el RGPD.</p>
+                <ul>
+                    <li><strong>Ejercicio de Derechos:</strong> Para ejercer cualquiera de sus derechos, envíe una
+                        solicitud escrita a <code>privacy@[RELLENAR DOMINIO DE SOFIA.COM]</code>, incluyendo una prueba
+                        de identidad válida.</li>
+                    <li><strong>Derecho de Reclamación:</strong> Si considera que SofIA ha vulnerado sus derechos de
+                        protección de datos, puede presentar una reclamación ante la Autoridad de Control competente
+                        (por ejemplo, la <strong>Agencia Española de Protección de Datos - AEPD</strong>).</li>
+                </ul>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+                <h3 id="disposiciones" style="scroll-margin-top: 20px;">SECCIÓN 7: DISPOSICIONES FINALES</h3>
+
+                <h4>7.1. Edad Mínima de Uso y Consentimiento Parental</h4>
+                <p>La Aplicación está dirigida a personas mayores de 13 años. El Usuario debe tener la edad mínima legal
+                    requerida en su país de residencia para dar su consentimiento para el tratamiento de datos sin
+                    supervisión parental (ej. 14 años en España, 16 en otros países de la UE). Si usted es menor de la
+                    edad mínima de consentimiento, se requiere la autorización de un titular de la patria potestad.</p>
+
+                <h4>7.2. Cumplimiento Internacional (CCPA/CPRA)</h4>
+                <p>Para los residentes en California (EE. UU.), SofIA cumple con la Ley de Privacidad del Consumidor de
+                    California (CCPA/CPRA), otorgando el derecho a:</p>
+                <ul>
+                    <li><strong>Saber:</strong> Conocer las categorías y piezas específicas de datos recopilados.</li>
+                    <li><strong>Supresión:</strong> Solicitar la eliminación de su información personal.</li>
+                    <li><strong>Opt-Out:</strong> Ejercer el derecho a oponerse a la "venta o compartición" de
+                        información personal con terceros (aunque SofIA no vende datos directamente, la compartición con
+                        anunciantes se gestiona a través de este derecho).</li>
+                </ul>
+
+                <h4>7.3. Modificaciones de la Política</h4>
+                <p>Esta Política de Privacidad podrá ser modificada en función de requisitos legales o de cambios en el
+                    servicio. Le notificaremos cualquier modificación sustancial con al menos [RELLENAR NÚMERO DE DÍAS]
+                    de antelación, a través de la aplicación o por correo electrónico, para que pueda revisar las nuevas
+                    condiciones.</p>
 
                 <div class="actions" style="margin-top: 30px;">
                     <a href="index.html" class="btn-secondary">Volver al Inicio</a>

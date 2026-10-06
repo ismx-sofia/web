@@ -4,38 +4,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SofIA - Términos de Uso</title>
-    <meta name="description" content="Términos de Uso de SofIA.">
+    <title>SofIA - Términos y Condiciones</title>
+    <meta name="description" content="Términos y Condiciones de Uso de SofIA.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
-    <div class="main-container">
-        <!-- Top Branding -->
-        <header class="header">
+<body class="subpage">
+    <!-- Sticky Header -->
+    <nav class="sticky-header">
+        <a href="index.html" style="text-decoration: none;">
             <h1 class="logo">SofIA</h1>
-        </header>
+        </a>
+        <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="header-actions" id="mobileMenu">
+            <a href="privacy.html" class="btn-sm"
+                style="background: transparent; color: var(--text-primary);">Privacidad</a>
+            <a href="terms.html" class="btn-sm"
+                style="background: transparent; color: var(--text-primary);">Términos</a>
+            <a href="ia.html" class="btn-sm" style="background: transparent; color: var(--text-primary);">IA</a>
+            <a href="legal.html" class="btn-sm" style="background: transparent; color: var(--text-primary);">Legal</a>
+            <a href="faq.html" class="btn-sm" style="background: transparent; color: var(--text-primary);">FAQ</a>
+            <a href="index.html#download" class="btn-sm">Descargar</a>
+        </div>
+    </nav>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            menu.classList.toggle('active');
+            btn.classList.toggle('active');
+        }
+    </script>
+    <div class="main-container">
+
 
         <!-- Card Container -->
         <main class="card">
             <div class="card-header">
-                <h2>Términos de Uso</h2>
+                <h2>Términos y condiciones de uso</h2>
             </div>
 
             <div class="card-content text-left">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.</p>
-
-                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
-                    magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-
-                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
-                    quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+                <p><strong>Versión: 3.0</strong><br>
+                    <strong>Fecha de Revisión:</strong> Diciembre de 2025
                 </p>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+                <!-- Table of Contents -->
+                <!-- Table of Contents -->
+                <div class="toc-box">
+                    <h4 style="margin-top: 0; margin-bottom: 15px; color: var(--accent-dark);">Índice</h4>
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li style="margin-bottom: 8px;"><a href="#intro"
+                                style="text-decoration: none; color: var(--text-primary); font-weight: 500;">1.
+                                Introducción y Aceptación</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#cuenta"
+                                style="text-decoration: none; color: var(--text-primary); font-weight: 500;">2. Cuenta y
+                                Conducta</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#propiedad"
+                                style="text-decoration: none; color: var(--text-primary); font-weight: 500;">3.
+                                Propiedad Intelectual</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#suscripciones"
+                                style="text-decoration: none; color: var(--text-primary); font-weight: 500;">4.
+                                Suscripciones y Pagos</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#responsabilidad"
+                                style="text-decoration: none; color: var(--text-primary); font-weight: 500;">5.
+                                Limitación de Responsabilidad</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#reclamacion"
+                                style="text-decoration: none; color: var(--text-primary); font-weight: 500;">6.
+                                Reclamaciones</a></li>
+                        <li><a href="#vigencia"
+                                style="text-decoration: none; color: var(--text-primary); font-weight: 500;">7. Vigencia
+                                y Ley Aplicable</a></li>
+                    </ul>
+                </div>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+                <h3 id="intro" style="scroll-margin-top: 20px;">SECCIÓN 1: INTRODUCCIÓN, ACEPTACIÓN Y DELEGACIÓN</h3>
+
+                <h4>1.1. Objeto y Alcance</h4>
+                <p>El presente documento establece los términos y condiciones de uso ("Términos") que rigen el acceso y
+                    la utilización de la aplicación móvil SofIA ("la Aplicación" o "el Servicio"), operada por Israel
+                    Sanjurjo Cuenca ("el Prestador" o "SofIA"). Estos Términos definen la relación contractual, los
+                    derechos y obligaciones de las partes.</p>
+
+                <h4>1.2. Aceptación y Vinculación</h4>
+                <p>Al registrar una cuenta o utilizar cualquier parte del Servicio, usted declara haber leído,
+                    comprendido y aceptado quedar legalmente sujeto a estos Términos, a la Política de Privacidad y a la
+                    Política de Cookies (si aplica). En caso de no estar de acuerdo con cualquiera de estas
+                    disposiciones, no deberá utilizar la Aplicación.</p>
+
+                <h4>1.3. Capacidad Legal y Edad Mínima</h4>
+                <p>La Aplicación está destinada a usuarios **mayores de 13 años**. Si usted tiene entre 13 y la mayoría
+                    de edad legal en su jurisdicción, debe contar con el consentimiento o permiso de su padre, madre o
+                    tutor legal. Usted declara que tiene la capacidad legal para aceptar y cumplir estos Términos.</p>
+
+                <h4>1.4. Modificaciones de los Términos</h4>
+                <p>SofIA se reserva el derecho de modificar estos Términos periódicamente. Notificaremos los cambios
+                    sustanciales con un preaviso razonable (ej. [RELLENAR NÚMERO DE DÍAS] días) a través de la
+                    Aplicación o por correo electrónico. El uso continuado del Servicio después de la entrada en vigor
+                    de los cambios constituye la aceptación de los nuevos Términos.</p>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+                <h3 id="cuenta" style="scroll-margin-top: 20px;">SECCIÓN 2: CUENTA DE USUARIO Y REGLAS DE CONDUCTA</h3>
+
+                <h4>2.1. Registro y Seguridad de la Cuenta</h4>
+                <p>Usted es responsable de proporcionar información de registro precisa y de mantenerla actualizada.
+                    Usted asume toda la responsabilidad por la confidencialidad de su contraseña y por todas las
+                    actividades que se realicen bajo su cuenta. Debe notificar inmediatamente a SofIA cualquier uso no
+                    autorizado de su cuenta.</p>
+
+                <h4>2.2. Obligaciones de Conducta</h4>
+                <p>El Usuario se compromete a no realizar, permitir o facilitar las siguientes acciones:</p>
+                <ul>
+                    <li>a) Utilizar el Servicio para cualquier propósito ilegal, fraudulento o no autorizado.</li>
+                    <li>b) Acosar, amenazar, difamar o intimidar a otros usuarios o terceros.</li>
+                    <li>c) Recopilar o almacenar información personal de otros usuarios sin su consentimiento explícito.
+                    </li>
+                    <li>d) Interferir o interrumpir el funcionamiento de la Aplicación (ej. mediante virus, ataques DDoS
+                        o spam).</li>
+                    <li>e) Utilizar bots, scrapers o métodos automatizados para acceder, interactuar o recopilar datos
+                        del Servicio.</li>
+                </ul>
+
+                <h4>2.3. Contenido Prohibido y Moderación</h4>
+                <p>Está estrictamente prohibido subir, compartir o generar (incluyendo las consultas a la IA) contenido
+                    que sea:</p>
+                <ul>
+                    <li>a) <strong>Violento o de Odio:</strong> Que promueva la violencia, la discriminación o el
+                        discurso de odio basado en raza, etnia, religión, género, orientación sexual, etc.</li>
+                    <li>b) <strong>Pornográfico o de Explotación:</strong> Que muestre material sexualmente explícito o
+                        que involucre la explotación de menores.</li>
+                    <li>c) <strong>Ilegal:</strong> Que viole derechos de propiedad intelectual, industrial, o que
+                        promueva actividades ilícitas.</li>
+                    <li>d) <strong>Dañino:</strong> Que promueva o facilite actos de autolesión, suicidio o trastornos
+                        alimentarios (SofIA cooperará con las autoridades si detecta este contenido).</li>
+                </ul>
+                <p>SofIA se reserva el derecho, pero no la obligación, de monitorear y eliminar cualquier contenido que
+                    viole estos Términos, sin previo aviso.</p>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+                <h3 id="propiedad" style="scroll-margin-top: 20px;">SECCIÓN 3: PROPIEDAD INTELECTUAL Y LICENCIA DE
+                    CONTENIDO</h3>
+
+                <h4>3.1. Propiedad de SofIA</h4>
+                <p>El software de la Aplicación, el código fuente, el diseño, la marca SofIA, y toda la tecnología de la
+                    IA (salvo los modelos base de terceros) son propiedad exclusiva del Prestador. SofIA le otorga una
+                    licencia limitada, no exclusiva, intransferible y revocable para utilizar el Servicio únicamente
+                    para su uso personal y no comercial.</p>
+
+                <h4>3.2. Propiedad del Contenido del Usuario (UGC)</h4>
+                <p>Usted retiene todos los derechos de propiedad intelectual sobre el Contenido Generado por el Usuario
+                    (su Diario Personal, fotos, vídeos, etc.). SofIA no reclama la propiedad de su UGC.</p>
+
+                <h4>3.3. Licencia Concedida al Prestador (Uso de IA y Servicio)</h4>
+                <p>Para que el Servicio de IA y la funcionalidad social operen, usted otorga al Prestador una
+                    <strong>licencia no exclusiva, mundial, transferible, sublicenciable, libre de regalías y totalmente
+                        pagada</strong> para utilizar, reproducir, modificar, crear obras derivadas, adaptar, publicar y
+                    distribuir su Contenido. Esta licencia se concede con la única finalidad de:
+                </p>
+                <ul>
+                    <li>a) Operar, mantener, y mejorar el Servicio (incluyendo el Psicoanálisis de IA).</li>
+                    <li>b) Entrenar, refinar y optimizar los modelos de Inteligencia Artificial subyacentes de SofIA.
+                    </li>
+                    <li>c) Compartir el Contenido de forma social, solo si usted ha activado explícitamente dicha
+                        función en la configuración de privacidad.</li>
+                </ul>
+                <p>La licencia sobre el Contenido finaliza cuando usted lo elimina o elimina su cuenta, salvo el uso
+                    necesario para el entrenamiento de los modelos de IA, que retendrán las copias anonimizadas y
+                    agregadas de datos para el mantenimiento de la tecnología.</p>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+                <h3 id="suscripciones" style="scroll-margin-top: 20px;">SECCIÓN 4: SUSCRIPCIONES Y PAGOS (SI APLICA)
+                </h3>
+
+                <h4>4.1. Suscripciones y Precios</h4>
+                <p>SofIA puede ofrecer servicios o funcionalidades premium mediante suscripción ("Suscripciones"). Los
+                    precios de las Suscripciones se detallan en la Aplicación y pueden variar. SofIA se reserva el
+                    derecho de modificar los precios con [RELLENAR NÚMERO DE DÍAS] días de antelación.</p>
+
+                <h4>4.2. Facturación Recurrente</h4>
+                <p>Las Suscripciones se facturan por adelantado de forma periódica y automática (mensual, trimestral o
+                    anual), a menos que usted cancele su Suscripción o SofIA la termine. Usted autoriza a SofIA o a su
+                    procesador de pagos (ej. Apple Pay, Google Pay) a cargar la tarifa de Suscripción aplicable en su
+                    método de pago.</p>
+
+                <h4>4.3. Cancelación y Reembolsos</h4>
+                <p>Usted puede cancelar su Suscripción en cualquier momento a través de la configuración de su tienda de
+                    aplicaciones (App Store o Google Play). Su cancelación entrará en vigor al final del periodo de
+                    facturación actual. SofIA no proporciona reembolsos por los periodos parciales no utilizados, salvo
+                    que la legislación aplicable lo exija expresamente.</p>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+                <h3 id="responsabilidad" style="scroll-margin-top: 20px;">SECCIÓN 5: LIMITACIÓN DE RESPONSABILIDAD,
+                    GARANTÍAS E INDEMNIDAD</h3>
+
+                <h4>5.1. Exención de Garantías ("AS IS" / TAL CUAL)</h4>
+                <p>SofIA se proporciona "tal cual" y "según disponibilidad", sin garantías de ningún tipo, ya sean
+                    expresas o implícitas. El Prestador no garantiza que (i) el Servicio satisfaga sus requisitos, (ii)
+                    el Servicio sea ininterrumpido, oportuno, seguro o esté libre de errores, (iii) los resultados
+                    obtenidos del uso del Servicio sean precisos o fiables.</p>
+
+                <h4>5.2. Exención de Responsabilidad de Psicoanálisis (Advertencia Médica)</h4>
+                <p><strong>El Servicio de Psicoanálisis Asistido por IA de SofIA no sustituye el consejo, diagnóstico o
+                        tratamiento de un profesional de la salud mental, médico o terapeuta calificado.</strong></p>
+                <ul>
+                    <li>Las respuestas generadas por la IA son a título informativo, de apoyo emocional y de
+                        autoexploración.</li>
+                    <li>El Prestador <strong>no se hace responsable</strong> por las consecuencias, decisiones o daños
+                        (directos o indirectos) resultantes de la confianza depositada en las interacciones con la IA.
+                    </li>
+                </ul>
+
+                <h4>5.3. Limitación General de Responsabilidad</h4>
+                <p>En la medida máxima permitida por la ley aplicable, el Prestador no será responsable por daños
+                    indirectos, incidentales, especiales, consecuenciales o punitivos, incluyendo, sin limitación, la
+                    pérdida de beneficios, datos, uso, fondo de comercio u otras pérdidas intangibles. La
+                    responsabilidad máxima total del Prestador ante usted se limitará al importe pagado por usted a
+                    SofIA en los doce (12) meses anteriores al evento que dio lugar a la reclamación.</p>
+
+                <h4>5.4. Indemnización</h4>
+                <p>Usted se compromete a defender, indemnizar y eximir de responsabilidad a SofIA y a Israel Sanjurjo
+                    Cuenca de y contra todas las reclamaciones, responsabilidades, daños, pérdidas y gastos, incluidos
+                    los honorarios razonables de abogados, que surjan de o estén relacionados con: (i) su acceso o uso
+                    del Servicio; (ii) su violación de estos Términos; (iii) su infracción de cualquier derecho de un
+                    tercero, incluyendo la propiedad intelectual o el derecho a la privacidad.</p>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+                <h3 id="reclamacion" style="scroll-margin-top: 20px;">SECCIÓN 6: PROCESO DE RECLAMACIÓN POR INFRACCIÓN
+                    DE DERECHOS</h3>
+
+                <h4>6.1. Infracción de Propiedad Intelectual</h4>
+                <p>SofIA respeta la propiedad intelectual de terceros y espera que sus usuarios hagan lo mismo. Si usted
+                    cree que su obra protegida por derechos de autor ha sido copiada de una manera que constituye una
+                    infracción y está accesible en el Servicio, debe notificarlo al Prestador.</p>
+
+                <h4>6.2. Procedimiento de Notificación ("Takedown")</h4>
+                <p>Las notificaciones de infracción deben enviarse al correo de privacidad:
+                    <code>privacy@[RELLENAR DOMINIO DE SOFIA.COM]</code> e incluir, como mínimo:
+                </p>
+                <ul>
+                    <li>a) Firma física o electrónica de la persona autorizada para actuar en nombre del titular del
+                        derecho.</li>
+                    <li>b) Identificación de la obra protegida por derechos de autor que se alega ha sido infringida.
+                    </li>
+                    <li>c) Identificación del material que supuestamente infringe los derechos y la ubicación precisa
+                        dentro de la Aplicación.</li>
+                    <li>d) Una declaración de que la parte reclamante cree de buena fe que el uso del material no está
+                        autorizado.</li>
+                </ul>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+                <h3 id="vigencia" style="scroll-margin-top: 20px;">SECCIÓN 7: VIGENCIA, TERMINACIÓN Y LEY APLICABLE</h3>
+
+                <h4>7.1. Vigencia y Terminación</h4>
+                <p>Estos Términos permanecerán en pleno vigor y efecto mientras usted sea un Usuario del Servicio. SofIA
+                    puede suspender o terminar su acceso al Servicio, de forma inmediata y sin previo aviso, si (i)
+                    usted incumple sustancialmente estos Términos, (ii) creemos que su conducta puede dañar a otros
+                    usuarios o a SofIA, o (iii) por requerimiento legal.</p>
+
+                <h4>7.2. Ley Aplicable y Jurisdicción</h4>
+                <p>Estos Términos se regirán e interpretarán de acuerdo con las leyes de <strong>España</strong>, sin
+                    dar efecto a ningún principio de conflicto de leyes. Cualquier disputa que no pueda resolverse por
+                    mediación o negociación será sometida a la jurisdicción exclusiva de los <strong>Juzgados y
+                        Tribunales de la ciudad de [RELLENAR CIUDAD, ej. Madrid o la ciudad de tu domicilio fiscal en
+                        España]</strong>, renunciando usted a cualquier otro fuero que pudiera corresponderle.</p>
+
+                <h4>7.3. Nulidad Parcial (Severability)</h4>
+                <p>Si alguna disposición de estos Términos se considera inválida o inaplicable, dicha disposición será
+                    limitada o eliminada en la medida mínima necesaria, y las disposiciones restantes continuarán en
+                    pleno vigor y efecto.</p>
+
+                <h4>7.4. Acuerdo Completo</h4>
+                <p>Estos Términos, junto con la Política de Privacidad, constituyen el acuerdo completo entre usted y
+                    SofIA con respecto al Servicio.</p>
 
                 <div class="actions" style="margin-top: 30px;">
                     <a href="index.html" class="btn-secondary">Volver al Inicio</a>

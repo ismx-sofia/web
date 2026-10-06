@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SofIA - Política de IA</title>
+    <meta name="description" content="Política Específica de Tratamiento de Datos y Gobernanza de IA de SofIA.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="subpage">
+    <!-- Sticky Header -->
+    <nav class="sticky-header">
+        <a href="index.html" style="text-decoration: none;">
+            <h1 class="logo">SofIA</h1>
+        </a>
+        <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="header-actions" id="mobileMenu">
+            <a href="privacy.html" class="btn-sm"
+                style="background: transparent; color: var(--text-primary);">Privacidad</a>
+            <a href="terms.html" class="btn-sm"
+                style="background: transparent; color: var(--text-primary);">Términos</a>
+            <a href="ia.html" class="btn-sm" style="background: transparent; color: var(--text-primary);">IA</a>
+            <a href="legal.html" class="btn-sm" style="background: transparent; color: var(--text-primary);">Legal</a>
+            <a href="faq.html" class="btn-sm" style="background: transparent; color: var(--text-primary);">FAQ</a>
+            <a href="index.html#download" class="btn-sm">Descargar</a>
+        </div>
+    </nav>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            menu.classList.toggle('active');
+            btn.classList.toggle('active');
+        }
+    </script>
+    <div class="main-container">
+
+
+        <!-- Card Container -->
+        <main class="card">
+            <div class="card-header">
+                <h2>Política de IA y Gobernanza</h2>
+            </div>
+
+            <div class="card-content text-left">
+                <p><strong>POLÍTICA ESPECÍFICA DE TRATAMIENTO DE DATOS Y GOBERNANZA DE INTELIGENCIA ARTIFICIAL
+                        (IA)</strong><br>
+                    <em>Esta Política es un documento complementario y forma parte integral de nuestra Política de
+                        Privacidad general.</em>
+                </p>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+                <!-- Table of Contents -->
+                <!-- Table of Contents -->
+                <div class="toc-box">
+                    <h4 style="margin-top: 0; margin-bottom: 15px; color: var(--accent-dark);">Índice</h4>
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li style="margin-bottom: 8px;"><a href="#intro"
+                                style="text-decoration: none; color: var(--text-primary); font-weight: 500;">1.
+                                Introducción y Objeto</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#categorias"
+                                style="text-decoration: none; color: var(--text-primary); font-weight: 500;">2.
+                                Categorías de Datos</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#fundamento"
+                                style="text-decoration: none; color: var(--text-primary); font-weight: 500;">3.
+                                Fundamento Jurídico</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#arquitectura"
+                                style="text-decoration: none; color: var(--text-primary); font-weight: 500;">4.
+                                Arquitectura de IA</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#riesgos"
+                                style="text-decoration: none; color: var(--text-primary); font-weight: 500;">5. Gestión
+                                de Riesgos</a></li>
+                        <li><a href="#disposiciones"
+                                style="text-decoration: none; color: var(--text-primary); font-weight: 500;">6.
+                                Disposiciones Finales</a></li>
+                    </ul>
+                </div>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+                <h3 id="intro" style="scroll-margin-top: 20px;">SECCIÓN 1: INTRODUCCIÓN, OBJETO Y RESPONSABLE</h3>
+
+                <h4>1.1. Objeto y Alcance</h4>
+                <p>Esta Política establece los principios de transparencia, equidad y legalidad aplicables al
+                    tratamiento de Datos Personales, incluyendo Datos de Categoría Especial (Sensibles), mediante el uso
+                    de sistemas de Inteligencia Artificial (IA) y Aprendizaje Automático (Machine Learning - ML) en la
+                    aplicación SofIA.</p>
+
+                <h4>1.2. Responsable del Tratamiento y Contacto</h4>
+                <p>El Responsable del Tratamiento es Israel Sanjurjo Cuenca (SofIA), el Empresario Individual
+                    debidamente identificado en el Aviso Legal y la Política de Privacidad.</p>
+                <ul>
+                    <li><strong>Contacto para Cuestiones de IA:</strong> Para preguntas específicas sobre el
+                        funcionamiento de la IA, el entrenamiento del modelo y el procesamiento de sus datos, por favor,
+                        dirija su consulta a <code>privacy@[RELLENAR DOMINIO DE SOFIA.COM]</code>.</li>
+                </ul>
+
+                <h4>1.3. Gobernanza de la IA y Evaluación de Impacto (EIPD/DPIA)</h4>
+                <p>Dada la naturaleza del tratamiento (datos sensibles y uso de nuevas tecnologías), SofIA se compromete
+                    a mantener actualizada una <strong>Evaluación de Impacto en la Protección de Datos (EIPD o
+                        DPIA)</strong>, según lo requiere el Artículo 35 del RGPD. Esta evaluación asegura que se
+                    mitigan los riesgos inherentes al Psicoanálisis asistido por IA antes y durante el procesamiento.
+                </p>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+                <h3 id="categorias" style="scroll-margin-top: 20px;">SECCIÓN 2: CATEGORÍAS DE DATOS TRATADOS POR LOS
+                    ALGORITMOS DE IA</h3>
+                <p>La funcionalidad de Psicoanálisis de SofIA requiere la ingesta y el procesamiento de las siguientes
+                    categorías de datos:</p>
+
+                <h4>2.1. Datos de Entrada (Input Data)</h4>
+                <ul>
+                    <li><strong>a) Contenido Primario (Diario Personal):</strong> Textos, grabaciones de audio y vídeos,
+                        vivencias, experiencias y reflexiones personales subidas por el Usuario.</li>
+                    <li><strong>b) Metadatos de Contenido:</strong> Fechas, horas, duración de las entradas y la
+                        localización geográfica (solo si fue activada por el Usuario para esa entrada específica).</li>
+                    <li><strong>c) Datos de Categoría Especial (Datos Sensibles):</strong> Información inferida o
+                        explícitamente introducida por el Usuario sobre su salud física o mental, orientación sexual,
+                        identidad de género, creencias religiosas/filosóficas, u opiniones políticas.</li>
+                </ul>
+
+                <h4>2.2. Datos de Salida (Output Data)</h4>
+                <ul>
+                    <li><strong>a) Inferencias y Perfiles (Pseudonimizados):</strong> Análisis, patrones emocionales,
+                        resúmenes temáticos y correlaciones psicológicas generadas por la IA a partir del Diario.</li>
+                    <li><strong>b) Respuestas Generadas:</strong> El texto o audio generado por el chatbot en respuesta
+                        a la consulta del Usuario.</li>
+                </ul>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+                <h3 id="fundamento" style="scroll-margin-top: 20px;">SECCIÓN 3: FUNDAMENTO JURÍDICO Y MECANISMOS DE
+                    CONSENTIMIENTO</h3>
+
+                <h4>3.1. Bases Legales para el Tratamiento por IA</h4>
+                <ul>
+                    <li><strong>Ejecución del Contrato (Art. 6.1.b):</strong> Procesamiento del contenido general del
+                        Diario para la funcionalidad social básica.</li>
+                    <li><strong>Consentimiento Explícito (Art. 9.2.a):</strong> Única base legal para el tratamiento de
+                        los Datos de Categoría Especial (Sensibles) y para el entrenamiento del modelo de IA. Sin este
+                        consentimiento, la funcionalidad de Psicoanálisis no puede ser activada.</li>
+                </ul>
+
+                <h4>3.2. Mecanismo de Consentimiento y Revocación</h4>
+                <p>El consentimiento se obtiene mediante un proceso de <em>Opt-in</em> claro e inequívoco. El Usuario
+                    puede revocar su consentimiento en cualquier momento a través de los ajustes de privacidad de la
+                    Aplicación.</p>
+                <ul>
+                    <li><strong>Efectos de la Revocación:</strong> La revocación desactiva de forma inmediata el
+                        análisis y procesamiento de nuevas entradas del Diario por parte de la IA. Los datos previamente
+                        analizados permanecerán en los modelos de entrenamiento únicamente en forma agregada y
+                        anonimizada.</li>
+                </ul>
+
+                <h4>3.3. Derecho de Oposición al Perfilado y la Analítica</h4>
+                <p>El Usuario tiene el derecho de oponerse al tratamiento de sus datos con fines de perfilado y
+                    analítica para la mejora del servicio o la segmentación publicitaria (excepto la necesaria para el
+                    servicio esencial). Este derecho puede ejercerse a través del correo de contacto de privacidad.</p>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+                <h3 id="arquitectura" style="scroll-margin-top: 20px;">SECCIÓN 4: ARQUITECTURA DE IA, TERCEROS Y
+                    TRANSFERENCIAS DE DATOS</h3>
+
+                <h4>4.1. Arquitectura de Procesamiento y Sub-Encargados</h4>
+                <p>SofIA opera un sistema híbrido:</p>
+                <ul>
+                    <li><strong>a) Componente Propio:</strong> El pre-procesamiento, la tokenización inicial y el
+                        etiquetado de Datos Sensibles se realiza internamente o en servidores de AWS ubicados en la UE.
+                    </li>
+                    <li><strong>b) Componente Externo (Sub-Encargado):</strong> Utilizamos la API de <strong>Google
+                            Gemini</strong> para la generación de lenguaje y el procesamiento avanzado del Contenido
+                        Primario y las consultas. Google actúa como Encargado del Tratamiento bajo nuestras
+                        instrucciones.</li>
+                </ul>
+
+                <h4>4.2. Transferencias Internacionales de Datos (TID)</h4>
+                <p>La utilización de Google Gemini implica la transferencia de los <strong>Datos de Entrada (Diario y
+                        Consultas)</strong> a Estados Unidos (EE. UU.).</p>
+                <ul>
+                    <li><strong>Garantía:</strong> Esta TID se protege mediante las <strong>Cláusulas Contractuales Tipo
+                            (CCT)</strong> de la Comisión Europea. SofIA exige, además, medidas técnicas
+                        complementarias, como el cifrado de datos antes de su transferencia a la API, en la medida de lo
+                        técnicamente posible.</li>
+                    <li><strong>Datos de Entrenamiento:</strong> Los datos utilizados para el entrenamiento de los
+                        modelos de SofIA (el <em>output</em> de la IA) se mantienen, en la medida de lo posible,
+                        anonimizados y dentro del EEE, o sujetos a las CCT si se utilizan plataformas globales de
+                        entrenamiento.</li>
+                </ul>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+                <h3 id="riesgos" style="scroll-margin-top: 20px;">SECCIÓN 5: GESTIÓN DE RIESGOS, SESGOS Y LIMITACIÓN DE
+                    RESPONSABILIDAD</h3>
+
+                <h4>5.1. No Discriminación y Mitigación de Sesgos</h4>
+                <p>SofIA se compromete a realizar esfuerzos razonables para mitigar el riesgo de sesgos (bias) en las
+                    respuestas de la IA que puedan llevar a resultados injustos o discriminatorios. El modelo es
+                    revisado periódicamente para verificar la equidad en las respuestas generadas a partir de Datos de
+                    Categoría Especial.</p>
+
+                <h4>5.2. Exclusión del Ámbito Sanitario</h4>
+                <p>Se reitera que el servicio de Psicoanálisis Asistido por IA <strong>no está regulado ni validado como
+                        un dispositivo médico, psicológico o sanitario.</strong> La información proporcionada por la IA
+                    no debe ser utilizada como base para un diagnóstico, tratamiento o terapia profesional.</p>
+                <ul>
+                    <li>SofIA no acepta ninguna responsabilidad por decisiones basadas en las respuestas de la IA.</li>
+                </ul>
+
+                <h4>5.3. Transparencia y Trazabilidad</h4>
+                <p>En cumplimiento del principio de transparencia, SofIA mantendrá un registro de los parámetros clave
+                    utilizados en la toma de decisiones algorítmicas, garantizando la trazabilidad de los datos de
+                    entrenamiento y la posibilidad de auditar los resultados de la IA en caso de reclamación.</p>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+                <h3 id="disposiciones" style="scroll-margin-top: 20px;">SECCIÓN 6: DISPOSICIONES FINALES</h3>
+
+                <h4>6.1. Integración</h4>
+                <p>Esta Política de IA complementa y debe leerse junto con la Política de Privacidad y los Términos y
+                    Condiciones de Uso de SofIA. En caso de conflicto, la cláusula más restrictiva en favor de la
+                    privacidad del Usuario prevalecerá.</p>
+
+                <h4>6.2. Conservación de Datos de Entrenamiento</h4>
+                <p>Los datos anonimizados o agregados del Diario que se utilicen para el entrenamiento del modelo de IA
+                    podrán conservarse durante un periodo indefinido, ya que pierden su carácter personal al ser
+                    disociados de la identidad del Usuario y se consideran esenciales para la funcionalidad y seguridad
+                    del modelo.</p>
+
+                <div class="actions" style="margin-top: 30px;">
+                    <a href="index.html" class="btn-secondary">Volver al Inicio</a>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 SofIA. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+</body>
+
+</html>
