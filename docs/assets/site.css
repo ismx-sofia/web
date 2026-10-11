@@ -112,13 +112,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 :root:not([data-theme="light"]) .mesh i { }
 .grid-bg { position: absolute; inset: 0; z-index: -1; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 56px 56px; -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%); mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%); opacity: .6; pointer-events: none; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
-.badge-new { display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 6px; border-radius: 999px; background: var(--glass); border: 1px solid var(--glass-line); backdrop-filter: blur(10px); font-size: 14px; font-weight: 400; box-shadow: var(--shadow-sm); }
-.badge-new b { background: var(--grad); color: #fff; padding: 3px 10px; border-radius: 999px; font-size: 12px; letter-spacing: .04em; }
 .hero h1 { margin-top: 22px; font-size: clamp(42px, 6.4vw, 84px); font-weight: 700; letter-spacing: -.04em; line-height: .98; }
 .hero .lede { margin-top: 22px; font-size: clamp(18px, 1.6vw, 21px); color: var(--ink-2); max-width: 36ch; }
 .hero .actions { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-.hero .fine { margin-top: 16px; font-size: 14px; color: var(--ink-2); display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-.hero .fine .ico { width: 18px; height: 18px; color: var(--accent); }
 
 /* phone mock */
 .stage { position: relative; display: grid; place-items: center; padding: 24px 0; }
@@ -292,9 +288,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 .ai-step p { color: rgba(255,255,255,.82); }
 .ai-step .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
 .ai-step .chips span { font-size: 13px; padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,.12); }
-.ai .trust { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px 22px; color: rgba(255,255,255,.88); font-size: 15px; }
-.ai .trust span { display: inline-flex; gap: 8px; align-items: center; }
-.ai .trust .ico { width: 18px; height: 18px; color: #9CC0FF; }
 
 /* ---------- FAQ ---------- */
 .faq { margin-top: 36px; display: grid; gap: 12px; max-width: 880px; }
@@ -393,7 +386,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
   .menu { display: block; }
   .hero-grid { grid-template-columns: minmax(0, 1fr); text-align: center; }
   .hero .lede { margin-inline: auto; }
-  .hero .actions, .hero .fine { justify-content: center; }
+  .hero .actions { justify-content: center; }
   .stage { padding-top: 8px; }
   .modes { grid-template-columns: minmax(0, 1fr); }
   .seg { grid-template-columns: repeat(3, minmax(0, 1fr)); }
