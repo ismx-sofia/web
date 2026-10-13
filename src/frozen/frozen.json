@@ -1,5 +1,18 @@
 {
+  "ca/subscription-v1.html": "98dc499236ba5cd136eafb2ebfe9e4c08847e834fcd67f09668691a8d51b8688",
+  "cookies-v1.html": "c733bfd655385c54d8fc32bd4868de4f9e5918fd6aada24cc58299d3dfefa1df",
+  "cookies-v2.html": "005c28304c5ac0881d0f5cf0e6f4aada4dcae6b5b4e7876ced405a870dcc5e62",
+  "de/subscription-v1.html": "c2bc05267b831004e663b858a5c6d6d908bf3ee865ba7b11f0049e23731ff33e",
+  "en/subscription-v1.html": "c76dcd2e39499ab4f45353ea30678ecab5312c2c27cda3006754ef831174908f",
+  "fr/subscription-v1.html": "86cdf56a50b7777f4e1d517edaf80f494efcc774255828f13f45635ef8975744",
+  "ia-v1.html": "8cf33677efd68fed229e4b7d03ca2f1796ab0ca7a4c603198c3c7a9756470c46",
+  "ia-v2.html": "d14acfb0a675eb4807c23e0576d8d90fa6ab0f034fe2c6d682ee4de6c017b70f",
+  "it/subscription-v1.html": "3a6302155c92584349f0d44f976313c5bba7bb1692ea1b0918bbe00a0fe796f2",
   "privacy-v4.html": "0beb1cba4bf03263bfd5fa443ed7267846c91ecc55748483fd05c612f9dd92ca",
+  "privacy-v5.html": "a6192aa9c64250ca357192a402c352a5d93b04179b74514ed21c54a6c2a34f82",
+  "pt/subscription-v1.html": "3c84ed5b790fe989e94ce6d19d695b0ce07367c3a0997cedc876a39e2cda2bf0",
   "sensitive-v1.html": "c32ae07ef388b050a14215f765c6a88a1bf060f54ac642dd53643c68cac28f84",
-  "terms-v3.html": "d5bbfa5264ad06d5a919f880ab6c8a58ca6e4d171aea6bec5be0bb6ba5a07b10"
+  "subscription-v1.html": "6942c07321b9adc11ac3f3ba6687190956e35ac492ab07b174437b241b32e533",
+  "terms-v3.html": "d5bbfa5264ad06d5a919f880ab6c8a58ca6e4d171aea6bec5be0bb6ba5a07b10",
+  "terms-v4.html": "24bb60a4944c191d7e49014fc3c9af2ec292556afca84bc37369d904488dff02"
 }

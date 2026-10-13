@@ -2,7 +2,9 @@
 """Build the SofIA website into docs/ (what GitHub Pages serves).
 
 Pages are prerendered once per published language from src/pages/*.html and src/i18n/*.json.
-Legal documents live in src/legal/ and are published in Spanish only, at the root.
+Legal documents live in src/legal/ and are published in Spanish, at the root. The few that are also
+translated (TRANSLATED_LEGAL) have one source per language in src/legal/<i18n file>/ and are published
+under that language's folder.
 
     python3 tools/build.py            # draft: pending fields render highlighted
     python3 tools/build.py --release  # fails if anything is pending or a legal document is missing
@@ -40,7 +42,15 @@ LEGAL_PAGES = {
     "normas": "Normas de la comunidad",
     "cookies": "Política de cookies",
     "sensitive": "Consentimientos de datos sensibles",
+    "subscription": "Condiciones de la suscripción",
 }
+# Legal documents also published in other languages, and in which (codes of locales.json). A language
+# without a translation links to the English one from its footer and keeps its menu on the home page.
+TRANSLATED_LEGAL = {"subscription": ("en", "ca", "fr", "pt", "de", "it")}
+FALLBACK_LEGAL = "en"
+# Notes left in a source for whoever publishes it (⟨chat⟩, ⟨PENDIENTE…⟩): an HTML comment the draft
+# keeps and the release build refuses, so nothing ships before each one is resolved.
+MARKER = re.compile(r"<!--(?:(?!-->).)*?⟨.*?-->", re.S)
 
 TOKEN = re.compile(r"\{\{(t|a|steps|url|pending):([^}]*)\}\}")
 INLINE = re.compile(r"\{(path|label):([^}]+)\}")
@@ -82,10 +92,16 @@ class Site:
                 self.dicts[cfg["variant"]["file"]] = load_json(SRC / "i18n" / f"{cfg['variant']['file']}.json")
         self.tpl = {n: (SRC / "templates" / f"{n}.html").read_text(encoding="utf-8")
                     for n in ("header", "footer", "icons", "mark")}
+        if release:
+            for f in sorted(SRC.glob("i18n/**/*.json")) + sorted(SRC.glob("pages/*.html")) + sorted(SRC.glob("templates/*.html")):
+                self.source(f)
         self.pending: list[str] = []
 
     # ---------- urls ----------
     def url(self, page: str, code: str) -> str:
+        if page in TRANSLATED_LEGAL and code != "es":
+            lang = code if code in TRANSLATED_LEGAL[page] else FALLBACK_LEGAL
+            return f"/{self.locales[lang]['dir']}/{page}"
         if page in LEGAL_PAGES or (page == PRIVACY_BASIC and code == "es"):
             return "/privacy" if page == PRIVACY_BASIC else f"/{page}"
         if page == PRIVACY_BASIC:
@@ -152,10 +168,11 @@ class Site:
     # ---------- chrome ----------
     def lang_menu(self, page: str, code: str, footer: bool) -> str:
         items = []
-        target = page if page in LOCALIZED_PAGES or page == PRIVACY_BASIC else "index"
+        target = page if page in LOCALIZED_PAGES or page == PRIVACY_BASIC or page in TRANSLATED_LEGAL else "index"
         for c in self.order:
             cfg = self.locales[c]
-            href = self.url(target, c)
+            translated = target not in TRANSLATED_LEGAL or c == "es" or c in TRANSLATED_LEGAL[target]
+            href = self.url(target if translated else "index", c)
             cur = ' aria-current="page"' if c == code else ""
             if footer:
                 items.append(f'<a href="{href}" hreflang="{cfg["hreflang"]}" lang="{cfg["lang"]}"{cur}>{cfg["name"]}</a>')
@@ -180,8 +197,15 @@ class Site:
         if code != "es":
             note = ('<p class="foot-note"><svg class="ico" aria-hidden="true"><use href="#i-world"></use></svg>'
                     f'<span data-i18n="legal.langnote">{{{{t:legal.langnote}}}}</span></p>')
+        if code != "es" and page in TRANSLATED_LEGAL and code in TRANSLATED_LEGAL[page]:
+            note = ('<p class="foot-note"><svg class="ico" aria-hidden="true"><use href="#i-world"></use></svg>'
+                    f'<span data-i18n="legal.translated">{{{{t:legal.translated}}}}</span> '
+                    f'<a href="{self.url(page, "es")}" hreflang="es" lang="es">Español</a></p>')
         privacy = self.url(PRIVACY_BASIC, code)
         t = t.replace("{{privacylink}}", f'href="{privacy}"' + (' hreflang="es"' if code == "es" else ""))
+        sub = self.url("subscription", code)
+        sub_lang = "es" if code == "es" else (code if code in TRANSLATED_LEGAL["subscription"] else FALLBACK_LEGAL)
+        t = t.replace("{{subscriptionlink}}", f'href="{sub}" hreflang="{self.locales[sub_lang]["hreflang"]}"')
         return t.replace("{{legalnote}}", note)
 
     def chrome(self, part: str, page: str, code: str, dict_name: str, col: str) -> str:
@@ -305,32 +329,54 @@ class Site:
             return re.sub(r"<td>", lambda _: f'<td data-label="{html.escape(next(cells, ""), quote=True)}">', r.group(0))
         return re.sub(r"<tr>.*?</tr>", row, table, flags=re.S)
 
-    def legal_wrap(self, page: str, meta: dict, body: str) -> str:
+    # The frame's words in Spanish; a translated document passes its language's (`legal.*` keys).
+    LEGAL_WORDS = {"eyebrow": "Legal", "version": "Versión", "since": "Vigente desde el",
+                   "toc": "En esta página", "anchor": "Enlace a esta sección"}
+
+    def legal_words(self, dict_name: str, code: str, col: str) -> dict:
+        return {k: self.text(dict_name, f"legal.{k}", code, col) for k in self.LEGAL_WORDS}
+
+    def legal_wrap(self, page: str, meta: dict, body: str, words: dict | None = None) -> str:
         """Legal sources written as `<section id=".." data-title="..">` blocks get the shared frame:
         hero with version and effective date, numbered headings and the table of contents."""
+        w = {k: html.escape(v, quote=True) for k, v in (words or self.LEGAL_WORDS).items()}
         sections = re.findall(r'<section id="([^"]+)" data-title="([^"]+)">', body)
         n = 0
         def head(m):
             nonlocal n
             n += 1
             return (f'<section id="{m.group(1)}">\n<h2><span class="n grad-text">{n}</span>{m.group(2)}'
-                    f'<a class="anchor" href="#{m.group(1)}" aria-label="Enlace a esta sección">#</a></h2>')
+                    f'<a class="anchor" href="#{m.group(1)}" aria-label="{w["anchor"]}">#</a></h2>')
         body = re.sub(r'<section id="([^"]+)" data-title="([^"]+)">', head, body)
         body = re.sub(r"<table>.*?</table>", self.label_cells, body, flags=re.S)
         # `since` in the header: the date this version came into force; until it is set, the build says so.
         since = meta.get("since") or "{{pending:fecha de publicación}}"
         toc = "".join(f'<li><a href="#{i}">{t}</a></li>' for i, t in sections)
         return (f'<section class="page-hero" id="{page}">\n<div aria-hidden="true" class="mesh"><i></i><i></i><i></i></div>\n'
-                f'<div class="wrap">\n<span class="eyebrow">Legal</span>\n<h1><span class="grad-text">{meta["title"]}</span></h1>\n'
-                f'<p class="lede">{meta["lede"]}</p>\n<div class="meta-pills"><span>Versión {meta["version"]}</span>'
-                f'<span>Vigente desde el <b>{since}</b></span></div>\n</div>\n</section>\n'
-                f'<div class="wrap doc-layout">\n<nav aria-label="En esta página" class="toc">\n<h2>En esta página</h2>\n<ol>{toc}</ol>\n</nav>\n'
+                f'<div class="wrap">\n<span class="eyebrow">{w["eyebrow"]}</span>\n<h1><span class="grad-text">{meta["title"]}</span></h1>\n'
+                f'<p class="lede">{meta["lede"]}</p>\n<div class="meta-pills"><span>{w["version"]} {meta["version"]}</span>'
+                f'<span>{w["since"]} <b>{since}</b></span></div>\n</div>\n</section>\n'
+                f'<div class="wrap doc-layout">\n<nav aria-label="{w["toc"]}" class="toc">\n<h2>{w["toc"]}</h2>\n<ol>{toc}</ol>\n</nav>\n'
                 f'<article class="prose">\n{body.strip()}\n</article>\n</div>\n')
+
+    def source(self, path: Path) -> str:
+        text = path.read_text(encoding="utf-8")
+        if self.release and MARKER.search(text):
+            raise BuildError(f"{path.relative_to(SRC)}: unresolved note {MARKER.search(text).group(0)!r}")
+        return text
+
+    def legal_alternates(self, page: str) -> list[tuple[str, str]]:
+        if page == "privacy":
+            return [(self.locales[c]["hreflang"], self.url(PRIVACY_BASIC, c)) for c in self.order] + [("x-default", "/privacy")]
+        if page in TRANSLATED_LEGAL:
+            return ([(self.locales[c]["hreflang"], self.url(page, c)) for c in self.order if c == "es" or c in TRANSLATED_LEGAL[page]]
+                    + [("x-default", self.url(page, "es"))])
+        return []
 
     def build_legal(self, page: str) -> str:
         path = SRC / "legal" / f"{page}.html"
         if path.exists():
-            meta, body_tpl = page_meta(path.read_text(encoding="utf-8"))
+            meta, body_tpl = page_meta(self.source(path))
             title, description = meta.get("title", LEGAL_PAGES[page]), meta.get("description", LEGAL_PAGES[page])
             if "version" in meta:
                 body_tpl = self.legal_wrap(page, meta, body_tpl)
@@ -344,13 +390,43 @@ class Site:
         main = self.inline(self.fill(body_tpl, "es", "es", "es_es"), "es", "es_es")
         header = self.chrome("header", page, "es", "es", "es_es")
         footer = self.chrome("footer", page, "es", "es", "es_es")
-        alternates = []
-        if page == "privacy":
-            alternates = [(self.locales[c]["hreflang"], self.url(PRIVACY_BASIC, c)) for c in self.order] + [("x-default", "/privacy")]
         head = self.head(code="es", title=f"{title} · SofIA", description=description,
-                         canonical=f"/{page}", alternates=alternates)
+                         canonical=f"/{page}", alternates=self.legal_alternates(page))
         return self.document(code="es", head=head, body=f"{header}\n<main>\n{main}\n</main>\n{footer}",
                              data={"words": {"carousel": "carrusel", "card": "Ir a la tarjeta"}})
+
+    def translated_article(self, page: str, code: str, dict_name: str, col: str) -> tuple[dict, str]:
+        meta, body_tpl = page_meta(self.source(SRC / "legal" / dict_name / f"{page}.html"))
+        body = self.legal_wrap(page, meta, body_tpl, self.legal_words(dict_name, code, col))
+        return meta, self.inline(self.fill(body, code, dict_name, col), code, col)
+
+    def build_legal_translated(self, page: str, code: str) -> str:
+        """A legal document in another language. /pt/ carries both Portuguese texts and shows the one the
+        head script picked (`data-v`); the chrome switches through the usual variant dictionary."""
+        cfg = self.locales[code]
+        name, col = cfg["file"], cfg["col"]
+        meta, main = self.translated_article(page, code, name, col)
+        data = {"words": {"carousel": cfg["carousel"], "card": cfg["card"]}}
+        extra, title_attr = "", ""
+        if "variant" in cfg:
+            v = cfg["variant"]
+            vmeta, vmain = self.translated_article(page, code, v["file"], v["col"])
+            # One set of ids per page: the hidden text keeps them in data-id and site.js swaps them over.
+            vmain = re.sub(r'(<[a-z0-9]+ [^>]*?)\bid="', r'\1data-id="', vmain)
+            main = f'<div data-v="{cfg["lang"]}">\n{main}</div>\n<div data-v="{v["lang"]}" lang="{v["lang"]}" hidden>\n{vmain}</div>\n'
+            keys = self.keys_in(self.chrome_tpl("header", page, code) + self.chrome_tpl("footer", page, code))
+            data["variant"] = {"lang": v["lang"], "dict": {k: self.text(v["file"], k, code, v["col"]) for k in keys}}
+            data["variant"]["dict"]["__title"] = f"{vmeta['title']} · SofIA"
+            extra = ("\n<script>(function(){var h=document.documentElement,q=new URLSearchParams(location.search).get('v'),s=null;"
+                     "try{if(q){localStorage.setItem('sofia-pt',q)}s=localStorage.getItem('sofia-pt')}catch(e){}"
+                     "var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';"
+                     f"if(s==='pt'||(!s&&/^pt-pt/i.test(n))){{h.lang='{v['lang']}';h.classList.add('pt-swap')}}}})();</script>")
+            title_attr = '<span hidden data-i18n-title="__title"></span>'
+        header = self.chrome("header", page, code, name, col)
+        footer = self.chrome("footer", page, code, name, col)
+        head = self.head(code=code, title=f"{meta['title']} · SofIA", description=meta["description"],
+                         canonical=self.url(page, code), alternates=self.legal_alternates(page), extra=extra)
+        return self.document(code=code, head=head, body=f"{header}\n<main>\n{main}</main>\n{footer}\n{title_attr}", data=data)
 
     def router(self) -> list[dict]:
         """`DeeplinkBusiness.routes` (snapshot) in the app's order, as anchored regexes. The first route
@@ -405,7 +481,13 @@ class Site:
                 rows.append(f'    <xhtml:link rel="alternate" hreflang="x-default" href="{HOST}{self.url(page, "es")}"/>')
                 rows.append("  </url>")
         for page in LEGAL_PAGES:
-            if page != "privacy":  # listed above, with the summaries as its alternates
+            if page in TRANSLATED_LEGAL:
+                alts = self.legal_alternates(page)
+                for hl, href in alts[:-1]:
+                    rows.append(f"  <url><loc>{HOST}{href}</loc>")
+                    rows += [f'    <xhtml:link rel="alternate" hreflang="{h2}" href="{HOST}{u2}"/>' for h2, u2 in alts]
+                    rows.append("  </url>")
+            elif page != "privacy":  # listed above, with the summaries as its alternates
                 rows.append(f"  <url><loc>{HOST}/{page}</loc></url>")
         rows.append("</urlset>")
         return "\n".join(rows) + "\n"
@@ -438,6 +520,9 @@ class Site:
                 files[self.out_path(PRIVACY_BASIC, c)] = self.build_localized(PRIVACY_BASIC, c)
         for page in LEGAL_PAGES:
             files[f"{page}.html"] = self.build_legal(page)
+        for page, codes in TRANSLATED_LEGAL.items():
+            for c in codes:
+                files[f"{self.locales[c]['dir']}/{page}.html"] = self.build_legal_translated(page, c)
         files["404.html"] = self.build_404()
         files["sitemap.xml"] = self.sitemap()
         files["robots.txt"] = f"User-agent: *\nAllow: /\n\nSitemap: {HOST}/sitemap.xml\n"

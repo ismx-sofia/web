@@ -21,6 +21,16 @@
   /* ---------- Portuguese: /pt/ is prerendered in pt-BR; the head script picked the variant ---------- */
   try {
     if (S.variant && html.lang === S.variant.lang) { applyDict(S.variant.dict); S.aud = S.variant.aud; }
+    /* A translated legal text carries both Portuguese versions; show the one the head script picked. */
+    document.querySelectorAll('[data-v]').forEach(function (el) {
+      var shown = el.getAttribute('data-v') === html.lang;
+      el.hidden = !shown;
+      /* Only the shown text owns the ids, so the contents and the #anchors land on it. */
+      el.querySelectorAll(shown ? '[data-id]' : '[id]').forEach(function (n) {
+        if (shown) { n.id = n.getAttribute('data-id'); n.removeAttribute('data-id'); }
+        else { n.setAttribute('data-id', n.id); n.removeAttribute('id'); }
+      });
+    });
   } finally {
     html.classList.remove('pt-swap');
   }

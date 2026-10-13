@@ -84,7 +84,8 @@ class BuildTest(unittest.TestCase):
         for f in list((SRC / "pages").glob("*.html")) + list((SRC / "templates").glob("*.html")):
             used |= set(re.findall(r"\{\{[ta]:([^}]+)\}\}", f.read_text(encoding="utf-8")))
         used |= {f"aud.{n}.{k}" for n in range(4) for k in ("chip", "who", "text")}
-        used |= {"suggest.text", "suggest.go", "suggest.close", "legal.langnote"}
+        used |= {"suggest.text", "suggest.go", "suggest.close", "legal.langnote", "legal.translated"}
+        used |= {f"legal.{k}" for k in build.Site.LEGAL_WORDS}  # the frame of a translated legal text
         for f in (SRC / "pages").glob("*.html"):
             meta, _ = build.page_meta(f.read_text(encoding="utf-8"))
             used |= {meta["title-key"], meta["description-key"]}
@@ -196,8 +197,13 @@ class BuildTest(unittest.TestCase):
 
     # 7. what the audit found false never comes back
     def test_no_false_or_placeholder_claims(self):
-        bad = ["Lorem", "[RELLENAR", "Gemini", "AWS", "Legado Seguro", "Asistente Conversacional", "suscripci"]
+        # «suscripci» left this list with SofIA Plus, Pro and Max (Condiciones de la suscripción, 13-10).
+        bad = ["Lorem", "[RELLENAR", "Gemini", "AWS", "Legado Seguro", "Asistente Conversacional",
+               "funciones de pago", "no te cobra nada", "Algunas pantallas de la app anuncian"]
+        frozen = set(json.loads((SRC / "frozen" / "frozen.json").read_text(encoding="utf-8")))
         for page, text in self.pages.items():
+            if page in frozen:  # a frozen version keeps what it said then
+                continue
             for b in bad:
                 self.assertNotIn(b, text, f"{page}: {b}")
             for m in re.finditer(r"extremo a extremo", text):
@@ -294,6 +300,10 @@ class BuildTest(unittest.TestCase):
                 continue
             meta, _ = build.page_meta(path.read_text(encoding="utf-8"))
             text = self.pages[f"{page}.html"]
+            if "version" in meta and "since" not in meta:
+                # A version announced but not yet dated: the draft shows it pending, the release refuses it.
+                self.assertIn('Vigente desde el <b><span class="pending">', text, page)
+                continue
             self.assertRegex(text, r"Vigente desde el(?:</span>)?\s*<b>\d{1,2} de [a-z]+ de \d{4}</b>", page)
             if "version" in meta:
                 self.assertRegex(meta.get("since", ""), r"^\d{1,2} de [a-z]+ de \d{4}$", f"{page}: since")
@@ -301,6 +311,95 @@ class BuildTest(unittest.TestCase):
         for fact in ("B40623829", "Monte Carmelo, 6, BO", "46019 Valencia", "tomo 10772", "libro 8051",
                      "folio 14", "hoja 191053", "hello@sofia.ismx.app"):
             self.assertIn(fact, legal)
+
+    # 14d. a translated legal text: same sections, tables and figures as the Spanish one, its own
+    # language in the frame, reciprocal hreflang, and a footer link from every page in every language
+    def test_translated_legal(self):
+        for page, codes in build.TRANSLATED_LEGAL.items():
+            es = self.pages[f"{page}.html"]
+            es_ids = re.findall(r'<section id="([^"]+)">\n<h2>', es)
+            def figures(text):
+                tables = re.findall(r"<table>.*?</table>", text, flags=re.S)
+                return [re.sub(r"[.,\s\u202f]", "", n) for tb in tables for n in re.findall(r"\d[\d.,\s\u202f]*\d|\d", re.sub(r"<[^>]+>", " ", tb))]
+            def prose(text):
+                # deadlines, prices and counts said in the running text: the same multiset in every language
+                body = re.sub(r"<table>.*?</table>|<[^>]+>|B40623829|\{path:[^}]*\}", " ", text.split('<article class="prose">', 1)[1].split("</article>", 1)[0], flags=re.S)
+                return sorted(re.sub(r"[.,\s]", "", n) for n in re.findall(r"\d{1,3}(?:[.,\u00a0\u202f]\d{3})+(?!\d)|\d+(?:[.,]\d+)?", body))
+            es_src = build.page_meta((build.SRC / "legal" / f"{page}.html").read_text(encoding="utf-8"))[0]
+            expected = {(LOC["locales"][c]["hreflang"], self.site.url(page, c)) for c in ["es", *codes]} | {("x-default", f"/{page}")}
+            for c in codes:
+                cfg = LOC["locales"][c]
+                rel = f"{cfg['dir']}/{page}.html"
+                text = self.pages[rel]
+                self.assertIn(f'<html lang="{cfg["lang"]}">', text, rel)
+                articles = re.findall(r'<div data-v="[^"]+"[^>]*>(.*?)</div>\n(?=<div data-v|</main>)', text, flags=re.S) or [text]
+                self.assertEqual(len(articles), 2 if "variant" in cfg else 1, rel)
+                for art in articles:
+                    self.assertEqual(re.findall(r'<section (?:data-)?id="([^"]+)">\n<h2>', art), es_ids, rel)
+                    self.assertEqual(figures(art), figures(es), rel)
+                    self.assertEqual(prose(art), prose(es), rel)
+                    self.assertNotIn("Vigente desde", art, rel)
+                    self.assertNotIn("En esta página", art, rel)
+                alts = set(re.findall(r'<link rel="alternate" hreflang="([^"]+)" href="https://www\.sofia\.ismx\.app([^"]+)">', text))
+                self.assertEqual(alts, expected, rel)
+                self.assertIn(f'<link rel="canonical" href="{HOST}/{cfg["dir"]}/{page}">', text, rel)
+                self.assertIn('data-i18n="legal.translated"', text, rel)
+                for f in {cfg["file"], cfg.get("variant", {}).get("file", cfg["file"])}:
+                    meta = build.page_meta((build.SRC / "legal" / f / f"{page}.html").read_text(encoding="utf-8"))[0]
+                    self.assertEqual(meta["version"], es_src["version"], f)
+            self.assertEqual(set(re.findall(r'<link rel="alternate" hreflang="([^"]+)" href="https://www\.sofia\.ismx\.app([^"]+)">', es)), expected)
+            for c in LOC["order"]:
+                index = self.pages[self.site.out_path("index", c)]
+                href = f"/{page}" if c == "es" else f"/{LOC['locales'][c if c in codes else build.FALLBACK_LEGAL]['dir']}/{page}"
+                self.assertIn(f'data-i18n="foot.{page}" href="{href}"', index, c)
+                self.assertNotIn('data-i18n="legal.translated"', index, c)
+
+    # 14e. the /pt/ legal text switches with the rest of the page, and the switch covers its chrome
+    def test_translated_legal_portuguese_variant(self):
+        for page, codes in build.TRANSLATED_LEGAL.items():
+            if "pt" not in codes:
+                continue
+            text = self.pages[f"pt/{page}.html"]
+            self.assertIn('<div data-v="pt-BR">', text)
+            self.assertIn('<div data-v="pt-PT" lang="pt-PT" hidden>', text)
+            data = json.loads(re.search(r"window\.SOFIA=(.*?);</script>", text).group(1))
+            keys = set(re.findall(r'data-i18n(?:-aria|-title)?="([^"]+)"', text))
+            self.assertEqual(sorted(keys - set(data["variant"]["dict"])), [])
+            js = (self.out / "assets" / "site.js").read_text(encoding="utf-8")
+            self.assertIn("querySelectorAll('[data-v]')", js)
+
+    # 14g. no page repeats an id (the hidden Portuguese text keeps its own in data-id)
+    def test_no_duplicate_ids(self):
+        for rel, text in self.pages.items():
+            ids = re.findall(r'<[a-zA-Z][^>]*?\sid="([^"]+)"', text)
+            self.assertEqual(sorted({i for i in ids if ids.count(i) > 1}), [], rel)
+
+    # 14f. a note left for whoever publishes (⟨chat⟩, ⟨PENDIENTE…⟩) never reaches the release build
+    def test_release_refuses_notes(self):
+        with tempfile.TemporaryDirectory() as t:
+            f = Path(t) / "x.html"
+            f.write_text("<p>a <!--⟨chat⟩-->b</p>", encoding="utf-8")
+            draft, release = build.Site(release=False), build.Site(release=True)
+            old, build.SRC = build.SRC, Path(t)
+            try:
+                self.assertIn("⟨chat⟩", draft.source(f))
+                with self.assertRaises(build.BuildError):
+                    release.source(f)
+                f.write_text("<p>a <!-- comentario --> b</p>", encoding="utf-8")
+                release.source(f)
+            finally:
+                build.SRC = old
+        for rel, text in self.pages.items():
+            self.assertNotIn("⟨", re.sub(r"<!--⟨[^>]*-->", "", text), rel)
+        with tempfile.TemporaryDirectory() as t:
+            f = Path(t) / "y.json"
+            f.write_text('{"k": "a <!-- ver ⟨chat⟩\n con el plan --> b"}', encoding="utf-8")
+            old, build.SRC = build.SRC, Path(t)
+            try:
+                with self.assertRaises(build.BuildError):
+                    release.source(f)
+            finally:
+                build.SRC = old
 
     # 15. no generated page falls under a universal-link pattern of the AASA
     def test_pages_outside_universal_links(self):

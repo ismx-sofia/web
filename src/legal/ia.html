@@ -1,10 +1,10 @@
-<!-- page: ia · title: Política de IA · description: Qué hace la inteligencia artificial de SofIA con tus entradas, dónde funciona, qué no hace y qué puedes decidir. · version: 1 · since: 6 de octubre de 2026 · lede: Qué hace la inteligencia artificial de SofIA con lo que escribes, dónde funciona, qué no hace nunca y qué puedes decidir tú. -->
+<!-- page: ia · title: Política de IA · description: Qué hace la inteligencia artificial de SofIA con tus entradas, dónde funciona, qué no hace y qué puedes decidir. · version: 2 · since: 13 de octubre de 2026 · lede: Qué hace la inteligencia artificial de SofIA con lo que escribes, dónde funciona, qué no hace nunca y qué puedes decidir tú. -->
 
 <section id="resumen" data-title="Lo esencial">
 <div class="callout">
 <p><b>Dónde funciona:</b> en nuestros propios servidores, en Alemania, con modelos abiertos que ejecutamos nosotros. Tus entradas no se envían a OpenAI, Anthropic, Google ni a ningún otro proveedor de IA.</p>
 <p><b>Lo que nunca hacemos:</b> entrenar modelos con tu diario, venderlo, ni usarlo para elegir anuncios.</p>
-<p><b>Lo que hace:</b> transcribir tus audios y vídeos, resumir tus entradas, detectar de qué temas hablan para buscarlas, recomendarlas y velar lo sensible a quien no quiere verlo, proponerte ideas sobre las que escribir y revisar lo que se comparte según las <a href="/normas">Normas</a>.</p>
+<p><b>Lo que hace:</b> transcribir tus audios y vídeos, resumir tus entradas, detectar de qué temas hablan para buscarlas, recomendarlas y velar lo sensible a quien no quiere verlo, proponerte ideas sobre las que escribir y revisar lo que se comparte según las <a href="/normas">Normas</a>. Y, cuando tú se lo pides, ayudarte a escribir y conversar sobre tu diario, con una cuota según tu plan.</p>
 <p><b>Quién responde:</b> PROGRAMSAN, S.L., que presta SofIA (ver el <a href="/legal">Aviso legal</a>).</p>
 </div>
 </section>
@@ -14,9 +14,9 @@
 <thead><tr><th>Modelo</th><th>Para qué</th><th>Dónde funciona</th></tr></thead>
 <tbody>
 <tr><td>Whisper (small)</td><td>Transcribir el audio y el vídeo</td><td>Nuestros servidores</td></tr>
-<tr><td>Qwen3 (8B)</td><td>Resumir, extraer temas y revisar lo que se comparte</td><td>Nuestros servidores</td></tr>
+<tr><td>Qwen3 (8B)</td><td>Resumir, extraer temas, revisar lo que se comparte y atender las herramientas que pides</td><td>Nuestros servidores</td></tr>
 <tr><td>BGE-M3</td><td>Convertir el texto en una representación numérica para buscar, recomendar y relacionar temas</td><td>Nuestros servidores</td></tr>
-<tr><td>El reconocimiento de voz de tu móvil</td><td>Dictar un pensamiento rápido</td><td>Tu móvil, sin conexión</td></tr>
+<tr><td>El reconocimiento de voz de tu móvil</td><td>Dictar un pensamiento rápido o una entrada</td><td>Tu móvil, sin conexión</td></tr>
 </tbody></table></div>
 <p>Nuestros servidores están alquilados a IONOS en Alemania y los modelos funcionan en una red privada, sin salida a servicios de IA de terceros. Cada resultado guarda qué modelo lo produjo.</p>
 </section>
@@ -39,6 +39,12 @@
 <p>Si apagas «Habilitar inteligencia» en {path:settingsTitle,settingsOptionIntelligence}, la tarjeta de ideas de Inicio desaparece. Si apagas «Usar mis intereses para ordenar» o {path:settingsPrivacySuggestions} en {path:settingsTitle,settingsOptionPrivacy}, las ideas son siempre preguntas abiertas, nunca un tema sacado de lo que lees. Las preguntas abiertas entre las entradas siguen apareciendo.</p>
 </section>
 
+<section id="herramientas" data-title="Herramientas que pides tú">
+<p>Mientras escribes, puedes pedirle a SofIA que te proponga un título, resuma lo que llevas, te sugiera ideas, te ayude a seguir o reescriba un fragmento. Al tocar la herramienta, la app envía a nuestros servidores el texto de la entrada que estás escribiendo; el modelo responde y tú decides si usas lo que te propone. No guardamos ni lo que pides ni lo que responde, salvo lo que tú incorpores a tu entrada.</p>
+<p>En la conversación con tu diario, la app envía lo que preguntas y el modelo usa las entradas de tu diario que hacen falta para responder; nunca las de otras personas.</p>
+<p>Nada de esto ocurre si no tocas una herramienta. Las herramientas gastan tu cuota, que depende de tu plan: cuenta lo que el modelo procesa, en ventanas de 4 horas y de 7 días, y la ves en porcentaje en {path:settingsTitle,settingsOptionIntelligence}. Las reglas completas están en las <a href="/subscription">Condiciones de la suscripción</a>.</p>
+</section>
+
 <section id="recomendaciones" data-title="Recomendaciones y búsqueda">
 <p>Con los temas de lo que lees, lo que te gusta, guardas o comentas, y los intereses que elegiste al registrarte, calculamos tus afinidades y las usamos para ordenar Para ti y la búsqueda. Los criterios están en la sección 3 de los <a href="/terms#recomendaciones">Términos</a>.</p>
 <p>Tus afinidades se calculan siempre; si apagas {path:settingsTitle,settingsOptionPreferences,settingsPreferencesInterests} › «Usar mis intereses para ordenar», dejan de usarse, y con «Restablecer intereses» empiezan de cero.</p>
@@ -55,7 +61,7 @@
 </section>
 
 <section id="voz" data-title="Dictado">
-<p>Puedes dictar un pensamiento rápido. El reconocimiento de voz lo hace tu móvil, sin conexión: el audio ni se guarda ni se envía, y solo nos llega el texto que acabas publicando. Si tu móvil no puede reconocer la voz sin conexión, la app no te ofrece dictar.</p>
+<p>Puedes dictar un pensamiento rápido o una entrada. El reconocimiento de voz lo hace tu móvil, sin conexión: el audio ni se guarda ni se envía, y solo nos llega el texto. Si pides que SofIA pase a limpio lo que dictaste, ese texto se envía a nuestros servidores para que el modelo lo redacte como una entrada de diario, sin muletillas y con hilo; gasta cuota, como el resto de herramientas. Si tu móvil no puede reconocer la voz sin conexión, la app no te ofrece dictar.</p>
 </section>
 
 <section id="no-hace" data-title="Lo que no hace">
@@ -66,7 +72,6 @@
 <li><b>No es un consejo profesional</b>: ni médico, ni psicológico, ni jurídico, ni financiero.</li>
 <li><b>No interviene en los anuncios</b>: ningún dato de tu diario viaja en la petición de un anuncio.</li>
 </ul>
-<p>Algunas pantallas de la app anuncian herramientas de IA que todavía no están disponibles. Cuando lleguen, actualizaremos esta política antes de activarlas.</p>
 </section>
 
 <section id="ajustes" data-title="Lo que puedes decidir">
@@ -79,6 +84,8 @@
 <tr><td>Que no se use tu perfil para ordenar lo que ves</td><td>Apaga «Usar mis intereses para ordenar»</td></tr>
 <tr><td>No ver contenidos sensibles de otros</td><td>{path:settingsTitle,settingsOptionPreferences,settingsPreferencesSensitive}</td></tr>
 <tr><td>Que nada de una entrada siga procesado</td><td>Bórrala: a los 30 días desaparece con todo lo que la IA obtuvo de ella</td></tr>
+<tr><td>Ver cuánto llevas de tu cuota</td><td>{path:settingsTitle,settingsOptionIntelligence}</td></tr>
+<tr><td>Que no se envíe nada a la IA mientras escribes</td><td>No toques las herramientas: solo se usan cuando las pides</td></tr>
 <tr><td>Que una decisión de moderación la revise una persona</td><td>Recúrrela en {path:settingsTitle,settingsOptionLegal,settingsLegalModeration}</td></tr>
 </tbody></table></div>
 <p>Hoy no hay un ajuste que apague la transcripción, el resumen o los temas de tus entradas, porque son parte del servicio. Si quieres oponerte a ellos, escríbenos a <b>legal@sofia.ismx.app</b>.</p>

@@ -546,4 +546,74 @@
   <url><loc>https://www.sofia.ismx.app/normas</loc></url>
   <url><loc>https://www.sofia.ismx.app/cookies</loc></url>
   <url><loc>https://www.sofia.ismx.app/sensitive</loc></url>
+  <url><loc>https://www.sofia.ismx.app/subscription</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/subscription"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/subscription"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/subscription"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/subscription"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/subscription"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/subscription"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/subscription"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/subscription"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/en/subscription</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/subscription"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/subscription"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/subscription"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/subscription"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/subscription"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/subscription"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/subscription"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/subscription"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/ca/subscription</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/subscription"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/subscription"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/subscription"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/subscription"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/subscription"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/subscription"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/subscription"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/subscription"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/fr/subscription</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/subscription"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/subscription"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/subscription"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/subscription"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/subscription"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/subscription"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/subscription"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/subscription"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/pt/subscription</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/subscription"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/subscription"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/subscription"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/subscription"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/subscription"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/subscription"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/subscription"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/subscription"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/de/subscription</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/subscription"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/subscription"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/subscription"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/subscription"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/subscription"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/subscription"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/subscription"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/subscription"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/it/subscription</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/subscription"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/subscription"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/subscription"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/subscription"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/subscription"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/subscription"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/subscription"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/subscription"/>
+  </url>
 </urlset>
