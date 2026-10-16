@@ -422,8 +422,6 @@ class Site:
         for data in lists.values():
             texts.update(data["texts"])
         links = lists["ios"]["links"]
-        ffmpeg = next(n for n in lists["ios"]["notices"] if n["id"] == "extra:ffmpeg")
-        ffmpeg_sources = "".join(f'<li><a href="{e(s["url"], quote=True)}" rel="noopener">{e(s["name"])}</a></li>' for s in ffmpeg["sources"])
 
         def notice(n: dict) -> str:
             refs = [r for r in [n.get("text"), *n.get("also", [])] if r]
@@ -444,15 +442,11 @@ class Site:
              "<p>Las apps de SofIA llevan componentes de terceros. Esta página reproduce, para cada uno, su aviso de "
              "copyright y la licencia con la que se usa. Las apps llevan la misma lista dentro, en "
              + self.inline("{path:settingsTitle,settingsOptionLegal,settingsLegalSources}", "es", "es_es")
-             + ", donde se puede leer sin conexión.</p>"),
+             + ", donde se puede leer sin conexión. Cuando la licencia de un componente pide ofrecer su código fuente, "
+             "su entrada enlaza dónde está. Para cualquier duda: <a href=\"mailto:legal@sofia.ismx.app\">legal@sofia.ismx.app</a>.</p>"),
             ("licencias-lugares", "Datos de lugares",
              f'<p>Los lugares que se buscan al añadir una ubicación a una entrada vienen de OpenStreetMap: © colaboradores de '
              f'OpenStreetMap, disponibles con la <a href="{e(links["openStreetMap"], quote=True)}" rel="noopener">Open Database License</a>.</p>'),
-            ("licencias-ffmpeg", "Código fuente de FFmpeg",
-             "<p>Las apps editan vídeo con FFmpeg, que se distribuye con la GNU Lesser General Public License, versión 3. "
-             "Se compila con FFmpegKit, sin bibliotecas externas. Su código fuente, tal como se compila para las apps:</p>"
-             f'<ul>{ffmpeg_sources}</ul>'
-             "<p>Para cualquier duda: <a href=\"mailto:legal@sofia.ismx.app\">legal@sofia.ismx.app</a>.</p>"),
         ]
         for platform, title in LICENSE_LISTS:
             items = "\n".join(notice(n) for n in lists[platform]["notices"])
