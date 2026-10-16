@@ -422,6 +422,8 @@ class Site:
         for data in lists.values():
             texts.update(data["texts"])
         links = lists["ios"]["links"]
+        ffmpeg = next(n for n in lists["ios"]["notices"] if n["id"] == "extra:ffmpeg")
+        ffmpeg_sources = "".join(f'<li><a href="{e(s["url"], quote=True)}" rel="noopener">{e(s["name"])}</a></li>' for s in ffmpeg["sources"])
 
         def notice(n: dict) -> str:
             refs = [r for r in [n.get("text"), *n.get("also", [])] if r]
@@ -433,7 +435,8 @@ class Site:
                 license = f'<a href="{e(n["url"], quote=True)}" rel="noopener">{license}</a>'
             version = f' <span class="v">{e(n["version"])}</span>' if n.get("version") else ""
             holder = f'<br><small>{e(n["copyright"]).replace(chr(10), "<br>")}</small>' if n.get("copyright") else ""
-            source = (f' · <a href="{e(n["source"], quote=True)}" rel="noopener">código fuente</a>' if n.get("source") else "")
+            source = (" · código fuente: " + ", ".join(f'<a href="{e(s["url"], quote=True)}" rel="noopener">{e(s["name"])}</a>' for s in n["sources"])
+                      if n.get("sources") else "")
             return f"<li><b>{e(n['name'])}</b>{version} — {license}{source}{holder}</li>"
 
         sections = [
@@ -447,8 +450,9 @@ class Site:
              f'OpenStreetMap, disponibles con la <a href="{e(links["openStreetMap"], quote=True)}" rel="noopener">Open Database License</a>.</p>'),
             ("licencias-ffmpeg", "Código fuente de FFmpeg",
              "<p>Las apps editan vídeo con FFmpeg, que se distribuye con la GNU Lesser General Public License, versión 3. "
-             f'Su código fuente, tal como se compila para las apps, se descarga <a href="{e(links["ffmpegSource"], quote=True)}" rel="noopener">aquí</a>. '
-             "Para cualquier duda: <a href=\"mailto:legal@sofia.ismx.app\">legal@sofia.ismx.app</a>.</p>"),
+             "Se compila con FFmpegKit, sin bibliotecas externas. Su código fuente, tal como se compila para las apps:</p>"
+             f'<ul>{ffmpeg_sources}</ul>'
+             "<p>Para cualquier duda: <a href=\"mailto:legal@sofia.ismx.app\">legal@sofia.ismx.app</a>.</p>"),
         ]
         for platform, title in LICENSE_LISTS:
             items = "\n".join(notice(n) for n in lists[platform]["notices"])

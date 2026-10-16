@@ -382,7 +382,6 @@
   "swiftPackages": "8ec7fccd08b48fc3"
  },
  "links": {
-  "ffmpegSource": "https://github.com/ismx-sofia/web/releases/tag/ffmpeg-source-6.0.6",
   "openStreetMap": "https://www.openstreetmap.org/copyright"
  },
  "notices": [
@@ -1825,12 +1824,25 @@
    "id": "extra:ffmpeg",
    "name": "FFmpeg 6.0 · FFmpegKit",
    "license": "LGPL-3.0-only",
-   "copyright": "Copyright © the FFmpeg developers\nCopyright © 2018-2022 Taner Şener (FFmpegKit)\nFFmpegKit build: maitrungduc1410/ffmpeg-kit, tags ios-6.0.6 and android-6.0.6",
+   "copyright": "Copyright © the FFmpeg developers\nCopyright © 2018-2022 Taner Şener (FFmpegKit)",
    "url": "https://ffmpeg.org",
    "origin": "extra",
    "text": "LGPL-3.0-only",
    "also": [],
-   "source": "https://github.com/ismx-sofia/web/releases/tag/ffmpeg-source-6.0.6",
+   "sources": [
+    {
+     "name": "FFmpeg n6.0",
+     "url": "https://github.com/FFmpeg/FFmpeg/tree/n6.0"
+    },
+    {
+     "name": "FFmpegKit ios-6.0.6",
+     "url": "https://github.com/maitrungduc1410/ffmpeg-kit/tree/ios-6.0.6"
+    },
+    {
+     "name": "FFmpegKit android-6.0.6",
+     "url": "https://github.com/maitrungduc1410/ffmpeg-kit/tree/android-6.0.6"
+    }
+   ],
    "version": "6.0.6"
   },
   {
