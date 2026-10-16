@@ -195,6 +195,14 @@
     });
   });
 
+  /* ---------- a link to a closed <details> opens it (/licenses: the license texts) ---------- */
+  var openTarget = function () {
+    var id = decodeURIComponent(location.hash.slice(1)), el = id && document.getElementById(id);
+    if (el && el.tagName === 'DETAILS' && !el.open) { el.open = true; el.scrollIntoView(); }
+  };
+  window.addEventListener('hashchange', openTarget);
+  openTarget();
+
   /* ---------- menus close when a link inside is followed ---------- */
   document.querySelectorAll('details.menu a, details.lang a').forEach(function (a) {
     a.addEventListener('click', function () { var d = a.closest('details'); if (d) d.open = false; });

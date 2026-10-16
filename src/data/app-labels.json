@@ -7,6 +7,10 @@
     "settingsOptionLegal": {
       "es_es": "Legal"
     },
+    "settingsLegalSources": {
+      "es_es": "Licencias de código abierto",
+      "en_us": "Open-source licenses"
+    },
     "settingsLegalErase": {
       "es_es": "Borrar cuenta"
     },

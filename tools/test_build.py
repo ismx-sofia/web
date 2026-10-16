@@ -411,6 +411,39 @@ class BuildTest(unittest.TestCase):
             for r in rx:
                 self.assertIsNone(r.match(u), f"{u} would open the app ({r.pattern})")
 
+    # 21. /licenses: every notice of both apps with a working link to its text, and the release refuses a
+    #     list built without one of its inputs (the app ships the same lists: apps/mobile/tools/licenses)
+    def test_licenses_page(self):
+        page = self.pages[f"{build.LICENSES_PAGE}.html"]
+        ids = parse(page).ids
+        for platform, _ in build.LICENSE_LISTS:
+            data = json.loads((SRC / "data" / "licenses" / f"{platform}.json").read_text(encoding="utf-8"))
+            self.assertIn(f'<p>{len(data["notices"])} componentes.</p>', page, platform)
+            for key in data["texts"]:
+                self.assertIn(build.Site.text_anchor(key), ids, f"{platform}: text {key} has no anchor")
+            for n in data["notices"]:
+                for ref in [n.get("text"), *n.get("also", [])]:
+                    if ref:
+                        self.assertIn(f'href="#{build.Site.text_anchor(ref)}"', page, n["id"])
+        self.assertIn(f'href="/{build.LICENSES_PAGE}"', self.pages["index.html"], "the footer links /licenses")
+        aasa = json.loads((SRC / "static" / ".well-known" / "apple-app-site-association").read_text(encoding="utf-8"))
+        for c in aasa["applinks"]["details"][0]["components"]:
+            self.assertIsNone(re.match("^" + re.escape(c["/"]).replace(r"\*", ".*") + "$", f"/{build.LICENSES_PAGE}"))
+
+    def test_release_refuses_incomplete_licenses(self):
+        with tempfile.TemporaryDirectory() as t:
+            site = build.Site(release=True)
+            original = build.load_json
+            def incomplete(path):
+                data = original(path)
+                return {**data, "incomplete": ["maven"]} if path.name == "android.json" else data
+            build.load_json = incomplete
+            try:
+                with self.assertRaises(build.BuildError):
+                    site.build_licenses()
+            finally:
+                build.load_json = original
+
     # 16. 404 is served at any depth: nothing relative, no index
     def test_404_works_at_any_depth(self):
         text = self.pages["404.html"]
