@@ -25,11 +25,11 @@
                     },
                     {
                         "/": "/settings/*",
-                        "comment": "Settings screens reachable from a surface: goals and goal creation"
+                        "comment": "Settings screens reachable from a surface: activity and target creation"
                     },
                     {
-                        "/": "/goals*",
-                        "comment": "Goals — historical alias of /settings/goals, kept because Apple caches this file"
+                        "/": "/activity*",
+                        "comment": "Activity — short alias of /settings/activity, kept because Apple caches this file"
                     },
                     {
                         "/": "/notifications*",

@@ -27,7 +27,7 @@ LOC = json.loads((SRC / "data" / "locales.json").read_text(encoding="utf-8"))
 PUBLISHED = [LOC["locales"][c]["file"] for c in LOC["order"]] + [LOC["locales"]["pt"]["variant"]["file"]]
 TOKENS = re.compile(r"\{\{(?:url):[^}]+\}\}|\{(?:path|label):[^}]+\}|<[^>]+>")
 APP_URLS = ["/privacy", "/terms", "/faq", "/ia", "/legal"]  # opened by the app (LegalSettingsScreen, SettingsScreen, IntelligenceSettingsScreen)
-AASA_PATTERNS = [r"^/user/", r"^/entry/", r"^/reader", r"^/journal", r"^/settings/", r"^/goals", r"^/notifications", r"^/search", r"^/chat"]
+AASA_PATTERNS = [r"^/user/", r"^/entry/", r"^/reader", r"^/journal", r"^/settings/", r"^/activity", r"^/notifications", r"^/search", r"^/chat"]
 
 
 class Links(html.parser.HTMLParser):
@@ -178,7 +178,7 @@ class BuildTest(unittest.TestCase):
         self.assertTrue(known("/user/ana", "share=2"))
         self.assertTrue(known("/entry", "id=abc"))          # links handed out before the path form
         self.assertTrue(known("/entry/create/call"))
-        self.assertTrue(known("/settings/goals/target/create"))
+        self.assertTrue(known("/settings/activity/target/create"))
         self.assertFalse(known("/entry"))                   # entry needs an id
         self.assertFalse(known("/recovery"))                # webless
         self.assertFalse(known("/privacy-old"))

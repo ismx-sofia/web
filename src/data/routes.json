@@ -1,5 +1,5 @@
 {
-  "_source": "03-code apps/mobile/src/business/device/os/DeeplinkBusiness.ts @ 0cc9ec18, 2026-10-13. Update this snapshot whenever DeeplinkBusiness.routes changes.",
+  "_source": "03-code apps/mobile/src/business/device/os/DeeplinkBusiness.ts @ adf65f5d, 2026-10-17. Update this snapshot whenever DeeplinkBusiness.routes changes.",
   "routes": [
     {
       "path": "user/:id?",
@@ -45,13 +45,13 @@
       "requires": []
     },
     {
-      "path": "settings/goals/target/create",
-      "action": "goals-create",
+      "path": "settings/activity/target/create",
+      "action": "activity-target-create",
       "requires": []
     },
     {
-      "path": "settings/goals",
-      "action": "goals",
+      "path": "settings/activity",
+      "action": "activity",
       "requires": []
     },
     {
@@ -70,6 +70,11 @@
       "requires": []
     },
     {
+      "path": "gift",
+      "action": "gift",
+      "requires": []
+    },
+    {
       "path": "reader",
       "action": "reader",
       "requires": []
@@ -80,8 +85,8 @@
       "requires": []
     },
     {
-      "path": "goals",
-      "action": "goals",
+      "path": "activity",
+      "action": "activity",
       "requires": []
     },
     {
@@ -97,6 +102,7 @@
   ],
   "webless": [
     "recovery",
+    "gift",
     "settings/privacy/mentions",
     "entry/inbox/:batch",
     "settings/storage/export",
@@ -104,7 +110,7 @@
     "entry/mentions/:id?"
   ],
   "aliases": [
-    "goals"
+    "activity"
   ],
   "hosts": [
     "www.sofia.ismx.app",
