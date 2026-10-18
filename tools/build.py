@@ -41,12 +41,19 @@ LEGAL_PAGES = {
     "ia": "Política de IA",
     "normas": "Normas de la comunidad",
     "cookies": "Política de cookies",
-    "sensitive": "Consentimientos de datos sensibles",
+    "consent-journal": "Consentimiento del diario",
+    "consent-health": "Consentimiento de salud y bienestar",
     "subscription": "Condiciones de la suscripción",
 }
 # Legal documents also published in other languages, and in which (codes of locales.json). A language
 # without a translation links to the English one from its footer and keeps its menu on the home page.
-TRANSLATED_LEGAL = {"subscription": ("en", "ca", "fr", "pt", "de", "it")}
+# Each consent has its own page, so it can be read, versioned and accepted on its own (Israel, 2026-10-18).
+# Not /journal: the app claims that path as a universal link.
+TRANSLATED_LEGAL = {
+    "subscription": ("en", "ca", "fr", "pt", "de", "it"),
+    "consent-journal": ("en", "ca", "fr", "pt", "de", "it", "zh", "ja"),
+    "consent-health": ("en", "ca", "fr", "pt", "de", "it", "zh", "ja"),
+}
 FALLBACK_LEGAL = "en"
 # The open-source notices of the apps, one list per platform, written by apps/mobile/tools/licenses/build.mjs.
 LICENSE_LISTS = (("ios", "App para iPhone"), ("android", "App para Android"))
@@ -206,9 +213,10 @@ class Site:
                     f'<a href="{self.url(page, "es")}" hreflang="es" lang="es">Español</a></p>')
         privacy = self.url(PRIVACY_BASIC, code)
         t = t.replace("{{privacylink}}", f'href="{privacy}"' + (' hreflang="es"' if code == "es" else ""))
-        sub = self.url("subscription", code)
-        sub_lang = "es" if code == "es" else (code if code in TRANSLATED_LEGAL["subscription"] else FALLBACK_LEGAL)
-        t = t.replace("{{subscriptionlink}}", f'href="{sub}" hreflang="{self.locales[sub_lang]["hreflang"]}"')
+        # A translated legal document is linked in the visitor's language, or in English when it has none.
+        for doc, codes in TRANSLATED_LEGAL.items():
+            lang = "es" if code == "es" else (code if code in codes else FALLBACK_LEGAL)
+            t = t.replace(f"{{{{{doc}link}}}}", f'href="{self.url(doc, code)}" hreflang="{self.locales[lang]["hreflang"]}"')
         return t.replace("{{legalnote}}", note)
 
     def chrome(self, part: str, page: str, code: str, dict_name: str, col: str) -> str:
