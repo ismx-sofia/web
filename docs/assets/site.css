@@ -513,3 +513,13 @@ html.pt-swap body { visibility: hidden; animation: pt-reveal 0s 1.5s forwards !i
 .prose .callout { padding: 16px 18px; border-radius: 16px; background: var(--grad-soft); border: 1px solid var(--line); }
 .prose .anchor { color: var(--ink-2); text-decoration: none; font-weight: 400; margin-left: 8px; opacity: 0; }
 .prose h2:hover .anchor, .prose .anchor:focus { opacity: 1; }
+
+/* /licenses: the open-source notices (tools/build.py, build_licenses) */
+.licenses .notices { list-style: none; padding: 0; gap: 10px; }
+.licenses .notices li { overflow-wrap: anywhere; }
+.licenses .notices .v { color: var(--ink-2); }
+.licenses .notices small { color: var(--ink-2); }
+.licenses .license-texts { display: grid; gap: 10px; }
+.licenses .license-texts details { border-radius: 16px; background: var(--surface); border: 1px solid var(--line); padding: 0 18px; scroll-margin-top: 110px; }
+.licenses .license-texts summary { cursor: pointer; padding: 14px 0; font-weight: 700; overflow-wrap: anywhere; }
+.licenses .license-texts pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 13px; line-height: 1.5; margin: 0 0 18px; }

@@ -41,13 +41,23 @@ LEGAL_PAGES = {
     "ia": "Política de IA",
     "normas": "Normas de la comunidad",
     "cookies": "Política de cookies",
-    "sensitive": "Consentimientos de datos sensibles",
+    "consent-journal": "Consentimiento del diario",
+    "consent-health": "Consentimiento de salud y bienestar",
     "subscription": "Condiciones de la suscripción",
 }
 # Legal documents also published in other languages, and in which (codes of locales.json). A language
 # without a translation links to the English one from its footer and keeps its menu on the home page.
-TRANSLATED_LEGAL = {"subscription": ("en", "ca", "fr", "pt", "de", "it")}
+# Each consent has its own page, so it can be read, versioned and accepted on its own (Israel, 2026-10-18).
+# Not /journal: the app claims that path as a universal link.
+TRANSLATED_LEGAL = {
+    "subscription": ("en", "ca", "fr", "pt", "de", "it"),
+    "consent-journal": ("en", "ca", "fr", "pt", "de", "it", "zh", "ja"),
+    "consent-health": ("en", "ca", "fr", "pt", "de", "it", "zh", "ja"),
+}
 FALLBACK_LEGAL = "en"
+# The open-source notices of the apps, one list per platform, written by apps/mobile/tools/licenses/build.mjs.
+LICENSE_LISTS = (("ios", "App para iPhone"), ("android", "App para Android"))
+LICENSES_PAGE = "licenses"
 # Notes left in a source for whoever publishes it (⟨chat⟩, ⟨PENDIENTE…⟩): an HTML comment the draft
 # keeps and the release build refuses, so nothing ships before each one is resolved.
 MARKER = re.compile(r"<!--(?:(?!-->).)*?⟨.*?-->", re.S)
@@ -102,7 +112,7 @@ class Site:
         if page in TRANSLATED_LEGAL and code != "es":
             lang = code if code in TRANSLATED_LEGAL[page] else FALLBACK_LEGAL
             return f"/{self.locales[lang]['dir']}/{page}"
-        if page in LEGAL_PAGES or (page == PRIVACY_BASIC and code == "es"):
+        if page in LEGAL_PAGES or page == LICENSES_PAGE or (page == PRIVACY_BASIC and code == "es"):
             return "/privacy" if page == PRIVACY_BASIC else f"/{page}"
         if page == PRIVACY_BASIC:
             return f"/{self.locales[code]['dir']}/privacy"
@@ -203,9 +213,10 @@ class Site:
                     f'<a href="{self.url(page, "es")}" hreflang="es" lang="es">Español</a></p>')
         privacy = self.url(PRIVACY_BASIC, code)
         t = t.replace("{{privacylink}}", f'href="{privacy}"' + (' hreflang="es"' if code == "es" else ""))
-        sub = self.url("subscription", code)
-        sub_lang = "es" if code == "es" else (code if code in TRANSLATED_LEGAL["subscription"] else FALLBACK_LEGAL)
-        t = t.replace("{{subscriptionlink}}", f'href="{sub}" hreflang="{self.locales[sub_lang]["hreflang"]}"')
+        # A translated legal document is linked in the visitor's language, or in English when it has none.
+        for doc, codes in TRANSLATED_LEGAL.items():
+            lang = "es" if code == "es" else (code if code in codes else FALLBACK_LEGAL)
+            t = t.replace(f"{{{{{doc}link}}}}", f'href="{self.url(doc, code)}" hreflang="{self.locales[lang]["hreflang"]}"')
         return t.replace("{{legalnote}}", note)
 
     def chrome(self, part: str, page: str, code: str, dict_name: str, col: str) -> str:
@@ -395,6 +406,85 @@ class Site:
         return self.document(code="es", head=head, body=f"{header}\n<main>\n{main}\n</main>\n{footer}",
                              data={"words": {"carousel": "carrusel", "card": "Ir a la tarjeta"}})
 
+    @staticmethod
+    def text_anchor(key: str) -> str:
+        return "t-" + re.sub(r"[^a-z0-9]+", "-", key.lower()).strip("-")
+
+    def build_licenses(self) -> str:
+        """/licenses: the open-source notices of both apps, from src/data/licenses/<platform>.json. Only the
+        list in force: the app carries its own, so the website does not keep older ones. A list built
+        without one of its inputs is a pending field, and the release build refuses it."""
+        lists = {}
+        for platform, _ in LICENSE_LISTS:
+            path = SRC / "data" / "licenses" / f"{platform}.json"
+            if not path.exists():
+                raise BuildError(f"missing {path.relative_to(ROOT)}: run apps/mobile/tools/licenses/build.mjs")
+            lists[platform] = load_json(path)
+            if lists[platform].get("incomplete"):
+                missing = ", ".join(lists[platform]["incomplete"])
+                if self.release:
+                    raise BuildError(f"{platform} notices built without {missing}: rebuild them complete")
+                self.pending.append(f"licencias {platform} sin {missing}")
+        e = html.escape
+        texts = {}
+        for data in lists.values():
+            texts.update(data["texts"])
+        links = lists["ios"]["links"]
+
+        def notice(n: dict) -> str:
+            refs = [r for r in [n.get("text"), *n.get("also", [])] if r]
+            license = e(n["license"])
+            if refs:
+                license = " · ".join(f'<a href="#{self.text_anchor(r)}">{e(n["license"]) if i == 0 else "texto adicional"}</a>'
+                                     for i, r in enumerate(refs))
+            elif n.get("url"):
+                license = f'<a href="{e(n["url"], quote=True)}" rel="noopener">{license}</a>'
+            version = f' <span class="v">{e(n["version"])}</span>' if n.get("version") else ""
+            holder = f'<br><small>{e(n["copyright"]).replace(chr(10), "<br>")}</small>' if n.get("copyright") else ""
+            source = (" · código fuente: " + ", ".join(f'<a href="{e(s["url"], quote=True)}" rel="noopener">{e(s["name"])}</a>' for s in n["sources"])
+                      if n.get("sources") else "")
+            return f"<li><b>{e(n['name'])}</b>{version} — {license}{source}{holder}</li>"
+
+        sections = [
+            ("licencias-que-es", "Qué es esta página",
+             "<p>Las apps de SofIA llevan componentes de terceros. Esta página reproduce, para cada uno, su aviso de "
+             "copyright y la licencia con la que se usa. Las apps llevan la misma lista dentro, en "
+             + self.inline("{path:settingsTitle,settingsOptionLegal,settingsLegalSources}", "es", "es_es")
+             + ", donde se puede leer sin conexión. Cuando la licencia de un componente pide ofrecer su código fuente, "
+             "su entrada enlaza dónde está. Para cualquier duda: <a href=\"mailto:legal@sofia.ismx.app\">legal@sofia.ismx.app</a>.</p>"),
+            ("licencias-lugares", "Datos de lugares",
+             f'<p>Los lugares que se buscan al añadir una ubicación a una entrada vienen de OpenStreetMap: © colaboradores de '
+             f'OpenStreetMap, disponibles con la <a href="{e(links["openStreetMap"], quote=True)}" rel="noopener">Open Database License</a>.</p>'),
+        ]
+        for platform, title in LICENSE_LISTS:
+            items = "\n".join(notice(n) for n in lists[platform]["notices"])
+            sections.append((f"licencias-{platform}", title,
+                             f'<p>{len(lists[platform]["notices"])} componentes.</p>\n<ul class="notices">\n{items}\n</ul>'))
+        # A license text is data, never a template: it is escaped and nothing in it is expanded.
+        bodies = "\n".join(
+            f'<details id="{self.text_anchor(k)}"><summary>{e(k.split(":", 1)[-1] if k.startswith(("custom:", "file:", "notice:")) else k)}</summary>'
+            f"<pre>{e(v)}</pre></details>"
+            for k, v in sorted(texts.items()))
+        sections.append(("licencias-textos", "Textos de las licencias", f'<div class="license-texts">\n{bodies}\n</div>'))
+
+        toc = "".join(f'<li><a href="#{i}">{t}</a></li>' for i, t, _ in sections)
+        body = "\n".join(f'<section id="{i}">\n<h2><span class="n grad-text">{n}</span>{t}'
+                          f'<a class="anchor" href="#{i}" aria-label="Enlace a esta sección">#</a></h2>\n{c}\n</section>'
+                          for n, (i, t, c) in enumerate(sections, 1))
+        title = "Licencias de código abierto"
+        main = (f'<section class="page-hero" id="licenses">\n<div aria-hidden="true" class="mesh"><i></i><i></i><i></i></div>\n'
+                f'<div class="wrap">\n<span class="eyebrow">Legal</span>\n<h1><span class="grad-text">{title}</span></h1>\n'
+                f'<p class="lede">Los componentes de terceros que llevan las apps de SofIA y sus licencias.</p>\n</div>\n</section>\n'
+                f'<div class="wrap doc-layout">\n<nav aria-label="En esta página" class="toc">\n<h2>En esta página</h2>\n<ol>{toc}</ol>\n</nav>\n'
+                f'<article class="prose licenses">\n{body}\n</article>\n</div>\n')
+        header = self.chrome("header", LICENSES_PAGE, "es", "es", "es_es")
+        footer = self.chrome("footer", LICENSES_PAGE, "es", "es", "es_es")
+        head = self.head(code="es", title=f"{title} · SofIA",
+                         description="Los componentes de código abierto que llevan las apps de SofIA y sus licencias.",
+                         canonical="/licenses", alternates=[])
+        return self.document(code="es", head=head, body=f"{header}\n<main>\n{main}\n</main>\n{footer}",
+                             data={"words": {"carousel": "carrusel", "card": "Ir a la tarjeta"}})
+
     def translated_article(self, page: str, code: str, dict_name: str, col: str) -> tuple[dict, str]:
         meta, body_tpl = page_meta(self.source(SRC / "legal" / dict_name / f"{page}.html"))
         body = self.legal_wrap(page, meta, body_tpl, self.legal_words(dict_name, code, col))
@@ -489,6 +579,7 @@ class Site:
                     rows.append("  </url>")
             elif page != "privacy":  # listed above, with the summaries as its alternates
                 rows.append(f"  <url><loc>{HOST}/{page}</loc></url>")
+        rows.append(f"  <url><loc>{HOST}/licenses</loc></url>")
         rows.append("</urlset>")
         return "\n".join(rows) + "\n"
 
@@ -523,6 +614,7 @@ class Site:
         for page, codes in TRANSLATED_LEGAL.items():
             for c in codes:
                 files[f"{self.locales[c]['dir']}/{page}.html"] = self.build_legal_translated(page, c)
+        files[f"{LICENSES_PAGE}.html"] = self.build_licenses()
         files["404.html"] = self.build_404()
         files["sitemap.xml"] = self.sitemap()
         files["robots.txt"] = f"User-agent: *\nAllow: /\n\nSitemap: {HOST}/sitemap.xml\n"

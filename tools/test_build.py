@@ -119,7 +119,12 @@ class BuildTest(unittest.TestCase):
 
     # 4. internal links and assets resolve to a generated file
     def test_internal_links_resolve(self):
+        # A frozen version keeps what it linked then: its links are a record, not the live site
+        # (/sensitive left the site when each consent got its own page, 2026-10-18).
+        frozen = set(json.loads((SRC / "frozen" / "frozen.json").read_text(encoding="utf-8")))
         for page, text in self.pages.items():
+            if page in frozen:
+                continue
             for tag, attr, url in parse(text).refs:
                 if url.startswith(HOST):
                     url = url[len(HOST):] or "/"
@@ -128,7 +133,10 @@ class BuildTest(unittest.TestCase):
 
     # 4b. in-page anchors exist (TOC, FAQ, #funciones…)
     def test_anchors_resolve(self):
+        frozen = set(json.loads((SRC / "frozen" / "frozen.json").read_text(encoding="utf-8")))
         for page, text in self.pages.items():
+            if page in frozen:
+                continue
             p = parse(text)
             for tag, attr, url in p.refs:
                 if tag == "a" and "#" in url and not url.startswith(("http", "mailto")):
@@ -279,7 +287,7 @@ class BuildTest(unittest.TestCase):
                 self.assertIn("legal@sofia.ismx.app", summary, f"{c}: privacy contact")
                 self.assertIn("B40623829", summary, f"{c}: controller")
                 self.assertIn("dpo@sofia.ismx.app", summary, f"{c}: data protection officer")
-        for page in ("privacy", "legal", "sensitive"):
+        for page in ("privacy", "legal", "consent-journal", "consent-health"):
             self.assertIn("dpo@sofia.ismx.app", self.pages[f"{page}.html"], f"{page}: data protection officer")
 
     # 14b. the Spanish policy and its summaries point at each other, and legal tables read on a phone
@@ -410,6 +418,39 @@ class BuildTest(unittest.TestCase):
         for u in urls:
             for r in rx:
                 self.assertIsNone(r.match(u), f"{u} would open the app ({r.pattern})")
+
+    # 21. /licenses: every notice of both apps with a working link to its text, and the release refuses a
+    #     list built without one of its inputs (the app ships the same lists: apps/mobile/tools/licenses)
+    def test_licenses_page(self):
+        page = self.pages[f"{build.LICENSES_PAGE}.html"]
+        ids = parse(page).ids
+        for platform, _ in build.LICENSE_LISTS:
+            data = json.loads((SRC / "data" / "licenses" / f"{platform}.json").read_text(encoding="utf-8"))
+            self.assertIn(f'<p>{len(data["notices"])} componentes.</p>', page, platform)
+            for key in data["texts"]:
+                self.assertIn(build.Site.text_anchor(key), ids, f"{platform}: text {key} has no anchor")
+            for n in data["notices"]:
+                for ref in [n.get("text"), *n.get("also", [])]:
+                    if ref:
+                        self.assertIn(f'href="#{build.Site.text_anchor(ref)}"', page, n["id"])
+        self.assertIn(f'href="/{build.LICENSES_PAGE}"', self.pages["index.html"], "the footer links /licenses")
+        aasa = json.loads((SRC / "static" / ".well-known" / "apple-app-site-association").read_text(encoding="utf-8"))
+        for c in aasa["applinks"]["details"][0]["components"]:
+            self.assertIsNone(re.match("^" + re.escape(c["/"]).replace(r"\*", ".*") + "$", f"/{build.LICENSES_PAGE}"))
+
+    def test_release_refuses_incomplete_licenses(self):
+        with tempfile.TemporaryDirectory() as t:
+            site = build.Site(release=True)
+            original = build.load_json
+            def incomplete(path):
+                data = original(path)
+                return {**data, "incomplete": ["maven"]} if path.name == "android.json" else data
+            build.load_json = incomplete
+            try:
+                with self.assertRaises(build.BuildError):
+                    site.build_licenses()
+            finally:
+                build.load_json = original
 
     # 16. 404 is served at any depth: nothing relative, no index
     def test_404_works_at_any_depth(self):

@@ -545,7 +545,222 @@
   <url><loc>https://www.sofia.ismx.app/ia</loc></url>
   <url><loc>https://www.sofia.ismx.app/normas</loc></url>
   <url><loc>https://www.sofia.ismx.app/cookies</loc></url>
-  <url><loc>https://www.sofia.ismx.app/sensitive</loc></url>
+  <url><loc>https://www.sofia.ismx.app/consent-journal</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-journal"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/en/consent-journal</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-journal"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/ca/consent-journal</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-journal"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/fr/consent-journal</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-journal"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/pt/consent-journal</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-journal"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/de/consent-journal</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-journal"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/it/consent-journal</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-journal"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/zh/consent-journal</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-journal"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/ja/consent-journal</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-journal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-journal"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/consent-health</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-health"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/en/consent-health</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-health"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/ca/consent-health</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-health"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/fr/consent-health</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-health"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/pt/consent-health</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-health"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/de/consent-health</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-health"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/it/consent-health</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-health"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/zh/consent-health</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-health"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/ja/consent-health</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-health"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-health"/>
+  </url>
   <url><loc>https://www.sofia.ismx.app/subscription</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/subscription"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/subscription"/>
@@ -616,4 +831,5 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/subscription"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/subscription"/>
   </url>
+  <url><loc>https://www.sofia.ismx.app/licenses</loc></url>
 </urlset>
