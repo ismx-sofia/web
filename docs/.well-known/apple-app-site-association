@@ -8,6 +8,16 @@
                 ],
                 "components": [
                     {
+                        "/": "/user",
+                        "?": { "code": "???????" },
+                        "comment": "A shared profile: only its 7-character code, no id"
+                    },
+                    {
+                        "/": "/entry",
+                        "?": { "code": "???????" },
+                        "comment": "A shared entry: only its 7-character code, no id"
+                    },
+                    {
                         "/": "/user/*",
                         "comment": "User profile pages"
                     },
@@ -26,6 +36,10 @@
                     {
                         "/": "/settings/*",
                         "comment": "Settings screens reachable from a surface: goals and goal creation"
+                    },
+                    {
+                        "/": "/activity*",
+                        "comment": "My activity (Mi actividad) — the app's `activity` route; /settings/activity is under /settings/*"
                     },
                     {
                         "/": "/goals*",

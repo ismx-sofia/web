@@ -76,7 +76,9 @@
       var m = new RegExp(S.router[k].re).exec(path);
       if (m) route = { r: S.router[k], m: m };
     }
-    var known = !!route && route.r.web && route.r.requires.every(function (name) { return (route.m.groups && route.m.groups[name]) || params.get(name); });
+    var known = !!route && route.r.web && (route.r.requires.every(function (name) { return (route.m.groups && route.m.groups[name]) || params.get(name); })
+      /* A shared link carries only its code (`/entry?code=`): the app resolves it (`DeeplinkBusiness.shared`). */
+      || (!!route.r.code && !!params.get('code')));
     if (known) {
       var action = route.r.action;
       if (action === 'user') { document.getElementById('shared-title').innerHTML = document.getElementById('t-profile').innerHTML; }
