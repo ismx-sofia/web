@@ -8,6 +8,16 @@
                 ],
                 "components": [
                     {
+                        "/": "/user",
+                        "?": { "code": "???????" },
+                        "comment": "A shared profile: only its 7-character code, no id"
+                    },
+                    {
+                        "/": "/entry",
+                        "?": { "code": "???????" },
+                        "comment": "A shared entry: only its 7-character code, no id"
+                    },
+                    {
                         "/": "/user/*",
                         "comment": "User profile pages"
                     },

@@ -26,7 +26,7 @@ check /ia                  200
 check /legal               200 'B40623829'
 check /normas              200
 check /cookies             200
-check /entry/abc?share=x   404 'id="shared"'
+check /entry?code=K7Q2M9X  404 'id="shared"'
 check /otp-test.html       404
 check /src/i18n/es.json    404
 check /tools/build.py      404

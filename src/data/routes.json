@@ -1,12 +1,13 @@
 {
-  "_source": "03-code apps/mobile/src/business/device/os/DeeplinkBusiness.ts @ adf65f5d, 2026-10-17. Update this snapshot whenever DeeplinkBusiness.routes changes.",
+  "_source": "03-code apps/mobile/src/business/device/os/DeeplinkBusiness.ts, 2026-10-21 (plan 261021-enlace-corto-compartir). Update this snapshot whenever DeeplinkBusiness.routes changes. `code` names the action of a shared link that carries only `?code=` and no id.",
   "routes": [
     {
       "path": "user/:id?",
       "action": "user",
       "requires": [
         "id"
-      ]
+      ],
+      "code": "user-code"
     },
     {
       "path": "entry/create/:mode?",
@@ -37,7 +38,8 @@
       "action": "entry",
       "requires": [
         "id"
-      ]
+      ],
+      "code": "entry-code"
     },
     {
       "path": "chat/:id?",
@@ -62,6 +64,16 @@
     {
       "path": "settings/storage/export",
       "action": "export",
+      "requires": []
+    },
+    {
+      "path": "settings/family",
+      "action": "family",
+      "requires": []
+    },
+    {
+      "path": "family/ward",
+      "action": "family-ward",
       "requires": []
     },
     {
@@ -107,7 +119,9 @@
     "entry/inbox/:batch",
     "settings/storage/export",
     "entry/quick",
-    "entry/mentions/:id?"
+    "entry/mentions/:id?",
+    "settings/family",
+    "family/ward"
   ],
   "aliases": [
     "activity"

@@ -532,8 +532,11 @@ class Site:
                     rx += f"(?:{seg})?" if optional else seg
                 else:
                     rx += "/" + re.escape(p)
-            out.append({"re": f"^{rx}$", "requires": r["requires"], "path": r["path"], "action": r["action"],
-                        "web": r["path"] not in self.routes["webless"]})
+            route = {"re": f"^{rx}$", "requires": r["requires"], "path": r["path"], "action": r["action"],
+                     "web": r["path"] not in self.routes["webless"]}
+            # A shared link carries only `?code=` and no id: the route still knows it (`DeeplinkBusiness.shared`).
+            if r.get("code"): route["code"] = r["code"]
+            out.append(route)
         return out
 
     def build_404(self) -> str:

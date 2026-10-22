@@ -180,14 +180,16 @@ class BuildTest(unittest.TestCase):
             for r in data["router"]:
                 m = re.match(r["re"].replace("(?<", "(?P<"), path)
                 if m:
-                    return r["web"] and all(m.groupdict().get(n) or q.get(n) for n in r["requires"])
+                    return r["web"] and (all(m.groupdict().get(n) or q.get(n) for n in r["requires"])
+                                         or bool(r.get("code") and q.get("code")))
             return False
-        self.assertTrue(known("/entry/abc", "share=1"))
-        self.assertTrue(known("/user/ana", "share=2"))
+        self.assertTrue(known("/entry", "code=K7Q2M9X"))    # a shared link: only its code
+        self.assertTrue(known("/user", "code=K7Q2M9X"))
+        self.assertTrue(known("/entry/abc"))
         self.assertTrue(known("/entry", "id=abc"))          # links handed out before the path form
         self.assertTrue(known("/entry/create/call"))
         self.assertTrue(known("/settings/activity/target/create"))
-        self.assertFalse(known("/entry"))                   # entry needs an id
+        self.assertFalse(known("/entry"))                   # entry needs an id or a code
         self.assertFalse(known("/recovery"))                # webless
         self.assertFalse(known("/privacy-old"))
         self.assertFalse(known("/entry/quick"))             # the Quick Journal, not the entry «quick»
@@ -567,12 +569,15 @@ class BrowserTest(unittest.TestCase):
 
     def test_router(self):
         android = "Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Mobile Safari/537.36"
-        p, err = self.page("/entry/abc?share=1", "de-DE", android)
+        # A shared link carries only its code (`/entry?code=`): no id in the URL.
+        p, err = self.page("/entry?code=K7Q2M9X", "de-DE", android)
         self.assertTrue(p.is_visible("#shared")); self.assertFalse(p.is_visible("#notfound"))
-        self.assertEqual(p.get_attribute("#open-app", "href"), "intent://entry/abc?share=1#Intent;scheme=sofia;package=com.ismx.sofia;end")
+        self.assertEqual(p.get_attribute("#open-app", "href"), "intent://entry?code=K7Q2M9X#Intent;scheme=sofia;package=com.ismx.sofia;end")
         self.assertEqual(p.evaluate("document.documentElement.lang"), "de")
-        p2, _ = self.page("/user/ana?share=2", "es-ES", android)
+        p2, _ = self.page("/user?code=K7Q2M9X", "es-ES", android)
         self.assertIn("diario", p2.inner_text("#shared-title")); self.assertFalse(p2.is_visible("#shared-preview"))
+        p3, _ = self.page("/entry/abc", "es-ES", android)
+        self.assertTrue(p3.is_visible("#shared"))
         for url in ("/entry/quick", "/entry/inbox/x", "/entry", "/nada/que/ver"):
             q, _ = self.page(url)
             self.assertTrue(q.is_visible("#notfound"), url); self.assertFalse(q.is_visible("#shared"), url)
