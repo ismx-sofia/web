@@ -1,0 +1,67 @@
+<!-- page: crisis · title: Protocol de crisi · description: Què fa SofIA quan algú hi escriu en un mal moment: on és l'ajuda, què comprovem, què no fem mai i com ho revisem. · version: 1 · lede: SofIA no és un servei de salut ni d'emergències, però algú hi pot escriure en un mal moment. Això és el que fem aleshores. -->
+<!--⟨asesoría: borrador del 22-10-2026 (plan 261020 §21.8 y §25, supervisor S225). Es la página pública que piden la SB 243 de California (chatbots de compañía), la ley de Nueva York sobre compañeros de IA (General Business Law, art. 47) y las guías de Ofcom. Confirmar qué leyes aplican y qué datos hay que publicar (en California, el informe anual a la Office of Suicide Prevention).⟩-->
+
+<section id="ahora" data-title="Si ara estàs en perill">
+<div class="callout">
+<p><b>Truca al 112</b>, o al número d'emergències del teu país.</p>
+<p>A Espanya, la línia <b>024</b> d'atenció a la conducta suïcida atén les 24 hores. Als Estats Units, el <b>988</b>. Al Brasil, el CVV (<b>188</b>).</p>
+</div>
+</section>
+
+<section id="para" data-title="Per a què serveix aquest protocol">
+<p>SofIA és un diari amb una xarxa i un assistent d'intel·ligència artificial. No és un servei de salut ni d'emergències, i el seu assistent <b>no és una persona</b>: ho diem en començar cada conversa. Aquest protocol explica què fem quan el que algú escriu fa pensar que està en perill.</p>
+</section>
+
+<section id="ayuda" data-title="L'ajuda, sempre a mà">
+<ul>
+<li>«Necessito ajuda ara» és sempre a {path:settingsTitle}, a {path:settingsOptionHealth}, a {path:settingsOptionFamily} i a sota de cada conversa amb l'assistent quan cal. S'obre sense connexió.</li>
+<li>Mostra les línies d'ajuda <b>del país del teu dispositiu</b> i les universals, cadascuna amb la font oficial que la confirma i la data en què la vam comprovar. Un número equivocat en aquesta pantalla és pitjor que cap: només afegim països amb una font oficial.</li>
+<li>Mai no posem l'ajuda darrere d'una pregunta, d'una subscripció ni d'un anunci.</li>
+</ul>
+</section>
+
+<section id="comprobacion" data-title="Quan el que escrius fa pensar en una crisi">
+<p>Fem servir una comprovació prudent, que busca expressions d'ideació suïcida o d'autolesió en <b>tot el que s'ha dit a la conversa</b>, no només en l'última frase.</p>
+<!--⟨asesoría: es un suelo, no un detector, y se ejecuta en el móvil; comprobar antes de publicar que el servidor no registra que saltó.⟩-->
+<ul>
+<li><b>A l'assistent d'intel·ligència artificial:</b> si salta, la línia de crisi apareix a sota de la conversa, en aquest torn i en els següents. L'assistent no dona instruccions ni informació que faciliti fer-se mal, i anima a demanar ajuda a una persona.</li>
+<li><b>Als qüestionaris de benestar</b> (PHQ-8, GAD-7): la primera vegada que salta, una pantalla pregunta «Estàs fora de perill ara mateix?», amb les línies d'ajuda i una sortida visible. No bloqueja l'app, no tanca la conversa i no diu quina regla ha saltat: una porta que castiga qui diu la veritat li ensenya a no dir-la.</li>
+<li><b>Mai no</b> la fem servir per a anuncis, per a recomanacions ni per a res més.</li>
+</ul>
+<!--⟨asesoría: comprobar en las instrucciones del asistente (server/llm), con una batería de pruebas, que no da información que facilite hacerse daño.⟩-->
+</section>
+
+<section id="nunca" data-title="El que no fem">
+<ul>
+<li><b>No avisem el tutor</b> d'un menor de res d'això.</li>
+<li>No avisem ningú de manera automàtica. Si una persona del nostre equip de moderació, mentre revisa un contingut denunciat, veu que algú està en perill imminent, pot avisar els serveis d'emergència, tal com diu la <a href="/privacy#destinatarios" hreflang="es">Política de privadesa</a>.</li>
+<li>No diagnostiquem ni tractem.</li>
+</ul>
+<!--⟨asesoría: decisión del 20-10-2026 de no avisar al tutor; confirmar que ninguna jurisdicción lo exige.⟩-->
+</section>
+
+<section id="menores" data-title="Per a menors">
+<ul>
+<li>L'ajuda és igualment a mà.</li>
+<li>Un menor té una pausa suggerida després de 60 minuts amb l'assistent (180 per a un adult).</li>
+<li>El seu tutor mai no sap que ha buscat ajuda.</li>
+</ul>
+<!--⟨asesoría: la pantalla aún no distingue las líneas para jóvenes (en España, el 116 111 de ANAR); proponer añadirlas como filas de user_health_crisis con su fuente.⟩-->
+</section>
+
+<section id="contenidos" data-title="Continguts que es comparteixen">
+<p>Les publicacions, els comentaris i els missatges que fomenten el suïcidi, l'autolesió o els trastorns alimentaris van contra les <a href="/normas" hreflang="es">Normes de la comunitat</a>: es retiren, i a qui els publica li oferim ajuda abans que una sanció quan parla de si mateix.</p>
+<!--⟨asesoría: comprobar con las Normas vigentes y el flujo de moderación de esa categoría.⟩-->
+</section>
+
+<section id="revision" data-title="Com ho revisem">
+<ul>
+<li>Revisem les línies d'ajuda com a mínim cada 6 mesos amb la seva font oficial.</li>
+<li>Revisem la <a href="#comprobacion">comprovació</a> amb professionals de la salut mental.</li>
+</ul>
+<!--⟨asesoría: el plazo de 6 meses es una propuesta; no hay convenio con profesionales todavía. SB 243: informe anual a la Office of Suicide Prevention desde el 1-7-2027 con el número de veces que se mostró la ayuda, sin datos personales; hoy no se cuenta.⟩-->
+</section>
+
+<section id="contacto" data-title="Contacte">
+<p>Si veus algú en perill a SofIA, denuncia-ho des del contingut o escriu a legal@sofia.ismx.app. <b>Si el perill és immediat, truca al 112.</b></p>
+</section>

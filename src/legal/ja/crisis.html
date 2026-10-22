@@ -1,0 +1,67 @@
+<!-- page: crisis · title: 危機対応プロトコル · description: つらいときに誰かがSofIAに書き込んだとき、SofIAが何をするのかを説明します。支援のある場所、確認すること、決してしないこと、そして見直しの方法です。 · version: 1 · lede: SofIAは医療サービスでも緊急サービスでもありません。それでも、つらいときに誰かがSofIAに書き込むことがあります。そのときに当社が行うことをご説明します。 -->
+<!--⟨asesoría: borrador del 22-10-2026 (plan 261020 §21.8 y §25, supervisor S225). Es la página pública que piden la SB 243 de California (chatbots de compañía), la ley de Nueva York sobre compañeros de IA (General Business Law, art. 47) y las guías de Ofcom. Confirmar qué leyes aplican y qué datos hay que publicar (en California, el informe anual a la Office of Suicide Prevention).⟩-->
+
+<section id="ahora" data-title="今、危険な状態にあるなら">
+<div class="callout">
+<p><b>112に電話してください</b>。または、お住まいの国の緊急通報番号に電話してください。</p>
+<p>スペインでは、自殺に関する相談窓口<b>024</b>が24時間対応しています。アメリカでは<b>988</b>、ブラジルではCVV（<b>188</b>）です。</p>
+</div>
+</section>
+
+<section id="para" data-title="このプロトコルの目的">
+<p>SofIAは、SNS機能とAIアシスタントを備えた日記です。医療サービスでも緊急サービスでもなく、そのアシスタントは<b>人間ではありません</b>。このことは、会話を始めるたびにお伝えしています。このプロトコルは、誰かが書いた内容からその人が危険な状態にあると考えられるときに、当社が何をするのかを定めたものです。</p>
+</section>
+
+<section id="ayuda" data-title="支援は、いつでもすぐそばに">
+<ul>
+<li>「今すぐ助けが必要」は、{path:settingsTitle}、{path:settingsOptionHealth}、{path:settingsOptionFamily}に常にあり、必要なときはアシスタントとの各会話の下にも表示されます。オフラインでも開けます。</li>
+<li><b>お使いのデバイスの国</b>の相談窓口と、世界共通の相談窓口を表示し、それぞれについて、それを裏付ける公式の情報源と、当社が確認した日付を示します。この画面に間違った番号を載せるのは、何も載せないよりも悪いことです。そのため、公式の情報源がある国だけを追加しています。</li>
+<li>支援を利用する前に質問に答えさせたり、サブスクリプションや広告を条件にしたりすることは決してありません。</li>
+</ul>
+</section>
+
+<section id="comprobacion" data-title="書いた内容が危機を思わせるとき">
+<p>当社は慎重な確認の仕組みを使っています。これは、最後の一文だけでなく、<b>会話の中で語られたすべての内容</b>から、自殺念慮や自傷を示す表現を探すものです。</p>
+<!--⟨asesoría: es un suelo, no un detector, y se ejecuta en el móvil; comprobar antes de publicar que el servidor no registra que saltó.⟩-->
+<ul>
+<li><b>AIアシスタントでは：</b>確認の仕組みが反応すると、そのやりとりとそれ以降のやりとりで、会話の下に危機相談窓口が表示されます。アシスタントは、自分を傷つけることにつながる指示や情報を提供せず、人に助けを求めるよう促します。</li>
+<li><b>ウェルビーイングの質問票</b>（PHQ-8、GAD-7）では：初めて反応したとき、「今、あなたは安全ですか？」と尋ねる画面が、相談窓口と、はっきり見える出口とともに表示されます。アプリをブロックすることも、会話を閉じることもなく、どのルールに反応したかも示しません。本当のことを言った人を罰する扉は、本当のことを言わないように教えてしまうからです。</li>
+<li>これを広告やおすすめ、そのほかの目的に使うことは<b>決してありません</b>。</li>
+</ul>
+<!--⟨asesoría: comprobar en las instrucciones del asistente (server/llm), con una batería de pruebas, que no da información que facilite hacerse daño.⟩-->
+</section>
+
+<section id="nunca" data-title="当社がしないこと">
+<ul>
+<li>こうしたことについて、未成年者の<b>保護者には一切知らせません</b>。</li>
+<li>自動的に誰かに知らせることはありません。当社のモデレーションチームの担当者が、通報されたコンテンツを確認する中で、誰かが差し迫った危険にあると判断した場合は、<a href="/privacy#destinatarios" hreflang="es">プライバシーポリシー</a>に記載のとおり、緊急サービスに通報することがあります。</li>
+<li>診断や治療は行いません。</li>
+</ul>
+<!--⟨asesoría: decisión del 20-10-2026 de no avisar al tutor; confirmar que ninguna jurisdicción lo exige.⟩-->
+</section>
+
+<section id="menores" data-title="未成年者の場合">
+<ul>
+<li>支援は同じようにすぐに利用できます。</li>
+<li>未成年者には、アシスタントを60分使うと休憩をおすすめします（成人の場合は180分）。</li>
+<li>本人が助けを求めたことを、保護者が知ることは決してありません。</li>
+</ul>
+<!--⟨asesoría: la pantalla aún no distingue las líneas para jóvenes (en España, el 116 111 de ANAR); proponer añadirlas como filas de user_health_crisis con su fuente.⟩-->
+</section>
+
+<section id="contenidos" data-title="共有されるコンテンツ">
+<p>自殺、自傷、摂食障害を助長する投稿、コメント、メッセージは<a href="/normas" hreflang="es">コミュニティガイドライン</a>に反するため、削除されます。投稿した人が自分自身のことを語っている場合は、処分よりも先に支援を提案します。</p>
+<!--⟨asesoría: comprobar con las Normas vigentes y el flujo de moderación de esa categoría.⟩-->
+</section>
+
+<section id="revision" data-title="見直しの方法">
+<ul>
+<li>相談窓口は、少なくとも6か月ごとに公式の情報源と照らし合わせて見直します。</li>
+<li><a href="#comprobacion">確認の仕組み</a>は、メンタルヘルスの専門家とともに見直します。</li>
+</ul>
+<!--⟨asesoría: el plazo de 6 meses es una propuesta; no hay convenio con profesionales todavía. SB 243: informe anual a la Office of Suicide Prevention desde el 1-7-2027 con el número de veces que se mostró la ayuda, sin datos personales; hoy no se cuenta.⟩-->
+</section>
+
+<section id="contacto" data-title="お問い合わせ">
+<p>SofIAで危険な状態にある人を見かけたら、そのコンテンツから通報するか、legal@sofia.ismx.appまでご連絡ください。<b>危険が差し迫っている場合は、112に電話してください。</b></p>
+</section>

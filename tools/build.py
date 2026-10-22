@@ -44,6 +44,9 @@ LEGAL_PAGES = {
     "consent-journal": "Consentimiento del diario",
     "consent-health": "Consentimiento de salud y bienestar",
     "subscription": "Condiciones de la suscripción",
+    # Familia (plan 261020 §25): what a guardian accepts, and how SofIA acts when someone is in danger.
+    "guardian": "Acompañar la cuenta de un menor",
+    "crisis": "Protocolo de crisis",
 }
 # Legal documents also published in other languages, and in which (codes of locales.json). A language
 # without a translation links to the English one from its footer and keeps its menu on the home page.
@@ -53,6 +56,9 @@ TRANSLATED_LEGAL = {
     "subscription": ("en", "ca", "fr", "pt", "de", "it"),
     "consent-journal": ("en", "ca", "fr", "pt", "de", "it", "zh", "ja"),
     "consent-health": ("en", "ca", "fr", "pt", "de", "it", "zh", "ja"),
+    # Accepted in the app by a guardian, and read by anyone in danger: every language (Israel, 22-10-2026).
+    "guardian": ("en", "ca", "fr", "pt", "de", "it", "zh", "ja"),
+    "crisis": ("en", "ca", "fr", "pt", "de", "it", "zh", "ja"),
 }
 FALLBACK_LEGAL = "en"
 # The open-source notices of the apps, one list per platform, written by apps/mobile/tools/licenses/build.mjs.

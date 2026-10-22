@@ -101,6 +101,10 @@
     },
     "settingsOptionNotifications": {
       "es_es": "Notificaciones"
+    },
+    "settingsOptionFamily": {
+      "es_es": "Familia",
+      "en_us": "Family"
     }
   }
 }
