@@ -8,7 +8,7 @@
    "versions": [
     {
      "version": 261006,
-     "effective": "2026-10-06T16:07:29Z",
+     "effective": "2026-10-06T18:07:29Z",
      "material": false,
      "changes": {},
      "files": {
@@ -21,7 +21,7 @@
     },
     {
      "version": 261013,
-     "effective": "2026-10-13T12:32:17.883Z",
+     "effective": "2026-10-13T14:32:17.883Z",
      "material": true,
      "changes": {
       "es": "Añadimos los planes de pago SofIA Plus, Pro y Max y una cuota de inteligencia artificial también en el plan gratuito.",
@@ -45,7 +45,7 @@
     },
     {
      "version": 261019,
-     "effective": "2026-10-19T10:24:28.364Z",
+     "effective": "2026-10-19T12:24:28.364Z",
      "material": false,
      "changes": {
       "es": "En un chat se reporta la conversación entera: si se confirma una infracción, se retiran los mensajes revisados de la persona reportada. «Denunciar» pasa a llamarse «Reportar».",
@@ -76,7 +76,7 @@
    "versions": [
     {
      "version": 261006,
-     "effective": "2026-10-06T16:07:29Z",
+     "effective": "2026-10-06T18:07:29Z",
      "material": false,
      "changes": {},
      "files": {
@@ -89,7 +89,7 @@
     },
     {
      "version": 261013,
-     "effective": "2026-10-13T12:32:17.883Z",
+     "effective": "2026-10-13T14:32:17.883Z",
      "material": true,
      "changes": {
       "es": "Añadimos los datos de las suscripciones, el registro de uso de la inteligencia artificial y la comprobación de cuentas gratuitas por dispositivo.",
@@ -113,7 +113,7 @@
     },
     {
      "version": 261019,
-     "effective": "2026-10-19T10:24:28.364Z",
+     "effective": "2026-10-19T12:24:28.364Z",
      "material": false,
      "changes": {
       "es": "Al reportar una conversación se guarda una copia de lo que ve quien reporta, con los mensajes de las dos partes. «Denuncia» pasa a llamarse «reporte».",
@@ -144,7 +144,7 @@
    "versions": [
     {
      "version": 261006,
-     "effective": "2026-10-06T16:07:29Z",
+     "effective": "2026-10-06T18:07:29Z",
      "material": false,
      "changes": {},
      "files": {
@@ -157,7 +157,7 @@
     },
     {
      "version": 261013,
-     "effective": "2026-10-13T12:32:17.883Z",
+     "effective": "2026-10-13T14:32:17.883Z",
      "material": true,
      "changes": {
       "es": "Añadimos las herramientas de inteligencia artificial que pides tú y su cuota.",
@@ -181,7 +181,7 @@
     },
     {
      "version": 261018,
-     "effective": "2026-10-18T12:13:02.240Z",
+     "effective": "2026-10-18T14:13:02.240Z",
      "material": false,
      "changes": {
       "es": "Ahora es un consentimiento: lo das al activar la inteligencia artificial y lo retiras al desactivarla.",
@@ -205,7 +205,7 @@
     },
     {
      "version": 261019,
-     "effective": "2026-10-19T10:24:28.364Z",
+     "effective": "2026-10-19T12:24:28.364Z",
      "material": false,
      "changes": {
       "es": "El modelo lee una conversación privada solo si se reporta. «Denunciar» pasa a llamarse «Reportar».",
@@ -236,7 +236,7 @@
    "versions": [
     {
      "version": 261018,
-     "effective": "2026-10-18T09:52:23.177Z",
+     "effective": "2026-10-18T11:52:23.177Z",
      "material": false,
      "changes": {},
      "files": {
@@ -296,7 +296,7 @@
    "versions": [
     {
      "version": 261018,
-     "effective": "2026-10-18T09:52:23.177Z",
+     "effective": "2026-10-18T11:52:23.177Z",
      "material": false,
      "changes": {},
      "files": {
@@ -356,7 +356,7 @@
    "versions": [
     {
      "version": 261013,
-     "effective": "2026-10-13T12:32:17.883Z",
+     "effective": "2026-10-13T14:32:17.883Z",
      "material": false,
      "changes": {},
      "files": {
@@ -399,7 +399,7 @@
     },
     {
      "version": 261019,
-     "effective": "2026-10-19T10:24:28.364Z",
+     "effective": "2026-10-19T12:24:28.364Z",
      "material": false,
      "changes": {
       "es": "La sección de los Términos a la que remite pasa a llamarse «Reportes y moderación».",
@@ -460,7 +460,7 @@
    "versions": [
     {
      "version": 261019,
-     "effective": "2026-10-19T10:24:28.364Z",
+     "effective": "2026-10-19T12:24:28.364Z",
      "material": false,
      "changes": {},
      "files": {
@@ -479,7 +479,7 @@
    "versions": [
     {
      "version": 261006,
-     "effective": "2026-10-06T16:07:29Z",
+     "effective": "2026-10-06T18:07:29Z",
      "material": false,
      "changes": {},
      "files": {
@@ -492,7 +492,7 @@
     },
     {
      "version": 261013,
-     "effective": "2026-10-13T12:32:17.883Z",
+     "effective": "2026-10-13T14:32:17.883Z",
      "material": false,
      "changes": {
       "es": "Añadimos la comprobación de cuentas gratuitas por dispositivo (DeviceCheck y Play Integrity) y las compras de SofIA Plus, Pro y Max en las tiendas. Con SofIA Pro o SofIA Max no hay anuncios.",
@@ -523,7 +523,7 @@
    "versions": [
     {
      "version": 261019,
-     "effective": "2026-10-19T10:24:28.364Z",
+     "effective": "2026-10-19T12:24:28.364Z",
      "material": false,
      "changes": {},
      "files": {
