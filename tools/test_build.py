@@ -7,19 +7,24 @@ the app's DeeplinkBusiness.ts.
 """
 from __future__ import annotations
 
+import base64
 import hashlib
 import html.parser
 import json
 import os
 import re
+import shutil
+import subprocess
 import sys
 import tempfile
 import unittest
+from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import build  # noqa: E402
+import documents  # noqa: E402
 
 SRC = ROOT / "src"
 HOST = build.HOST
@@ -121,7 +126,14 @@ class BuildTest(unittest.TestCase):
     def test_internal_links_resolve(self):
         # A frozen version keeps what it linked then: its links are a record, not the live site
         # (/sensitive left the site when each consent got its own page, 2026-10-18).
-        frozen = set(json.loads((SRC / "frozen" / "frozen.json").read_text(encoding="utf-8")))
+        frozen = set()
+        for doc in json.loads((SRC / "data" / "documents.json").read_text(encoding="utf-8"))["documents"]:
+            for v in doc["versions"]:
+                for code, f in v["files"].items():
+                    d = LOC["locales"][code]["dir"]
+                    frozen.add((f"{d}/" if d else "") + f"documents/{doc['web']}/original/{v['version']}.html")
+                    if f.get("legacy"):
+                        frozen.add(f["legacy"])
         for page, text in self.pages.items():
             if page in frozen:
                 continue
@@ -133,7 +145,14 @@ class BuildTest(unittest.TestCase):
 
     # 4b. in-page anchors exist (TOC, FAQ, #funciones…)
     def test_anchors_resolve(self):
-        frozen = set(json.loads((SRC / "frozen" / "frozen.json").read_text(encoding="utf-8")))
+        frozen = set()
+        for doc in json.loads((SRC / "data" / "documents.json").read_text(encoding="utf-8"))["documents"]:
+            for v in doc["versions"]:
+                for code, f in v["files"].items():
+                    d = LOC["locales"][code]["dir"]
+                    frozen.add((f"{d}/" if d else "") + f"documents/{doc['web']}/original/{v['version']}.html")
+                    if f.get("legacy"):
+                        frozen.add(f["legacy"])
         for page, text in self.pages.items():
             if page in frozen:
                 continue
@@ -210,7 +229,14 @@ class BuildTest(unittest.TestCase):
         # «suscripci» left this list with SofIA Plus, Pro and Max (Condiciones de la suscripción, 13-10).
         bad = ["Lorem", "[RELLENAR", "Gemini", "AWS", "Legado Seguro", "Asistente Conversacional",
                "funciones de pago", "no te cobra nada", "Algunas pantallas de la app anuncian"]
-        frozen = set(json.loads((SRC / "frozen" / "frozen.json").read_text(encoding="utf-8")))
+        frozen = set()
+        for doc in json.loads((SRC / "data" / "documents.json").read_text(encoding="utf-8"))["documents"]:
+            for v in doc["versions"]:
+                for code, f in v["files"].items():
+                    d = LOC["locales"][code]["dir"]
+                    frozen.add((f"{d}/" if d else "") + f"documents/{doc['web']}/original/{v['version']}.html")
+                    if f.get("legacy"):
+                        frozen.add(f["legacy"])
         for page, text in self.pages.items():
             if page in frozen:  # a frozen version keeps what it said then
                 continue
@@ -248,13 +274,124 @@ class BuildTest(unittest.TestCase):
         for must in ("CNAME", ".nojekyll", ".well-known/apple-app-site-association", ".well-known/assetlinks.json", "app-ads.txt"):
             self.assertTrue((self.out / must).is_file(), must)
 
-    # 12. frozen legal versions keep the hash recorded in frozen.json (and in user_legal_document_version)
-    def test_frozen_versions_keep_their_hash(self):
-        manifest = SRC / "frozen" / "frozen.json"
-        if not manifest.exists():
-            self.skipTest("no frozen versions yet")
-        for rel, sha in json.loads(manifest.read_text(encoding="utf-8")).items():
-            self.assertEqual(hashlib.sha256((self.out / rel).read_bytes()).hexdigest(), sha, rel)
+    # 12. /documents: every frozen original is served byte for byte at its /documents URL and, if it was
+    # published before /documents, at its old URL too; its sha256 is the one the registry (and the database) holds
+    def test_documents_originals_are_frozen(self):
+        registry = json.loads((SRC / "data" / "documents.json").read_text(encoding="utf-8"))["documents"]
+        self.assertTrue(registry)
+        for doc in registry:
+            for v in doc["versions"]:
+                for code, f in v["files"].items():
+                    d = LOC["locales"][code]["dir"]
+                    served = self.out / (f"{d}/" if d else "") / "documents" / doc["web"] / "original" / f"{v['version']}.html"
+                    self.assertEqual(hashlib.sha256(served.read_bytes()).hexdigest(), f["sha256"], served)
+                    if f.get("legacy"):
+                        self.assertEqual((self.out / f["legacy"]).read_bytes(), served.read_bytes(), f["legacy"])
+
+    # 12b. one page per version, framing its original; the index and each document's page list them all
+    def test_documents_pages(self):
+        registry = json.loads((SRC / "data" / "documents.json").read_text(encoding="utf-8"))["documents"]
+        index = self.pages["documents/index.html"]
+        for doc in registry:
+            self.assertIn(f'href="/documents/{doc["web"]}/"', index, doc["id"])
+            opener = self.pages[f"documents/{doc['web']}/index.html"]
+            self.assertIn(f'data-doc-open="{doc["web"]}"', opener)
+            for i, v in enumerate(doc["versions"]):
+                page = self.pages[f"documents/{doc['web']}/{v['version']}.html"]
+                self.assertIn(f'<iframe class="orig-frame" src="/documents/{doc["web"]}/original/{v["version"]}"', page)
+                self.assertIn(f'href="/documents/{doc["web"]}/{v["version"]}"', index)
+                # The code is the URL, never the page's text (Israel, 22-10-2026).
+                self.assertNotIn(f">{v['version']}<", page)
+                if i == 0:
+                    self.assertNotIn("Qué cambia en esta versión", page, f"{doc['id']} {v['version']}: a first version has none")
+                    self.assertNotIn("Requiere aceptación", page)
+                    self.assertNotIn("Cambio menor", page)
+                else:
+                    self.assertIn("Qué cambia en esta versión", page)
+                    self.assertIn("Requiere aceptación" if v["material"] else "Cambio menor", page)
+
+    # 12c. the manifest core ingests: every version, its originals with their sha256, and «what changes»
+    def test_documents_manifest(self):
+        registry = json.loads((SRC / "data" / "documents.json").read_text(encoding="utf-8"))["documents"]
+        m = json.loads((self.out / "documents.json").read_text(encoding="utf-8"))
+        self.assertEqual(m["origin"], HOST)
+        self.assertEqual([d["id"] for d in m["documents"]], [d["id"] for d in registry])
+        for doc, md in zip(registry, m["documents"]):
+            self.assertEqual([v["version"] for v in md["versions"]], [v["version"] for v in doc["versions"]])
+            for v, mv in zip(doc["versions"], md["versions"]):
+                self.assertEqual(sorted(mv["locales"]), sorted(PUBLISHED), "one entry per i18n file")
+                es = mv["locales"]["es"]
+                self.assertEqual(es["sha256"], v["files"]["es"]["sha256"])
+                self.assertEqual(hashlib.sha256(resolve(self.out, es["url"]).read_bytes()).hexdigest(), es["sha256"])
+                self.assertIsNotNone(resolve(self.out, mv["url"]), mv["url"])
+                self.assertEqual(mv["locales"]["pt-BR"]["sha256"], mv["locales"]["pt-PT"]["sha256"], "one /pt/ page, both texts")
+                self.assertEqual(int(datetime.fromisoformat(mv["effective"]).strftime("%y%m%d")), mv["version"])
+        self.assertFalse((self.out / "documents.json.sig").exists(), "only the release build signs")
+
+    # 12d. the registry's contract: the build refuses a frozen file that changed, a version that is not the
+    # Madrid date of its effective time, two versions of a document on one day, and a release without every
+    # «what changes»
+    def test_documents_registry_refuses(self):
+        def attempt(mutate, release=False):
+            with tempfile.TemporaryDirectory() as t:
+                src = Path(t)
+                shutil.copytree(SRC / "documents", src / "documents")
+                shutil.copytree(SRC / "legal", src / "legal")
+                (src / "data").mkdir()
+                reg = json.loads((SRC / "data" / "documents.json").read_text(encoding="utf-8"))
+                mutate(reg, src)
+                (src / "data" / "documents.json").write_text(json.dumps(reg), encoding="utf-8")
+                site = build.Site(release=False)
+                return documents.Documents(site, src=src, root=ROOT, release=release, host=HOST, page_meta=build.page_meta)
+
+        attempt(lambda reg, src: None)  # the registry as it is passes
+
+        def tamper(reg, src):
+            f = src / "documents" / reg["documents"][0]["versions"][0]["files"]["es"]["path"]
+            f.write_bytes(f.read_bytes() + b" ")
+        def wrong_date(reg, src):
+            reg["documents"][0]["versions"][-1]["version"] += 1
+        def same_day(reg, src):
+            vs = reg["documents"][0]["versions"]
+            vs.append(dict(vs[-1]))
+        def changes_on_first(reg, src):
+            reg["documents"][0]["versions"][0]["changes"] = {"es": "x"}
+        for name, mutate in (("tampered", tamper), ("date", wrong_date), ("same day", same_day), ("first", changes_on_first)):
+            with self.subTest(name), self.assertRaises(documents.DocumentsError):
+                attempt(mutate)
+        incomplete = any(v["changes"] and len(v["changes"]) < len(PUBLISHED)
+                         for d in json.loads((SRC / "data" / "documents.json").read_text(encoding="utf-8"))["documents"]
+                         for v in d["versions"][1:])
+        if incomplete:
+            with self.assertRaises(documents.DocumentsError):
+                attempt(lambda reg, src: None, release=True)
+
+    # 12e. the release signs the manifest with Ed25519, and the signature verifies with the public key
+    def test_documents_manifest_signature(self):
+        if not shutil.which("openssl"):
+            self.skipTest("openssl not installed")
+        with tempfile.TemporaryDirectory() as t:
+            key, pub, sig = Path(t) / "k.pem", Path(t) / "k.pub", Path(t) / "m.sig"
+            subprocess.run(["openssl", "genpkey", "-algorithm", "ed25519", "-out", str(key)], check=True, capture_output=True)
+            subprocess.run(["openssl", "pkey", "-in", str(key), "-pubout", "-out", str(pub)], check=True, capture_output=True)
+            os.environ[documents.SIGNING_KEY_ENV] = str(key)
+            try:
+                site = build.Site(release=False)
+                docs = documents.Documents(site, src=SRC, root=ROOT, release=False, host=HOST, page_meta=build.page_meta)
+                signature = docs.sign(self.out / "documents.json")
+            finally:
+                del os.environ[documents.SIGNING_KEY_ENV]
+            sig.write_bytes(base64.b64decode(signature))
+            ok = subprocess.run(["openssl", "pkeyutl", "-verify", "-pubin", "-inkey", str(pub), "-rawin",
+                                 "-in", str(self.out / "documents.json"), "-sigfile", str(sig)], capture_output=True)
+            self.assertEqual(ok.returncode, 0, ok.stdout + ok.stderr)
+            tampered = Path(t) / "m.json"
+            tampered.write_bytes((self.out / "documents.json").read_bytes().replace(b'"material":false', b'"material":true', 1))
+            bad = subprocess.run(["openssl", "pkeyutl", "-verify", "-pubin", "-inkey", str(pub), "-rawin",
+                                  "-in", str(tampered), "-sigfile", str(sig)], capture_output=True)
+            self.assertNotEqual(bad.returncode, 0, "a changed manifest must not verify")
+        # The real public key ships beside the encrypted private one.
+        self.assertTrue((ROOT / "secrets" / "documents-signing.pub.pem").is_file())
 
     # 13. deterministic, and docs/ is up to date with src/
     def test_deterministic_and_committed_output_current(self):

@@ -23,6 +23,8 @@ import tempfile
 import sys
 from pathlib import Path
 
+from documents import Documents, DocumentsError
+
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "src"
 HOST = "https://www.sofia.ismx.app"
@@ -88,8 +90,8 @@ def page_meta(text: str) -> tuple[dict, str]:
 
 
 class Site:
-    def __init__(self, release: bool):
-        self.release = release
+    def __init__(self, release: bool, sign: bool = False):
+        self.release, self.sign = release, sign
         loc = load_json(SRC / "data" / "locales.json")
         self.order = loc["order"]
         self.locales = loc["locales"]
@@ -106,6 +108,15 @@ class Site:
             for f in sorted(SRC.glob("i18n/**/*.json")) + sorted(SRC.glob("pages/*.html")) + sorted(SRC.glob("templates/*.html")):
                 self.source(f)
         self.pending: list[str] = []
+
+    def change_locales(self) -> list[str]:
+        """The i18n files in publishing order, both Portuguese ones included."""
+        out = []
+        for c in self.order:
+            out.append(self.locales[c]["file"])
+            if "variant" in self.locales[c]:
+                out.append(self.locales[c]["variant"]["file"])
+        return out
 
     # ---------- urls ----------
     def url(self, page: str, code: str) -> str:
@@ -583,6 +594,7 @@ class Site:
             elif page != "privacy":  # listed above, with the summaries as its alternates
                 rows.append(f"  <url><loc>{HOST}/{page}</loc></url>")
         rows.append(f"  <url><loc>{HOST}/licenses</loc></url>")
+        rows += [f"  <url><loc>{HOST}{u}</loc></url>" for u in self.documents.sitemap_urls()]
         rows.append("</urlset>")
         return "\n".join(rows) + "\n"
 
@@ -605,6 +617,10 @@ class Site:
         return info
 
     def _build_into(self, out: Path) -> dict:
+        try:
+            self.documents = Documents(self, src=SRC, root=ROOT, release=self.release, host=HOST, page_meta=page_meta)
+        except DocumentsError as e:
+            raise BuildError(str(e)) from None
         files: dict[str, str] = {}
         for page in LOCALIZED_PAGES:
             for c in self.order:
@@ -618,6 +634,8 @@ class Site:
             for c in codes:
                 files[f"{self.locales[c]['dir']}/{page}.html"] = self.build_legal_translated(page, c)
         files[f"{LICENSES_PAGE}.html"] = self.build_licenses()
+        files.update(self.documents.files())
+        files["documents.json"] = self.documents.manifest()
         files["404.html"] = self.build_404()
         files["sitemap.xml"] = self.sitemap()
         files["robots.txt"] = f"User-agent: *\nAllow: /\n\nSitemap: {HOST}/sitemap.xml\n"
@@ -625,20 +643,30 @@ class Site:
             p = out / rel
             p.parent.mkdir(parents=True, exist_ok=True)
             p.write_text(content, encoding="utf-8")
-        # Copied byte for byte: static files (CNAME, .well-known, app-ads.txt, .nojekyll), assets, frozen versions.
-        for src_dir, dst in ((SRC / "static", out), (SRC / "assets", out / "assets"), (SRC / "frozen", out)):
+        # Copied byte for byte: static files (CNAME, .well-known, app-ads.txt, .nojekyll) and assets; then the
+        # frozen legal versions, at their /documents URL and at the old one they were published at.
+        for src_dir, dst in ((SRC / "static", out), (SRC / "assets", out / "assets")):
             if src_dir.exists():
                 shutil.copytree(src_dir, dst, dirs_exist_ok=True)
+        for rel, src in sorted(self.documents.copies().items()):
+            (out / rel).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(src, out / rel)
+        if self.sign:
+            try:
+                (out / "documents.json.sig").write_text(self.documents.sign(out / "documents.json"), encoding="utf-8")
+            except DocumentsError as e:
+                raise BuildError(str(e)) from None
         return {"files": len(files), "pending": sorted(set(self.pending))}
 
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--release", action="store_true")
+    ap.add_argument("--sign", action="store_true", help="sign /documents.json (needs sops and Israel's age key)")
     ap.add_argument("--out", default=str(ROOT / "docs"))
     args = ap.parse_args(argv)
     try:
-        info = Site(args.release).build(Path(args.out))
+        info = Site(args.release, args.sign).build(Path(args.out))
     except BuildError as e:
         print(f"build failed: {e}", file=sys.stderr)
         return 1

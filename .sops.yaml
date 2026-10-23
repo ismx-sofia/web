@@ -1,0 +1,8 @@
+# SOPS rules for the website (see README.md · Firma del manifiesto).
+#
+# The Ed25519 key that signs /documents.json. Only Israel's age key can decrypt it
+# (his Mac; private part kept in his password manager): no host holds it, so a
+# compromised server cannot sign a manifest that core would accept.
+creation_rules:
+  - path_regex: (^|/)secrets/documents-signing\.sops\.pem$
+    age: age1k0m5hqakh0vl7dfajxs83p77nwnf9ntvqw98p0atqgdn0ul2l4zsxcz5es

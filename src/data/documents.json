@@ -1,0 +1,539 @@
+{
+ "_doc": "Registry of the published versions of the legal documents (plan 261022-documentos-legales). One entry per version: `id` is the document in user_legal_document_type, `web` its URL slug, `version` YYMMDD of its effective date in Europe/Madrid, `material` → requires_acceptance, `changes` the «what changes» per i18n file (none on a first version), `files` the frozen bytes per web language with their sha256 and, for the versions published before /documents, the old URL they keep serving (`legacy`). A frozen file never changes: the build refuses one whose bytes no longer match.",
+ "documents": [
+  {
+   "id": "terms",
+   "web": "terms",
+   "title": "Términos y condiciones",
+   "versions": [
+    {
+     "version": 261006,
+     "effective": "2026-10-06T16:07:29Z",
+     "material": false,
+     "changes": {},
+     "files": {
+      "es": {
+       "path": "terms/261006.html",
+       "legacy": "terms-v3.html",
+       "sha256": "d5bbfa5264ad06d5a919f880ab6c8a58ca6e4d171aea6bec5be0bb6ba5a07b10"
+      }
+     }
+    },
+    {
+     "version": 261013,
+     "effective": "2026-10-13T12:32:17.883Z",
+     "material": true,
+     "changes": {
+      "es": "Añadimos los planes de pago SofIA Plus, Pro y Max y una cuota de inteligencia artificial también en el plan gratuito.",
+      "en": "We add the paid plans SofIA Plus, Pro and Max, and an artificial intelligence allowance in the free plan too.",
+      "ca": "Afegim els plans de pagament SofIA Plus, Pro i Max i una quota d'intel·ligència artificial també al pla gratuït.",
+      "fr": "Nous ajoutons les formules payantes SofIA Plus, Pro et Max, et un quota d'intelligence artificielle aussi dans la formule gratuite.",
+      "pt-BR": "Adicionamos os planos pagos SofIA Plus, Pro e Max e uma cota de inteligência artificial também no plano gratuito.",
+      "pt-PT": "Acrescentamos os planos pagos SofIA Plus, Pro e Max e uma quota de inteligência artificial também no plano gratuito.",
+      "de": "Wir führen die kostenpflichtigen Abos SofIA Plus, Pro und Max ein, und auch das kostenlose Angebot erhält ein Kontingent für künstliche Intelligenz.",
+      "it": "Aggiungiamo i piani a pagamento SofIA Plus, Pro e Max e una quota di intelligenza artificiale anche nel piano gratuito.",
+      "zh": "新增付费方案 SofIA Plus、Pro 和 Max，免费方案也提供人工智能使用额度。",
+      "ja": "有料プランの SofIA Plus・Pro・Max を追加し、無料プランにも人工知能の利用枠を設けました。"
+     },
+     "files": {
+      "es": {
+       "path": "terms/261013.html",
+       "legacy": "terms-v4.html",
+       "sha256": "24bb60a4944c191d7e49014fc3c9af2ec292556afca84bc37369d904488dff02"
+      }
+     }
+    },
+    {
+     "version": 261019,
+     "effective": "2026-10-19T10:24:28.364Z",
+     "material": false,
+     "changes": {
+      "es": "En un chat se reporta la conversación entera: si se confirma una infracción, se retiran los mensajes revisados de la persona reportada. «Denunciar» pasa a llamarse «Reportar».",
+      "en": "In a chat, the whole conversation is reported: if a breach is confirmed, the reviewed messages of the reported person are removed. In the Spanish text, «Denunciar» becomes «Reportar».",
+      "ca": "En un xat es reporta la conversa sencera: si es confirma una infracció, es retiren els missatges revisats de la persona reportada. Al text en castellà, «Denunciar» passa a ser «Reportar».",
+      "fr": "Dans une discussion, c'est toute la conversation qui est signalée : si une infraction est confirmée, les messages examinés de la personne signalée sont retirés. Dans le texte espagnol, « Denunciar » devient « Reportar ».",
+      "pt-BR": "Em um chat, a conversa inteira é denunciada: se uma infração for confirmada, as mensagens revisadas da pessoa denunciada são retiradas. No texto em espanhol, «Denunciar» passa a ser «Reportar».",
+      "pt-PT": "Numa conversa, é denunciada a conversa inteira: se se confirmar uma infração, são retiradas as mensagens revistas da pessoa denunciada. No texto em espanhol, «Denunciar» passa a ser «Reportar».",
+      "de": "In einem Chat wird das ganze Gespräch gemeldet: Bestätigt sich ein Verstoß, werden die geprüften Nachrichten der gemeldeten Person entfernt. Im spanischen Text heißt «Denunciar» jetzt «Reportar».",
+      "it": "In una chat si segnala l'intera conversazione: se una violazione viene confermata, si rimuovono i messaggi esaminati della persona segnalata. Nel testo spagnolo, «Denunciar» diventa «Reportar».",
+      "zh": "在聊天中，举报针对的是整段对话：如果确认违规，被举报者经审核的消息会被移除。西班牙语原文中，«Denunciar» 改为 «Reportar»。",
+      "ja": "チャットでは会話全体を報告します。違反が確認された場合、報告された人の審査済みメッセージを削除します。スペイン語の原文では «Denunciar» が «Reportar» になりました。"
+     },
+     "files": {
+      "es": {
+       "path": "terms/261019.html",
+       "legacy": "terms-v5.html",
+       "sha256": "d386b4143886d5d0e3c92467c7555f2a167926295b4ab2c7034ba252c31c61b8"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "privacy",
+   "web": "privacy",
+   "title": "Política de privacidad",
+   "versions": [
+    {
+     "version": 261006,
+     "effective": "2026-10-06T16:07:29Z",
+     "material": false,
+     "changes": {},
+     "files": {
+      "es": {
+       "path": "privacy/261006.html",
+       "legacy": "privacy-v4.html",
+       "sha256": "0beb1cba4bf03263bfd5fa443ed7267846c91ecc55748483fd05c612f9dd92ca"
+      }
+     }
+    },
+    {
+     "version": 261013,
+     "effective": "2026-10-13T12:32:17.883Z",
+     "material": true,
+     "changes": {
+      "es": "Añadimos los datos de las suscripciones, el registro de uso de la inteligencia artificial y la comprobación de cuentas gratuitas por dispositivo.",
+      "en": "We add the data of subscriptions, the record of artificial intelligence use and the check of free accounts per device.",
+      "ca": "Afegim les dades de les subscripcions, el registre d'ús de la intel·ligència artificial i la comprovació de comptes gratuïts per dispositiu.",
+      "fr": "Nous ajoutons les données des abonnements, le registre d'utilisation de l'intelligence artificielle et la vérification des comptes gratuits par appareil.",
+      "pt-BR": "Adicionamos os dados das assinaturas, o registro de uso da inteligência artificial e a verificação de contas gratuitas por dispositivo.",
+      "pt-PT": "Acrescentamos os dados das subscrições, o registo de utilização da inteligência artificial e a verificação de contas gratuitas por dispositivo.",
+      "de": "Wir ergänzen die Daten der Abos, das Protokoll der Nutzung künstlicher Intelligenz und die Prüfung kostenloser Konten pro Gerät.",
+      "it": "Aggiungiamo i dati degli abbonamenti, il registro d'uso dell'intelligenza artificiale e il controllo degli account gratuiti per dispositivo.",
+      "zh": "新增订阅数据、人工智能使用记录，以及按设备核查免费账户。",
+      "ja": "サブスクリプションのデータ、人工知能の利用記録、端末ごとの無料アカウントの確認を追加しました。"
+     },
+     "files": {
+      "es": {
+       "path": "privacy/261013.html",
+       "legacy": "privacy-v5.html",
+       "sha256": "a6192aa9c64250ca357192a402c352a5d93b04179b74514ed21c54a6c2a34f82"
+      }
+     }
+    },
+    {
+     "version": 261019,
+     "effective": "2026-10-19T10:24:28.364Z",
+     "material": false,
+     "changes": {
+      "es": "Al reportar una conversación se guarda una copia de lo que ve quien reporta, con los mensajes de las dos partes. «Denuncia» pasa a llamarse «reporte».",
+      "en": "When a conversation is reported, we keep a copy of what the reporting person sees, with the messages of both sides. In the Spanish text, «denuncia» becomes «reporte».",
+      "ca": "En reportar una conversa es guarda una còpia del que veu qui la reporta, amb els missatges de les dues parts. Al text en castellà, «denuncia» passa a ser «reporte».",
+      "fr": "Lorsqu'une conversation est signalée, nous conservons une copie de ce que voit la personne qui la signale, avec les messages des deux parties. Dans le texte espagnol, « denuncia » devient « reporte ».",
+      "pt-BR": "Ao denunciar uma conversa, guardamos uma cópia do que vê quem denuncia, com as mensagens das duas partes. No texto em espanhol, «denuncia» passa a ser «reporte».",
+      "pt-PT": "Ao denunciar uma conversa, guardamos uma cópia do que vê quem denuncia, com as mensagens das duas partes. No texto em espanhol, «denuncia» passa a ser «reporte».",
+      "de": "Wird ein Gespräch gemeldet, bewahren wir eine Kopie dessen auf, was die meldende Person sieht, mit den Nachrichten beider Seiten. Im spanischen Text heißt «denuncia» jetzt «reporte».",
+      "it": "Quando si segnala una conversazione, conserviamo una copia di ciò che vede chi la segnala, con i messaggi di entrambe le parti. Nel testo spagnolo, «denuncia» diventa «reporte».",
+      "zh": "举报对话时，我们会保存举报人所见内容的副本，包括双方的消息。西班牙语原文中，«denuncia» 改为 «reporte»。",
+      "ja": "会話が報告されると、報告した人に見えている内容のコピーを、双方のメッセージを含めて保存します。スペイン語の原文では «denuncia» が «reporte» になりました。"
+     },
+     "files": {
+      "es": {
+       "path": "privacy/261019.html",
+       "legacy": "privacy-v6.html",
+       "sha256": "bfecb304e581f111b66dc237f99c9e4ace1c2efbdcdc24280b170944b8795b8a"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "ia",
+   "web": "ia",
+   "title": "Política de IA",
+   "versions": [
+    {
+     "version": 261006,
+     "effective": "2026-10-06T16:07:29Z",
+     "material": false,
+     "changes": {},
+     "files": {
+      "es": {
+       "path": "ia/261006.html",
+       "legacy": "ia-v1.html",
+       "sha256": "8cf33677efd68fed229e4b7d03ca2f1796ab0ca7a4c603198c3c7a9756470c46"
+      }
+     }
+    },
+    {
+     "version": 261013,
+     "effective": "2026-10-13T12:32:17.883Z",
+     "material": true,
+     "changes": {
+      "es": "Añadimos las herramientas de inteligencia artificial que pides tú y su cuota.",
+      "en": "We add the artificial intelligence tools you ask for, and their allowance.",
+      "ca": "Afegim les eines d'intel·ligència artificial que demanes tu i la seva quota.",
+      "fr": "Nous ajoutons les outils d'intelligence artificielle que tu demandes toi-même, et leur quota.",
+      "pt-BR": "Adicionamos as ferramentas de inteligência artificial que você pede e a cota delas.",
+      "pt-PT": "Acrescentamos as ferramentas de inteligência artificial que tu pedes e a respetiva quota.",
+      "de": "Wir ergänzen die KI-Werkzeuge, die du selbst anforderst, und ihr Kontingent.",
+      "it": "Aggiungiamo gli strumenti di intelligenza artificiale che richiedi tu e la loro quota.",
+      "zh": "新增由你主动使用的人工智能工具及其使用额度。",
+      "ja": "あなたが自分で呼び出す人工知能ツールと、その利用枠を追加しました。"
+     },
+     "files": {
+      "es": {
+       "path": "ia/261013.html",
+       "legacy": "ia-v2.html",
+       "sha256": "d14acfb0a675eb4807c23e0576d8d90fa6ab0f034fe2c6d682ee4de6c017b70f"
+      }
+     }
+    },
+    {
+     "version": 261018,
+     "effective": "2026-10-18T12:13:02.240Z",
+     "material": false,
+     "changes": {
+      "es": "Ahora es un consentimiento: lo das al activar la inteligencia artificial y lo retiras al desactivarla.",
+      "en": "It is now a consent: you give it when you turn artificial intelligence on and withdraw it when you turn it off.",
+      "ca": "Ara és un consentiment: el dones en activar la intel·ligència artificial i el retires en desactivar-la.",
+      "fr": "C'est désormais un consentement : tu le donnes en activant l'intelligence artificielle et tu le retires en la désactivant.",
+      "pt-BR": "Agora é um consentimento: você o dá ao ativar a inteligência artificial e o retira ao desativá-la.",
+      "pt-PT": "Passa a ser um consentimento: dá-lo ao ativar a inteligência artificial e retira-lo ao desativá-la.",
+      "de": "Es ist jetzt eine Einwilligung: Du erteilst sie, wenn du die künstliche Intelligenz einschaltest, und widerrufst sie, wenn du sie ausschaltest.",
+      "it": "Ora è un consenso: lo dai quando attivi l'intelligenza artificiale e lo revochi quando la disattivi.",
+      "zh": "现在这是一项同意：开启人工智能即表示同意，关闭即撤回同意。",
+      "ja": "同意の形になりました。人工知能をオンにすると同意し、オフにすると同意を撤回します。"
+     },
+     "files": {
+      "es": {
+       "path": "ia/261018.html",
+       "legacy": "ia-v4.html",
+       "sha256": "e62c261b24af7a160eed87d5dfb996b50ae5e77009266a5dfd3458bc9f4b8e3f"
+      }
+     }
+    },
+    {
+     "version": 261019,
+     "effective": "2026-10-19T10:24:28.364Z",
+     "material": false,
+     "changes": {
+      "es": "El modelo lee una conversación privada solo si se reporta. «Denunciar» pasa a llamarse «Reportar».",
+      "en": "The model reads a private conversation only if it is reported. In the Spanish text, «Denunciar» becomes «Reportar».",
+      "ca": "El model només llegeix una conversa privada si es reporta. Al text en castellà, «Denunciar» passa a ser «Reportar».",
+      "fr": "Le modèle ne lit une conversation privée que si elle est signalée. Dans le texte espagnol, « Denunciar » devient « Reportar ».",
+      "pt-BR": "O modelo só lê uma conversa privada se ela for denunciada. No texto em espanhol, «Denunciar» passa a ser «Reportar».",
+      "pt-PT": "O modelo só lê uma conversa privada se for denunciada. No texto em espanhol, «Denunciar» passa a ser «Reportar».",
+      "de": "Das Modell liest ein privates Gespräch nur, wenn es gemeldet wird. Im spanischen Text heißt «Denunciar» jetzt «Reportar».",
+      "it": "Il modello legge una conversazione privata solo se viene segnalata. Nel testo spagnolo, «Denunciar» diventa «Reportar».",
+      "zh": "只有在私人对话被举报时，模型才会读取它。西班牙语原文中，«Denunciar» 改为 «Reportar»。",
+      "ja": "プライベートな会話をモデルが読むのは、その会話が報告された場合だけです。スペイン語の原文では «Denunciar» が «Reportar» になりました。"
+     },
+     "files": {
+      "es": {
+       "path": "ia/261019.html",
+       "legacy": "ia-v5.html",
+       "sha256": "1584a9b8a9772639f0dc4a4a48d025856ae826c74c2b1e2ee19ad94df8d87c2b"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "journal",
+   "web": "consent-journal",
+   "title": "Consentimiento del diario",
+   "versions": [
+    {
+     "version": 261018,
+     "effective": "2026-10-18T09:52:23.177Z",
+     "material": false,
+     "changes": {},
+     "files": {
+      "es": {
+       "path": "consent-journal/261018.html",
+       "legacy": "consent-journal-v1.html",
+       "sha256": "937fedef5bee28c665cd19360031a6a3c662a350ba5344773bb0b2cced4513a8"
+      },
+      "en": {
+       "path": "consent-journal/en/261018.html",
+       "legacy": "en/consent-journal-v1.html",
+       "sha256": "e9642e57f33e93ed274497a3d37a5ba3feca3cd5b00e5d427ce95a0a1b071449"
+      },
+      "ca": {
+       "path": "consent-journal/ca/261018.html",
+       "legacy": "ca/consent-journal-v1.html",
+       "sha256": "486dd6495f87734ac1ebc5dbe30b200f68aff3727a658462d4986a80440e0423"
+      },
+      "fr": {
+       "path": "consent-journal/fr/261018.html",
+       "legacy": "fr/consent-journal-v1.html",
+       "sha256": "44483384fe144f3107981424e50e96b752e56d019c052acd48383e1f2d4b6906"
+      },
+      "pt": {
+       "path": "consent-journal/pt/261018.html",
+       "legacy": "pt/consent-journal-v1.html",
+       "sha256": "0c693b36ecd0267de72d908bb6c116f42717dabe5cc4b0c00f4580be3bd208a3"
+      },
+      "de": {
+       "path": "consent-journal/de/261018.html",
+       "legacy": "de/consent-journal-v1.html",
+       "sha256": "7460b2013a110daa2dcb2c5ebc865055d7942530818be1a4e1ff25b48c6e7f3e"
+      },
+      "it": {
+       "path": "consent-journal/it/261018.html",
+       "legacy": "it/consent-journal-v1.html",
+       "sha256": "3576dc9031fe490028d15e3d1afab48201f86b4fdfe4b20175c6c3bf04502540"
+      },
+      "zh": {
+       "path": "consent-journal/zh/261018.html",
+       "legacy": "zh/consent-journal-v1.html",
+       "sha256": "37225c80aaa7d33c445bdfeadffc9f6bb141905972352fdaaa84c3c2229525dc"
+      },
+      "ja": {
+       "path": "consent-journal/ja/261018.html",
+       "legacy": "ja/consent-journal-v1.html",
+       "sha256": "44c5ef702685d7202214b8987ec49a0670e300429367e464e9002f5b4a45547e"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "health",
+   "web": "consent-health",
+   "title": "Consentimiento de salud y bienestar",
+   "versions": [
+    {
+     "version": 261018,
+     "effective": "2026-10-18T09:52:23.177Z",
+     "material": false,
+     "changes": {},
+     "files": {
+      "es": {
+       "path": "consent-health/261018.html",
+       "legacy": "consent-health-v1.html",
+       "sha256": "fe1019a89c1a1211e8df12a89c994602718e33d82f28f34efc52d6b6f5b81304"
+      },
+      "en": {
+       "path": "consent-health/en/261018.html",
+       "legacy": "en/consent-health-v1.html",
+       "sha256": "0ad165bd2fc9f481bba4a699bbf338f34854fef59940795aeb9aba575936f9e9"
+      },
+      "ca": {
+       "path": "consent-health/ca/261018.html",
+       "legacy": "ca/consent-health-v1.html",
+       "sha256": "4e4d8de0ddd298637b1c140a66a76ddf0a2a1a2f3abd918428d4d6133777247a"
+      },
+      "fr": {
+       "path": "consent-health/fr/261018.html",
+       "legacy": "fr/consent-health-v1.html",
+       "sha256": "2bfb7117ef92d7de7c13098eeffc27146cadf03717ddf4ed12ec1cd6fffdf81b"
+      },
+      "pt": {
+       "path": "consent-health/pt/261018.html",
+       "legacy": "pt/consent-health-v1.html",
+       "sha256": "412a91f3866e295b40d002165209e188c7dadf8d91e52818973d5d0568aab789"
+      },
+      "de": {
+       "path": "consent-health/de/261018.html",
+       "legacy": "de/consent-health-v1.html",
+       "sha256": "a60a98baf97465c5818352e689f2669ff07d412d606cc455494e7e6bfef7bf3c"
+      },
+      "it": {
+       "path": "consent-health/it/261018.html",
+       "legacy": "it/consent-health-v1.html",
+       "sha256": "c0a0d362bea896a115a4152f1a04556086e394d984340fe2705a5a59bc0ab503"
+      },
+      "zh": {
+       "path": "consent-health/zh/261018.html",
+       "legacy": "zh/consent-health-v1.html",
+       "sha256": "fcf775e7acd774114d300f22f6244758e034d9dfb4acaf29dc050b1d9d68b7e5"
+      },
+      "ja": {
+       "path": "consent-health/ja/261018.html",
+       "legacy": "ja/consent-health-v1.html",
+       "sha256": "4412f95c1ee04099b78b1dba0f01c868488b11b75d59ecd7cc7ef37307f29868"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "subscription",
+   "web": "subscription",
+   "title": "Condiciones de la suscripción",
+   "versions": [
+    {
+     "version": 261013,
+     "effective": "2026-10-13T12:32:17.883Z",
+     "material": false,
+     "changes": {},
+     "files": {
+      "es": {
+       "path": "subscription/261013.html",
+       "legacy": "subscription-v1.html",
+       "sha256": "6942c07321b9adc11ac3f3ba6687190956e35ac492ab07b174437b241b32e533"
+      },
+      "en": {
+       "path": "subscription/en/261013.html",
+       "legacy": "en/subscription-v1.html",
+       "sha256": "c76dcd2e39499ab4f45353ea30678ecab5312c2c27cda3006754ef831174908f"
+      },
+      "ca": {
+       "path": "subscription/ca/261013.html",
+       "legacy": "ca/subscription-v1.html",
+       "sha256": "98dc499236ba5cd136eafb2ebfe9e4c08847e834fcd67f09668691a8d51b8688"
+      },
+      "fr": {
+       "path": "subscription/fr/261013.html",
+       "legacy": "fr/subscription-v1.html",
+       "sha256": "86cdf56a50b7777f4e1d517edaf80f494efcc774255828f13f45635ef8975744"
+      },
+      "pt": {
+       "path": "subscription/pt/261013.html",
+       "legacy": "pt/subscription-v1.html",
+       "sha256": "3c84ed5b790fe989e94ce6d19d695b0ce07367c3a0997cedc876a39e2cda2bf0"
+      },
+      "de": {
+       "path": "subscription/de/261013.html",
+       "legacy": "de/subscription-v1.html",
+       "sha256": "c2bc05267b831004e663b858a5c6d6d908bf3ee865ba7b11f0049e23731ff33e"
+      },
+      "it": {
+       "path": "subscription/it/261013.html",
+       "legacy": "it/subscription-v1.html",
+       "sha256": "3a6302155c92584349f0d44f976313c5bba7bb1692ea1b0918bbe00a0fe796f2"
+      }
+     }
+    },
+    {
+     "version": 261019,
+     "effective": "2026-10-19T10:24:28.364Z",
+     "material": false,
+     "changes": {
+      "es": "La sección de los Términos a la que remite pasa a llamarse «Reportes y moderación».",
+      "en": "The section of the Terms it refers to is now called «Reportes y moderación».",
+      "ca": "La secció dels Termes a què remet passa a dir-se «Reportes y moderación».",
+      "fr": "La section des Conditions d'utilisation à laquelle elle renvoie s'appelle désormais « Reportes y moderación ».",
+      "pt-BR": "A seção dos Termos a que remete passa a se chamar «Reportes y moderación».",
+      "pt-PT": "A secção dos Termos para a qual remete passa a chamar-se «Reportes y moderación».",
+      "de": "Der Abschnitt der Nutzungsbedingungen, auf den sie verweist, heißt jetzt «Reportes y moderación».",
+      "it": "La sezione dei Termini a cui rimanda ora si chiama «Reportes y moderación».",
+      "zh": "其引用的《条款》章节现名为 «Reportes y moderación»。",
+      "ja": "参照している利用規約の章の名前が «Reportes y moderación» に変わりました。"
+     },
+     "files": {
+      "es": {
+       "path": "subscription/261019.html",
+       "legacy": "subscription-v2.html",
+       "sha256": "cf9b76d428264e26bf052dfd4b5633440238a15ac574164d8bc923295cbbd642"
+      },
+      "en": {
+       "path": "subscription/en/261019.html",
+       "legacy": "en/subscription-v2.html",
+       "sha256": "6015ed0ca059c9dadb39b41d9f7dcba67b8183735a0c4ada6c4258d498017936"
+      },
+      "ca": {
+       "path": "subscription/ca/261019.html",
+       "legacy": "ca/subscription-v2.html",
+       "sha256": "2dc5f133c2031eba11ba9b77dff6987c98d4572939cdb4044d3f6ed7e02b847f"
+      },
+      "fr": {
+       "path": "subscription/fr/261019.html",
+       "legacy": "fr/subscription-v2.html",
+       "sha256": "e1b345777d91e56a3ed2cd292f009f13fb763854c94a0db4d1211a4ce2b154b9"
+      },
+      "pt": {
+       "path": "subscription/pt/261019.html",
+       "legacy": "pt/subscription-v2.html",
+       "sha256": "fc91261aed4f717ef42d62992027fdec0820c30bd319ae9b37d139c336e30a00"
+      },
+      "de": {
+       "path": "subscription/de/261019.html",
+       "legacy": "de/subscription-v2.html",
+       "sha256": "76ccb5a234e9a1506bb2ce3a12ee4f90237026fd80e969e74cce09e20e63d8ef"
+      },
+      "it": {
+       "path": "subscription/it/261019.html",
+       "legacy": "it/subscription-v2.html",
+       "sha256": "351dd4186258e708949f74a191ac3497cdf027635bb6e02ca8936b8ff7f58e8b"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "normas",
+   "web": "normas",
+   "title": "Normas de la comunidad",
+   "versions": [
+    {
+     "version": 261019,
+     "effective": "2026-10-19T10:24:28.364Z",
+     "material": false,
+     "changes": {},
+     "files": {
+      "es": {
+       "path": "normas/261019.html",
+       "sha256": "a7edc5c0374088191d16e83896cce80125b6420dd74f7f83a13174cdd863a98f"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "cookies",
+   "web": "cookies",
+   "title": "Política de cookies",
+   "versions": [
+    {
+     "version": 261006,
+     "effective": "2026-10-06T16:07:29Z",
+     "material": false,
+     "changes": {},
+     "files": {
+      "es": {
+       "path": "cookies/261006.html",
+       "legacy": "cookies-v1.html",
+       "sha256": "c733bfd655385c54d8fc32bd4868de4f9e5918fd6aada24cc58299d3dfefa1df"
+      }
+     }
+    },
+    {
+     "version": 261013,
+     "effective": "2026-10-13T12:32:17.883Z",
+     "material": false,
+     "changes": {
+      "es": "Añadimos la comprobación de cuentas gratuitas por dispositivo (DeviceCheck y Play Integrity) y las compras de SofIA Plus, Pro y Max en las tiendas. Con SofIA Pro o SofIA Max no hay anuncios.",
+      "en": "We add the check of free accounts per device (DeviceCheck and Play Integrity) and the purchases of SofIA Plus, Pro and Max in the stores. With SofIA Pro or SofIA Max there are no ads.",
+      "ca": "Afegim la comprovació de comptes gratuïts per dispositiu (DeviceCheck i Play Integrity) i les compres de SofIA Plus, Pro i Max a les botigues. Amb SofIA Pro o SofIA Max no hi ha anuncis.",
+      "fr": "Nous ajoutons la vérification des comptes gratuits par appareil (DeviceCheck et Play Integrity) et les achats de SofIA Plus, Pro et Max dans les boutiques. Avec SofIA Pro ou SofIA Max, il n'y a pas de publicité.",
+      "pt-BR": "Adicionamos a verificação de contas gratuitas por dispositivo (DeviceCheck e Play Integrity) e as compras do SofIA Plus, Pro e Max nas lojas. Com o SofIA Pro ou o SofIA Max não há anúncios.",
+      "pt-PT": "Acrescentamos a verificação de contas gratuitas por dispositivo (DeviceCheck e Play Integrity) e as compras do SofIA Plus, Pro e Max nas lojas. Com o SofIA Pro ou o SofIA Max não há anúncios.",
+      "de": "Wir ergänzen die Prüfung kostenloser Konten pro Gerät (DeviceCheck und Play Integrity) und die Käufe von SofIA Plus, Pro und Max in den Stores. Mit SofIA Pro oder SofIA Max gibt es keine Werbung.",
+      "it": "Aggiungiamo il controllo degli account gratuiti per dispositivo (DeviceCheck e Play Integrity) e gli acquisti di SofIA Plus, Pro e Max negli store. Con SofIA Pro o SofIA Max non ci sono annunci.",
+      "zh": "新增按设备核查免费账户（DeviceCheck 和 Play Integrity），以及在应用商店购买 SofIA Plus、Pro 和 Max。使用 SofIA Pro 或 SofIA Max 时没有广告。",
+      "ja": "端末ごとの無料アカウントの確認（DeviceCheck と Play Integrity）と、ストアでの SofIA Plus・Pro・Max の購入を追加しました。SofIA Pro または SofIA Max では広告は表示されません。"
+     },
+     "files": {
+      "es": {
+       "path": "cookies/261013.html",
+       "legacy": "cookies-v2.html",
+       "sha256": "005c28304c5ac0881d0f5cf0e6f4aada4dcae6b5b4e7876ced405a870dcc5e62"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "legal",
+   "web": "legal",
+   "title": "Aviso legal",
+   "versions": [
+    {
+     "version": 261019,
+     "effective": "2026-10-19T10:24:28.364Z",
+     "material": false,
+     "changes": {},
+     "files": {
+      "es": {
+       "path": "legal/261019.html",
+       "sha256": "588499d8378cde74c35e6a2a4e949567ed67e89363c53702c9991f2d294cc5f4"
+      }
+     }
+    }
+   ]
+  }
+ ]
+}
