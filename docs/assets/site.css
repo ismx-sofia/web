@@ -323,6 +323,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 /* ---------- document / help / delete views ---------- */
 .view[hidden] { display: none !important; }
 .page-hero { position: relative; padding-block: clamp(40px, 6vw, 80px) clamp(24px, 4vw, 40px); isolation: isolate; }
+/* Its light fades out before the content begins, instead of being cut at the hero's edge. */
+.page-hero .mesh { -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 100%); mask-image: linear-gradient(to bottom, #000 45%, transparent 100%); }
 .page-hero h1 { font-size: clamp(38px, 6vw, 72px); font-weight: 700; letter-spacing: -.04em; margin-top: 14px; }
 .page-hero .lede { margin-top: 16px; color: var(--ink-2); font-size: clamp(17px, 1.5vw, 20px); max-width: 60ch; }
 .meta-pills { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; }
