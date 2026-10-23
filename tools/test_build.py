@@ -69,6 +69,14 @@ def resolve(out: Path, url: str) -> Path | None:
     return None
 
 
+
+def live(text: str) -> str:
+    """A page without the frozen original it frames (/documents/<doc>/<YYMMDD>): that text is a record of what was
+    published, with the links and words of its day, like the frozen files themselves."""
+    start = text.find('<div class="orig-frame">')
+    return text if start < 0 else text[:start] + text[text.index("</main>", start):]
+
+
 class BuildTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -137,7 +145,7 @@ class BuildTest(unittest.TestCase):
         for page, text in self.pages.items():
             if page in frozen:
                 continue
-            for tag, attr, url in parse(text).refs:
+            for tag, attr, url in parse(live(text)).refs:
                 if url.startswith(HOST):
                     url = url[len(HOST):] or "/"
                 if url.startswith("/") and not url.startswith("//"):
@@ -156,7 +164,7 @@ class BuildTest(unittest.TestCase):
         for page, text in self.pages.items():
             if page in frozen:
                 continue
-            p = parse(text)
+            p = parse(live(text))
             for tag, attr, url in p.refs:
                 if tag == "a" and "#" in url and not url.startswith(("http", "mailto")):
                     base, frag = url.split("#", 1)
@@ -240,6 +248,7 @@ class BuildTest(unittest.TestCase):
         for page, text in self.pages.items():
             if page in frozen:  # a frozen version keeps what it said then
                 continue
+            text = live(text)
             for b in bad:
                 self.assertNotIn(b, text, f"{page}: {b}")
             for m in re.finditer(r"extremo a extremo", text):
@@ -298,27 +307,41 @@ class BuildTest(unittest.TestCase):
                 self.assertNotRegex(page, r'class="meta-pills"><span>[^<]*\d', name)
                 self.assertIn('<div class="meta-pills"><span>', page, name)
 
-    # 12b. one page per version, framing its original; the index and each document's page list them all
+    # 12b. one page per version, as prototyped (DocTerms, DocTermsNext, DocPrivacyOld): the document's kind in the
+    # eyebrow, its «what changes», and the original framed as published (its own title, date line, contents and text,
+    # read from the frozen bytes: never the whole site embedded). No «Requiere aceptación» / «Cambio menor» labels
+    # anywhere (Israel, 23-10-2026), nor the code of the version (22-10-2026)
     def test_documents_pages(self):
         registry = json.loads((SRC / "data" / "documents.json").read_text(encoding="utf-8"))["documents"]
         index = self.pages["documents/index.html"]
+        self.assertNotIn("<iframe", index)
+        for label in ("Requiere aceptación", "Cambio menor"):
+            self.assertNotIn(label, index)
         for doc in registry:
             self.assertIn(f'href="/documents/{doc["web"]}/"', index, doc["id"])
+            self.assertIn(html.escape(doc["summary"]), index, doc["id"])
             opener = self.pages[f"documents/{doc['web']}/index.html"]
             self.assertIn(f'data-doc-open="{doc["web"]}"', opener)
             for i, v in enumerate(doc["versions"]):
                 page = self.pages[f"documents/{doc['web']}/{v['version']}.html"]
-                self.assertIn(f'<iframe class="orig-frame" src="/documents/{doc["web"]}/original/{v["version"]}"', page)
                 self.assertIn(f'href="/documents/{doc["web"]}/{v["version"]}"', index)
-                # The code is the URL, never the page's text (Israel, 22-10-2026).
+                self.assertNotIn("<iframe", page)
+                for label in ("Requiere aceptación", "Cambio menor"):
+                    self.assertNotIn(label, page, f"{doc['id']} {v['version']}")
+                self.assertIn(f'Legal · {documents.KINDS[doc["kind"]]}', page)
                 self.assertNotIn(f">{v['version']}<", page)
+                # The frozen body is inside the page, once, and the site's own header is not.
+                frozen = (SRC / "documents" / v["files"]["es"]["path"]).read_text(encoding="utf-8")
+                first = re.search(r'<section id="[^"]+">\s*<h2>.*?</h2>', frozen, re.S).group(0)
+                self.assertEqual(page.count(first), 1, f"{doc['id']} {v['version']}: the original's text, framed once")
+                self.assertEqual(page.count('class="site-head"'), 1, f"{doc['id']} {v['version']}: one site header")
+                self.assertIn(f'href="/documents/{doc["web"]}/original/{v["version"]}">Abrir aparte</a>', page)
                 if i == 0:
                     self.assertNotIn("Qué cambia en esta versión", page, f"{doc['id']} {v['version']}: a first version has none")
-                    self.assertNotIn("Requiere aceptación", page)
-                    self.assertNotIn("Cambio menor", page)
                 else:
                     self.assertIn("Qué cambia en esta versión", page)
-                    self.assertIn("Requiere aceptación" if v["material"] else "Cambio menor", page)
+                    prev = doc["versions"][i - 1]
+                    self.assertIn(f'href="/documents/{doc["web"]}/{prev["version"]}">Frente a la versión del', page)
 
     # 12c. the manifest core ingests: every version, its originals with their sha256, and «what changes»
     def test_documents_manifest(self):
@@ -413,9 +436,19 @@ class BuildTest(unittest.TestCase):
         self.assertTrue(all(a[k] == b[k] for k in a), "build is not deterministic")
         docs = ROOT / "docs"
         if docs.exists():
-            c = {p.relative_to(docs): p.read_bytes() for p in docs.rglob("*") if p.is_file()}
+            # The signature is written by the signed build only (the key is Israel's); it is checked against the
+            # manifest it signs, not against a draft build that has none.
+            c = {p.relative_to(docs): p.read_bytes() for p in docs.rglob("*") if p.is_file() and p.name != "documents.json.sig"}
             stale = sorted(str(k) for k in set(b) | set(c) if b.get(k) != c.get(k))
             self.assertEqual(stale, [], "docs/ is stale: run python3 tools/build.py")
+            sig = docs / "documents.json.sig"
+            if sig.exists() and shutil.which("openssl"):
+                with tempfile.TemporaryDirectory() as t:
+                    raw = Path(t) / "m.sig"
+                    raw.write_bytes(base64.b64decode(sig.read_text()))
+                    ok = subprocess.run(["openssl", "pkeyutl", "-verify", "-pubin", "-inkey", str(ROOT / "secrets" / "documents-signing.pub.pem"),
+                                         "-rawin", "-in", str(docs / "documents.json"), "-sigfile", str(raw)], capture_output=True)
+                    self.assertEqual(ok.returncode, 0, "docs/documents.json.sig does not sign docs/documents.json: sign again")
 
     # 14. what the stores and the LSSI ask the site to show
     def test_store_and_lssi_requirements(self):

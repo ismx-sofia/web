@@ -214,12 +214,16 @@
     var docs = window.SOFIA && window.SOFIA.documents;
     if (!docs) return;
     var now = Date.now(), byDoc = {};
-    var months = ['ene.', 'feb.', 'mar.', 'abr.', 'may', 'jun.', 'jul.', 'ago.', 'sept.', 'oct.', 'nov.', 'dic.'];
-    var short = function (at) { var d = new Date(at); return d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear(); };
+    var months = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+    var short = function (at) { var d = new Date(at); return d.getDate() + ' ' + months[d.getMonth()].slice(0, 3) + ' ' + d.getFullYear(); };
+    var long = function (at) { var d = new Date(at); return d.getDate() + ' de ' + months[d.getMonth()] + ' de ' + d.getFullYear(); };
+    var last = null, upcoming = null;
     docs.forEach(function (d) {
       var current = null, next = null;
       d.versions.forEach(function (v) { if (v.at <= now) current = v; else if (!next) next = v; });
-      byDoc[d.doc] = { current: current, next: next, versions: d.versions };
+      byDoc[d.doc] = { current: current, next: next };
+      if (current && (!last || current.at > last)) last = current.at;
+      if (next && (!upcoming || next.at < upcoming)) upcoming = next.at;
     });
     var state = function (doc, version) {
       var s = byDoc[doc]; if (!s) return null;
@@ -229,14 +233,28 @@
     document.querySelectorAll('[data-doc][data-version]').forEach(function (el) {
       el.dataset.state = state(el.dataset.doc, +el.dataset.version);
     });
+    // `data-when` lists the states an element belongs to; `data-when-default` is what shows without JavaScript.
     document.querySelectorAll('[data-when]').forEach(function (el) {
       var owner = el.closest('[data-version]');
-      if (owner && owner.dataset.state === el.dataset.when) el.hidden = false;
+      if (owner && el.dataset.when.split(' ').indexOf(owner.dataset.state) >= 0) el.hidden = false;
     });
+    document.querySelectorAll('[data-when-default]').forEach(function (el) { el.hidden = true; });
     document.querySelectorAll('[data-doc-chip]').forEach(function (el) {
       var v = byDoc[el.dataset.doc] && byDoc[el.dataset.doc][el.dataset.docChip];
       if (!v) return;
       el.textContent = (el.dataset.docChip === 'current' ? 'Vigente · ' : 'Próxima · ') + short(v.at);
+      el.hidden = false;
+    });
+    document.querySelectorAll('[data-doc-link]').forEach(function (el) {
+      var v = byDoc[el.dataset.doc] && byDoc[el.dataset.doc][el.dataset.docLink];
+      if (!v) return;
+      el.href = v.url;
+      el.hidden = false;
+    });
+    document.querySelectorAll('[data-docs-date]').forEach(function (el) {
+      var at = el.dataset.docsDate === 'last' ? last : upcoming;
+      if (!at) return;
+      el.querySelector('b').textContent = long(at);
       el.hidden = false;
     });
     var open = document.querySelector('[data-doc-open]');
@@ -244,9 +262,5 @@
       var s = byDoc[open.dataset.docOpen], target = s && (s.next || s.current);
       if (target) location.replace(target.url);
     }
-    document.querySelectorAll('iframe.orig-frame').forEach(function (f) {
-      var fit = function () { try { var h = f.contentDocument.documentElement.scrollHeight; if (h) f.style.height = h + 'px'; } catch (e) {} };
-      f.addEventListener('load', function () { fit(); setTimeout(fit, 400); });
-    });
   })();
 })();

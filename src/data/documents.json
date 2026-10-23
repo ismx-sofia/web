@@ -5,6 +5,8 @@
    "id": "terms",
    "web": "terms",
    "title": "Términos y condiciones",
+   "kind": "contract",
+   "summary": "El contrato entre tú y PROGRAMSAN, S.L. para usar SofIA.",
    "versions": [
     {
      "version": 261006,
@@ -73,6 +75,8 @@
    "id": "privacy",
    "web": "privacy",
    "title": "Política de privacidad",
+   "kind": "information",
+   "summary": "Qué datos trata SofIA, para qué, con qué base legal, cuánto tiempo y cómo ejercer tus derechos.",
    "versions": [
     {
      "version": 261006,
@@ -141,6 +145,8 @@
    "id": "ia",
    "web": "ia",
    "title": "Política de IA",
+   "kind": "consent",
+   "summary": "Qué hace la inteligencia artificial con tus entradas, dónde funciona y qué puedes decidir.",
    "versions": [
     {
      "version": 261006,
@@ -256,6 +262,8 @@
    "id": "journal",
    "web": "consent-journal",
    "title": "Consentimiento del diario",
+   "kind": "consent",
+   "summary": "Para guardar los datos especialmente protegidos que escribas, grabes o adjuntes.",
    "versions": [
     {
      "version": 261018,
@@ -316,6 +324,8 @@
    "id": "health",
    "web": "consent-health",
    "title": "Consentimiento de salud y bienestar",
+   "kind": "consent",
+   "summary": "Para guardar tu ánimo, tu actividad de bienestar y tus cuestionarios.",
    "versions": [
     {
      "version": 261018,
@@ -376,6 +386,8 @@
    "id": "subscription",
    "web": "subscription",
    "title": "Condiciones de la suscripción",
+   "kind": "contract",
+   "summary": "Qué incluyen SofIA Plus, Pro y Max, cómo se cobran, se renuevan y se cancelan.",
    "versions": [
     {
      "version": 261013,
@@ -480,6 +492,8 @@
    "id": "normas",
    "web": "normas",
    "title": "Normas de la comunidad",
+   "kind": "information",
+   "summary": "Qué se puede y qué no se puede publicar en SofIA.",
    "versions": [
     {
      "version": 261019,
@@ -499,6 +513,8 @@
    "id": "cookies",
    "web": "cookies",
    "title": "Política de cookies",
+   "kind": "information",
+   "summary": "Qué guarda la web y la app en tu dispositivo, para qué y cómo decidirlo.",
    "versions": [
     {
      "version": 261006,
@@ -543,6 +559,8 @@
    "id": "legal",
    "web": "legal",
    "title": "Aviso legal",
+   "kind": "information",
+   "summary": "Quién presta SofIA, cómo contactar y cómo avisar de un contenido ilegal.",
    "versions": [
     {
      "version": 261019,
