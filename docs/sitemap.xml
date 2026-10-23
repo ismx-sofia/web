@@ -831,6 +831,222 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/subscription"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/subscription"/>
   </url>
+  <url><loc>https://www.sofia.ismx.app/guardian</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/guardian"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/guardian"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/guardian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/guardian"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/guardian"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/guardian"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/guardian"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/guardian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/guardian"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/guardian"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/en/guardian</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/guardian"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/guardian"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/guardian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/guardian"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/guardian"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/guardian"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/guardian"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/guardian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/guardian"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/guardian"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/ca/guardian</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/guardian"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/guardian"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/guardian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/guardian"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/guardian"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/guardian"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/guardian"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/guardian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/guardian"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/guardian"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/fr/guardian</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/guardian"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/guardian"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/guardian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/guardian"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/guardian"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/guardian"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/guardian"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/guardian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/guardian"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/guardian"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/pt/guardian</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/guardian"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/guardian"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/guardian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/guardian"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/guardian"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/guardian"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/guardian"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/guardian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/guardian"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/guardian"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/de/guardian</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/guardian"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/guardian"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/guardian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/guardian"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/guardian"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/guardian"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/guardian"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/guardian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/guardian"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/guardian"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/it/guardian</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/guardian"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/guardian"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/guardian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/guardian"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/guardian"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/guardian"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/guardian"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/guardian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/guardian"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/guardian"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/zh/guardian</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/guardian"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/guardian"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/guardian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/guardian"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/guardian"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/guardian"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/guardian"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/guardian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/guardian"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/guardian"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/ja/guardian</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/guardian"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/guardian"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/guardian"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/guardian"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/guardian"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/guardian"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/guardian"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/guardian"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/guardian"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/guardian"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/crisis</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/crisis"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/crisis"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/crisis"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/crisis"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/crisis"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/crisis"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/crisis"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/crisis"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/crisis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/crisis"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/en/crisis</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/crisis"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/crisis"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/crisis"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/crisis"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/crisis"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/crisis"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/crisis"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/crisis"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/crisis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/crisis"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/ca/crisis</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/crisis"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/crisis"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/crisis"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/crisis"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/crisis"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/crisis"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/crisis"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/crisis"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/crisis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/crisis"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/fr/crisis</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/crisis"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/crisis"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/crisis"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/crisis"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/crisis"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/crisis"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/crisis"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/crisis"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/crisis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/crisis"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/pt/crisis</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/crisis"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/crisis"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/crisis"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/crisis"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/crisis"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/crisis"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/crisis"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/crisis"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/crisis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/crisis"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/de/crisis</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/crisis"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/crisis"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/crisis"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/crisis"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/crisis"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/crisis"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/crisis"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/crisis"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/crisis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/crisis"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/it/crisis</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/crisis"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/crisis"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/crisis"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/crisis"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/crisis"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/crisis"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/crisis"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/crisis"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/crisis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/crisis"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/zh/crisis</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/crisis"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/crisis"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/crisis"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/crisis"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/crisis"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/crisis"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/crisis"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/crisis"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/crisis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/crisis"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/ja/crisis</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/crisis"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/crisis"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/crisis"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/crisis"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/crisis"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/crisis"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/crisis"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/crisis"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/crisis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/crisis"/>
+  </url>
   <url><loc>https://www.sofia.ismx.app/licenses</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/terms/</loc></url>

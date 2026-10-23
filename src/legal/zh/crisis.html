@@ -1,0 +1,67 @@
+<!-- page: crisis · title: 危机处理规程 · description: 当有人在艰难时刻写下内容时，SofIA 会怎么做：帮助在哪里、我们会检查什么、我们绝不会做什么，以及我们如何复核。 · version: 1 · lede: SofIA 不是医疗或紧急服务，但有人可能会在艰难时刻在这里写下内容。以下是我们届时的做法。 -->
+<!--⟨asesoría: borrador del 22-10-2026 (plan 261020 §21.8 y §25, supervisor S225). Es la página pública que piden la SB 243 de California (chatbots de compañía), la ley de Nueva York sobre compañeros de IA (General Business Law, art. 47) y las guías de Ofcom. Confirmar qué leyes aplican y qué datos hay que publicar (en California, el informe anual a la Office of Suicide Prevention).⟩-->
+
+<section id="ahora" data-title="如果你现在处于危险中">
+<div class="callout">
+<p><b>请拨打112</b>，或你所在国家的紧急电话。</p>
+<p>在西班牙，自杀行为援助热线<b>024</b>全天24小时提供服务。在美国，请拨打<b>988</b>。在巴西，请拨打 CVV（<b>188</b>）。</p>
+</div>
+</section>
+
+<section id="para" data-title="本规程的用途">
+<p>SofIA 是一个带有社交网络和人工智能助手的日记应用。它不是医疗或紧急服务，其助手<b>不是真人</b>：我们会在每次对话开始时说明这一点。本规程说明当某人写下的内容让人认为其处于危险中时，我们会怎么做。</p>
+</section>
+
+<section id="ayuda" data-title="帮助，始终触手可及">
+<ul>
+<li>“我现在需要帮助”位于 {path:settingsTitle,settingsOptionFamily}、身心健康问卷、使用时间休息页面中，并在需要时出现在与助手的对话下方。无需联网即可打开。</li>
+<li>它会显示<b>你的设备所在国家</b>的求助热线以及通用热线。每条热线我们都会对照其官方来源进行核实，并记录核实时间：在这个页面上，错误的号码比没有号码更糟，因此我们只添加有官方来源的国家。</li>
+<li>我们绝不会把帮助放在问题、订阅或广告之后。</li>
+</ul>
+</section>
+
+<section id="comprobacion" data-title="当你写下的内容让人想到危机时">
+<p>我们采用一种审慎的检查，在<b>你在对话中写下的所有内容</b>里查找表达自杀意念或自伤的语句，而不仅仅是最后一句话。</p>
+<!--⟨asesoría: es un suelo, no un detector, y se ejecuta en el móvil; comprobar antes de publicar que el servidor no registra que saltó.⟩-->
+<ul>
+<li><b>在人工智能助手中：</b>一旦触发，危机热线会出现在对话下方，在当前轮次及之后的轮次中都会显示。助手不会提供有助于伤害自己的指示或信息，并会鼓励向真人求助。</li>
+<li><b>在身心健康问卷中</b>（PHQ-8、GAD-7）：首次触发时，会出现一个页面询问“你现在安全吗？”，同时显示求助热线和一个清晰可见的退出选项。它不会锁定应用，不会结束对话，也不会说明触发了哪条规则：一扇惩罚说真话者的门，只会教会人不再说真话。</li>
+<li>我们<b>绝不</b>将其用于广告、推荐或任何其他用途。</li>
+</ul>
+<!--⟨asesoría: comprobar en las instrucciones del asistente (server/llm), con una batería de pruebas, que no da información que facilite hacerse daño.⟩-->
+</section>
+
+<section id="nunca" data-title="我们不做的事">
+<ul>
+<li><b>我们不会就上述任何情况通知</b>未成年人的监护人。</li>
+<li>我们不会自动通知任何人。如果我们审核团队的成员在复核被举报的内容时，发现有人处于迫在眉睫的危险中，可以通知紧急服务，详见<a href="/privacy#destinatarios" hreflang="es">隐私政策</a>。</li>
+<li>我们不做诊断，也不提供治疗。</li>
+</ul>
+<!--⟨asesoría: decisión del 20-10-2026 de no avisar al tutor; confirmar que ninguna jurisdicción lo exige.⟩-->
+</section>
+
+<section id="menores" data-title="面向未成年人">
+<ul>
+<li>帮助同样触手可及。</li>
+<li>未成年人与助手对话60分钟后，会收到休息建议（成年人为180分钟）。</li>
+<li>其监护人永远不会知道其曾寻求帮助。</li>
+</ul>
+<!--⟨asesoría: «Necesito ayuda ahora» aún no está en Ajustes ni en Salud y bienestar (propuesto en el plan 261020 §25). La pantalla aún no distingue las líneas para jóvenes (en España, el 116 111 de ANAR); proponer añadirlas como filas de user_health_crisis con su fuente.⟩-->
+</section>
+
+<section id="contenidos" data-title="分享的内容">
+<p>鼓励自杀、自伤或进食障碍的帖子、评论和消息违反<a href="/normas" hreflang="es">社区规范</a>：这些内容会被删除；如果发布者谈论的是自己，我们会先向其提供帮助，而不是处罚。</p>
+<!--⟨asesoría: comprobar con las Normas vigentes y el flujo de moderación de esa categoría.⟩-->
+</section>
+
+<section id="revision" data-title="我们如何复核">
+<ul>
+<li>我们至少每6个月对照官方来源核对求助热线。</li>
+<li>我们与心理健康专业人士一起复核这项<a href="#comprobacion">检查</a>。</li>
+</ul>
+<!--⟨asesoría: el plazo de 6 meses es una propuesta; no hay convenio con profesionales todavía. SB 243: informe anual a la Office of Suicide Prevention desde el 1-7-2027 con el número de veces que se mostró la ayuda, sin datos personales; hoy no se cuenta.⟩-->
+</section>
+
+<section id="contacto" data-title="联系方式">
+<p>如果你在 SofIA 中看到有人处于危险中，请从该内容处举报，或发邮件至 legal@sofia.ismx.app。<b>如果危险迫在眉睫，请拨打112。</b></p>
+</section>

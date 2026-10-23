@@ -26,6 +26,13 @@ check /ia                  200
 check /legal               200 'B40623829'
 check /normas              200
 check /cookies             200
+check /guardian            200 'Acompañar la cuenta de un menor'
+check /en/guardian         200 'Accompanying'
+check /guardian-v1         200 'Versión 1'
+check /crisis              200 '024'
+check /en/crisis           200 '988'
+check /privacy-v7          200 'Versión 7'
+check /terms-v6            200 'Versión 6'
 check /entry?code=K7Q2M9X  404 'id="shared"'
 check /otp-test.html       404
 check /src/i18n/es.json    404

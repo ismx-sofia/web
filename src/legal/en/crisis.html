@@ -1,0 +1,67 @@
+<!-- page: crisis · title: Crisis Protocol · description: What SofIA does when someone writes during a difficult moment: where help is, what we check, what we never do and how we review it. · version: 1 · lede: SofIA is not a health service or an emergency service, but someone may write in it during a difficult moment. This is what we do then. -->
+<!--⟨asesoría: borrador del 22-10-2026 (plan 261020 §21.8 y §25, supervisor S225). Es la página pública que piden la SB 243 de California (chatbots de compañía), la ley de Nueva York sobre compañeros de IA (General Business Law, art. 47) y las guías de Ofcom. Confirmar qué leyes aplican y qué datos hay que publicar (en California, el informe anual a la Office of Suicide Prevention).⟩-->
+
+<section id="ahora" data-title="If you are in danger right now">
+<div class="callout">
+<p><b>Call 112</b>, or the emergency number in your country.</p>
+<p>In Spain, the <b>024</b> suicidal behavior helpline is available 24 hours a day. In the United States, <b>988</b>. In Brazil, CVV (<b>188</b>).</p>
+</div>
+</section>
+
+<section id="para" data-title="What this protocol is for">
+<p>SofIA is a journal with a social network and an artificial intelligence assistant. It is not a health service or an emergency service, and its assistant <b>is not a person</b>: we say so at the start of every conversation. This protocol sets out what we do when what someone writes suggests that they are in danger.</p>
+</section>
+
+<section id="ayuda" data-title="Help, always at hand">
+<ul>
+<li>“I Need Help Now” is in {path:settingsTitle,settingsOptionFamily}, in the wellbeing questionnaires, on the usage time break screen and below the conversation with the assistant when needed. It opens without an internet connection.</li>
+<li>It shows the helplines <b>for the country of your device</b> and the universal ones. We check each helpline against its official source and record when: a wrong number on that screen is worse than none, so we only add countries with an official source.</li>
+<li>We never put help behind a question, a subscription or an ad.</li>
+</ul>
+</section>
+
+<section id="comprobacion" data-title="When what you write suggests a crisis">
+<p>We use a cautious check that looks for expressions of suicidal ideation or self-harm in <b>everything you have written in the conversation</b>, not just in the last sentence.</p>
+<!--⟨asesoría: es un suelo, no un detector, y se ejecuta en el móvil; comprobar antes de publicar que el servidor no registra que saltó.⟩-->
+<ul>
+<li><b>In the artificial intelligence assistant:</b> if it is triggered, the crisis helpline appears below the conversation, in that turn and in the following ones. The assistant does not give instructions or information that make it easier to harm oneself, and encourages asking a person for help.</li>
+<li><b>In the wellbeing questionnaires</b> (PHQ-8, GAD-7): the first time it is triggered, a screen asks “Are you safe right now?”, with the helplines and a visible way out. It does not lock the app, does not end the conversation and does not say which rule was triggered: a gate that punishes whoever tells the truth teaches them not to tell it.</li>
+<li>We <b>never</b> use it for ads, for recommendations or for anything else.</li>
+</ul>
+<!--⟨asesoría: comprobar en las instrucciones del asistente (server/llm), con una batería de pruebas, que no da información que facilite hacerse daño.⟩-->
+</section>
+
+<section id="nunca" data-title="What we do not do">
+<ul>
+<li><b>We do not notify the guardian</b> of a minor of any of this.</li>
+<li>We do not notify anyone automatically. If a person on our moderation team, while reviewing reported content, sees that someone is in imminent danger, they may alert the emergency services, as stated in the <a href="/privacy#destinatarios" hreflang="es">Privacy Policy</a>.</li>
+<li>We do not diagnose or treat.</li>
+</ul>
+<!--⟨asesoría: decisión del 20-10-2026 de no avisar al tutor; confirmar que ninguna jurisdicción lo exige.⟩-->
+</section>
+
+<section id="menores" data-title="For minors">
+<ul>
+<li>Help is just as close at hand.</li>
+<li>A minor gets a suggested break after 60 minutes with the assistant (180 for an adult).</li>
+<li>Their guardian never learns that they have sought help.</li>
+</ul>
+<!--⟨asesoría: «Necesito ayuda ahora» aún no está en Ajustes ni en Salud y bienestar (propuesto en el plan 261020 §25). La pantalla aún no distingue las líneas para jóvenes (en España, el 116 111 de ANAR); proponer añadirlas como filas de user_health_crisis con su fuente.⟩-->
+</section>
+
+<section id="contenidos" data-title="Content that is shared">
+<p>Posts, comments and messages that promote suicide, self-harm or eating disorders go against the <a href="/normas" hreflang="es">Community Guidelines</a>: they are removed, and when the person who posts them is talking about themselves, we offer them help before a penalty.</p>
+<!--⟨asesoría: comprobar con las Normas vigentes y el flujo de moderación de esa categoría.⟩-->
+</section>
+
+<section id="revision" data-title="How we review it">
+<ul>
+<li>We review the helplines at least every 6 months against their official source.</li>
+<li>We review the <a href="#comprobacion">check</a> with mental health professionals.</li>
+</ul>
+<!--⟨asesoría: el plazo de 6 meses es una propuesta; no hay convenio con profesionales todavía. SB 243: informe anual a la Office of Suicide Prevention desde el 1-7-2027 con el número de veces que se mostró la ayuda, sin datos personales; hoy no se cuenta.⟩-->
+</section>
+
+<section id="contacto" data-title="Contact">
+<p>If you see someone in danger on SofIA, report it from the content or write to legal@sofia.ismx.app. <b>If the danger is immediate, call 112.</b></p>
+</section>

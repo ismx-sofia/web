@@ -1,0 +1,67 @@
+<!-- page: crisis · title: Protocolo de crisis · description: Qué hace SofIA cuando alguien escribe en un mal momento: dónde está la ayuda, qué comprobamos, qué no hacemos nunca y cómo lo revisamos. · version: 1 · lede: SofIA no es un servicio de salud ni de emergencias, pero alguien puede escribir en ella en un mal momento. Esto es lo que hacemos entonces. -->
+<!--⟨asesoría: borrador del 22-10-2026 (plan 261020 §21.8 y §25, supervisor S225). Es la página pública que piden la SB 243 de California (chatbots de compañía), la ley de Nueva York sobre compañeros de IA (General Business Law, art. 47) y las guías de Ofcom. Confirmar qué leyes aplican y qué datos hay que publicar (en California, el informe anual a la Office of Suicide Prevention).⟩-->
+
+<section id="ahora" data-title="Si estás en peligro ahora">
+<div class="callout">
+<p><b>Llama al 112</b>, o al número de emergencias de tu país.</p>
+<p>En España, la línea <b>024</b> de atención a la conducta suicida atiende las 24 horas. En Estados Unidos, el <b>988</b>. En Brasil, el CVV (<b>188</b>).</p>
+</div>
+</section>
+
+<section id="para" data-title="Para qué es este protocolo">
+<p>SofIA es un diario con una red y un asistente de inteligencia artificial. No es un servicio de salud ni de emergencias, y su asistente <b>no es una persona</b>: lo decimos al empezar cada conversación. Este protocolo dice qué hacemos cuando lo que alguien escribe hace pensar que está en peligro.</p>
+</section>
+
+<section id="ayuda" data-title="La ayuda, siempre a mano">
+<ul>
+<li>«Necesito ayuda ahora» está en {path:settingsTitle,settingsOptionFamily}, en los cuestionarios de bienestar, en la pantalla de la pausa del tiempo de uso y debajo de la conversación con el asistente cuando hace falta. Se abre sin conexión.</li>
+<li>Muestra las líneas de ayuda <b>del país de tu dispositivo</b> y las universales. Cada línea la comprobamos contra su fuente oficial y guardamos cuándo: un número equivocado en esa pantalla es peor que ninguno, así que solo añadimos países con una fuente oficial.</li>
+<li>Nunca ponemos la ayuda detrás de una pregunta, de una suscripción ni de un anuncio.</li>
+</ul>
+</section>
+
+<section id="comprobacion" data-title="Cuando lo que escribes hace pensar en una crisis">
+<p>Usamos una comprobación prudente, que busca expresiones de ideación suicida o de autolesión en <b>todo lo que has escrito en la conversación</b>, no solo en la última frase.</p>
+<!--⟨asesoría: es un suelo, no un detector, y se ejecuta en el móvil; comprobar antes de publicar que el servidor no registra que saltó.⟩-->
+<ul>
+<li><b>En el asistente de inteligencia artificial:</b> si salta, la línea de crisis aparece debajo de la conversación, en ese turno y en los siguientes. El asistente no da instrucciones ni información que facilite hacerse daño, y anima a pedir ayuda a una persona.</li>
+<li><b>En los cuestionarios de bienestar</b> (PHQ-8, GAD-7): la primera vez que salta, una pantalla pregunta «¿Estás a salvo ahora mismo?», con las líneas de ayuda y una salida visible. No bloquea la app, no cierra la conversación y no dice qué regla saltó: una puerta que castiga a quien dice la verdad le enseña a no decirla.</li>
+<li><b>Nunca</b> lo usamos para anuncios, para recomendaciones ni para nada más.</li>
+</ul>
+<!--⟨asesoría: comprobar en las instrucciones del asistente (server/llm), con una batería de pruebas, que no da información que facilite hacerse daño.⟩-->
+</section>
+
+<section id="nunca" data-title="Lo que no hacemos">
+<ul>
+<li><b>No avisamos al tutor</b> de un menor de nada de esto.</li>
+<li>No avisamos a nadie de forma automática. Si una persona de nuestro equipo de moderación, revisando un contenido reportado, ve que alguien está en peligro inminente, puede avisar a los servicios de emergencia, como dice la <a href="/privacy#destinatarios">Política de privacidad</a>.</li>
+<li>No diagnosticamos ni tratamos.</li>
+</ul>
+<!--⟨asesoría: decisión del 20-10-2026 de no avisar al tutor; confirmar que ninguna jurisdicción lo exige.⟩-->
+</section>
+
+<section id="menores" data-title="Para menores">
+<ul>
+<li>La ayuda está igual de a mano.</li>
+<li>Un menor tiene una pausa sugerida tras 60 minutos con el asistente (180 para un adulto).</li>
+<li>Su tutor nunca sabe que ha buscado ayuda.</li>
+</ul>
+<!--⟨asesoría: «Necesito ayuda ahora» aún no está en Ajustes ni en Salud y bienestar (propuesto en el plan 261020 §25). La pantalla aún no distingue las líneas para jóvenes (en España, el 116 111 de ANAR); proponer añadirlas como filas de user_health_crisis con su fuente.⟩-->
+</section>
+
+<section id="contenidos" data-title="Contenidos que se comparten">
+<p>Las publicaciones, comentarios y mensajes que fomentan el suicidio, la autolesión o los trastornos alimentarios van contra las <a href="/normas">Normas de la comunidad</a>: se retiran, y a quien los publica le ofrecemos ayuda antes que una sanción cuando habla de sí mismo.</p>
+<!--⟨asesoría: comprobar con las Normas vigentes y el flujo de moderación de esa categoría.⟩-->
+</section>
+
+<section id="revision" data-title="Cómo lo revisamos">
+<ul>
+<li>Revisamos las líneas de ayuda al menos cada 6 meses contra su fuente oficial.</li>
+<li>Revisamos la <a href="#comprobacion">comprobación</a> con profesionales de la salud mental.</li>
+</ul>
+<!--⟨asesoría: el plazo de 6 meses es una propuesta; no hay convenio con profesionales todavía. SB 243: informe anual a la Office of Suicide Prevention desde el 1-7-2027 con el número de veces que se mostró la ayuda, sin datos personales; hoy no se cuenta.⟩-->
+</section>
+
+<section id="contacto" data-title="Contacto">
+<p>Si ves en SofIA a alguien en peligro, repórtalo desde el contenido o escribe a legal@sofia.ismx.app. <b>Si el peligro es inmediato, llama al 112.</b></p>
+</section>
