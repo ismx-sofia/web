@@ -68,6 +68,29 @@
        "sha256": "d386b4143886d5d0e3c92467c7555f2a167926295b4ab2c7034ba252c31c61b8"
       }
      }
+    },
+    {
+     "version": 261122,
+     "effective": "2026-11-22T00:00:00Z",
+     "material": false,
+     "changes": {
+      "es": "La edad mínima pasa a depender de tu país, entra la cláusula «Menores y tutores», la suspensión permanente y una infracción crítica pasan de 15 a 10 puntos, y solo pedimos aceptar de nuevo los cambios que empeoran tus derechos.",
+      "en": "The minimum age now depends on your country, the «Minors and guardians» clause is added, permanent suspension and a critical infringement go from 15 to 10 points, and we only ask you to accept again the changes that worsen your rights.",
+      "ca": "L'edat mínima passa a dependre del teu país, entra la clàusula «Menors i tutors», la suspensió permanent i una infracció crítica passen de 15 a 10 punts, i només demanem tornar a acceptar els canvis que empitjoren els teus drets.",
+      "fr": "L'âge minimum dépend désormais de ton pays, la clause « Mineurs et tuteurs » est ajoutée, la suspension définitive et une infraction critique passent de 15 à 10 points, et nous ne demandons d'accepter à nouveau que les changements qui réduisent tes droits.",
+      "pt-BR": "A idade mínima passa a depender do seu país, entra a cláusula «Menores e responsáveis», a suspensão permanente e uma infração crítica passam de 15 para 10 pontos, e só pedimos que você aceite de novo as mudanças que pioram os seus direitos.",
+      "pt-PT": "A idade mínima passa a depender do teu país, entra a cláusula «Menores e tutores», a suspensão permanente e uma infração crítica passam de 15 para 10 pontos, e só pedimos que voltes a aceitar as alterações que pioram os teus direitos.",
+      "de": "Das Mindestalter hängt nun von deinem Land ab, die Klausel „Minderjährige und Vormünder“ kommt hinzu, die dauerhafte Sperre und ein kritischer Verstoß sinken von 15 auf 10 Punkte, und wir bitten nur bei Änderungen, die deine Rechte verschlechtern, um eine erneute Zustimmung.",
+      "it": "L'età minima dipende ora dal tuo paese, entra la clausola «Minori e tutori», la sospensione permanente e un'infrazione critica passano da 15 a 10 punti, e chiediamo di accettare di nuovo solo le modifiche che peggiorano i tuoi diritti.",
+      "zh": "最低年龄改为取决于你所在的国家，新增「未成年人与监护人」条款，永久停用和严重违规由15分改为10分，并且只有在变更损害你的权利时才会请你重新接受。",
+      "ja": "最低年齢はお住まいの国によって決まるようになり、「未成年者と保護者」の条項を追加し、永久停止と重大な違反は15点から10点になります。また、あなたの権利を損なう変更の場合にのみ、改めて同意をお願いします。"
+     },
+     "files": {
+      "es": {
+       "path": "terms/261122.html",
+       "sha256": "ebd11a7f28a3ae5c5076bed757ff3f1a67fa47a5f944e7bdaf2f1db970931e70"
+      }
+     }
     }
    ]
   },
@@ -136,6 +159,29 @@
        "path": "privacy/261019.html",
        "legacy": "privacy-v6.html",
        "sha256": "bfecb304e581f111b66dc237f99c9e4ace1c2efbdcdc24280b170944b8795b8a"
+      }
+     }
+    },
+    {
+     "version": 261023,
+     "effective": "2026-10-23T18:00:00Z",
+     "material": true,
+     "changes": {
+      "es": "Reescribimos la sección «Menores»: la edad según tu país, cómo la sabemos, qué cambia con ella, qué decide tu tutor y qué no, y cuánto guardamos los datos del vínculo. Los Términos nuevos, que recogen lo mismo, entran en vigor el 22 de noviembre de 2026.",
+      "en": "We rewrite the «Minors» section: age according to your country, how we know it, what changes with it, what your guardian decides and what not, and how long we keep the data of the link. The new Terms, which reflect the same, come into force on 22 November 2026.",
+      "ca": "Reescrivim la secció «Menors»: l'edat segons el teu país, com la sabem, què canvia amb ella, què decideix el teu tutor i què no, i quant de temps guardem les dades del vincle. Els Termes nous, que recullen el mateix, entren en vigor el 22 de novembre de 2026.",
+      "fr": "Nous réécrivons la section « Mineurs » : l'âge selon ton pays, comment nous le connaissons, ce qui change avec lui, ce que décide ton tuteur et ce qu'il ne décide pas, et combien de temps nous gardons les données du lien. Les nouvelles Conditions, qui reprennent la même chose, entrent en vigueur le 22 novembre 2026.",
+      "pt-BR": "Reescrevemos a seção «Menores»: a idade conforme o seu país, como a conhecemos, o que muda com ela, o que o seu responsável decide e o que não, e por quanto tempo guardamos os dados do vínculo. Os novos Termos, que refletem o mesmo, entram em vigor em 22 de novembro de 2026.",
+      "pt-PT": "Reescrevemos a secção «Menores»: a idade segundo o teu país, como a sabemos, o que muda com ela, o que o teu tutor decide e o que não, e durante quanto tempo guardamos os dados do vínculo. Os novos Termos, que refletem o mesmo, entram em vigor a 22 de novembro de 2026.",
+      "de": "Wir schreiben den Abschnitt „Minderjährige“ neu: das Alter je nach Land, woher wir es kennen, was sich damit ändert, was dein Vormund entscheidet und was nicht, und wie lange wir die Daten der Verknüpfung aufbewahren. Die neuen Nutzungsbedingungen, die dasselbe aufnehmen, gelten ab dem 22. November 2026.",
+      "it": "Riscriviamo la sezione «Minori»: l'età secondo il tuo paese, come la conosciamo, cosa cambia con essa, cosa decide il tuo tutore e cosa no, e per quanto tempo conserviamo i dati del collegamento. I nuovi Termini, che riprendono lo stesso, entrano in vigore il 22 novembre 2026.",
+      "zh": "我们重写了「未成年人」部分：按你所在国家确定的年龄、我们如何得知、年龄带来的变化、监护人能决定什么和不能决定什么，以及关联数据的保存期限。反映同样内容的新条款将于2026年11月22日生效。",
+      "ja": "「未成年者」の節を書き直しました。国ごとの年齢、その確認方法、年齢によって変わること、保護者が決められることと決められないこと、連携データの保存期間です。同じ内容を反映した新しい利用規約は2026年11月22日に施行されます。"
+     },
+     "files": {
+      "es": {
+       "path": "privacy/261023.html",
+       "sha256": "4dd4fbcb4290a592b4b8c5aab10d24a8a405e910cee4f931bbd9505175e25dc5"
       }
      }
     }
@@ -506,6 +552,29 @@
        "sha256": "a7edc5c0374088191d16e83896cce80125b6420dd74f7f83a13174cdd863a98f"
       }
      }
+    },
+    {
+     "version": 261122,
+     "effective": "2026-11-22T00:00:00Z",
+     "material": false,
+     "changes": {
+      "es": "Una infracción crítica suma 10 puntos, y la cuenta se suspende con 10 puntos en vez de 15.",
+      "en": "A critical infringement adds 10 points, and the account is suspended at 10 points instead of 15.",
+      "ca": "Una infracció crítica suma 10 punts, i el compte se suspèn amb 10 punts en lloc de 15.",
+      "fr": "Une infraction critique ajoute 10 points, et le compte est suspendu à 10 points au lieu de 15.",
+      "pt-BR": "Uma infração crítica soma 10 pontos, e a conta é suspensa com 10 pontos em vez de 15.",
+      "pt-PT": "Uma infração crítica soma 10 pontos, e a conta é suspensa com 10 pontos em vez de 15.",
+      "de": "Ein kritischer Verstoß bringt 10 Punkte, und das Konto wird bei 10 statt bei 15 Punkten gesperrt.",
+      "it": "Un'infrazione critica somma 10 punti, e l'account viene sospeso con 10 punti invece di 15.",
+      "zh": "一次严重违规计10分，账户在累计10分（而不是15分）时停用。",
+      "ja": "重大な違反は10点となり、アカウントは15点ではなく10点で停止されます。"
+     },
+     "files": {
+      "es": {
+       "path": "normas/261122.html",
+       "sha256": "683a69dcb5761e67b42e1d18532babd526f824efa5fe9bf2316a843f8291d6c7"
+      }
+     }
     }
    ]
   },
@@ -571,6 +640,135 @@
       "es": {
        "path": "legal/261019.html",
        "sha256": "588499d8378cde74c35e6a2a4e949567ed67e89363c53702c9991f2d294cc5f4"
+      }
+     }
+    },
+    {
+     "version": 261023,
+     "effective": "2026-10-23T18:00:00Z",
+     "material": false,
+     "changes": {
+      "es": "Añadimos, entre los documentos que se aplican, el de acompañar la cuenta de un menor y el Protocolo de crisis, y dónde consultar todas las versiones de este aviso.",
+      "en": "We add, among the documents that apply, the one on accompanying a minor's account and the Crisis protocol, and where to find every version of this notice.",
+      "ca": "Afegim, entre els documents que s'apliquen, el d'acompanyar el compte d'un menor i el Protocol de crisi, i on es poden consultar totes les versions d'aquest avís.",
+      "fr": "Nous ajoutons, parmi les documents qui s'appliquent, celui sur l'accompagnement du compte d'un mineur et le Protocole de crise, ainsi que l'endroit où consulter toutes les versions de cet avis.",
+      "pt-BR": "Acrescentamos, entre os documentos que se aplicam, o de acompanhar a conta de um menor e o Protocolo de crise, e onde consultar todas as versões deste aviso.",
+      "pt-PT": "Acrescentamos, entre os documentos que se aplicam, o de acompanhar a conta de um menor e o Protocolo de crise, e onde consultar todas as versões deste aviso.",
+      "de": "Wir ergänzen unter den geltenden Dokumenten das zur Begleitung des Kontos eines Minderjährigen und das Krisenprotokoll sowie, wo alle Fassungen dieses Hinweises stehen.",
+      "it": "Aggiungiamo, tra i documenti che si applicano, quello sull'accompagnamento dell'account di un minore e il Protocollo di crisi, e dove consultare tutte le versioni di questo avviso.",
+      "zh": "我们在适用文件中增加了关于陪伴未成年人账户的文件和危机处理规程，并说明了在哪里可以查看本声明的所有版本。",
+      "ja": "適用される文書に、未成年者のアカウントの見守りに関する文書と危機対応プロトコルを加え、この告知のすべての版を確認できる場所を追記しました。"
+     },
+     "files": {
+      "es": {
+       "path": "legal/261023.html",
+       "sha256": "429f29d014a8a298ca9e9349721de2e9bd21747abd8f18ec01d786cfd3645fe9"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "guardian",
+   "web": "guardian",
+   "title": "Acompañar la cuenta de un menor",
+   "kind": "consent",
+   "summary": "Lo que aceptas al acompañar, como madre, padre o tutor legal, la cuenta de un menor.",
+   "versions": [
+    {
+     "version": 261023,
+     "effective": "2026-10-23T18:00:00Z",
+     "material": false,
+     "changes": {},
+     "files": {
+      "es": {
+       "path": "guardian/261023.html",
+       "sha256": "46612f5986da3715d6f0a67f19955b5a8f6223621e66d563d799f001faa8016b"
+      },
+      "en": {
+       "path": "guardian/en/261023.html",
+       "sha256": "dfb2a12f04717d02e2b4a498c2f51e0c94521c8ba49275f67c9cf60a3b9e642e"
+      },
+      "ca": {
+       "path": "guardian/ca/261023.html",
+       "sha256": "4f2193f756405d3b122d992a42b9e5e1621884d285a2933b69dae46280b3047b"
+      },
+      "fr": {
+       "path": "guardian/fr/261023.html",
+       "sha256": "152b3f423435c841db1c4cee5b3cc2587923bc1059edbf40845583fe7b18a93e"
+      },
+      "pt": {
+       "path": "guardian/pt/261023.html",
+       "sha256": "2b97c2baa32aa84e91113a7de8ba4fe69856f87c43a9758d3010ebf5334a4b92"
+      },
+      "de": {
+       "path": "guardian/de/261023.html",
+       "sha256": "25152bba7a2e519e2b1c6df152824bb25bd144b09bc841e01a1b796d75dea3b2"
+      },
+      "it": {
+       "path": "guardian/it/261023.html",
+       "sha256": "11fda024b80280298755c10eb9002c7fb38d9f467dff5b1231a4dca0365fe0ae"
+      },
+      "zh": {
+       "path": "guardian/zh/261023.html",
+       "sha256": "74012a69f4d5194f42c0fe5ce7a0bda26157947706878bc661e3739c8d2930b4"
+      },
+      "ja": {
+       "path": "guardian/ja/261023.html",
+       "sha256": "a577ce9802d8dba29cdecc7fdb78e4f00d6c5701993c597c3616aa30f2eb28bc"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "crisis",
+   "web": "crisis",
+   "title": "Protocolo de crisis",
+   "kind": "information",
+   "summary": "Qué hacemos cuando alguien escribe en SofIA en un mal momento, y dónde está la ayuda.",
+   "versions": [
+    {
+     "version": 261023,
+     "effective": "2026-10-23T18:00:00Z",
+     "material": false,
+     "changes": {},
+     "files": {
+      "es": {
+       "path": "crisis/261023.html",
+       "sha256": "25498308d7a5b2889f52ba0ad37d4969afeca14f582e794afdd7e7482511fe1b"
+      },
+      "en": {
+       "path": "crisis/en/261023.html",
+       "sha256": "7c8b60bd5cc1c0c6deaa0c16ce9cc0857f84e87ae2a652bb2b27e4bb3b85e5cb"
+      },
+      "ca": {
+       "path": "crisis/ca/261023.html",
+       "sha256": "ad88b62e158780551ba765b1f7942226d7010274ecfa070f78f5f5c1e5e7eaf8"
+      },
+      "fr": {
+       "path": "crisis/fr/261023.html",
+       "sha256": "1eae0276a409deb9ffa7bb5197012002ea644a5f06973bbcdcdbdabbe3fd8628"
+      },
+      "pt": {
+       "path": "crisis/pt/261023.html",
+       "sha256": "43b8e48885471f4a00f0be3af8316112752fe8134f70478d87fce26b537ca067"
+      },
+      "de": {
+       "path": "crisis/de/261023.html",
+       "sha256": "cbca8038285b634213aba6f2b631708b899def4d3caff916c117657031d8b72b"
+      },
+      "it": {
+       "path": "crisis/it/261023.html",
+       "sha256": "eec1ac5c642bbe90e9f0b019c3371b83bc59075742f4d940cabdc39d96daadb9"
+      },
+      "zh": {
+       "path": "crisis/zh/261023.html",
+       "sha256": "42e6763fab7d4cbda844b1f88124b55bee412a1e1ec03ad732f55db3b7ff2a79"
+      },
+      "ja": {
+       "path": "crisis/ja/261023.html",
+       "sha256": "62c768c2c42cef4f462bbae62fc407a2bfabcd035aaa4cdc5b2e2e78f45a1a70"
       }
      }
     }
