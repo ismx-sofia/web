@@ -1,0 +1,4 @@
+# Only the encrypted signing key and its public half enter git.
+secrets/*
+!secrets/*.sops.pem
+!secrets/*.pub.pem

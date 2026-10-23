@@ -209,4 +209,44 @@
   document.querySelectorAll('details.menu a, details.lang a').forEach(function (a) {
     a.addEventListener('click', function () { var d = a.closest('details'); if (d) d.open = false; });
   });
+  /* ---------- /documents: which version is in force, decided with today's date ---------- */
+  (function () {
+    var docs = window.SOFIA && window.SOFIA.documents;
+    if (!docs) return;
+    var now = Date.now(), byDoc = {};
+    var months = ['ene.', 'feb.', 'mar.', 'abr.', 'may', 'jun.', 'jul.', 'ago.', 'sept.', 'oct.', 'nov.', 'dic.'];
+    var short = function (at) { var d = new Date(at); return d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear(); };
+    docs.forEach(function (d) {
+      var current = null, next = null;
+      d.versions.forEach(function (v) { if (v.at <= now) current = v; else if (!next) next = v; });
+      byDoc[d.doc] = { current: current, next: next, versions: d.versions };
+    });
+    var state = function (doc, version) {
+      var s = byDoc[doc]; if (!s) return null;
+      if (s.current && s.current.v === version) return 'current';
+      return s.current && version < s.current.v ? 'old' : 'next';
+    };
+    document.querySelectorAll('[data-doc][data-version]').forEach(function (el) {
+      el.dataset.state = state(el.dataset.doc, +el.dataset.version);
+    });
+    document.querySelectorAll('[data-when]').forEach(function (el) {
+      var owner = el.closest('[data-version]');
+      if (owner && owner.dataset.state === el.dataset.when) el.hidden = false;
+    });
+    document.querySelectorAll('[data-doc-chip]').forEach(function (el) {
+      var v = byDoc[el.dataset.doc] && byDoc[el.dataset.doc][el.dataset.docChip];
+      if (!v) return;
+      el.textContent = (el.dataset.docChip === 'current' ? 'Vigente · ' : 'Próxima · ') + short(v.at);
+      el.hidden = false;
+    });
+    var open = document.querySelector('[data-doc-open]');
+    if (open) {
+      var s = byDoc[open.dataset.docOpen], target = s && (s.next || s.current);
+      if (target) location.replace(target.url);
+    }
+    document.querySelectorAll('iframe.orig-frame').forEach(function (f) {
+      var fit = function () { try { var h = f.contentDocument.documentElement.scrollHeight; if (h) f.style.height = h + 'px'; } catch (e) {} };
+      f.addEventListener('load', function () { fit(); setTimeout(fit, 400); });
+    });
+  })();
 })();
