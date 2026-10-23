@@ -288,6 +288,16 @@ class BuildTest(unittest.TestCase):
                     if f.get("legacy"):
                         self.assertEqual((self.out / f["legacy"]).read_bytes(), served.read_bytes(), f["legacy"])
 
+    # 12a. a legal page in force says since when it applies, never a version number: the number is the URL's
+    # (Israel, 22-10-2026: «no es necesario poner el código interno de la versión»); the frozen originals keep theirs
+    def test_legal_pages_show_no_version(self):
+        registry = json.loads((SRC / "data" / "documents.json").read_text(encoding="utf-8"))["documents"]
+        frozen = {f["legacy"] for d in registry for v in d["versions"] for f in v["files"].values() if f.get("legacy")}
+        for name, page in self.pages.items():
+            if 'class="meta-pills"' in page and "documents/" not in name and name not in frozen:
+                self.assertNotRegex(page, r'class="meta-pills"><span>[^<]*\d', name)
+                self.assertIn('<div class="meta-pills"><span>', page, name)
+
     # 12b. one page per version, framing its original; the index and each document's page list them all
     def test_documents_pages(self):
         registry = json.loads((SRC / "data" / "documents.json").read_text(encoding="utf-8"))["documents"]

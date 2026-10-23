@@ -360,7 +360,8 @@ class Site:
 
     def legal_wrap(self, page: str, meta: dict, body: str, words: dict | None = None) -> str:
         """Legal sources written as `<section id=".." data-title="..">` blocks get the shared frame:
-        hero with version and effective date, numbered headings and the table of contents."""
+        hero with the effective date, numbered headings and the table of contents. The version is not said: its
+        number is the URL of its page in /documents (the frozen originals keep the «Versión N» they were shown with)."""
         w = {k: html.escape(v, quote=True) for k, v in (words or self.LEGAL_WORDS).items()}
         sections = re.findall(r'<section id="([^"]+)" data-title="([^"]+)">', body)
         n = 0
@@ -376,8 +377,8 @@ class Site:
         toc = "".join(f'<li><a href="#{i}">{t}</a></li>' for i, t in sections)
         return (f'<section class="page-hero" id="{page}">\n<div aria-hidden="true" class="mesh"><i></i><i></i><i></i></div>\n'
                 f'<div class="wrap">\n<span class="eyebrow">{w["eyebrow"]}</span>\n<h1><span class="grad-text">{meta["title"]}</span></h1>\n'
-                f'<p class="lede">{meta["lede"]}</p>\n<div class="meta-pills"><span>{w["version"]} {meta["version"]}</span>'
-                f'<span>{w["since"]} <b>{since}</b></span></div>\n</div>\n</section>\n'
+                f'<p class="lede">{meta["lede"]}</p>\n<div class="meta-pills"><span>{w["since"]} <b>{since}</b></span></div>\n'
+                f'</div>\n</section>\n'
                 f'<div class="wrap doc-layout">\n<nav aria-label="{w["toc"]}" class="toc">\n<h2>{w["toc"]}</h2>\n<ol>{toc}</ol>\n</nav>\n'
                 f'<article class="prose">\n{body.strip()}\n</article>\n</div>\n')
 

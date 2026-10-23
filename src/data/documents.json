@@ -226,6 +226,29 @@
        "sha256": "1584a9b8a9772639f0dc4a4a48d025856ae826c74c2b1e2ee19ad94df8d87c2b"
       }
      }
+    },
+    {
+     "version": 261023,
+     "effective": "2026-10-23T14:00:00Z",
+     "material": false,
+     "changes": {
+      "es": "Añadimos dónde consultar todas las versiones de esta política y lo que cambia en cada una.",
+      "en": "We add where to find every version of this policy and what changes in each one.",
+      "ca": "Afegim on es poden consultar totes les versions d'aquesta política i què canvia en cadascuna.",
+      "fr": "Nous indiquons où consulter toutes les versions de cette politique et ce qui change dans chacune.",
+      "pt-BR": "Indicamos onde consultar todas as versões desta política e o que muda em cada uma.",
+      "pt-PT": "Indicamos onde consultar todas as versões desta política e o que muda em cada uma.",
+      "de": "Wir ergänzen, wo alle Fassungen dieser Richtlinie stehen und was sich in jeder ändert.",
+      "it": "Indichiamo dove consultare tutte le versioni di questa informativa e cosa cambia in ciascuna.",
+      "zh": "我们补充说明了在哪里可以查看本政策的所有版本以及每个版本的变化。",
+      "ja": "このポリシーのすべての版と、各版で変わった点を確認できる場所を追記しました。"
+     },
+     "files": {
+      "es": {
+       "path": "ia/261023.html",
+       "sha256": "8053141f4faf3f7093d3fb61b388234f276f573b92329ee9bb0f1f6d51d4f647"
+      }
+     }
     }
    ]
   },
