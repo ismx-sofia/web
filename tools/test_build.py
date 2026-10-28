@@ -217,7 +217,8 @@ class BuildTest(unittest.TestCase):
         self.assertTrue(known("/entry/create/call"))
         self.assertTrue(known("/settings/activity/target/create"))
         self.assertFalse(known("/entry"))                   # entry needs an id or a code
-        self.assertFalse(known("/recovery"))                # webless
+        self.assertTrue(known("/recovery", "id=abc"))       # the mail's recovery link: the bridge opens the app
+        self.assertFalse(known("/recovery"))                # without its id it is no link
         self.assertFalse(known("/privacy-old"))
         self.assertFalse(known("/entry/quick"))             # the Quick Journal, not the entry «quick»
         self.assertFalse(known("/entry/inbox/x"))           # webless

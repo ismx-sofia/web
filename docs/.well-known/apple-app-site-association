@@ -52,6 +52,11 @@
                     {
                         "/": "/chat*",
                         "comment": "A conversation (the list, or one chat by id or by the other user). Reached from pushes; no web page"
+                    },
+                    {
+                        "/": "/recovery",
+                        "?": { "id": "*" },
+                        "comment": "The password recovery link of the mail: opens the app at the reset form"
                     }
                 ]
             }

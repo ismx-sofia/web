@@ -97,9 +97,20 @@
       var ios = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
       var deep = path.slice(1) + location.search;  /* sofia://<path>?<query>: the app reads the same paths */
       var open = document.getElementById('open-app');
+      /* A password recovery link carries a one-use token: whatever this page links to next
+         is not told where it came from. */
+      if (action === 'recovery') {
+        var nr = document.createElement('meta'); nr.name = 'referrer'; nr.content = 'no-referrer';
+        document.head.appendChild(nr);
+      }
       if (android) {
         /* With `package` and no fallback, Chrome sends whoever lacks the app to its Play listing. */
         open.href = 'intent://' + deep + '#Intent;scheme=sofia;package=' + S.androidPackage + ';end';
+        open.hidden = false;
+      } else if (ios && action === 'recovery') {
+        /* On an iPhone this page only shows when the universal link did not open the app: a mail
+           app's own browser, mostly. The custom scheme opens it from there (`sofia://recovery?id=`). */
+        open.href = 'sofia://' + deep;
         open.hidden = false;
       } else if (!ios) {
         document.getElementById('hint-mobile').hidden = true;
