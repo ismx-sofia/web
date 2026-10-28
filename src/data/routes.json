@@ -79,7 +79,9 @@
     {
       "path": "recovery",
       "action": "recovery",
-      "requires": []
+      "requires": [
+        "id"
+      ]
     },
     {
       "path": "gift",
@@ -113,7 +115,6 @@
     }
   ],
   "webless": [
-    "recovery",
     "gift",
     "settings/privacy/mentions",
     "entry/inbox/:batch",
