@@ -2,3 +2,10 @@
 secrets/*
 !secrets/*.sops.pem
 !secrets/*.pub.pem
+
+# OS, Python bytecode and the temporary folder build.py stages into (.build-*),
+# which an interrupted build leaves behind.
+.DS_Store
+__pycache__/
+*.pyc
+.build-*/
