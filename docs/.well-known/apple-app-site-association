@@ -4,7 +4,9 @@
         "details": [
             {
                 "appIDs": [
-                    "4H5UZ8889Y.com.ismx.sofia"
+                    "4H5UZ8889Y.com.ismx.sofia",
+                    "4H5UZ8889Y.com.ismx.sofia.develop",
+                    "4H5UZ8889Y.com.ismx.sofia.staging"
                 ],
                 "components": [
                     {
@@ -68,7 +70,9 @@
     },
     "webcredentials": {
         "apps": [
-            "4H5UZ8889Y.com.ismx.sofia"
+            "4H5UZ8889Y.com.ismx.sofia",
+            "4H5UZ8889Y.com.ismx.sofia.develop",
+            "4H5UZ8889Y.com.ismx.sofia.staging"
         ]
     }
 }
