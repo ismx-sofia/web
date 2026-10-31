@@ -70,29 +70,6 @@
      }
     },
     {
-     "version": 261031,
-     "effective": "2026-10-31T21:30:00Z",
-     "material": false,
-     "changes": {
-      "es": "Los recursos los revisa siempre una persona de nuestro equipo, nunca un sistema automatizado; si tres personas reportan lo mismo, el caso lo revisa una persona en lugar de confirmarse solo; y quien notificó por correo puede recurrir escribiéndonos.",
-      "en": "Appeals are always reviewed by a person from our team, never by an automated system; if three people report the same thing, a person reviews the case instead of it being confirmed on its own; and whoever notified us by email can appeal by writing to us.",
-      "ca": "Els recursos els revisa sempre una persona del nostre equip, mai un sistema automatitzat; si tres persones reporten el mateix, el cas el revisa una persona en lloc de confirmar-se sol; i qui ho va notificar per correu pot recórrer escrivint-nos.",
-      "fr": "Les recours sont toujours examinés par une personne de notre équipe, jamais par un système automatisé ; si trois personnes signalent la même chose, une personne examine le cas au lieu qu'il soit confirmé automatiquement ; et qui nous a avertis par e-mail peut faire recours en nous écrivant.",
-      "pt-BR": "Os recursos são sempre revisados por uma pessoa da nossa equipe, nunca por um sistema automatizado; se três pessoas denunciarem a mesma coisa, uma pessoa revisa o caso em vez de ele ser confirmado sozinho; e quem nos notificou por e-mail pode recorrer escrevendo para nós.",
-      "pt-PT": "Os recursos são sempre revistos por uma pessoa da nossa equipa, nunca por um sistema automatizado; se três pessoas denunciarem o mesmo, uma pessoa revê o caso em vez de ele ser confirmado sozinho; e quem nos notificou por e-mail pode recorrer escrevendo-nos.",
-      "de": "Beschwerden prüft immer eine Person aus unserem Team, nie ein automatisiertes System; melden drei Personen dasselbe, prüft eine Person den Fall, statt dass er von selbst bestätigt wird; und wer uns per E-Mail benachrichtigt hat, kann per E-Mail Beschwerde einlegen.",
-      "it": "I ricorsi li esamina sempre una persona del nostro team, mai un sistema automatizzato; se tre persone segnalano la stessa cosa, il caso lo esamina una persona invece di confermarsi da solo; e chi ce lo ha segnalato via e-mail può fare ricorso scrivendoci.",
-      "zh": "申诉一律由我们团队中的一名人员审核，绝不由自动化系统处理；如果三个人举报同一内容，该案件会交由人员审核，而不会自动确认；通过电子邮件通知我们的人可以写信给我们提出申诉。",
-      "ja": "異議申し立ては必ず私たちのチームの担当者が審査し、自動化されたシステムが判断することはありません。3人が同じものを報告した場合、自動で確定するのではなく担当者が審査します。また、メールで通知した方はメールで異議を申し立てられます。"
-     },
-     "files": {
-      "es": {
-       "path": "terms/261031.html",
-       "sha256": "81af283e12814979cf6d9d543f9739a55b0467a7c201c79b4b1b6d6e1a3406b9"
-      }
-     }
-    },
-    {
      "version": 261122,
      "effective": "2026-11-22T00:00:00Z",
      "material": false,
@@ -120,16 +97,16 @@
      "effective": "2026-11-22T23:00:00Z",
      "material": false,
      "changes": {
-      "es": "Recoge lo que cambió el 31 de octubre de 2026 sobre los recursos (siempre los revisa una persona) y los reportes de tres personas (llevan el caso a una persona).",
-      "en": "It includes what changed on 31 October 2026 about appeals (always reviewed by a person) and reports by three people (they take the case to a person).",
-      "ca": "Recull el que va canviar el 31 d'octubre de 2026 sobre els recursos (sempre els revisa una persona) i els reports de tres persones (porten el cas a una persona).",
-      "fr": "Elle reprend ce qui a changé le 31 octobre 2026 pour les recours (toujours examinés par une personne) et les signalements de trois personnes (ils confient le cas à une personne).",
-      "pt-BR": "Inclui o que mudou em 31 de outubro de 2026 sobre os recursos (sempre revisados por uma pessoa) e as denúncias de três pessoas (levam o caso a uma pessoa).",
-      "pt-PT": "Inclui o que mudou a 31 de outubro de 2026 sobre os recursos (sempre revistos por uma pessoa) e as denúncias de três pessoas (levam o caso a uma pessoa).",
-      "de": "Sie übernimmt, was sich am 31. Oktober 2026 bei den Beschwerden (immer von einer Person geprüft) und bei Meldungen von drei Personen (sie geben den Fall an eine Person) geändert hat.",
-      "it": "Riprende quanto cambiato il 31 ottobre 2026 sui ricorsi (li esamina sempre una persona) e sulle segnalazioni di tre persone (portano il caso a una persona).",
-      "zh": "纳入了 2026 年 10 月 31 日关于申诉（始终由人员审核）和三人举报（将案件交由人员处理）的变更。",
-      "ja": "2026年10月31日の異議申し立て（必ず担当者が審査）と3人による報告（案件を担当者に回す）に関する変更を反映しています。"
+      "es": "Los recursos los revisa siempre una persona de nuestro equipo, nunca un sistema automatizado; si tres personas reportan lo mismo, el caso lo revisa una persona en lugar de confirmarse solo; y quien notificó por correo puede recurrir escribiéndonos.",
+      "en": "Appeals are always reviewed by a person from our team, never by an automated system; if three people report the same thing, a person reviews the case instead of it being confirmed on its own; and whoever notified us by email can appeal by writing to us.",
+      "ca": "Els recursos els revisa sempre una persona del nostre equip, mai un sistema automatitzat; si tres persones reporten el mateix, el cas el revisa una persona en lloc de confirmar-se sol; i qui ho va notificar per correu pot recórrer escrivint-nos.",
+      "fr": "Les recours sont toujours examinés par une personne de notre équipe, jamais par un système automatisé ; si trois personnes signalent la même chose, une personne examine le cas au lieu qu'il soit confirmé automatiquement ; et qui nous a avertis par e-mail peut faire recours en nous écrivant.",
+      "pt-BR": "Os recursos são sempre revisados por uma pessoa da nossa equipe, nunca por um sistema automatizado; se três pessoas denunciarem a mesma coisa, uma pessoa revisa o caso em vez de ele ser confirmado sozinho; e quem nos notificou por e-mail pode recorrer escrevendo para nós.",
+      "pt-PT": "Os recursos são sempre revistos por uma pessoa da nossa equipa, nunca por um sistema automatizado; se três pessoas denunciarem o mesmo, uma pessoa revê o caso em vez de ele ser confirmado sozinho; e quem nos notificou por e-mail pode recorrer escrevendo-nos.",
+      "de": "Beschwerden prüft immer eine Person aus unserem Team, nie ein automatisiertes System; melden drei Personen dasselbe, prüft eine Person den Fall, statt dass er von selbst bestätigt wird; und wer uns per E-Mail benachrichtigt hat, kann per E-Mail Beschwerde einlegen.",
+      "it": "I ricorsi li esamina sempre una persona del nostro team, mai un sistema automatizzato; se tre persone segnalano la stessa cosa, il caso lo esamina una persona invece di confermarsi da solo; e chi ce lo ha segnalato via e-mail può fare ricorso scrivendoci.",
+      "zh": "申诉一律由我们团队中的一名人员审核，绝不由自动化系统处理；如果三个人举报同一内容，该案件会交由人员审核，而不会自动确认；通过电子邮件通知我们的人可以写信给我们提出申诉。",
+      "ja": "異議申し立ては必ず私たちのチームの担当者が審査し、自動化されたシステムが判断することはありません。3人が同じものを報告した場合、自動で確定するのではなく担当者が審査します。また、メールで通知した方はメールで異議を申し立てられます。"
      },
      "files": {
       "es": {
