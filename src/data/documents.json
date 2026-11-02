@@ -114,6 +114,29 @@
        "sha256": "436a3eb3cd330f45b189a837c0f182bece023dd6bf95e4d9a5a365d1bb0e62a6"
       }
      }
+    },
+    {
+     "version": 261124,
+     "effective": "2026-11-23T23:00:00Z",
+     "material": false,
+     "changes": {
+      "es": "El plan sin pago pasa a llamarse Starter.",
+      "en": "The plan you don’t pay for is now called Starter.",
+      "ca": "El pla sense pagament passa a dir-se Starter.",
+      "fr": "La formule sans paiement s’appelle désormais Starter.",
+      "pt-BR": "O plano sem pagamento passa a se chamar Starter.",
+      "pt-PT": "O plano sem pagamento passa a chamar-se Starter.",
+      "de": "Das Angebot ohne Bezahlung heißt jetzt Starter.",
+      "it": "Il piano senza pagamento ora si chiama Starter.",
+      "zh": "无需付费的方案现更名为 Starter。",
+      "ja": "支払いのないプランの名前が Starter に変わりました。"
+     },
+     "files": {
+      "es": {
+       "path": "terms/261124.html",
+       "sha256": "adaa9d44f283c494afc11eeb5e167d7bb17a6dad5d1fa18684399ac3a776aa7f"
+      }
+     }
     }
    ]
   },
@@ -575,6 +598,53 @@
        "path": "subscription/it/261019.html",
        "legacy": "it/subscription-v2.html",
        "sha256": "351dd4186258e708949f74a191ac3497cdf027635bb6e02ca8936b8ff7f58e8b"
+      }
+     }
+    },
+    {
+     "version": 261102,
+     "effective": "2026-11-02T13:00:00Z",
+     "material": false,
+     "changes": {
+      "es": "El plan sin pago pasa a llamarse Starter.",
+      "en": "The plan you don’t pay for is now called Starter.",
+      "ca": "El pla sense pagament passa a dir-se Starter.",
+      "fr": "La formule sans paiement s’appelle désormais Starter.",
+      "pt-BR": "O plano sem pagamento passa a se chamar Starter.",
+      "pt-PT": "O plano sem pagamento passa a chamar-se Starter.",
+      "de": "Das Angebot ohne Bezahlung heißt jetzt Starter.",
+      "it": "Il piano senza pagamento ora si chiama Starter.",
+      "zh": "无需付费的方案现更名为 Starter。",
+      "ja": "支払いのないプランの名前が Starter に変わりました。"
+     },
+     "files": {
+      "es": {
+       "path": "subscription/261102.html",
+       "sha256": "478c04ecda3ea561d9160b24c35e10cf825f6efa585610b4c3d8181aea1dbd20"
+      },
+      "en": {
+       "path": "subscription/en/261102.html",
+       "sha256": "d064eefefe0800d7cd370f693a9d7f13ed39b845c148553f604af7e2fb5a6699"
+      },
+      "ca": {
+       "path": "subscription/ca/261102.html",
+       "sha256": "27b587880c1986369382338400c05a412e6da0d56ae5d4b92b43c6d312fbc547"
+      },
+      "fr": {
+       "path": "subscription/fr/261102.html",
+       "sha256": "3ffa100eb28c1e148dfa217c042cd639b8fbabc4a8ae898fec38d607417192be"
+      },
+      "pt": {
+       "path": "subscription/pt/261102.html",
+       "sha256": "f31b64485d0cbd7c7c3c5e53d36dd384c155aff10f8f6434b435caef4616951b"
+      },
+      "de": {
+       "path": "subscription/de/261102.html",
+       "sha256": "c5072dee28b3667f065df8462914b8e010f20ea2326e79ca3f29d6ca9ebedc71"
+      },
+      "it": {
+       "path": "subscription/it/261102.html",
+       "sha256": "629038aa9cd2fe59c8acd7f2e4d37deed553094398979f9cf638318a5f77a236"
       }
      }
     }
