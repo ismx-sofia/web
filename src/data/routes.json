@@ -1,5 +1,5 @@
 {
-  "_source": "03-code apps/mobile/src/business/device/os/DeeplinkBusiness.ts, 2026-10-21 (plan 261021-enlace-corto-compartir). Update this snapshot whenever DeeplinkBusiness.routes changes. `code` names the action of a shared link that carries only `?code=` and no id.",
+  "_source": "03-code apps/mobile/src/business/device/os/DeeplinkBusiness.ts, 2026-11-02 (plan 261030-hilo-rojo: the link of a friend's code). Update this snapshot whenever DeeplinkBusiness.routes changes. `code` names the action of a shared link that carries only `?code=` and no id.",
   "routes": [
     {
       "path": "user/:id?",
@@ -72,6 +72,23 @@
       "requires": []
     },
     {
+      "path": "settings/referral",
+      "action": "referral",
+      "requires": []
+    },
+    {
+      "path": "referral",
+      "action": "referral-code",
+      "requires": [
+        "code"
+      ]
+    },
+    {
+      "path": "settings/health/assessment",
+      "action": "health-assessment",
+      "requires": []
+    },
+    {
       "path": "family/ward",
       "action": "family-ward",
       "requires": []
@@ -122,7 +139,9 @@
     "entry/quick",
     "entry/mentions/:id?",
     "settings/family",
-    "family/ward"
+    "family/ward",
+    "settings/health/assessment",
+    "settings/referral"
   ],
   "aliases": [
     "activity"

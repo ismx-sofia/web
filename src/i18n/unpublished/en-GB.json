@@ -260,6 +260,9 @@
  "shared.hint": "Just installed SofIA? Open this link again and it'll take you straight to the entry.",
  "shared.open": "Open in SofIA",
  "shared.previewAria": "Entry preview",
+ "shared.referralHint": "Install SofIA and, when you create your account, choose ‘A friend recommended it’ and enter this code.",
+ "shared.referralSub": "Someone wants you to start your journal. This is their friend code.",
+ "shared.referralTitle": "You've been invited to SofIA",
  "shared.sub": "Read it on SofIA, the journal where every entry picks its own audience.",
  "shared.title": "Someone shared a story with you",
  "store.soon": "Coming soon to"

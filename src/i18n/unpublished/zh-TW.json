@@ -260,6 +260,9 @@
  "shared.hint": "如果你剛裝好 SofIA，再打開一次這個連結，就會直接帶你到這篇日記。",
  "shared.open": "在 SofIA 中開啟",
  "shared.previewAria": "日記預覽",
+ "shared.referralHint": "安裝 SofIA，建立帳號時選擇「朋友推薦的」，然後輸入這個代碼。",
+ "shared.referralSub": "有人希望你開始寫日記。這是 TA 的好友碼。",
+ "shared.referralTitle": "有人邀請你加入 SofIA",
  "shared.sub": "在 SofIA 上閱讀，這款日記 App 讓每篇日記都能選擇自己的讀者。",
  "shared.title": "有人跟你分享了一個故事",
  "store.soon": "即將登上"

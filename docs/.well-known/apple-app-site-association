@@ -11,12 +11,16 @@
                 "components": [
                     {
                         "/": "/user",
-                        "?": { "code": "???????" },
+                        "?": {
+                            "code": "???????"
+                        },
                         "comment": "A shared profile: only its 7-character code, no id"
                     },
                     {
                         "/": "/entry",
-                        "?": { "code": "???????" },
+                        "?": {
+                            "code": "???????"
+                        },
                         "comment": "A shared entry: only its 7-character code, no id"
                     },
                     {
@@ -61,8 +65,17 @@
                     },
                     {
                         "/": "/recovery",
-                        "?": { "id": "*" },
+                        "?": {
+                            "id": "*"
+                        },
                         "comment": "The password recovery link of the mail: opens the app at the reset form"
+                    },
+                    {
+                        "/": "/referral",
+                        "?": {
+                            "code": "*"
+                        },
+                        "comment": "The link of a friend's code («La red del destino»): the program, or the signup keeps the code"
                     }
                 ]
             }
