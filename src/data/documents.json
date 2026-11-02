@@ -137,6 +137,29 @@
        "sha256": "adaa9d44f283c494afc11eeb5e167d7bb17a6dad5d1fa18684399ac3a776aa7f"
       }
      }
+    },
+    {
+     "version": 261125,
+     "effective": "2026-11-24T23:00:00Z",
+     "material": false,
+     "changes": {
+      "es": "Explicamos con precisión qué revisa por sí sola la inteligencia de SofIA (solo texto que otras personas pueden ver: entradas, pensamientos rápidos, comentarios y biografías) y qué decide una persona (las fotos y los vídeos reportados, los casos dudosos y todos los recursos); se prohíbe el contenido sexual explícito en fotos y vídeos; el audio de los vídeos adjuntos no se revisa; y quien publicó recurre desde la aplicación.",
+      "en": "We set out precisely what SofIA's intelligence reviews on its own (only text other people can see: entries, quick thoughts, comments and bios) and what a person decides (reported photos and videos, cases it is unsure about and every appeal); sexually explicit content in photos and videos is not allowed; the audio of attached videos is not reviewed; and whoever posted something appeals from the app.",
+      "ca": "Expliquem amb precisió què revisa per si sola la intel·ligència de SofIA (només text que poden veure altres persones: entrades, pensaments ràpids, comentaris i biografies) i què decideix una persona (les fotos i els vídeos reportats, els casos dubtosos i tots els recursos); es prohibeix el contingut sexual explícit en fotos i vídeos; l'àudio dels vídeos adjunts no es revisa; i qui ha publicat recorre des de l'aplicació.",
+      "fr": "Nous précisons ce que l'intelligence de SofIA examine seule (uniquement le texte que d'autres personnes peuvent voir : entrées, pensées rapides, commentaires et biographies) et ce qu'une personne décide (les photos et vidéos signalées, les cas douteux et tous les recours) ; le contenu sexuel explicite est interdit dans les photos et les vidéos ; l'audio des vidéos jointes n'est pas examiné ; et qui a publié fait recours depuis l'application.",
+      "pt-BR": "Explicamos com precisão o que a inteligência do SofIA revisa sozinha (só texto que outras pessoas podem ver: entradas, pensamentos rápidos, comentários e biografias) e o que uma pessoa decide (as fotos e os vídeos denunciados, os casos duvidosos e todos os recursos); fica proibido o conteúdo sexual explícito em fotos e vídeos; o áudio dos vídeos anexados não é revisado; e quem publicou recorre pelo aplicativo.",
+      "pt-PT": "Explicamos com precisão o que a inteligência do SofIA revê sozinha (só texto que outras pessoas podem ver: entradas, pensamentos rápidos, comentários e biografias) e o que uma pessoa decide (as fotos e os vídeos denunciados, os casos duvidosos e todos os recursos); passa a ser proibido o conteúdo sexual explícito em fotos e vídeos; o áudio dos vídeos anexados não é revisto; e quem publicou recorre a partir da aplicação.",
+      "de": "Wir legen genau dar, was die Intelligenz von SofIA allein prüft (nur Text, den andere sehen können: Einträge, schnelle Gedanken, Kommentare und Biografien) und was eine Person entscheidet (gemeldete Fotos und Videos, unsichere Fälle und jede Beschwerde); sexuell explizite Inhalte in Fotos und Videos sind verboten; der Ton angehängter Videos wird nicht geprüft; und wer etwas veröffentlicht hat, legt die Beschwerde in der App ein.",
+      "it": "Spieghiamo con precisione cosa esamina da sola l'intelligenza di SofIA (solo testo che altre persone possono vedere: voci, pensieri rapidi, commenti e biografie) e cosa decide una persona (le foto e i video segnalati, i casi dubbi e tutti i ricorsi); è vietato il contenuto sessuale esplicito in foto e video; l'audio dei video allegati non viene esaminato; e chi ha pubblicato fa ricorso dall'app.",
+      "zh": "我们准确说明 SofIA 的智能会自行审核什么（仅限他人可见的文字：日记条目、快速想法、评论和个人简介），以及由人员决定什么（被举报的照片和视频、不确定的情况以及所有申诉）；禁止在照片和视频中发布露骨的性内容；不审核附加视频的音频；发布者在应用内提出申诉。",
+      "ja": "SofIA のインテリジェンスが単独で審査するもの（他の人が見られるテキストのみ：エントリー、クイック思考、コメント、自己紹介）と、担当者が判断するもの（報告された写真や動画、確信の持てないケース、すべての異議申し立て）を正確に説明します。写真や動画での露骨な性的コンテンツは禁止です。添付動画の音声は審査しません。投稿した人はアプリから異議を申し立てます。"
+     },
+     "files": {
+      "es": {
+       "path": "terms/261125.html",
+       "sha256": "d4bdefe7cdefa10a2ef74a3827cf483a60c8be936bf3ccef7d481d8904cda1f4"
+      }
+     }
     }
    ]
   },
@@ -689,6 +712,29 @@
       "es": {
        "path": "normas/261122.html",
        "sha256": "683a69dcb5761e67b42e1d18532babd526f824efa5fe9bf2316a843f8291d6c7"
+      }
+     }
+    },
+    {
+     "version": 261125,
+     "effective": "2026-11-24T23:00:00Z",
+     "material": false,
+     "changes": {
+      "es": "Nueva norma: no se permite publicar contenido sexual explícito (pornografía, actos sexuales o genitales mostrados de forma explícita) en fotos, vídeos ni en la foto de perfil; es una infracción de gravedad baja (1 punto).",
+      "en": "New rule: sexually explicit content (pornography, sexual acts or explicitly shown genitals) is not allowed in photos, videos or the profile picture; it is a low-severity infringement (1 point).",
+      "ca": "Norma nova: no es permet publicar contingut sexual explícit (pornografia, actes sexuals o genitals mostrats de manera explícita) en fotos, vídeos ni en la foto de perfil; és una infracció de gravetat baixa (1 punt).",
+      "fr": "Nouvelle règle : le contenu sexuel explicite (pornographie, actes sexuels ou organes génitaux montrés de façon explicite) est interdit dans les photos, les vidéos et la photo de profil ; c'est une infraction de faible gravité (1 point).",
+      "pt-BR": "Nova regra: não é permitido publicar conteúdo sexual explícito (pornografia, atos sexuais ou genitais mostrados de forma explícita) em fotos, vídeos nem na foto de perfil; é uma infração de gravidade baixa (1 ponto).",
+      "pt-PT": "Nova norma: não é permitido publicar conteúdo sexual explícito (pornografia, atos sexuais ou genitais mostrados de forma explícita) em fotografias, vídeos nem na fotografia de perfil; é uma infração de gravidade baixa (1 ponto).",
+      "de": "Neue Regel: Sexuell explizite Inhalte (Pornografie, sexuelle Handlungen oder explizit gezeigte Genitalien) sind in Fotos, Videos und im Profilbild nicht erlaubt; es ist ein Verstoß geringer Schwere (1 Punkt).",
+      "it": "Nuova norma: non è consentito pubblicare contenuti sessuali espliciti (pornografia, atti sessuali o genitali mostrati in modo esplicito) in foto, video né nella foto del profilo; è un'infrazione di gravità bassa (1 punto).",
+      "zh": "新规则：禁止在照片、视频和头像中发布露骨的性内容（色情作品、性行为或明确展示的生殖器）；属于低严重程度违规（计1分）。",
+      "ja": "新しいルール：写真、動画、プロフィール写真に露骨な性的コンテンツ（ポルノ、性行為、性器をはっきり見せるもの）を投稿することはできません。重大度は低（1点）です。"
+     },
+     "files": {
+      "es": {
+       "path": "normas/261125.html",
+       "sha256": "19cc8a1806979f8cf89363080c48a94e065531af2ac2db9080f52a17d933569a"
       }
      }
     }
