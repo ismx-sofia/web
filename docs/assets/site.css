@@ -372,6 +372,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 .ghost-lines i { display: block; height: 11px; border-radius: 6px; background: rgba(13,17,79,.1); }
 .shared-card .hint { color: rgba(255,255,255,.9); font-size: 14px; max-width: 44ch; }
 .shared-card .store { background: rgba(13,17,79,.85); color: #fff; }
+.shared-card .referral-code { justify-content: center; background: rgba(13,17,79,.35); box-shadow: none; padding: 14px 20px; }
+.shared-card .referral-code code { letter-spacing: .08em; font-size: clamp(20px, 4vw, 28px); }
 
 /* ======================= RESPONSIVE ======================= */
 /* laptop & tablet landscape */

@@ -90,6 +90,17 @@
         document.getElementById('shared-preview').hidden = true;
         document.getElementById('hint-mobile').innerHTML = document.getElementById('t-hint').innerHTML;
       }
+      /* The link of a friend's code (`/referral?code=`): whoever has no SofIA yet types the code when creating
+         the account, so the page shows it, to copy, and says where it goes; the same words on any device. */
+      var referral = action === 'referral-code' ? String(params.get('code') || '').toUpperCase().replace(/[^0-9A-Z-]/g, '').slice(0, 14) : '';
+      if (referral) {
+        document.getElementById('shared-title').innerHTML = document.getElementById('t-referral').innerHTML;
+        document.getElementById('shared-sub').innerHTML = document.getElementById('t-referralsub').innerHTML;
+        document.getElementById('referral-code').textContent = referral;
+        document.getElementById('shared-code').hidden = false;
+        document.getElementById('hint-mobile').innerHTML = document.getElementById('t-referralhint').innerHTML;
+        document.getElementById('hint-desktop').innerHTML = document.getElementById('t-referralhint').innerHTML;
+      }
       document.getElementById('shared').hidden = false;
       document.getElementById('notfound').hidden = true;
       var ua = navigator.userAgent;
@@ -107,9 +118,10 @@
         /* With `package` and no fallback, Chrome sends whoever lacks the app to its Play listing. */
         open.href = 'intent://' + deep + '#Intent;scheme=sofia;package=' + S.androidPackage + ';end';
         open.hidden = false;
-      } else if (ios && action === 'recovery') {
-        /* On an iPhone this page only shows when the universal link did not open the app: a mail
-           app's own browser, mostly. The custom scheme opens it from there (`sofia://recovery?id=`). */
+      } else if (ios && (action === 'recovery' || referral)) {
+        /* On an iPhone this page only shows when the universal link did not open the app: a mail or chat
+           app's own browser, mostly. The custom scheme opens it from there (`sofia://recovery?id=`,
+           `sofia://referral?code=`). */
         open.href = 'sofia://' + deep;
         open.hidden = false;
       } else if (!ios) {
