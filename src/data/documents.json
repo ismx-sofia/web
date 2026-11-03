@@ -256,6 +256,29 @@
        "sha256": "05e84790d25c71a0837d6d4275ae52d111c506bc4bf2288fea4a29fc4e88fac1"
       }
      }
+    },
+    {
+     "version": 261102,
+     "effective": "2026-11-02T14:30:00Z",
+     "material": false,
+     "changes": {
+      "es": "El tiempo de uso (segundos al día en la parte social y con la inteligencia artificial) se guarda para todas las cuentas, no solo con un límite, para que puedas ver tu día y tu semana. Se borra a los 90 días.",
+      "en": "Usage time (seconds per day in the social part and with artificial intelligence) is kept for every account, not only with a limit, so you can see your day and your week. It is deleted after 90 days.",
+      "ca": "El temps d'ús (segons al dia a la part social i amb la intel·ligència artificial) es desa per a tots els comptes, no només amb un límit, perquè puguis veure el teu dia i la teva setmana. S'esborra als 90 dies.",
+      "fr": "Le temps d'utilisation (secondes par jour dans la partie sociale et avec l'intelligence artificielle) est conservé pour tous les comptes, pas seulement avec une limite, pour que vous puissiez voir votre journée et votre semaine. Il est supprimé au bout de 90 jours.",
+      "pt-BR": "O tempo de uso (segundos por dia na parte social e com a inteligência artificial) é guardado para todas as contas, não só com um limite, para que você possa ver o seu dia e a sua semana. É apagado após 90 dias.",
+      "pt-PT": "O tempo de utilização (segundos por dia na parte social e com a inteligência artificial) é guardado para todas as contas, não só com um limite, para que possa ver o seu dia e a sua semana. É apagado ao fim de 90 dias.",
+      "de": "Die Nutzungszeit (Sekunden pro Tag im sozialen Bereich und mit der künstlichen Intelligenz) wird für alle Konten gespeichert, nicht nur mit einem Limit, damit du deinen Tag und deine Woche sehen kannst. Sie wird nach 90 Tagen gelöscht.",
+      "it": "Il tempo di utilizzo (secondi al giorno nella parte social e con l'intelligenza artificiale) viene conservato per tutti gli account, non solo con un limite, così puoi vedere la tua giornata e la tua settimana. Viene cancellato dopo 90 giorni.",
+      "zh": "使用时长（每天在社交部分和使用人工智能的秒数）现在为所有账户保存，而不仅限于设置了限制的账户，以便你查看当天和本周的使用情况。90 天后删除。",
+      "ja": "利用時間（ソーシャル部分と人工知能で過ごした1日あたりの秒数）は、制限がある場合だけでなくすべてのアカウントについて保存され、その日と1週間の利用状況を確認できます。90日後に削除されます。"
+     },
+     "files": {
+      "es": {
+       "path": "privacy/261102.html",
+       "sha256": "78814761758536ed1a31748bc30d704633d52a3cfd5ed6af039b89cdafe91193"
+      }
+     }
     }
    ]
   },
