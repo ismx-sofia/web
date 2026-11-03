@@ -16,7 +16,7 @@ python3 tools/test_build.py       # contract of the build (SOFIA_MONOREPO=…/03
 tools/check_live.sh               # after a deployment, against the live site
 ```
 
-Languages: Spanish at the root; `/en/ /ca/ /fr/ /pt/ /de/ /it/ /zh/ /ja/`. `/pt/` is prerendered in
+Languages: Spanish at the root; `/en/ /ca/ /fr/ /pt/ /de/ /it/` (ja and zh left on 03-11-2026, with the launch in the stores' 9 languages). `/pt/` is prerendered in
 Brazilian Portuguese and switches to European Portuguese in the browser. Translations are adapted,
 not literal: see the brand guide in the project knowledge base (`07-identidad-y-comunicacion.md`).
 

@@ -56,11 +56,11 @@ LEGAL_PAGES = {
 # Not /journal: the app claims that path as a universal link.
 TRANSLATED_LEGAL = {
     "subscription": ("en", "ca", "fr", "pt", "de", "it"),
-    "consent-journal": ("en", "ca", "fr", "pt", "de", "it", "zh", "ja"),
-    "consent-health": ("en", "ca", "fr", "pt", "de", "it", "zh", "ja"),
+    "consent-journal": ("en", "ca", "fr", "pt", "de", "it"),
+    "consent-health": ("en", "ca", "fr", "pt", "de", "it"),
     # Accepted in the app by a guardian, and read by anyone in danger: every language (Israel, 22-10-2026).
-    "guardian": ("en", "ca", "fr", "pt", "de", "it", "zh", "ja"),
-    "crisis": ("en", "ca", "fr", "pt", "de", "it", "zh", "ja"),
+    "guardian": ("en", "ca", "fr", "pt", "de", "it"),
+    "crisis": ("en", "ca", "fr", "pt", "de", "it"),
 }
 FALLBACK_LEGAL = "en"
 # The open-source notices of the apps, one list per platform, written by apps/mobile/tools/licenses/build.mjs.
