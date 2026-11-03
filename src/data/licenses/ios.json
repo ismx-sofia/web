@@ -32,6 +32,7 @@
    "@react-navigation/native": "7.4.1",
    "@react-navigation/native-stack": "7.19.2",
    "@sbaiahmed1/react-native-blur": "4.7.1",
+   "@shopify/flash-list": "2.3.3",
    "@shopify/react-native-skia": "2.13.0",
    "@sofia/lib-design": null,
    "@sofia/lib-domain": null,
@@ -169,6 +170,7 @@
    "node_modules/@react-navigation/native-stack": "7.19.2",
    "node_modules/@react-navigation/routers": "7.6.4",
    "node_modules/@sbaiahmed1/react-native-blur": "4.7.1",
+   "node_modules/@shopify/flash-list": "2.3.3",
    "node_modules/@shopify/react-native-skia": "2.13.0",
    "node_modules/@stardazed/streams-text-encoding": "1.0.2",
    "node_modules/@ungap/structured-clone": "1.4.0",
@@ -1005,6 +1007,17 @@
    "text": "MIT",
    "also": [],
    "version": "4.7.1"
+  },
+  {
+   "id": "npm:@shopify/flash-list",
+   "name": "@shopify/flash-list",
+   "license": "MIT",
+   "copyright": "Copyright 2022-present, Shopify Inc.",
+   "url": "https://github.com/Shopify/flash-list",
+   "origin": "npm",
+   "text": "MIT",
+   "also": [],
+   "version": "2.3.3"
   },
   {
    "id": "npm:@shopify/react-native-skia",
