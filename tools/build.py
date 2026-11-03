@@ -472,7 +472,9 @@ class Site:
              "su entrada enlaza dónde está. Para cualquier duda: <a href=\"mailto:legal@sofia.ismx.app\">legal@sofia.ismx.app</a>.</p>"),
             ("licencias-lugares", "Datos de lugares",
              f'<p>Los lugares que se buscan al añadir una ubicación a una entrada vienen de OpenStreetMap: © colaboradores de '
-             f'OpenStreetMap, disponibles con la <a href="{e(links["openStreetMap"], quote=True)}" rel="noopener">Open Database License</a>.</p>'),
+             f'OpenStreetMap, disponibles con la <a href="{e(links["openStreetMap"], quote=True)}" rel="noopener">Open Database License</a>.</p>'
+             f'<p>La ubicación aproximada a partir de la dirección IP: IP Geolocation by <a href="https://db-ip.com" rel="noopener">DB-IP</a>, '
+             f'con la licencia <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">Creative Commons Reconocimiento 4.0</a>.</p>'),
         ]
         for platform, title in LICENSE_LISTS:
             items = "\n".join(notice(n) for n in lists[platform]["notices"])

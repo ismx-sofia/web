@@ -277,6 +277,27 @@
        "sha256": "78814761758536ed1a31748bc30d704633d52a3cfd5ed6af039b89cdafe91193"
       }
      }
+    },
+    {
+     "version": 261104,
+     "effective": "2026-11-04T07:00:00Z",
+     "material": true,
+     "changes": {
+      "es": "Te avisamos por correo cuando alguien entra en tu cuenta desde un dispositivo nuevo, con la ciudad aproximada que deducimos de la dirección IP en nuestros servidores, y guardamos la lista de dispositivos desde los que entras mientras tengas la cuenta.",
+      "en": "We email you when someone signs in to your account from a new device, with the approximate city we work out from the IP address on our own servers, and we keep the list of devices you sign in from for as long as you have the account.",
+      "ca": "T'avisem per correu quan algú entra al teu compte des d'un dispositiu nou, amb la ciutat aproximada que deduïm de l'adreça IP als nostres servidors, i desem la llista de dispositius des dels quals entres mentre tinguis el compte.",
+      "fr": "Nous vous prévenons par e-mail quand quelqu'un se connecte à votre compte depuis un nouvel appareil, avec la ville approximative que nous déduisons de l'adresse IP sur nos propres serveurs, et nous conservons la liste des appareils depuis lesquels vous vous connectez tant que vous avez le compte.",
+      "pt-BR": "Avisamos você por e-mail quando alguém entra na sua conta a partir de um dispositivo novo, com a cidade aproximada que deduzimos do endereço IP nos nossos servidores, e guardamos a lista de dispositivos de onde você entra enquanto tiver a conta.",
+      "pt-PT": "Avisamo-lo por e-mail quando alguém entra na sua conta a partir de um dispositivo novo, com a cidade aproximada que deduzimos do endereço IP nos nossos servidores, e guardamos a lista de dispositivos a partir dos quais entra enquanto tiver a conta.",
+      "de": "Wir benachrichtigen dich per E-Mail, wenn sich jemand von einem neuen Gerät aus in dein Konto einloggt, mit der ungefähren Stadt, die wir auf unseren eigenen Servern aus der IP-Adresse ableiten, und wir speichern die Liste der Geräte, von denen aus du dich anmeldest, solange du das Konto hast.",
+      "it": "Ti avvisiamo via e-mail quando qualcuno accede al tuo account da un nuovo dispositivo, con la città approssimativa che ricaviamo dall'indirizzo IP sui nostri server, e conserviamo l'elenco dei dispositivi da cui accedi finché hai l'account."
+     },
+     "files": {
+      "es": {
+       "path": "privacy/261104.html",
+       "sha256": "2fa6634571503ec19aa898052a24cce84ce818bd594c821d8e346a2602fc4245"
+      }
+     }
     }
    ]
   },
