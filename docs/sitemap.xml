@@ -8,8 +8,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/en/</loc>
@@ -20,8 +18,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/ca/</loc>
@@ -32,8 +28,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/fr/</loc>
@@ -44,8 +38,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/pt/</loc>
@@ -56,8 +48,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/de/</loc>
@@ -68,8 +58,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/it/</loc>
@@ -80,32 +68,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/"/>
-  </url>
-  <url><loc>https://www.sofia.ismx.app/zh/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/"/>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/"/>
-  </url>
-  <url><loc>https://www.sofia.ismx.app/ja/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/"/>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/faq</loc>
@@ -116,8 +78,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/faq"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/faq"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/faq"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/faq"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/faq"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/faq"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/en/faq</loc>
@@ -128,8 +88,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/faq"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/faq"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/faq"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/faq"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/faq"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/faq"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/ca/faq</loc>
@@ -140,8 +98,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/faq"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/faq"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/faq"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/faq"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/faq"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/faq"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/fr/faq</loc>
@@ -152,8 +108,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/faq"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/faq"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/faq"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/faq"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/faq"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/faq"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/pt/faq</loc>
@@ -164,8 +118,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/faq"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/faq"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/faq"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/faq"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/faq"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/faq"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/de/faq</loc>
@@ -176,8 +128,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/faq"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/faq"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/faq"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/faq"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/faq"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/faq"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/it/faq</loc>
@@ -188,32 +138,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/faq"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/faq"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/faq"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/faq"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/faq"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/faq"/>
-  </url>
-  <url><loc>https://www.sofia.ismx.app/zh/faq</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/faq"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/faq"/>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/faq"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/faq"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/faq"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/faq"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/faq"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/faq"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/faq"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/faq"/>
-  </url>
-  <url><loc>https://www.sofia.ismx.app/ja/faq</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/faq"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/faq"/>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/faq"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/faq"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/faq"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/faq"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/faq"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/faq"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/faq"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/faq"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/help</loc>
@@ -224,8 +148,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/help"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/help"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/help"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/help"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/help"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/help"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/en/help</loc>
@@ -236,8 +158,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/help"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/help"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/help"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/help"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/help"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/help"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/ca/help</loc>
@@ -248,8 +168,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/help"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/help"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/help"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/help"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/help"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/help"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/fr/help</loc>
@@ -260,8 +178,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/help"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/help"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/help"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/help"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/help"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/help"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/pt/help</loc>
@@ -272,8 +188,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/help"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/help"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/help"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/help"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/help"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/help"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/de/help</loc>
@@ -284,8 +198,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/help"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/help"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/help"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/help"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/help"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/help"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/it/help</loc>
@@ -296,32 +208,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/help"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/help"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/help"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/help"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/help"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/help"/>
-  </url>
-  <url><loc>https://www.sofia.ismx.app/zh/help</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/help"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/help"/>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/help"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/help"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/help"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/help"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/help"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/help"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/help"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/help"/>
-  </url>
-  <url><loc>https://www.sofia.ismx.app/ja/help</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/help"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/help"/>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/help"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/help"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/help"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/help"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/help"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/help"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/help"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/help"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/delete-account</loc>
@@ -332,8 +218,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/delete-account"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/delete-account"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/delete-account"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/delete-account"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/en/delete-account</loc>
@@ -344,8 +228,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/delete-account"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/delete-account"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/delete-account"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/delete-account"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/ca/delete-account</loc>
@@ -356,8 +238,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/delete-account"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/delete-account"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/delete-account"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/delete-account"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/fr/delete-account</loc>
@@ -368,8 +248,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/delete-account"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/delete-account"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/delete-account"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/delete-account"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/pt/delete-account</loc>
@@ -380,8 +258,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/delete-account"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/delete-account"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/delete-account"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/delete-account"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/de/delete-account</loc>
@@ -392,8 +268,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/delete-account"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/delete-account"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/delete-account"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/delete-account"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/it/delete-account</loc>
@@ -404,32 +278,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/delete-account"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/delete-account"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/delete-account"/>
-  </url>
-  <url><loc>https://www.sofia.ismx.app/zh/delete-account</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/delete-account"/>
-  </url>
-  <url><loc>https://www.sofia.ismx.app/ja/delete-account</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/delete-account"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/delete-account"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/delete-account"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/privacy</loc>
@@ -440,8 +288,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/privacy"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/privacy"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/privacy"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/privacy"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/privacy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/privacy"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/en/privacy</loc>
@@ -452,8 +298,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/privacy"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/privacy"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/privacy"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/privacy"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/privacy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/privacy"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/ca/privacy</loc>
@@ -464,8 +308,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/privacy"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/privacy"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/privacy"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/privacy"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/privacy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/privacy"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/fr/privacy</loc>
@@ -476,8 +318,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/privacy"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/privacy"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/privacy"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/privacy"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/privacy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/privacy"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/pt/privacy</loc>
@@ -488,8 +328,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/privacy"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/privacy"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/privacy"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/privacy"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/privacy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/privacy"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/de/privacy</loc>
@@ -500,8 +338,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/privacy"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/privacy"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/privacy"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/privacy"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/privacy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/privacy"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/it/privacy</loc>
@@ -512,32 +348,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/privacy"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/privacy"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/privacy"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/privacy"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/privacy"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/privacy"/>
-  </url>
-  <url><loc>https://www.sofia.ismx.app/zh/privacy</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/privacy"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/privacy"/>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/privacy"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/privacy"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/privacy"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/privacy"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/privacy"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/privacy"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/privacy"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/privacy"/>
-  </url>
-  <url><loc>https://www.sofia.ismx.app/ja/privacy</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/privacy"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/privacy"/>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/privacy"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/privacy"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/privacy"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/privacy"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/privacy"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/privacy"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/privacy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/privacy"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/legal</loc></url>
@@ -553,8 +363,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-journal"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-journal"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-journal"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-journal"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/en/consent-journal</loc>
@@ -565,8 +373,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-journal"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-journal"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-journal"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-journal"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/ca/consent-journal</loc>
@@ -577,8 +383,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-journal"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-journal"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-journal"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-journal"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/fr/consent-journal</loc>
@@ -589,8 +393,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-journal"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-journal"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-journal"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-journal"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/pt/consent-journal</loc>
@@ -601,8 +403,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-journal"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-journal"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-journal"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-journal"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/de/consent-journal</loc>
@@ -613,8 +413,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-journal"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-journal"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-journal"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-journal"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/it/consent-journal</loc>
@@ -625,32 +423,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-journal"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-journal"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-journal"/>
-  </url>
-  <url><loc>https://www.sofia.ismx.app/zh/consent-journal</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-journal"/>
-  </url>
-  <url><loc>https://www.sofia.ismx.app/ja/consent-journal</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-journal"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-journal"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-journal"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/consent-health</loc>
@@ -661,8 +433,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-health"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-health"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-health"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-health"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/en/consent-health</loc>
@@ -673,8 +443,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-health"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-health"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-health"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-health"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/ca/consent-health</loc>
@@ -685,8 +453,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-health"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-health"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-health"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-health"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/fr/consent-health</loc>
@@ -697,8 +463,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-health"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-health"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-health"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-health"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/pt/consent-health</loc>
@@ -709,8 +473,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-health"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-health"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-health"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-health"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/de/consent-health</loc>
@@ -721,8 +483,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-health"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-health"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-health"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-health"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/it/consent-health</loc>
@@ -733,32 +493,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-health"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-health"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-health"/>
-  </url>
-  <url><loc>https://www.sofia.ismx.app/zh/consent-health</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-health"/>
-  </url>
-  <url><loc>https://www.sofia.ismx.app/ja/consent-health</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/consent-health"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/consent-health"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/consent-health"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/subscription</loc>
@@ -839,8 +573,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/guardian"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/guardian"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/guardian"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/guardian"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/guardian"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/guardian"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/en/guardian</loc>
@@ -851,8 +583,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/guardian"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/guardian"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/guardian"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/guardian"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/guardian"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/guardian"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/ca/guardian</loc>
@@ -863,8 +593,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/guardian"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/guardian"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/guardian"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/guardian"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/guardian"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/guardian"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/fr/guardian</loc>
@@ -875,8 +603,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/guardian"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/guardian"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/guardian"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/guardian"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/guardian"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/guardian"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/pt/guardian</loc>
@@ -887,8 +613,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/guardian"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/guardian"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/guardian"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/guardian"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/guardian"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/guardian"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/de/guardian</loc>
@@ -899,8 +623,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/guardian"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/guardian"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/guardian"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/guardian"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/guardian"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/guardian"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/it/guardian</loc>
@@ -911,32 +633,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/guardian"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/guardian"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/guardian"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/guardian"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/guardian"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/guardian"/>
-  </url>
-  <url><loc>https://www.sofia.ismx.app/zh/guardian</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/guardian"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/guardian"/>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/guardian"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/guardian"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/guardian"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/guardian"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/guardian"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/guardian"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/guardian"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/guardian"/>
-  </url>
-  <url><loc>https://www.sofia.ismx.app/ja/guardian</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/guardian"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/guardian"/>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/guardian"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/guardian"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/guardian"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/guardian"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/guardian"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/guardian"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/guardian"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/guardian"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/crisis</loc>
@@ -947,8 +643,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/crisis"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/crisis"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/crisis"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/crisis"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/crisis"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/crisis"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/en/crisis</loc>
@@ -959,8 +653,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/crisis"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/crisis"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/crisis"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/crisis"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/crisis"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/crisis"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/ca/crisis</loc>
@@ -971,8 +663,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/crisis"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/crisis"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/crisis"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/crisis"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/crisis"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/crisis"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/fr/crisis</loc>
@@ -983,8 +673,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/crisis"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/crisis"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/crisis"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/crisis"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/crisis"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/crisis"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/pt/crisis</loc>
@@ -995,8 +683,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/crisis"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/crisis"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/crisis"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/crisis"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/crisis"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/crisis"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/de/crisis</loc>
@@ -1007,8 +693,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/crisis"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/crisis"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/crisis"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/crisis"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/crisis"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/crisis"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/it/crisis</loc>
@@ -1019,32 +703,6 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/crisis"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/crisis"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/crisis"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/crisis"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/crisis"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/crisis"/>
-  </url>
-  <url><loc>https://www.sofia.ismx.app/zh/crisis</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/crisis"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/crisis"/>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/crisis"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/crisis"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/crisis"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/crisis"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/crisis"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/crisis"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/crisis"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/crisis"/>
-  </url>
-  <url><loc>https://www.sofia.ismx.app/ja/crisis</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/crisis"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/crisis"/>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://www.sofia.ismx.app/ca/crisis"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.sofia.ismx.app/fr/crisis"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://www.sofia.ismx.app/pt/crisis"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.sofia.ismx.app/de/crisis"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.sofia.ismx.app/it/crisis"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.sofia.ismx.app/zh/crisis"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://www.sofia.ismx.app/ja/crisis"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/crisis"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/licenses</loc></url>
