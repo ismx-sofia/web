@@ -6,7 +6,7 @@ its bytes never change and its sha256 is the proof of what a person was shown. E
 describes a version (its date, whether it asks for acceptance, what changes) lives outside those
 bytes, in the version's own page, which frames the original instead of rewriting it.
 
-    /documents/                          every document and its timeline
+    /documents/                          every document, a link to its version in force
     /documents/<doc>/                    opens the version in force, or the announced one if there is one
     /documents/<doc>/<YYMMDD>            one version: date, label, what changes, and the original framed
     /documents/<doc>/original/<YYMMDD>   the frozen bytes (also under /<lang>/ when translated)
@@ -83,6 +83,7 @@ class Documents:
         self.docs = registry["documents"]
         # What core keeps as the highest accepted: it refuses a lower one, or the same one with other bytes.
         self.serial = registry.get("serial", 0)
+        self.registry_reset = registry.get("reset")
         # «What changes» is written per i18n file: the app picks the one of its language.
         self.change_locales = site.change_locales()
         self.web_dirs = {c: site.locales[c]["dir"] for c in site.order}
@@ -249,33 +250,25 @@ class Documents:
 
     # ---------- /documents/ ----------
     def build_index(self) -> str:
+        """One card per document, the whole card a link to its version in force (Israel, 04-11-2026: no timeline
+        here; the other versions are chosen on the version's page). The link is the one in force on the day of the
+        build, and site.js points it at the one in force on the reader's day; before the first, the announced one."""
         e = html.escape
         items = []
         for doc in self.docs:
-            rows = []
-            for v in reversed(doc["versions"]):
-                changes = v["changes"].get("es")
-                rows.append(
-                    f'<li data-doc="{doc["web"]}" data-version="{v["version"]}"><span class="dot" aria-hidden="true"></span>'
-                    f'<div class="row"><strong>{long_date(v["effective"])}</strong>{self.state_chips()}</div>'
-                    + (f"<p>{e(changes)}</p>" if changes else "")
-                    + f'<a href="{self.page_url(doc, v)}">Leer esta versión</a></li>')
+            v = self.in_force(doc, self.site.now) or doc["versions"][0]
             icon = ICONS.get(doc["id"], "i-text")
             items.append(
-                f'<details class="doc" id="{doc["web"]}">\n<summary>'
+                f'<a class="doc" id="{doc["web"]}" href="{self.page_url(doc, v)}" data-doc-link="current" data-doc="{doc["web"]}">'
                 f'<span class="ic" aria-hidden="true"><svg class="ico"><use href="#{icon}"></use></svg></span>'
                 f'<span class="dt"><b>{e(doc["title"])}</b><small>{e(doc["summary"])}</small></span>'
                 f'<span class="st"><span class="chip" data-doc-chip="current" data-doc="{doc["web"]}" hidden></span>'
                 f'<span class="chip next" data-doc-chip="next" data-doc="{doc["web"]}" hidden></span></span>'
-                f'<span class="plus" aria-hidden="true"></span></summary>\n'
-                f'<div class="body">\n<p class="doc-cta">'
-                f'<a href="/documents/{doc["web"]}/" data-doc-link="current" data-doc="{doc["web"]}"><b>Leer la versión vigente</b></a>'
-                f'<a href="/documents/{doc["web"]}/" data-doc-link="next" data-doc="{doc["web"]}" hidden>Ver la versión anunciada</a></p>\n'
-                f'<ol class="tl">\n' + "\n".join(rows) + "\n</ol>\n</div>\n</details>")
+                f'<span class="go" aria-hidden="true"></span></a>')
         main = ('<section class="page-hero" id="documents">\n<div aria-hidden="true" class="mesh"><i></i><i></i><i></i></div>\n'
                 '<div class="wrap">\n<span class="eyebrow">Legal</span>\n<h1><span class="grad-text">Documentos legales</span></h1>\n'
                 '<p class="lede">Todo lo que rige SofIA, con cada versión que ha tenido: qué cambió y desde cuándo vale. '
-                'Abre un documento para ver su historial.</p>\n'
+                'Abre un documento para leer la versión vigente; desde ella puedes elegir cualquier otra.</p>\n'
                 f'<div class="meta-pills"><span>{len(self.docs)} documentos</span>'
                 '<span data-docs-date="last" hidden>Último cambio: <b></b></span>'
                 '<span data-docs-date="next" hidden>Próximo cambio: <b></b></span></div>\n</div>\n</section>\n'
@@ -306,12 +299,14 @@ class Documents:
         when, date = long_date(v["effective"]), short_date(v["effective"])
         # The lede of this version's own original: the source in src/legal/ is the draft of the next one.
         lede = self.original_lede(doc, v) or self.description(doc)
+        # The versions to choose from (Israel, 04-11-2026: the index links the one in force; the others are picked
+        # here): every one, newest first, its state from today's date (site.js), this one marked.
         others = "".join(
             f'<li data-doc="{doc["web"]}" data-version="{o["version"]}"><a href="{self.page_url(doc, o)}"'
-            + (' aria-current="page"><span><b>' + short_date(o["effective"]) + "</b></span>" if o is v
-               else f'><span>{short_date(o["effective"])}</span>')
+            + (' aria-current="page"' if o is v else "")
+            + f'><span>{"<b>" + short_date(o["effective"]) + "</b>" if o is v else short_date(o["effective"])}</span>'
             + '<small><span data-when="current" hidden>vigente</span><span data-when="next" hidden>anunciada</span>'
-            + ('<span data-when="old" hidden>esta</span>' if o is v else "") + "</small></a></li>"
+            + '<span data-when="old" hidden>sustituida</span></small></a></li>'
             for o in reversed(versions))
         # The state and its date, said once (Israel, 04-11-2026): one pill per state, shown by site.js from today's
         # date; without JavaScript, «Desde el …».
@@ -344,7 +339,10 @@ class Documents:
                 f'<h1><span class="grad-text">{e(doc["title"])}</span></h1>\n<p class="lede">{lede}</p>\n'
                 '<div class="meta-pills">'
                 + dates
-                + f'<details class="ver"><summary>Otras versiones</summary><ul>{others}</ul></details></div>\n'
+                # The version picker, only when there is another to pick.
+                + (f'<details class="ver"><summary>Versión del <b>{date}</b></summary><ul aria-label="Versiones">{others}</ul></details>'
+                   if len(versions) > 1 else "")
+                + '</div>\n'
                 f'{change}{announced}</div>\n</section>\n'
                 # The text of this version, once: its title and its date are the page's, above (Israel, 04-11-2026).
                 # The exact bytes stay served at /original/, the proof core keeps, unlinked.
@@ -399,6 +397,12 @@ class Documents:
         if new.get("serial", 0) < old.get("serial", 0) or (not same and new.get("serial", 0) == old.get("serial", 0)):
             problems.append(f"the serial {new.get('serial', 0)} is below the published {old.get('serial', 0)}, or the same with other content")
         olds = {d["id"]: d for d in old["documents"]}
+        # The history restarted at `reset` (Israel, 04-11-2026, before launch): against a manifest published before it,
+        # the old versions need not stay, and the new ones reach core by its script, not by the sweep's timing.
+        reset = self.registry_reset
+        if reset and new.get("serial", 0) == reset and old.get("serial", 0) < reset:
+            return problems + [f"the document {gone} was published and is no longer in the manifest"
+                               for gone in sorted(set(olds) - {d["id"] for d in new["documents"]} - set(RENAMES.values()))]
         renamed = {n: o for n, o in RENAMES.items() if o in olds and n not in olds}
         for doc in new["documents"]:
             before = olds.get(doc["id"]) or olds.get(renamed.get(doc["id"], ""))

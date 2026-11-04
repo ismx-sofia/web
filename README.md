@@ -42,7 +42,7 @@ it never changes: the build refuses one whose bytes no longer match the registry
 - `material` decides whether the app asks to accept it again; a minor change is announced in the app without blocking.
 - `changes` is «what changes», per i18n file; a first version has none. The release build refuses a
   version without it in every published language.
-- `legacy` is the old URL (`/privacy-v6`…) a version was published at before `/documents`; it keeps
+- `legacy` (none since the restart of 04-11-2026) is an old URL a version was published at before `/documents`; it keeps
   serving the same bytes.
 
 The build publishes `/documents/` (the index), `/documents/<doc>/` (opens the version in force, or the
@@ -69,6 +69,13 @@ Which version is in force depends on the date, so `.github/workflows/rebuild.yml
 after 00:00 in Madrid) and commits `docs/` when a root page changed. It never signs: a build without `--sign` keeps
 the published signature when the manifest is byte for byte the same, and the job refuses a manifest that changed.
 `SOFIA_NOW=2026-11-26T00:00:00+01:00 python3 tools/build.py --out /tmp/x` builds the site as it will be then.
+
+### The restart of 04-11-2026
+
+Before launch the history was restarted (Israel, 04-11-2026): every document has one version, 261104, with English
+section ids (the Spanish ones in `data-was`), and the previous versions, their frozen files and their acceptances were
+deleted (monorepo `sql/756`). `reset: 3` in the registry lets `--sign` publish serial 3 over the manifest of serial 2,
+whose versions are gone; from serial 3 on, the usual rules hold.
 
 ### Signing the manifest
 

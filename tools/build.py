@@ -507,13 +507,13 @@ class Site:
             return f"<li><b>{e(n['name'])}</b>{version} — {license}{source}{holder}</li>"
 
         sections = [
-            ("licencias-que-es", "Qué es esta página",
+            ("licenses-about", "Qué es esta página",
              "<p>Las apps de SofIA llevan componentes de terceros. Esta página reproduce, para cada uno, su aviso de "
              "copyright y la licencia con la que se usa. Las apps llevan la misma lista dentro, en "
              + self.inline("{path:settingsTitle,settingsOptionLegal,settingsLegalSources}", "es", "es_es")
              + ", donde se puede leer sin conexión. Cuando la licencia de un componente pide ofrecer su código fuente, "
              "su entrada enlaza dónde está. Para cualquier duda: <a href=\"mailto:legal@sofia.ismx.app\">legal@sofia.ismx.app</a>.</p>"),
-            ("licencias-lugares", "Datos de lugares",
+            ("licenses-places", "Datos de lugares",
              f'<p>Los lugares que se buscan al añadir una ubicación a una entrada vienen de OpenStreetMap: © colaboradores de '
              f'OpenStreetMap, disponibles con la <a href="{e(links["openStreetMap"], quote=True)}" rel="noopener">Open Database License</a>.</p>'
              f'<p>La ubicación aproximada a partir de la dirección IP: IP Geolocation by <a href="https://db-ip.com" rel="noopener">DB-IP</a>, '
@@ -521,14 +521,14 @@ class Site:
         ]
         for platform, title in LICENSE_LISTS:
             items = "\n".join(notice(n) for n in lists[platform]["notices"])
-            sections.append((f"licencias-{platform}", title,
+            sections.append((f"licenses-{platform}", title,
                              f'<p>{len(lists[platform]["notices"])} componentes.</p>\n<ul class="notices">\n{items}\n</ul>'))
         # A license text is data, never a template: it is escaped and nothing in it is expanded.
         bodies = "\n".join(
             f'<details id="{self.text_anchor(k)}"><summary>{e(k.split(":", 1)[-1] if k.startswith(("custom:", "file:", "notice:")) else k)}</summary>'
             f"<pre>{e(v)}</pre></details>"
             for k, v in sorted(texts.items()))
-        sections.append(("licencias-textos", "Textos de las licencias", f'<div class="license-texts">\n{bodies}\n</div>'))
+        sections.append(("licenses-texts", "Textos de las licencias", f'<div class="license-texts">\n{bodies}\n</div>'))
 
         toc = "".join(f'<li><a href="#{i}">{t}</a></li>' for i, t, _ in sections)
         body = "\n".join(f'<section id="{i}">\n<h2><span class="n grad-text">{n}</span>{t}'

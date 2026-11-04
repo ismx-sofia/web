@@ -290,6 +290,17 @@
       el.querySelector('b').textContent = long(at);
       el.hidden = false;
     });
+    // The version picker closes like a menu: a click outside it or Escape.
+    var pickers = document.querySelectorAll('.doc-version details.ver');
+    if (pickers.length) {
+      document.addEventListener('click', function (ev) {
+        pickers.forEach(function (d) { if (d.open && !d.contains(ev.target)) d.open = false; });
+      });
+      document.addEventListener('keydown', function (ev) {
+        if (ev.key !== 'Escape') return;
+        pickers.forEach(function (d) { if (d.open) { d.open = false; d.querySelector('summary').focus(); } });
+      });
+    }
     var open = document.querySelector('[data-doc-open]');
     if (open) {
       var s = byDoc[open.dataset.docOpen], target = s && (s.next || s.current);

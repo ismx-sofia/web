@@ -17,7 +17,7 @@ check /                    200 'Dale voz a tu'
 check /en/                 200 'Your story'
 check /en                  301
 check /pt/                 200 'hreflang="pt"'
-check /faq                 200 'id="seguridad"'
+check /faq                 200 'id="security"'
 check /help                200 'hello@sofia.ismx.app'
 check /delete-account      200 'PROGRAMSAN'
 check /privacy             200
@@ -32,11 +32,15 @@ check /documents/normas/   404
 check /cookies             200
 check /guardian            200 'Acompañar la cuenta de un menor'
 check /en/guardian         200 'Accompanying'
-check /guardian-v1         200 'Versión 1'
+check /guardian-v1         404
 check /crisis              200 '024'
 check /en/crisis           200 '988'
-check /privacy-v7          200 'Versión 7'
-check /terms-v6            200 'Versión 6'
+check /privacy-v7          404
+check /terms-v6            404
+check /privacy             200 'id="rights"'
+check /terms               200 'id="appeals"'
+check /guidelines          200 'id="nudity"'
+check /documents/terms/261104 200 'Vigente desde el'
 check /entry?code=K7Q2M9X  404 'id="shared"'
 check /otp-test.html       404
 check /src/i18n/es.json    404

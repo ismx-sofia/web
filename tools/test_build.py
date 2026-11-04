@@ -153,7 +153,7 @@ class BuildTest(unittest.TestCase):
                 if url.startswith("/") and not url.startswith("//"):
                     self.assertIsNotNone(resolve(self.out, url), f"{page}: {tag} {attr}={url}")
 
-    # 4b. in-page anchors exist (TOC, FAQ, #funciones…)
+    # 4b. in-page anchors exist (TOC, FAQ, #features…)
     def test_anchors_resolve(self):
         frozen = set()
         for doc in json.loads((SRC / "data" / "documents.json").read_text(encoding="utf-8"))["documents"]:
@@ -257,11 +257,11 @@ class BuildTest(unittest.TestCase):
             for m in re.finditer(r"extremo a extremo", text):
                 self.assertIn("no es", text[max(0, m.start() - 40):m.start()].lower(), f"{page}: end-to-end claim")
 
-    # 8. the URLs the app opens exist, and /faq keeps #seguridad
+    # 8. the URLs the app opens exist, and /faq keeps #security (SettingsScreen opens it)
     def test_app_urls_exist(self):
         for u in APP_URLS:
             self.assertIsNotNone(resolve(self.out, u), u)
-        self.assertIn("seguridad", parse(self.pages["faq.html"]).ids)
+        self.assertIn("security", parse(self.pages["faq.html"]).ids)
 
     # 9. no third parties: every script, stylesheet, font and image is ours
     def test_no_third_party_resources(self):
@@ -320,14 +320,17 @@ class BuildTest(unittest.TestCase):
         self.assertNotIn("<iframe", index)
         for label in ("Requiere aceptación", "Cambio menor"):
             self.assertNotIn(label, index)
+        # No timeline in the index (Israel, 04-11-2026): each card is a link to its version in force.
+        self.assertNotIn('<ol class="tl">', index)
+        self.assertNotIn('<details class="doc"', index)
         for doc in registry:
-            self.assertIn(f'href="/documents/{doc["web"]}/"', index, doc["id"])
+            v = self.site.documents.in_force(doc, self.site.now) or doc["versions"][0]
+            self.assertIn(f'<a class="doc" id="{doc["web"]}" href="/documents/{doc["web"]}/{v["version"]}" data-doc-link="current"', index, doc["id"])
             self.assertIn(html.escape(doc["summary"]), index, doc["id"])
             opener = self.pages[f"documents/{doc['web']}/index.html"]
             self.assertIn(f'data-doc-open="{doc["web"]}"', opener)
             for i, v in enumerate(doc["versions"]):
                 page = self.pages[f"documents/{doc['web']}/{v['version']}.html"]
-                self.assertIn(f'href="/documents/{doc["web"]}/{v["version"]}"', index)
                 self.assertNotIn("<iframe", page)
                 for label in ("Requiere aceptación", "Cambio menor"):
                     self.assertNotIn(label, page, f"{doc['id']} {v['version']}")
@@ -354,10 +357,51 @@ class BuildTest(unittest.TestCase):
                     prev = doc["versions"][i - 1]
                     self.assertIn(f'href="/documents/{doc["web"]}/{prev["version"]}">Versión anterior: ', page)
                 self.assertNotIn("róxima", page, f"{doc['id']} {v['version']}: a future version is «Anunciada»")
+                # A document with a single version has nothing to pick.
+                if len(doc["versions"]) == 1:
+                    self.assertNotIn('<details class="ver">', page)
                 # Its state and date, once: no chip beside a pill that already says it, no list of dates below.
                 self.assertNotIn('<span class="chip" data-when="current" hidden>Vigente</span>', page)
                 self.assertNotIn("<dt>Entró en vigor</dt>", page)
                 self.assertNotIn(" · Versión anterior</span>", page)
+
+    # 12b'. with a history (Israel, 04-11-2026): the card goes to the version in force, on the reader's day too, and
+    # the version's page picks any other from its dropdown, this one marked
+    def test_documents_version_picker(self):
+        t = tempfile.mkdtemp()
+        src = Path(t)
+        shutil.copytree(SRC / "documents", src / "documents")
+        shutil.copytree(SRC / "legal", src / "legal")
+        (src / "data").mkdir()
+        reg = json.loads((SRC / "data" / "documents.json").read_text(encoding="utf-8"))
+        terms = next(d for d in reg["documents"] if d["id"] == "terms")
+        first = terms["versions"][0]
+        for version, effective in ((261110, "2026-11-09T23:00:00Z"), (261201, "2026-11-30T23:00:00Z")):
+            terms["versions"].append({**first, "version": version, "effective": effective, "changes": {"es": f"Cambio {version}"}})
+        (src / "data" / "documents.json").write_text(json.dumps(reg), encoding="utf-8")
+        os.environ["SOFIA_NOW"] = "2026-11-15T12:00:00Z"
+        try:
+            site = build.Site(release=False)
+        finally:
+            del os.environ["SOFIA_NOW"]
+        docs = documents.Documents(site, src=src, root=ROOT, release=False, host=HOST, page_meta=build.page_meta)
+        index = docs.build_index()
+        card = index[index.index('<a class="doc" id="terms"'):]
+        card = card[:card.index("</a>")]
+        self.assertIn('href="/documents/terms/261110" data-doc-link="current"', card, "the card goes to the one in force")
+        self.assertNotIn("261104", card)
+        self.assertNotIn("261201", card)
+        self.assertNotIn('<ol class="tl">', index)
+        for i, v in enumerate(terms["versions"]):
+            page = docs.build_version(terms, i, v)
+            picker = page[page.index('<details class="ver">'):]
+            picker = picker[:picker.index("</details>")]
+            self.assertIn(f"<summary>Versión del <b>{documents.short_date(v['effective'])}</b></summary>", picker)
+            links = re.findall(r'<a href="/documents/terms/(\d+)"', picker)
+            self.assertEqual(links, ["261201", "261110", "261104"], "every version, newest first")
+            self.assertEqual(re.findall(r'<a href="/documents/terms/(\d+)" aria-current="page"', picker), [str(v["version"])])
+            for word in ("vigente", "anunciada", "sustituida"):
+                self.assertIn(f">{word}</span>", picker)
 
     # 12c. the manifest core ingests: every version, its originals with their sha256, and «what changes»
     def test_documents_manifest(self):
@@ -392,6 +436,13 @@ class BuildTest(unittest.TestCase):
             shutil.copytree(SRC / "legal", src / "legal")
             (src / "data").mkdir()
             reg = json.loads((SRC / "data" / "documents.json").read_text(encoding="utf-8"))
+            reg.pop("reset", None)  # the rules of continuity; the restart has its own case below
+            # The rules need a history: three more versions of the terms, announced, on the frozen file of the first.
+            terms = next(d for d in reg["documents"] if d["id"] == "terms")
+            first = terms["versions"][0]
+            for version, effective in ((261122, "2026-11-21T23:00:00Z"), (261123, "2026-11-22T23:00:00Z"), (261124, "2026-11-23T23:00:00Z")):
+                terms["versions"].append({**first, "version": version, "effective": effective,
+                                          "changes": {"es": f"Cambio {version}"}})
             mutate(reg)
             (src / "data" / "documents.json").write_text(json.dumps(reg), encoding="utf-8")
             return documents.Documents(build.Site(release=False), src=src, root=ROOT, release=False, host=HOST, page_meta=build.page_meta)
@@ -406,6 +457,22 @@ class BuildTest(unittest.TestCase):
         doc = lambda m, i: next(d for d in m["documents"] if d["id"] == i)
         def older(m):
             m["serial"] -= 1
+        # The restart (registry `reset`): against a manifest of a lower serial, nothing of it needs to stay but its
+        # documents; at the serial of the restart or above, the rules hold again.
+        restarted = docs_with(lambda reg: reg.update(reset=reg["serial"]))
+        def history(m):
+            m["serial"] -= 1
+            for d in m["documents"]:
+                d["versions"] = [{**d["versions"][0], "version": 261001, "effective": "2026-10-01T00:00:00Z"}]
+        self.assertEqual(restarted.signable(published(history), now), [])
+        def history_and_gone(m):
+            history(m)
+            m["documents"].append({**m["documents"][0], "id": "gone"})
+        self.assertIn("the document gone was published", " ".join(restarted.signable(published(history_and_gone), now)))
+        def history_same_serial(m):
+            for d in m["documents"]:
+                d["versions"] = [{**d["versions"][0], "version": 261001, "effective": "2026-10-01T00:00:00Z"}]
+        self.assertNotEqual(restarted.signable(published(history_same_serial), now), [])
         self.assertIn("no published manifest", " ".join(here.signable(None, now)))
         self.assertEqual(here.signable(here.manifest(), now), [])
         self.assertEqual(here.signable(published(older), now), [])
@@ -835,8 +902,6 @@ class InForceTest(unittest.TestCase):
                 if code != "es":
                     page = site.build_legal_translated(doc["web"], code)
                     self.assertIn(site.documents.frozen_page(doc, v, code)["main"], page, f"{doc['web']} {code}")
-        # The draft of the next Terms (in force from 26-11) is not what today's root says.
-        self.assertNotIn('id="nudity"', site.build_legal("guidelines"))
 
     # 14a'. a language the version in force was not published in keeps the newest version in force that was, never
     # the draft of src/legal/<lang>/
@@ -854,13 +919,17 @@ class InForceTest(unittest.TestCase):
 
     # 14b. the root changes version at the instant the next one comes into force, not a second before
     def test_root_changes_at_the_effective_instant(self):
-        eve, day = self.site("2026-11-25T22:59:59Z"), self.site("2026-11-25T23:00:00")  # no zone: UTC
-        for web in ("guidelines", "terms"):
-            before, after = eve.build_legal(web), day.build_legal(web)
-            self.assertIn("Vigente desde el <b>25 de noviembre de 2026</b>", before, web)
-            self.assertIn("Vigente desde el <b>26 de noviembre de 2026</b>", after, web)
-        self.assertNotIn('id="nudity"', eve.build_legal("guidelines"))
-        self.assertIn('id="nudity"', day.build_legal("guidelines"))
+        def with_next(now):
+            site = self.site(now)
+            doc = site.documents.by_web("crisis")
+            first = doc["versions"][0]
+            doc["versions"].append({**first, "version": 261201, "effective": "2026-11-30T23:00:00Z",
+                                    "files": {"es": {**first["files"]["es"], "path": "guidelines/261104.html"}}})
+            return site.build_legal("crisis")
+        eve, day = with_next("2026-11-30T22:59:59Z"), with_next("2026-11-30T23:00:00")  # no zone: UTC
+        self.assertIn("Protocolo de crisis", eve)
+        self.assertNotIn('id="nudity"', eve)
+        self.assertIn('id="nudity"', day)
 
     # 14c. a frozen original's link to a route renamed later points at its new name; its bytes stay at /original/
     def test_renamed_links(self):
@@ -888,7 +957,7 @@ class InForceTest(unittest.TestCase):
         with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
             self.assertEqual(build.freeze("terms", "26112"), 2)
             self.assertEqual(build.freeze("nothing", "261127"), 2)
-            self.assertEqual(build.freeze("terms", "261126"), 1)  # already frozen
+            self.assertEqual(build.freeze("terms", "261104"), 1)  # already frozen
 
     # 14f. a build that does not sign keeps the signature of the same manifest, and drops it for another one
     def test_unsigned_build_keeps_the_signature(self):
@@ -952,11 +1021,11 @@ class BrowserTest(unittest.TestCase):
         return p, errors
 
     def test_old_anchor_lands_on_the_renamed_section(self):
-        p, err = self.page("/documents/guidelines/original/261126#acoso")
+        p, err = self.page("/documents/guidelines/original/261104#acoso")
         self.assertEqual(p.evaluate("location.hash"), "#harassment")
         p.wait_for_function("Math.abs(document.getElementById('harassment').getBoundingClientRect().top - 110) < 40",
                             timeout=3000)
-        p2, _ = self.page("/documents/guidelines/original/261126#nothing-here")
+        p2, _ = self.page("/documents/guidelines/original/261104#nothing-here")
         self.assertEqual(p2.evaluate("location.hash"), "#nothing-here")
         self.assertEqual(err, [])
 

@@ -539,28 +539,17 @@ html.pt-swap body { visibility: hidden; animation: pt-reveal 0s 1.5s forwards !i
 .doc-version .chip.old { background: var(--bg-2); color: var(--ink-2); border: 1px solid var(--line); }
 /* The index (prototype A): a list of documents that open into their timeline. */
 .docs { display: grid; gap: 12px; max-width: 960px; padding-bottom: 24px; }
-.docs details.doc { border-radius: 22px; background: var(--surface); border: 1px solid var(--line); padding: 0 22px; box-shadow: var(--shadow-sm); scroll-margin-top: 110px; }
-.docs summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 16px; padding: 18px 0; }
-.docs summary::-webkit-details-marker { display: none; }
+.docs a.doc { display: flex; align-items: center; gap: 16px; padding: 18px 22px; border-radius: 22px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-sm); color: var(--ink); text-decoration: none; scroll-margin-top: 110px; transition: border-color .2s, box-shadow .2s, transform .2s; }
+.docs a.doc:hover { border-color: var(--accent-strong); box-shadow: var(--shadow); transform: translateY(-1px); }
+.docs a.doc:focus-visible { outline: 3px solid var(--accent-strong); outline-offset: 3px; }
 .docs .ic { flex: none; width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; background: var(--grad-soft); color: var(--accent-strong); }
 .docs .dt { flex: 1; min-width: 0; display: grid; gap: 2px; }
 .docs .dt b { font-size: 19px; }
 .docs .dt small { color: var(--ink-2); font-size: 14.5px; line-height: 1.4; }
 .docs .st { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
-.docs .plus { flex: none; width: 32px; height: 32px; border-radius: 50%; background-image: linear-gradient(var(--accent-strong), var(--accent-strong)), linear-gradient(var(--accent-strong), var(--accent-strong)), var(--grad-soft); background-size: 14px 2px, 2px 14px, auto; background-position: center; background-repeat: no-repeat; transition: transform .3s; }
-.docs details[open] .plus { transform: rotate(45deg); }
-.docs .body { padding: 0 0 22px 60px; display: grid; gap: 16px; }
-.doc-cta { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; font-size: 15px; }
-.docs .tl { list-style: none; margin: 0; padding: 0; display: grid; }
-.docs .tl li { position: relative; padding: 0 0 18px 28px; display: grid; gap: 4px; }
-.docs .tl li::before { content: ""; position: absolute; left: 5px; top: 10px; bottom: -6px; width: 2px; background: var(--line); }
-.docs .tl li:last-child::before { display: none; }
-.docs .tl .dot { position: absolute; left: 0; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--surface); border: 2px solid #9AA6D6; box-sizing: border-box; }
-.docs .tl li[data-state="current"] .dot { background: var(--grad); border: 0; }
-.docs .tl li[data-state="next"] .dot { background: var(--note-bg); border: 2px dashed var(--note-line); }
-.docs .tl .row { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
-.docs .tl p { color: var(--ink-2); font-size: 15px; max-width: 68ch; }
-.docs .tl a { font-size: 14.5px; }
+.docs .go { flex: none; width: 32px; height: 32px; border-radius: 50%; background: var(--grad-soft); position: relative; }
+.docs .go::after { content: ""; position: absolute; left: 11px; top: 11px; width: 8px; height: 8px; border-top: 2px solid var(--accent-strong); border-right: 2px solid var(--accent-strong); transform: rotate(45deg); transition: left .2s; }
+.docs a.doc:hover .go::after { left: 13px; }
 /* A version's page (prototypes DocTerms, DocTermsNext, DocPrivacyOld). */
 .crumbs { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 14.5px; color: var(--ink-2); margin-bottom: 22px; }
 .crumbs a { text-decoration: none; }
@@ -568,12 +557,18 @@ html.pt-swap body { visibility: hidden; animation: pt-reveal 0s 1.5s forwards !i
 .doc-version .meta-pills .chip { padding: 6px 14px; font-size: 14px; }
 .doc-version .ver { position: relative; }
 .doc-version .ver summary { list-style: none; cursor: pointer; padding: 6px 14px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-size: 14px; font-weight: 700; color: var(--accent-strong); }
+.doc-version .ver summary b { font-weight: 800; }
 .doc-version .ver summary::after { content: " ▾"; }
+.doc-version .ver[open] summary::after { content: " ▴"; }
 .doc-version .ver summary::-webkit-details-marker { display: none; }
 .doc-version .ver ul { position: absolute; z-index: 5; top: 40px; left: 0; margin: 0; padding: 8px; list-style: none; width: min(300px, 80vw); background: var(--surface); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); }
 .doc-version .ver a { display: flex; justify-content: space-between; gap: 10px; padding: 8px 10px; border-radius: 12px; color: var(--ink); text-decoration: none; font-size: 14.5px; }
-.doc-version .ver a:hover { background: var(--bg-2); }
+.doc-version .ver a:hover, .doc-version .ver a[aria-current] { background: var(--bg-2); }
 .doc-version .ver small { color: var(--ink-2); }
+/* The items are links in a menu, not pills: none of .meta-pills' own frame. */
+.doc-version .meta-pills .ver ul span, .doc-version .meta-pills .ver ul a { padding: 0; border: 0; border-radius: 0; background: none; backdrop-filter: none; }
+.doc-version .meta-pills .ver ul a { padding: 8px 10px; border-radius: 12px; align-items: baseline; }
+.doc-version .meta-pills .ver ul a:hover, .doc-version .meta-pills .ver ul a[aria-current] { background: var(--bg-2); }
 .doc-version .change { margin-top: 28px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 24px; align-items: start; padding: 22px 24px; border-radius: 22px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-sm); max-width: 900px; }
 .doc-version .change h2 { grid-column: 1; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); }
 .doc-version .change p { grid-column: 1; font-size: 18px; }
@@ -586,7 +581,7 @@ html.pt-swap body { visibility: hidden; animation: pt-reveal 0s 1.5s forwards !i
 .orig-frame { border: 1px solid var(--line); border-radius: 18px; background: var(--surface); padding: 28px 28px 36px; }
 .doc-list { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 8px; }
 @media (max-width: 700px) {
-  .docs .body { padding-left: 0; } .docs .st { display: none; }
+  .docs a.doc { padding: 16px; gap: 12px; } .docs .st { display: none; }
   .doc-version .change { grid-template-columns: minmax(0, 1fr); } .doc-version .change .vs { grid-column: 1; grid-row: auto; }
   .orig-frame { padding: 20px 16px 28px; } .orig .toc { position: static; }
 }
