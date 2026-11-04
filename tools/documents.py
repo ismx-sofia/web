@@ -186,7 +186,46 @@ class Documents:
         meta = re.sub(r"<a\b.*?</a>", "", pills.group(1), flags=re.S).replace("</span><span", "</span> · <span")
         meta = " ".join(re.sub(r"<[^>]+>", "", meta).split())
         body = page[start:end + len("</div>")].replace('<div class="wrap doc-layout">', '<div class="doc-layout">', 1)
-        return title.group(1), meta, body
+        return title.group(1), meta, self.renamed(body)
+
+    # ---------- the version in force (plan 261103-cierre-legales D1) ----------
+    def by_web(self, web: str):
+        return next((doc for doc in self.docs if doc["web"] == web), None)
+
+    @staticmethod
+    def in_force(doc, now: datetime):
+        """The version whose `effective` is the latest one not after `now`, or None before the first."""
+        at = lambda v: datetime.fromisoformat(v["effective"].replace("Z", "+00:00"))
+        passed = [v for v in doc["versions"] if at(v) <= now]
+        return max(passed, key=at) if passed else None
+
+    @staticmethod
+    def renamed(text: str) -> str:
+        """Links of a frozen original to a route renamed later, pointed at its new name: the page around an original
+        is today's, the original's bytes are not (they stay untouched at /original/)."""
+        for new, old in RENAMES.items():
+            text = re.sub(rf'href="/{old}(?=["#])', f'href="/{new}', text)
+            text = re.sub(rf'href="((?:/[a-z-]+)?)/documents/{old}/', rf'href="\1/documents/{new}/', text)
+        return text
+
+    def frozen_page(self, doc, v, code="es") -> dict:
+        """What a root page takes from the frozen original in force: its <main>, title and description, and the
+        page data it carried (the second Portuguese text's title lives there)."""
+        f = v["files"].get(code)
+        if not f:
+            return {}
+        page = (self.store / f["path"]).read_text(encoding="utf-8")
+        start, end = page.find("<main>\n"), page.rfind("</main>")
+        title = re.search(r"<title>(.*?) · SofIA</title>", page, re.S)
+        description = re.search(r'<meta name="description" content="(.*?)">', page, re.S)
+        data = re.search(r"<script>window\.SOFIA=(.*?);</script>", page, re.S)
+        if start < 0 or end < 0 or not title or not description:
+            raise DocumentsError(f"{f['path']}: the frozen original has no <main>, title or description")
+        main = self.renamed(page[start + len("<main>\n"):end])
+        # A page in force says since when, never which version (Israel, 22-10-2026): the number is its URL's.
+        main = re.sub(r'(<div class="meta-pills">)<span>[^<]*\d[^<]*</span>(?=<span>)', r"\1", main)
+        return {"main": main, "title": html.unescape(title.group(1)),
+                "description": html.unescape(description.group(1)), "data": json.loads(data.group(1)) if data else {}}
 
     @staticmethod
     def period(start: str, end: str) -> str:

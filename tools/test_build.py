@@ -11,6 +11,8 @@ import base64
 import hashlib
 import html.parser
 import json
+import io
+import contextlib
 import os
 import re
 import shutil
@@ -333,7 +335,7 @@ class BuildTest(unittest.TestCase):
                 self.assertNotIn(f">{v['version']}<", page)
                 # The frozen body is inside the page, once, and the site's own header is not.
                 frozen = (SRC / "documents" / v["files"]["es"]["path"]).read_text(encoding="utf-8")
-                first = re.search(r'<section id="[^"]+">\s*<h2>.*?</h2>', frozen, re.S).group(0)
+                first = re.search(r'<section id="[^"]+"(?: data-was="[^"]*")?>\s*<h2>.*?</h2>', frozen, re.S).group(0)
                 self.assertEqual(page.count(first), 1, f"{doc['id']} {v['version']}: the original's text, framed once")
                 self.assertEqual(page.count('class="site-head"'), 1, f"{doc['id']} {v['version']}: one site header")
                 self.assertIn(f'href="/documents/{doc["web"]}/original/{v["version"]}">Abrir aparte</a>', page)
@@ -788,6 +790,106 @@ class BuildTest(unittest.TestCase):
             self.assertNotIn('class="pending"', p.read_text(encoding="utf-8"), p)
 
 
+class InForceTest(unittest.TestCase):
+    """D1 (plan 261103-cierre-legales): a legal root page is the frozen original in force, in today's frame."""
+
+    @staticmethod
+    def site(now: str):
+        os.environ["SOFIA_NOW"] = now
+        try:
+            site = build.Site(release=False)
+        finally:
+            del os.environ["SOFIA_NOW"]
+        site.documents = documents.Documents(site, src=SRC, root=ROOT, release=False, host=build.HOST,
+                                             page_meta=build.page_meta)
+        return site
+
+    @staticmethod
+    def main(page: str) -> str:
+        return page[page.index("<main>\n") + len("<main>\n"):page.rindex("</main>")]
+
+    # 14a. every root page shows the text of its version in force, and the source (a draft) never reaches it
+    def test_root_is_the_original_in_force(self):
+        site = self.site("2026-11-04T12:00:00Z")
+        for doc in site.documents.docs:
+            v = site.documents.in_force(doc, site.now)
+            frozen = (SRC / "documents" / v["files"]["es"]["path"]).read_text(encoding="utf-8")
+            root = self.main(site.build_legal(doc["web"]))
+            for section in re.findall(r'<section id="[^"]+"[^>]*>\s*<h2>.*?</h2>', frozen, re.S):
+                self.assertIn(section, root, f"{doc['web']}: the text of {v['version']}")
+            self.assertNotRegex(root, r'class="meta-pills"><span>[^<]*\d', doc["web"])
+            for code in v["files"]:
+                if code != "es":
+                    page = site.build_legal_translated(doc["web"], code)
+                    self.assertIn(site.documents.frozen_page(doc, v, code)["main"], page, f"{doc['web']} {code}")
+        # The draft of the next Terms (in force from 26-11) is not what today's root says.
+        self.assertNotIn('id="nudity"', site.build_legal("guidelines"))
+
+    # 14a'. a language the version in force was not published in keeps the newest version in force that was, never
+    # the draft of src/legal/<lang>/
+    def test_translation_lags_behind_never_the_draft(self):
+        site = self.site("2026-12-01T00:00:00Z")
+        doc = site.documents.by_web("guardian")
+        last = doc["versions"][-1]
+        doc["versions"].append({**last, "version": 261130, "effective": "2026-11-29T23:00:00Z",
+                                "files": {"es": last["files"]["es"]}})
+        page = site.build_legal_translated("guardian", "en")
+        self.assertIn(site.documents.frozen_page(doc, last, "en")["main"], page)
+        doc["versions"] = [{**last, "files": {"es": last["files"]["es"]}}]
+        with self.assertRaises(build.BuildError):
+            site.build_legal_translated("guardian", "en")
+
+    # 14b. the root changes version at the instant the next one comes into force, not a second before
+    def test_root_changes_at_the_effective_instant(self):
+        eve, day = self.site("2026-11-25T22:59:59Z"), self.site("2026-11-25T23:00:00")  # no zone: UTC
+        for web in ("guidelines", "terms"):
+            before, after = eve.build_legal(web), day.build_legal(web)
+            self.assertIn("Vigente desde el <b>25 de noviembre de 2026</b>", before, web)
+            self.assertIn("Vigente desde el <b>26 de noviembre de 2026</b>", after, web)
+        self.assertNotIn('id="nudity"', eve.build_legal("guidelines"))
+        self.assertIn('id="nudity"', day.build_legal("guidelines"))
+
+    # 14c. a frozen original's link to a route renamed later points at its new name; its bytes stay at /original/
+    def test_renamed_links(self):
+        text = '<a href="/normas">a</a> <a href="/normas#acoso">b</a> <a href="/ia">c</a> <a href="/ia#x">d</a> ' \
+               '<a href="/documents/ia/">e</a> <a href="/en/documents/normas/261019">f</a> <a href="/iana">g</a>'
+        self.assertEqual(documents.Documents.renamed(text),
+                         '<a href="/guidelines">a</a> <a href="/guidelines#acoso">b</a> <a href="/ai">c</a> <a href="/ai#x">d</a> '
+                         '<a href="/documents/ai/">e</a> <a href="/en/documents/guidelines/261019">f</a> <a href="/iana">g</a>')
+
+    # 14d. a section renamed keeps its old id in data-was (site.js lands a link to it on the section)
+    def test_old_anchor_kept(self):
+        page = self.site("2026-11-26T12:00:00Z").build_legal("guidelines")
+        self.assertIn('<section id="law" data-was="ley">\n<h2>', page)
+        self.assertIn('<h3 id="harassment" data-was="acoso">', page)
+        self.assertIn('href="#law"', page)
+        self.assertIn("data-was~=", (SRC / "assets" / "site.js").read_text(encoding="utf-8"))
+        for old in ("acoso", "sexual-explicito", "imagenes-intimas", "diario", "menores"):
+            self.assertIn(f'data-was="{old}"', page, old)
+        # The frame keeps it when it renders a draft (what --freeze writes).
+        draft = self.site("2026-11-04T12:00:00Z").build_legal_source("guidelines")
+        self.assertIn('<section id="law" data-was="ley">\n<h2>', draft)
+
+    # 14e. --freeze refuses what it must not write
+    def test_freeze_refuses(self):
+        with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(build.freeze("terms", "26112"), 2)
+            self.assertEqual(build.freeze("nothing", "261127"), 2)
+            self.assertEqual(build.freeze("terms", "261126"), 1)  # already frozen
+
+    # 14f. a build that does not sign keeps the signature of the same manifest, and drops it for another one
+    def test_unsigned_build_keeps_the_signature(self):
+        with tempfile.TemporaryDirectory() as t:
+            out = Path(t) / "docs"
+            build.Site(release=False).build(out)
+            (out / "documents.json.sig").write_text("SIG", encoding="utf-8")
+            build.Site(release=False).build(out)
+            self.assertEqual((out / "documents.json.sig").read_text(encoding="utf-8"), "SIG")
+            (out / "documents.json").write_text("{}", encoding="utf-8")
+            build.Site(release=False).build(out)
+            self.assertFalse((out / "documents.json.sig").exists())
+
+
 class BrowserTest(unittest.TestCase):
     """Behaviour that only exists in the browser: Portuguese variant, language suggestion, 404 router.
     Served by a tiny server that answers like Pages (extensionless .html, 404.html, folder redirect)."""
@@ -835,6 +937,15 @@ class BrowserTest(unittest.TestCase):
         p.goto(self.base + url); p.wait_for_timeout(250)
         self.addCleanup(ctx.close)
         return p, errors
+
+    def test_old_anchor_lands_on_the_renamed_section(self):
+        p, err = self.page("/documents/guidelines/original/261126#acoso")
+        self.assertEqual(p.evaluate("location.hash"), "#harassment")
+        p.wait_for_function("Math.abs(document.getElementById('harassment').getBoundingClientRect().top - 110) < 40",
+                            timeout=3000)
+        p2, _ = self.page("/documents/guidelines/original/261126#nothing-here")
+        self.assertEqual(p2.evaluate("location.hash"), "#nothing-here")
+        self.assertEqual(err, [])
 
     def test_portuguese_variant(self):
         p, err = self.page("/pt/", "pt-PT")

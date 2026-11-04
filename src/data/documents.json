@@ -1,6 +1,6 @@
 {
  "_doc": "Registry of the published versions of the legal documents (plan 261022-documentos-legales). One entry per version: `id` is the document in user_legal_document_type, `web` its URL slug, `version` YYMMDD of its effective date in Europe/Madrid, `material` → requires_acceptance, `changes` the «what changes» per i18n file (none on a first version), `files` the frozen bytes per web language with their sha256 and, for the versions published before /documents, the old URL they keep serving (`legacy`). A frozen file never changes: the build refuses one whose bytes no longer match. `serial` grows with every change of what the manifest says (core refuses a lower one, or the same one with other bytes). A document may list `withdrawn` versions (out of `versions`); a version that comes before others already published lists in theirs `includes`.",
- "serial": 1,
+ "serial": 2,
  "documents": [
   {
    "id": "terms",
@@ -147,6 +147,27 @@
       "es": {
        "path": "terms/261125.html",
        "sha256": "d4bdefe7cdefa10a2ef74a3827cf483a60c8be936bf3ccef7d481d8904cda1f4"
+      }
+     }
+    },
+    {
+     "version": 261126,
+     "effective": "2026-11-25T23:00:00Z",
+     "material": false,
+     "changes": {
+      "es": "Las Normas prohíben también los desnudos de personas adultas en fotos, vídeos y la foto de perfil, salvo en contextos como dar el pecho, la salud, el parto, el arte o la protesta (gravedad baja, 1 punto).",
+      "en": "The Community Guidelines also prohibit nudity of adults in photos, videos and the profile picture, except in contexts such as breastfeeding, health, childbirth, art or protest (low severity, 1 point).",
+      "ca": "Les Normes prohibeixen també els nus de persones adultes en fotos, vídeos i la foto de perfil, llevat de contextos com donar el pit, la salut, el part, l'art o la protesta (gravetat baixa, 1 punt).",
+      "fr": "Les Règles interdisent aussi la nudité d'adultes dans les photos, les vidéos et la photo de profil, sauf dans des contextes comme l'allaitement, la santé, l'accouchement, l'art ou la protestation (faible gravité, 1 point).",
+      "pt-BR": "As Normas também proíbem nudez de pessoas adultas em fotos, vídeos e na foto de perfil, exceto em contextos como amamentação, saúde, parto, arte ou protesto (gravidade baixa, 1 ponto).",
+      "pt-PT": "As Normas também proíbem nudez de pessoas adultas em fotografias, vídeos e na fotografia de perfil, exceto em contextos como amamentação, saúde, parto, arte ou protesto (gravidade baixa, 1 ponto).",
+      "de": "Die Gemeinschaftsregeln verbieten auch Nacktheit von Erwachsenen in Fotos, Videos und im Profilbild, außer in Zusammenhängen wie Stillen, Gesundheit, Geburt, Kunst oder Protest (geringe Schwere, 1 Punkt).",
+      "it": "Le Norme vietano anche la nudità di persone adulte in foto, video e nella foto del profilo, salvo in contesti come l'allattamento, la salute, il parto, l'arte o la protesta (gravità bassa, 1 punto)."
+     },
+     "files": {
+      "es": {
+       "path": "terms/261126.html",
+       "sha256": "d8a82e5d9667abd8dca51f1281d4c4235cd07d7c5e4880cf70ca3a117446455e"
       }
      }
     }
@@ -718,6 +739,27 @@
       "es": {
        "path": "guidelines/261125.html",
        "sha256": "19cc8a1806979f8cf89363080c48a94e065531af2ac2db9080f52a17d933569a"
+      }
+     }
+    },
+    {
+     "version": 261126,
+     "effective": "2026-11-25T23:00:00Z",
+     "material": false,
+     "changes": {
+      "es": "Nueva norma: no se permite publicar desnudos de personas adultas en fotos, vídeos ni en la foto de perfil, salvo cuando el contexto es otro (dar el pecho, la salud, el parto, el arte, la protesta o la sensibilización); es una infracción de gravedad baja (1 punto).",
+      "en": "New rule: nudity of adults is not allowed in photos, videos or the profile picture, except when the context is different (breastfeeding, health, childbirth, art, protest or awareness); it is a low-severity infringement (1 point).",
+      "ca": "Norma nova: no es permet publicar nus de persones adultes en fotos, vídeos ni en la foto de perfil, llevat que el context sigui un altre (donar el pit, la salut, el part, l'art, la protesta o la sensibilització); és una infracció de gravetat baixa (1 punt).",
+      "fr": "Nouvelle règle : la nudité d'adultes est interdite dans les photos, les vidéos et la photo de profil, sauf dans un autre contexte (allaitement, santé, accouchement, art, protestation ou sensibilisation) ; c'est une infraction de faible gravité (1 point).",
+      "pt-BR": "Nova regra: não é permitido publicar nudez de pessoas adultas em fotos, vídeos nem na foto de perfil, exceto quando o contexto é outro (amamentação, saúde, parto, arte, protesto ou conscientização); é uma infração de gravidade baixa (1 ponto).",
+      "pt-PT": "Nova regra: não é permitido publicar nudez de pessoas adultas em fotografias, vídeos nem na fotografia de perfil, exceto quando o contexto é outro (amamentação, saúde, parto, arte, protesto ou sensibilização); é uma infração de gravidade baixa (1 ponto).",
+      "de": "Neue Regel: Nacktheit von Erwachsenen ist in Fotos, Videos und im Profilbild nicht erlaubt, außer in einem anderen Zusammenhang (Stillen, Gesundheit, Geburt, Kunst, Protest oder Aufklärung); es ist ein Verstoß mit geringer Schwere (1 Punkt).",
+      "it": "Nuova regola: non è consentito pubblicare nudità di persone adulte in foto, video o nella foto del profilo, salvo quando il contesto è un altro (allattamento, salute, parto, arte, protesta o sensibilizzazione); è un'infrazione di gravità bassa (1 punto)."
+     },
+     "files": {
+      "es": {
+       "path": "guidelines/261126.html",
+       "sha256": "af73c8f5d44239884cc2127b083623df3e649450030d5a1eae852d46af28ef34"
       }
      }
     }

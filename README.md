@@ -39,7 +39,7 @@ exact page that was in force; its sha256 is what `core` records as proof of what
 it never changes: the build refuses one whose bytes no longer match the registry.
 
 - `version` is `YYMMDD`, the Europe/Madrid date of `effective` (one version per document and day).
-- `material` decides whether the app asks to accept it again («Requiere aceptación» / «Cambio menor»).
+- `material` decides whether the app asks to accept it again; a minor change is announced in the app without blocking.
 - `changes` is «what changes», per i18n file; a first version has none. The release build refuses a
   version without it in every published language.
 - `legacy` is the old URL (`/privacy-v6`…) a version was published at before `/documents`; it keeps
@@ -49,6 +49,26 @@ The build publishes `/documents/` (the index), `/documents/<doc>/` (opens the ve
 announced one), `/documents/<doc>/<YYMMDD>` (the version's page, which frames the original),
 `/documents/<doc>/original/<YYMMDD>` (the frozen bytes) and `/documents.json`, the manifest `core`
 ingests. Which version is in force depends on today's date, so `site.js` decides it in the browser.
+
+### The root page of each document, and the next version
+
+`/terms`, `/privacy`… (and their translations) show **the frozen original in force** when the site is built, in
+today's header and footer: the same text, the links to a route renamed since pointed at its new name, and no
+version number. `src/legal/<doc>.html` is the **draft of the next version** and is published by freezing it:
+
+```
+python3 tools/build.py --freeze terms 261126   # writes src/documents/terms/261126.html (and the translations)
+```
+
+It refuses a pending field or note, a version that is not `YYMMDD` and a file that already exists, shows what
+changes against the newest version registered and prints each sha256 for `src/data/documents.json`. A section
+renamed in a new version keeps its old id in `data-was` (`<section id="law" data-title="…" data-was="ley">`,
+`<h3 id="harassment" data-was="acoso">`), and `site.js` lands a link to the old name on it.
+
+Which version is in force depends on the date, so `.github/workflows/rebuild.yml` rebuilds once a day (23:17 UTC,
+after 00:00 in Madrid) and commits `docs/` when a root page changed. It never signs: a build without `--sign` keeps
+the published signature when the manifest is byte for byte the same, and the job refuses a manifest that changed.
+`SOFIA_NOW=2026-11-26T00:00:00+01:00 python3 tools/build.py --out /tmp/x` builds the site as it will be then.
 
 ### Signing the manifest
 

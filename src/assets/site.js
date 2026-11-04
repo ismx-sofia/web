@@ -228,6 +228,16 @@
   window.addEventListener('hashchange', openTarget);
   openTarget();
 
+  /* ---------- a link to a section by the name it had before (data-was) lands on it ---------- */
+  var renamedTarget = function () {
+    var id = decodeURIComponent(location.hash.slice(1));
+    if (!id || document.getElementById(id) || !/^[a-z0-9-]+$/.test(id)) return;
+    var el = document.querySelector('[data-was~="' + id + '"]');
+    if (el && el.id) { history.replaceState(null, '', '#' + el.id); el.scrollIntoView(); }
+  };
+  window.addEventListener('hashchange', renamedTarget);
+  renamedTarget();
+
   /* ---------- menus close when a link inside is followed ---------- */
   document.querySelectorAll('details.menu a, details.lang a').forEach(function (a) {
     a.addEventListener('click', function () { var d = a.closest('details'); if (d) d.open = false; });

@@ -15,9 +15,11 @@ Standard library only, deterministic output (no timestamps), Python 3.11+.
 from __future__ import annotations
 
 import argparse
+import os
 import subprocess
 import urllib.request
 from datetime import datetime, timezone
+import hashlib
 import html
 import json
 import re
@@ -117,6 +119,12 @@ class Site:
             for f in sorted(SRC.glob("i18n/**/*.json")) + sorted(SRC.glob("pages/*.html")) + sorted(SRC.glob("templates/*.html")):
                 self.source(f)
         self.pending: list[str] = []
+        # The instant the build publishes for: each legal page shows the version in force then (D1). SOFIA_NOW (ISO
+        # 8601 with its zone) fixes it for the tests.
+        now = os.environ.get("SOFIA_NOW")
+        self.now = datetime.fromisoformat(now.replace("Z", "+00:00")) if now else datetime.now(timezone.utc)
+        if self.now.tzinfo is None:
+            self.now = self.now.replace(tzinfo=timezone.utc)
 
     def change_locales(self) -> list[str]:
         """The i18n files in publishing order, both Portuguese ones included."""
@@ -372,14 +380,16 @@ class Site:
         hero with the effective date, numbered headings and the table of contents. The version is not said: its
         number is the URL of its page in /documents (the frozen originals keep the «Versión N» they were shown with)."""
         w = {k: html.escape(v, quote=True) for k, v in (words or self.LEGAL_WORDS).items()}
-        sections = re.findall(r'<section id="([^"]+)" data-title="([^"]+)">', body)
+        # `data-was`: the ids a section had in earlier versions, so a link to one still lands on it (site.js).
+        block = r'<section id="([^"]+)" data-title="([^"]+)"((?: data-was="[a-z0-9 -]+")?)>'
+        sections = [(i, t) for i, t, _ in re.findall(block, body)]
         n = 0
         def head(m):
             nonlocal n
             n += 1
-            return (f'<section id="{m.group(1)}">\n<h2><span class="n grad-text">{n}</span>{m.group(2)}'
+            return (f'<section id="{m.group(1)}"{m.group(3)}>\n<h2><span class="n grad-text">{n}</span>{m.group(2)}'
                     f'<a class="anchor" href="#{m.group(1)}" aria-label="{w["anchor"]}">#</a></h2>')
-        body = re.sub(r'<section id="([^"]+)" data-title="([^"]+)">', head, body)
+        body = re.sub(block, head, body)
         body = re.sub(r"<table>.*?</table>", self.label_cells, body, flags=re.S)
         # `since` in the header: the date this version came into force; until it is set, the build says so.
         since = meta.get("since") or "{{pending:fecha de publicación}}"
@@ -405,7 +415,37 @@ class Site:
                     + [("x-default", self.url(page, "es"))])
         return []
 
+    def frozen(self, page: str, code: str = "es") -> dict:
+        """The frozen original in force of a legal page in a language, or {} when none is registered (D1). A language
+        the version in force was not published in keeps the newest one in force that was: a translation lags behind
+        its Spanish text (decision 11), it never falls back to an unfrozen draft."""
+        doc = self.documents.by_web(page) if getattr(self, "documents", None) else None
+        if not doc:
+            return {}
+        at = lambda v: datetime.fromisoformat(v["effective"].replace("Z", "+00:00"))
+        passed = sorted((v for v in doc["versions"] if at(v) <= self.now and code in v["files"]), key=at)
+        if passed:
+            return self.documents.frozen_page(doc, passed[-1], code)
+        if code != "es" and self.documents.in_force(doc, self.now):
+            raise BuildError(f"{page} ({code}): no version in force was published in this language")
+        return {}
+
     def build_legal(self, page: str) -> str:
+        """The root page of a legal document: byte for byte the text of the frozen original in force, in today's frame
+        (header, footer, head). Its source in src/legal/ is the draft of the next version, published by --freeze."""
+        frozen = self.frozen(page)
+        if not frozen:
+            return self.build_legal_source(page)
+        header = self.chrome("header", page, "es", "es", "es_es")
+        footer = self.chrome("footer", page, "es", "es", "es_es")
+        head = self.head(code="es", title=f"{frozen['title']} · SofIA", description=frozen["description"],
+                         canonical=f"/{page}", alternates=self.legal_alternates(page))
+        return self.document(code="es", head=head, body=f"{header}\n<main>\n{frozen['main']}</main>\n{footer}",
+                             data={"words": {"carousel": "carrusel", "card": "Ir a la tarjeta"}})
+
+    def build_legal_source(self, page: str) -> str:
+        """A legal page rendered from its source (the draft): what --freeze writes, and the root of a document with
+        no version registered yet."""
         path = SRC / "legal" / f"{page}.html"
         if path.exists():
             meta, body_tpl = page_meta(self.source(path))
@@ -513,23 +553,35 @@ class Site:
         body = self.legal_wrap(page, meta, body_tpl, self.legal_words(dict_name, code, col))
         return meta, self.inline(self.fill(body, code, dict_name, col), code, col)
 
-    def build_legal_translated(self, page: str, code: str) -> str:
-        """A legal document in another language. /pt/ carries both Portuguese texts and shows the one the
-        head script picked (`data-v`); the chrome switches through the usual variant dictionary."""
+    def build_legal_translated(self, page: str, code: str, draft: bool = False) -> str:
+        """A legal document in another language: the frozen original in force (D1), or its draft (--freeze, or no
+        version of that language registered yet). /pt/ carries both Portuguese texts and shows the one the head
+        script picked (`data-v`); the chrome switches through the usual variant dictionary."""
         cfg = self.locales[code]
         name, col = cfg["file"], cfg["col"]
-        meta, main = self.translated_article(page, code, name, col)
+        frozen = {} if draft else self.frozen(page, code)
+        if frozen:
+            title, description, main = frozen["title"], frozen["description"], frozen["main"]
+        else:
+            meta, main = self.translated_article(page, code, name, col)
+            title, description = meta["title"], meta["description"]
         data = {"words": {"carousel": cfg["carousel"], "card": cfg["card"]}}
         extra, title_attr = "", ""
         if "variant" in cfg:
             v = cfg["variant"]
-            vmeta, vmain = self.translated_article(page, code, v["file"], v["col"])
-            # One set of ids per page: the hidden text keeps them in data-id and site.js swaps them over.
-            vmain = re.sub(r'(<[a-z0-9]+ [^>]*?)\bid="', r'\1data-id="', vmain)
-            main = f'<div data-v="{cfg["lang"]}">\n{main}</div>\n<div data-v="{v["lang"]}" lang="{v["lang"]}" hidden>\n{vmain}</div>\n'
+            if frozen:
+                vtitle = frozen["data"].get("variant", {}).get("dict", {}).get("__title")
+                if not vtitle:
+                    raise BuildError(f"{page} ({code}): the frozen original in force has no title for {v['lang']}")
+            else:
+                vmeta, vmain = self.translated_article(page, code, v["file"], v["col"])
+                vtitle = f"{vmeta['title']} · SofIA"
+                # One set of ids per page: the hidden text keeps them in data-id and site.js swaps them over.
+                vmain = re.sub(r'(<[a-z0-9]+ [^>]*?)\bid="', r'\1data-id="', vmain)
+                main = f'<div data-v="{cfg["lang"]}">\n{main}</div>\n<div data-v="{v["lang"]}" lang="{v["lang"]}" hidden>\n{vmain}</div>\n'
             keys = self.keys_in(self.chrome_tpl("header", page, code) + self.chrome_tpl("footer", page, code))
             data["variant"] = {"lang": v["lang"], "dict": {k: self.text(v["file"], k, code, v["col"]) for k in keys}}
-            data["variant"]["dict"]["__title"] = f"{vmeta['title']} · SofIA"
+            data["variant"]["dict"]["__title"] = vtitle
             extra = ("\n<script>(function(){var h=document.documentElement,q=new URLSearchParams(location.search).get('v'),s=null;"
                      "try{if(q){localStorage.setItem('sofia-pt',q)}s=localStorage.getItem('sofia-pt')}catch(e){}"
                      "var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';"
@@ -537,7 +589,7 @@ class Site:
             title_attr = '<span hidden data-i18n-title="__title"></span>'
         header = self.chrome("header", page, code, name, col)
         footer = self.chrome("footer", page, code, name, col)
-        head = self.head(code=code, title=f"{meta['title']} · SofIA", description=meta["description"],
+        head = self.head(code=code, title=f"{title} · SofIA", description=description,
                          canonical=self.url(page, code), alternates=self.legal_alternates(page), extra=extra)
         return self.document(code=code, head=head, body=f"{header}\n<main>\n{main}</main>\n{footer}\n{title_attr}", data=data)
 
@@ -681,6 +733,13 @@ class Site:
         for rel, src in sorted(self.documents.copies().items()):
             (out / rel).parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(src, out / rel)
+        # A build that does not sign keeps the published signature when the manifest is byte for byte the one it
+        # signs: the daily rebuild (D1) changes which text each root page shows, never what core is told.
+        target = getattr(self, "target", None)
+        if not self.sign and target is not None and (target / "documents.json.sig").is_file() \
+                and (target / "documents.json").is_file() \
+                and (target / "documents.json").read_bytes() == (out / "documents.json").read_bytes():
+            shutil.copyfile(target / "documents.json.sig", out / "documents.json.sig")
         if self.sign:
             problems = self.documents.signable(published, datetime.now(timezone.utc))
             if problems:
@@ -692,12 +751,66 @@ class Site:
         return {"files": len(files), "pending": sorted(set(self.pending))}
 
 
+def freeze(web: str, version: str) -> int:
+    """--freeze: the draft in src/legal/ becomes the frozen original of a new version, rendered as its root page will
+    show it (and each translated draft too). Refuses a pending field or note, a version that is not YYMMDD and a file
+    that already exists; prints what changes against the version in force and each sha256 for the registry."""
+    if web not in LEGAL_PAGES or not re.fullmatch(r"\d{6}", version):
+        print(f"usage: build.py --freeze <{'|'.join(LEGAL_PAGES)}> <YYMMDD>", file=sys.stderr)
+        return 2
+    site = Site(release=False)
+    try:
+        site.documents = Documents(site, src=SRC, root=ROOT, release=False, host=HOST, page_meta=page_meta)
+        codes = ["es"] + [c for c in TRANSLATED_LEGAL.get(web, ()) if (SRC / "legal" / site.locales[c]["file"] / f"{web}.html").exists()]
+        drafts = [SRC / "legal" / f"{web}.html"] + [SRC / "legal" / site.locales[c]["file"] / f"{web}.html" for c in codes[1:]]
+        drafts += [SRC / "legal" / site.locales[c]["variant"]["file"] / f"{web}.html" for c in codes[1:] if "variant" in site.locales[c]]
+        for draft in drafts:
+            if not draft.exists():
+                raise BuildError(f"{draft.relative_to(SRC)} is missing")
+            note = MARKER.search(draft.read_text(encoding="utf-8"))
+            if note:
+                raise BuildError(f"{draft.relative_to(SRC)}: unresolved note {note.group(0)!r}")
+        pages = {c: site.build_legal_source(web) if c == "es" else site.build_legal_translated(web, c, draft=True) for c in codes}
+    except (BuildError, DocumentsError) as e:
+        print(f"freeze failed: {e}", file=sys.stderr)
+        return 1
+    if site.pending or 'class="pending"' in "".join(pages.values()):
+        print(f"freeze failed: pending fields: {', '.join(sorted(set(site.pending))) or 'class=pending'}", file=sys.stderr)
+        return 1
+    rel = {c: f"{web}/{version}.html" if c == "es" else f"{web}/{c}/{version}.html" for c in codes}
+    existing = [r for r in rel.values() if (SRC / "documents" / r).exists()]
+    if existing:
+        print(f"freeze failed: already frozen: {', '.join(existing)}", file=sys.stderr)
+        return 1
+    import difflib
+    doc = site.documents.by_web(web)
+    # Against the newest version registered (the one this follows), in force or announced.
+    latest = max(doc["versions"], key=lambda v: v["version"]) if doc else None
+    current = site.documents.frozen_page(doc, latest) if latest else {}
+    new = pages["es"][pages["es"].find("<main>\n") + len("<main>\n"):pages["es"].rfind("</main>")]
+    diff = [l for l in difflib.unified_diff(current.get("main", "").splitlines(), new.splitlines(), lineterm="", n=0)
+            if l[:1] in "+-" and l[:3] not in ("+++", "---")]
+    print(f"{web} {version}: {len(diff)} line(s) differ from {latest['version'] if latest else 'nothing'}")
+    for line in diff:
+        print("  " + line[:200])
+    for c in codes:
+        path = SRC / "documents" / rel[c]
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(pages[c], encoding="utf-8")
+        print(f'  "{c}": {{"path": "{rel[c]}", "sha256": "{hashlib.sha256(path.read_bytes()).hexdigest()}"}}')
+    return 0
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--release", action="store_true")
     ap.add_argument("--sign", action="store_true", help="sign /documents.json (needs sops and Israel's age key)")
     ap.add_argument("--out", default=str(ROOT / "docs"))
+    ap.add_argument("--freeze", nargs=2, metavar=("WEB", "YYMMDD"),
+                    help="freeze the draft src/legal/WEB.html (and its translations) as version YYMMDD")
     args = ap.parse_args(argv)
+    if args.freeze:
+        return freeze(*args.freeze)
     try:
         info = Site(args.release, args.sign).build(Path(args.out))
     except BuildError as e:

@@ -1,0 +1,71 @@
+# rebuild: once a day, the legal root pages show the version in force (plan 261103-cierre-legales D1, Israel:
+# «Diaria»). Versions come into force at 00:00 in Madrid, which is 23:00 UTC in winter and 22:00 UTC in summer, so
+# 23:17 UTC catches both; a version in force at another hour reaches its root page by the next run, while its own
+# page under /documents and the app (which opens the versioned address) have it from its instant.
+# The build never signs: it keeps the published signature when the manifest is the same, and this job refuses to
+# publish a build that changes the manifest (that is a person's signed commit). Run it by hand from Actions.
+name: rebuild
+
+on:
+  schedule:
+    - cron: '17 23 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rebuild
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    # Only main: run by hand from another branch, it would publish work that was never merged.
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: main
+      - name: Build
+        run: python3 tools/build.py
+      - name: The manifest and its signature are the published ones
+        run: git diff --quiet -- docs/documents.json docs/documents.json.sig
+      - name: Only legal root pages changed (anything else is a person's commit that forgot to build)
+        run: |
+          python3 - <<'EOF'
+          import subprocess, sys
+          sys.path.insert(0, "tools")
+          import build
+          site = build.Site(release=False)
+          allowed = {f"docs/{p}.html" for p in build.LEGAL_PAGES}
+          allowed |= {f"docs/{site.locales[c]['dir']}/{p}.html" for p, codes in build.TRANSLATED_LEGAL.items() for c in codes}
+          out = subprocess.run(["git", "status", "--porcelain", "--", "docs"], capture_output=True, text=True, check=True).stdout
+          changed = [line[3:] for line in out.splitlines()]
+          other = [f for f in changed if f not in allowed]
+          if other:
+              sys.exit("refusing to publish what is not a legal root page: " + ", ".join(other))
+          print("changed:", ", ".join(changed) or "nothing")
+          EOF
+      - name: Test
+        run: python3 tools/test_build.py
+      - name: Publish the pages that changed
+        run: |
+          if [ -z "$(git status --porcelain -- docs)" ]; then
+            echo "nothing came into force"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- docs
+          git commit -q -m "Documents: the version in force"
+          # A push of Israel's in between: build again on top of it, at most three times.
+          for attempt in 1 2 3; do
+            git push origin HEAD:main && exit 0
+            git fetch -q origin main && git reset -q --hard origin/main
+            python3 tools/build.py
+            git diff --quiet -- docs/documents.json docs/documents.json.sig
+            if [ -z "$(git status --porcelain -- docs)" ]; then echo "already published"; exit 0; fi
+            git add -A -- docs && git commit -q -m "Documents: the version in force"
+          done
+          exit 1
