@@ -577,20 +577,13 @@ html.pt-swap body { visibility: hidden; animation: pt-reveal 0s 1.5s forwards !i
 .doc-version .change { margin-top: 28px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 24px; align-items: start; padding: 22px 24px; border-radius: 22px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-sm); max-width: 900px; }
 .doc-version .change h2 { grid-column: 1; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); }
 .doc-version .change p { grid-column: 1; font-size: 18px; }
-.doc-version .change dl { grid-column: 1; margin: 6px 0 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 20px; font-size: 15px; }
-.doc-version .change dt { color: var(--ink-2); }
-.doc-version .change dd { margin: 0; font-weight: 700; }
 .doc-version .change .vs { grid-column: 2; grid-row: 1 / span 3; align-self: center; font-size: 14.5px; white-space: nowrap; }
 .doc-next { margin-top: 12px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; padding: 14px 20px; border-radius: 18px; max-width: 900px; font-size: 15.5px; background: var(--note-bg); color: var(--note-ink); border: 1px solid var(--note-line); }
 .doc-next p { flex: 1 1 360px; }
 .doc-next a { color: var(--note-ink); font-weight: 700; }
-/* The original, framed as it was published: its own title and date line, contents and text. */
+/* The text of a version as it was published: contents and text; its title and date are the page's. */
 .orig { margin-top: 8px; }
-.orig-bar { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center; padding: 12px 18px; border: 1px solid var(--line); border-bottom: 0; border-radius: 18px 18px 0 0; background: var(--bg-2); font-size: 14.5px; color: var(--ink-2); }
-.orig-frame { border: 1px solid var(--line); border-radius: 0 0 18px 18px; background: var(--surface); padding: 28px 28px 36px; }
-.orig-hero { padding-bottom: 20px; margin-bottom: 24px; border-bottom: 1px solid var(--line); }
-.orig-title { font-size: 30px; font-weight: 700; letter-spacing: -.02em; }
-.orig-meta { color: var(--ink-2); font-size: 14.5px; margin-top: 6px; }
+.orig-frame { border: 1px solid var(--line); border-radius: 18px; background: var(--surface); padding: 28px 28px 36px; }
 .doc-list { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 8px; }
 @media (max-width: 700px) {
   .docs .body { padding-left: 0; } .docs .st { display: none; }

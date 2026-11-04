@@ -164,13 +164,9 @@ class Documents:
     def state_chips(versions: dict | None = None) -> str:
         """The state of a version, decided by site.js from today's date; without JavaScript they stay hidden. Only the
         version in force and the announced one are marked (prototype A); an old one carries nothing."""
-        words = versions or {"current": "Vigente", "next": "Próxima"}
+        words = versions or {"current": "Vigente", "next": "Anunciada"}
         return "".join(f'<span class="chip{"" if w == "current" else " " + w}" data-when="{w}" hidden>{t}</span>'
                        for w, t in words.items())
-
-    def source_meta(self, doc) -> dict:
-        path = self.src / "legal" / f"{doc['web']}.html"
-        return self.page_meta(path.read_text(encoding="utf-8"))[0] if path.exists() else {}
 
     def original(self, doc, v) -> tuple[str, str, str]:
         """The frozen original's own title, its «Versión N · Vigente desde …» line and its body (table of contents and
@@ -227,6 +223,12 @@ class Documents:
         return {"main": main, "title": html.unescape(title.group(1)),
                 "description": html.unescape(description.group(1)), "data": json.loads(data.group(1)) if data else {}}
 
+    def original_lede(self, doc, v) -> str | None:
+        """The lede of a version's frozen original, links pointed at renamed routes."""
+        page = (self.src / "documents" / v["files"]["es"]["path"]).read_text(encoding="utf-8")
+        m = re.search(r'<p class="lede">(.*?)</p>', page, re.S)
+        return self.renamed(m.group(1)) if m else None
+
     @staticmethod
     def period(start: str, end: str) -> str:
         """«6 al 13 de octubre de 2026», «28 de octubre al 2 de noviembre de 2026»…"""
@@ -268,7 +270,7 @@ class Documents:
                 f'<span class="plus" aria-hidden="true"></span></summary>\n'
                 f'<div class="body">\n<p class="doc-cta">'
                 f'<a href="/documents/{doc["web"]}/" data-doc-link="current" data-doc="{doc["web"]}"><b>Leer la versión vigente</b></a>'
-                f'<a href="/documents/{doc["web"]}/" data-doc-link="next" data-doc="{doc["web"]}" hidden>Ver la próxima versión</a></p>\n'
+                f'<a href="/documents/{doc["web"]}/" data-doc-link="next" data-doc="{doc["web"]}" hidden>Ver la versión anunciada</a></p>\n'
                 f'<ol class="tl">\n' + "\n".join(rows) + "\n</ol>\n</div>\n</details>")
         main = ('<section class="page-hero" id="documents">\n<div aria-hidden="true" class="mesh"><i></i><i></i><i></i></div>\n'
                 '<div class="wrap">\n<span class="eyebrow">Legal</span>\n<h1><span class="grad-text">Documentos legales</span></h1>\n'
@@ -302,22 +304,23 @@ class Documents:
         nxt = versions[i + 1] if i + 1 < len(versions) else None
         changes = v["changes"].get("es")
         when, date = long_date(v["effective"]), short_date(v["effective"])
-        meta = self.source_meta(doc)
-        lede = meta.get("lede") or self.description(doc)
+        # The lede of this version's own original: the source in src/legal/ is the draft of the next one.
+        lede = self.original_lede(doc, v) or self.description(doc)
         others = "".join(
             f'<li data-doc="{doc["web"]}" data-version="{o["version"]}"><a href="{self.page_url(doc, o)}"'
             + (' aria-current="page"><span><b>' + short_date(o["effective"]) + "</b></span>" if o is v
                else f'><span>{short_date(o["effective"])}</span>')
-            + '<small><span data-when="current" hidden>vigente</span><span data-when="next" hidden>próxima</span>'
+            + '<small><span data-when="current" hidden>vigente</span><span data-when="next" hidden>anunciada</span>'
             + ('<span data-when="old" hidden>esta</span>' if o is v else "") + "</small></a></li>"
             for o in reversed(versions))
-        # The date line, as the prototype words it for each state; without JavaScript, «Desde el …».
+        # The state and its date, said once (Israel, 04-11-2026): one pill per state, shown by site.js from today's
+        # date; without JavaScript, «Desde el …».
         dates = (f'<span data-when-default>Desde el <b>{when}</b></span>'
-                 f'<span data-when="current" hidden>Vigente desde el <b>{when}</b></span>'
-                 f'<span data-when="next" hidden>Entra en vigor el <b>{when}</b></span>'
-                 + (f'<span data-when="old" hidden>En vigor del <b>{self.period(v["effective"], nxt["effective"])}</b></span>'
+                 f'<span class="chip" data-when="current" hidden>Vigente desde el <b>{when}</b></span>'
+                 f'<span class="chip next" data-when="next" hidden>Anunciada · entra en vigor el <b>{when}</b></span>'
+                 + (f'<span class="chip old" data-when="old" hidden>Sustituida · en vigor del <b>{self.period(v["effective"], nxt["effective"])}</b></span>'
                     if nxt else ""))
-        compare = (f'<a class="vs" href="{self.page_url(doc, prev)}">Frente a la versión del {short_date(prev["effective"])}</a>'
+        compare = (f'<a class="vs" href="{self.page_url(doc, prev)}">Versión anterior: {short_date(prev["effective"])}</a>'
                    if prev else "")
         change = ("" if i == 0 else
                   '<section class="change" aria-label="Qué cambia">\n'
@@ -325,32 +328,28 @@ class Documents:
                   '<span data-when="current next" hidden>Qué cambia en esta versión</span>'
                   '<span data-when="old" hidden>Qué cambió en esta versión</span></h2>\n'
                   f'<p>{e(changes) if changes else "{{pending:qué cambia en esta versión}}"}</p>\n'
-                  + (f'<dl data-when="old" hidden><dt>Entró en vigor</dt><dd>{when}</dd>'
-                     f'<dt>Sustituida el</dt><dd>{long_date(nxt["effective"])}</dd></dl>\n' if nxt else "")
                   + f'{compare}\n</section>\n')
         announced = ("" if not nxt else
                      f'<div class="doc-next" data-when="current" hidden><p><b>Hay una versión nueva anunciada.</b> Entra en vigor '
                      f'el {long_date(nxt["effective"])}; hasta entonces rige esta.</p>'
                      f'<a href="{self.page_url(doc, nxt)}">Ver qué cambia</a></div>\n')
         crumbs = (f'<nav class="crumbs" aria-label="Ruta"><a href="/documents/">Documentos legales</a><span aria-hidden="true">›</span>'
-                  f'<a href="/documents/{doc["web"]}/">{e(doc["title"])}</a>'
+                  f'<a href="/documents/#{doc["web"]}">{e(doc["title"])}</a>'
                   f'<span data-when="old" hidden><span aria-hidden="true">›</span> Versión del {date}</span>'
-                  f'<span data-when="next" hidden><span aria-hidden="true">›</span> Próxima versión</span></nav>\n')
-        title, orig_meta, body = self.original(doc, v)
+                  f'<span data-when="next" hidden><span aria-hidden="true">›</span> Versión anunciada del {date}</span></nav>\n')
+        _, _, body = self.original(doc, v)
         main = (f'<section class="page-hero doc-version" data-doc="{doc["web"]}" data-version="{v["version"]}">\n'
                 '<div aria-hidden="true" class="mesh"><i></i><i></i><i></i></div>\n<div class="wrap">\n'
-                f'{crumbs}<span class="eyebrow"><span>Legal · {KINDS[doc["kind"]]}<span data-when="old" hidden> · Versión anterior</span></span></span>\n'
+                f'{crumbs}<span class="eyebrow"><span>Legal · {KINDS[doc["kind"]]}</span></span>\n'
                 f'<h1><span class="grad-text">{e(doc["title"])}</span></h1>\n<p class="lede">{lede}</p>\n'
                 '<div class="meta-pills">'
-                + self.state_chips({"current": "Vigente", "next": "Próxima versión", "old": "Versión anterior"})
                 + dates
                 + f'<details class="ver"><summary>Otras versiones</summary><ul>{others}</ul></details></div>\n'
                 f'{change}{announced}</div>\n</section>\n'
-                f'<section class="wrap orig" aria-label="Texto original de esta versión">\n'
-                f'<div class="orig-bar"><span><b>Texto original de esta versión</b> · tal como se publicó, sin cambios</span>'
-                f'<a href="{self.original_url(doc, v)}">Abrir aparte</a></div>\n'
-                f'<div class="orig-frame">\n<div class="orig-hero"><p class="orig-title">{title}</p>'
-                f'<p class="orig-meta">{orig_meta}</p></div>\n{body}\n</div>\n</section>\n')
+                # The text of this version, once: its title and its date are the page's, above (Israel, 04-11-2026).
+                # The exact bytes stay served at /original/, the proof core keeps, unlinked.
+                f'<section class="wrap orig" aria-label="Texto de esta versión">\n'
+                f'<div class="orig-frame">\n{body}\n</div>\n</section>\n')
         main = self.site.fill(main, "es", "es", "es_es")
         return self.page(path_key="documents", title=f"{doc['title']} · {when}",
                          description=self.description(doc), canonical=self.page_url(doc, v), main=main,

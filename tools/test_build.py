@@ -338,13 +338,26 @@ class BuildTest(unittest.TestCase):
                 first = re.search(r'<section id="[^"]+"(?: data-was="[^"]*")?>\s*<h2>.*?</h2>', frozen, re.S).group(0)
                 self.assertEqual(page.count(first), 1, f"{doc['id']} {v['version']}: the original's text, framed once")
                 self.assertEqual(page.count('class="site-head"'), 1, f"{doc['id']} {v['version']}: one site header")
-                self.assertIn(f'href="/documents/{doc["web"]}/original/{v["version"]}">Abrir aparte</a>', page)
+                # One header (Israel, 04-11-2026): the title once, no date line nor version number of the original,
+                # no bar and no link to the copy at /original/ (still served: the proof core keeps).
+                self.assertEqual(page.count("<h1>"), 1, f"{doc['id']} {v['version']}: one title")
+                self.assertNotRegex(page, r"Versión \d+ ·|Versão \d+|orig-bar|orig-title|Abrir aparte|/original/", f"{doc['id']} {v['version']}")
+                self.assertEqual(len(re.findall(r"Vigente desde el <b>", page)), 1, f"{doc['id']} {v['version']}: the date said once")
+                self.assertIn(f'<a href="/documents/#{doc["web"]}">', page)  # the crumb opens its entry of the index
+                # The lede is the original's, never the draft's.
+                lede = re.search(r'<p class="lede">(.*?)</p>', frozen, re.S).group(1)
+                self.assertIn(f'<p class="lede">{documents.Documents.renamed(lede)}</p>', page)
                 if i == 0:
                     self.assertNotIn("Qué cambia en esta versión", page, f"{doc['id']} {v['version']}: a first version has none")
                 else:
                     self.assertIn("Qué cambia en esta versión", page)
                     prev = doc["versions"][i - 1]
-                    self.assertIn(f'href="/documents/{doc["web"]}/{prev["version"]}">Frente a la versión del', page)
+                    self.assertIn(f'href="/documents/{doc["web"]}/{prev["version"]}">Versión anterior: ', page)
+                self.assertNotIn("róxima", page, f"{doc['id']} {v['version']}: a future version is «Anunciada»")
+                # Its state and date, once: no chip beside a pill that already says it, no list of dates below.
+                self.assertNotIn('<span class="chip" data-when="current" hidden>Vigente</span>', page)
+                self.assertNotIn("<dt>Entró en vigor</dt>", page)
+                self.assertNotIn(" · Versión anterior</span>", page)
 
     # 12c. the manifest core ingests: every version, its originals with their sha256, and «what changes»
     def test_documents_manifest(self):

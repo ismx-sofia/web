@@ -275,7 +275,7 @@
     document.querySelectorAll('[data-doc-chip]').forEach(function (el) {
       var v = byDoc[el.dataset.doc] && byDoc[el.dataset.doc][el.dataset.docChip];
       if (!v) return;
-      el.textContent = (el.dataset.docChip === 'current' ? 'Vigente · ' : 'Próxima · ') + short(v.at);
+      el.textContent = (el.dataset.docChip === 'current' ? 'Vigente · ' : 'Anunciada · ') + short(v.at);
       el.hidden = false;
     });
     document.querySelectorAll('[data-doc-link]').forEach(function (el) {
