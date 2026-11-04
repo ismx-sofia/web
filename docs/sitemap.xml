@@ -352,8 +352,8 @@
   </url>
   <url><loc>https://www.sofia.ismx.app/legal</loc></url>
   <url><loc>https://www.sofia.ismx.app/terms</loc></url>
-  <url><loc>https://www.sofia.ismx.app/ia</loc></url>
-  <url><loc>https://www.sofia.ismx.app/normas</loc></url>
+  <url><loc>https://www.sofia.ismx.app/ai</loc></url>
+  <url><loc>https://www.sofia.ismx.app/guidelines</loc></url>
   <url><loc>https://www.sofia.ismx.app/cookies</loc></url>
   <url><loc>https://www.sofia.ismx.app/consent-journal</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/consent-journal"/>
@@ -723,12 +723,12 @@
   <url><loc>https://www.sofia.ismx.app/documents/privacy/261031</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/privacy/261102</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/privacy/261104</loc></url>
-  <url><loc>https://www.sofia.ismx.app/documents/ia/</loc></url>
-  <url><loc>https://www.sofia.ismx.app/documents/ia/261006</loc></url>
-  <url><loc>https://www.sofia.ismx.app/documents/ia/261013</loc></url>
-  <url><loc>https://www.sofia.ismx.app/documents/ia/261018</loc></url>
-  <url><loc>https://www.sofia.ismx.app/documents/ia/261019</loc></url>
-  <url><loc>https://www.sofia.ismx.app/documents/ia/261023</loc></url>
+  <url><loc>https://www.sofia.ismx.app/documents/ai/</loc></url>
+  <url><loc>https://www.sofia.ismx.app/documents/ai/261006</loc></url>
+  <url><loc>https://www.sofia.ismx.app/documents/ai/261013</loc></url>
+  <url><loc>https://www.sofia.ismx.app/documents/ai/261018</loc></url>
+  <url><loc>https://www.sofia.ismx.app/documents/ai/261019</loc></url>
+  <url><loc>https://www.sofia.ismx.app/documents/ai/261023</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/consent-journal/</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/consent-journal/261018</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/consent-health/</loc></url>
@@ -737,10 +737,10 @@
   <url><loc>https://www.sofia.ismx.app/documents/subscription/261013</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/subscription/261019</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/subscription/261102</loc></url>
-  <url><loc>https://www.sofia.ismx.app/documents/normas/</loc></url>
-  <url><loc>https://www.sofia.ismx.app/documents/normas/261019</loc></url>
-  <url><loc>https://www.sofia.ismx.app/documents/normas/261122</loc></url>
-  <url><loc>https://www.sofia.ismx.app/documents/normas/261125</loc></url>
+  <url><loc>https://www.sofia.ismx.app/documents/guidelines/</loc></url>
+  <url><loc>https://www.sofia.ismx.app/documents/guidelines/261019</loc></url>
+  <url><loc>https://www.sofia.ismx.app/documents/guidelines/261122</loc></url>
+  <url><loc>https://www.sofia.ismx.app/documents/guidelines/261125</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/cookies/</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/cookies/261006</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/cookies/261013</loc></url>

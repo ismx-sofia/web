@@ -26,7 +26,7 @@ import os
 import re
 import shutil
 import subprocess
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -41,8 +41,12 @@ SIGNING_KEY_ENV = "SOFIA_DOCUMENTS_TEST_KEY"
 # user_legal_document_type.
 KINDS = {"contract": "Contrato", "consent": "Consentimiento", "information": "Información"}
 # The icon of each document in the index (symbols of templates/icons.html).
-ICONS = {"terms": "i-book", "privacy": "i-lock", "ia": "i-sparkles", "journal": "i-pencil",
-         "health": "i-heart", "subscription": "i-star", "normas": "i-users", "cookies": "i-world",
+# Documents renamed in the manifest (new id → the id it was published with): their versions are the same ones.
+RENAMES = {"guidelines": "normas", "ai": "ia"}
+# A withdrawal, or a new version, must reach core before its instant: a pass (an hour) and the Pages deployment.
+WITHDRAW_MARGIN = timedelta(hours=3)
+ICONS = {"terms": "i-book", "privacy": "i-lock", "ai": "i-sparkles", "journal": "i-pencil",
+         "health": "i-heart", "subscription": "i-star", "guidelines": "i-users", "cookies": "i-world",
          "legal": "i-flag", "guardian": "i-heart-users", "crisis": "i-bell"}
 
 
@@ -75,7 +79,10 @@ class Documents:
         self.site, self.src, self.root, self.release = site, src, root, release
         self.host, self.page_meta = host, page_meta
         self.store = src / "documents"
-        self.docs = json.loads((src / "data" / "documents.json").read_text(encoding="utf-8"))["documents"]
+        registry = json.loads((src / "data" / "documents.json").read_text(encoding="utf-8"))
+        self.docs = registry["documents"]
+        # What core keeps as the highest accepted: it refuses a lower one, or the same one with other bytes.
+        self.serial = registry.get("serial", 0)
         # «What changes» is written per i18n file: the app picks the one of its language.
         self.change_locales = site.change_locales()
         self.web_dirs = {c: site.locales[c]["dir"] for c in site.order}
@@ -83,6 +90,8 @@ class Documents:
 
     # ---------- the registry's contract ----------
     def check(self) -> None:
+        if not isinstance(self.serial, int) or isinstance(self.serial, bool) or self.serial < 0:
+            raise DocumentsError(f"serial {self.serial!r} is not a whole number >= 0")
         seen_ids, seen_web = set(), set()
         for doc in self.docs:
             if doc["id"] in seen_ids or doc["web"] in seen_web:
@@ -92,8 +101,15 @@ class Documents:
                 raise DocumentsError(f"{doc['id']}: no versions")
             if doc.get("kind") not in KINDS or not doc.get("summary"):
                 raise DocumentsError(f"{doc['id']}: no kind ({', '.join(KINDS)}) or summary")
+            listed = [v["version"] for v in doc["versions"]]
+            withdrawn = doc.get("withdrawn", [])
+            if not isinstance(withdrawn, list) or any(not isinstance(w, int) or w in listed for w in withdrawn):
+                raise DocumentsError(f"{doc['id']}: withdrawn must list versions that are no longer in versions")
             previous = None
             for i, v in enumerate(doc["versions"]):
+                includes = v.get("includes", [])
+                if not isinstance(includes, list) or any(w not in listed or w >= v["version"] for w in includes):
+                    raise DocumentsError(f"{doc['id']} {v['version']}: includes must list earlier versions of the document")
                 where = f"{doc['id']} {v['version']}"
                 if int(madrid(v["effective"]).strftime("%y%m%d")) != v["version"]:
                     raise DocumentsError(f"{where}: the version is not the Madrid date of its effective time")
@@ -324,8 +340,71 @@ class Documents:
                                     "changes": v["changes"].get(loc)}
                 versions.append({"version": v["version"], "effective": madrid(v["effective"]).isoformat(),
                                  "material": v["material"], "url": self.page_url(doc, v), "locales": locales})
-            out.append({"id": doc["id"], "versions": versions})
-        return json.dumps({"origin": self.host, "documents": out}, ensure_ascii=False, separators=(",", ":")) + "\n"
+            entry = {"id": doc["id"], "kind": doc["kind"], "versions": versions}
+            if doc.get("withdrawn"):
+                entry["withdrawn"] = list(doc["withdrawn"])
+            out.append(entry)
+        return json.dumps({"origin": self.host, "serial": self.serial, "documents": out},
+                          ensure_ascii=False, separators=(",", ":")) + "\n"
+
+    # ---------- what may be signed ----------
+    def signable(self, published: str | None, now: datetime) -> list[str]:
+        """Why this manifest must not be signed against the one published, or nothing. `published` is the manifest
+        served or on origin/main; `now`, the moment of signing (plan 261103-cierre-legales D2, decisions 6, 7 and 10;
+        plan 261103-rutas-en-ingles R7)."""
+        new = json.loads(self.manifest())
+        if not published:
+            return ["there is no published manifest to sign against"]
+        old = json.loads(published)
+        problems: list[str] = []
+        same = json.dumps({**new, "serial": None}, sort_keys=True) == json.dumps({**old, "serial": None}, sort_keys=True)
+        if new.get("serial", 0) < old.get("serial", 0) or (not same and new.get("serial", 0) == old.get("serial", 0)):
+            problems.append(f"the serial {new.get('serial', 0)} is below the published {old.get('serial', 0)}, or the same with other content")
+        olds = {d["id"]: d for d in old["documents"]}
+        renamed = {n: o for n, o in RENAMES.items() if o in olds and n not in olds}
+        for doc in new["documents"]:
+            before = olds.get(doc["id"]) or olds.get(renamed.get(doc["id"], ""))
+            if doc["id"] in renamed:
+                # A renamed document is the same document: every version as it was, only its path moves.
+                strip = lambda m, slug: json.loads(json.dumps(m).replace(f"/documents/{slug}/", "/documents/@/"))
+                if strip(doc["versions"], doc["id"]) != strip(before["versions"], renamed[doc["id"]]) or doc.get("withdrawn"):
+                    problems.append(f"{renamed[doc['id']]} → {doc['id']}: a renamed document keeps its versions as they were, and withdraws nothing")
+                continue
+            had = {v["version"]: v for v in (before or {}).get("versions", [])}
+            listed = {v["version"] for v in doc["versions"]}
+            withdrawn = set(doc.get("withdrawn", []))
+            for v in doc["versions"]:
+                # A published version is never changed (core alarms and keeps it as registered); it may only gain a
+                # language it did not list.
+                was = had.get(v["version"])
+                if was is None:
+                    continue
+                same_core = {k: v[k] for k in v if k != "locales"} == {k: was[k] for k in was if k != "locales"}
+                same_locales = all(was["locales"].get(code) in (None, l) for code, l in v["locales"].items()) \
+                    and set(was["locales"]) <= set(v["locales"])
+                if not same_core or not same_locales:
+                    problems.append(f"{doc['id']} {v['version']} was published and has changed: a version is never changed")
+            for w in had:
+                if w not in listed and w not in doc.get("withdrawn", []):
+                    problems.append(f"{doc['id']} {w} was published and is neither listed nor withdrawn")
+            for w in doc.get("withdrawn", []):
+                if w in had and datetime.fromisoformat(had[w]["effective"]) <= now + WITHDRAW_MARGIN:
+                    problems.append(f"{doc['id']} {w} is withdrawn less than {WITHDRAW_MARGIN} before it comes into force")
+            registry = next(d for d in self.docs if d["id"] == doc["id"])
+            includes = {v["version"]: set(v.get("includes", [])) for v in registry["versions"]}
+            for v in doc["versions"]:
+                if v["version"] in had:
+                    continue
+                if datetime.fromisoformat(v["effective"]) < now + WITHDRAW_MARGIN:
+                    problems.append(f"{doc['id']} {v['version']} is new and comes into force before core can see it ({WITHDRAW_MARGIN} from signing)")
+                for later in had:
+                    if later in withdrawn:
+                        continue
+                    if later > v["version"] and v["version"] not in includes.get(later, set()):
+                        problems.append(f"{doc['id']} {v['version']} comes before {later}, already published, which does not list it in includes")
+        for gone in set(olds) - {d["id"] for d in new["documents"]} - set(renamed.values()):
+            problems.append(f"the document {gone} was published and is no longer in the manifest")
+        return problems
 
     def sign(self, manifest: Path) -> str:
         """Ed25519 over the manifest's bytes, base64. The key is decrypted with sops into a pipe and

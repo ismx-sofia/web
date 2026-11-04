@@ -1,5 +1,6 @@
 {
- "_doc": "Registry of the published versions of the legal documents (plan 261022-documentos-legales). One entry per version: `id` is the document in user_legal_document_type, `web` its URL slug, `version` YYMMDD of its effective date in Europe/Madrid, `material` → requires_acceptance, `changes` the «what changes» per i18n file (none on a first version), `files` the frozen bytes per web language with their sha256 and, for the versions published before /documents, the old URL they keep serving (`legacy`). A frozen file never changes: the build refuses one whose bytes no longer match.",
+ "_doc": "Registry of the published versions of the legal documents (plan 261022-documentos-legales). One entry per version: `id` is the document in user_legal_document_type, `web` its URL slug, `version` YYMMDD of its effective date in Europe/Madrid, `material` → requires_acceptance, `changes` the «what changes» per i18n file (none on a first version), `files` the frozen bytes per web language with their sha256 and, for the versions published before /documents, the old URL they keep serving (`legacy`). A frozen file never changes: the build refuses one whose bytes no longer match. `serial` grows with every change of what the manifest says (core refuses a lower one, or the same one with other bytes). A document may list `withdrawn` versions (out of `versions`); a version that comes before others already published lists in theirs `includes`.",
+ "serial": 1,
  "documents": [
   {
    "id": "terms",
@@ -302,8 +303,8 @@
    ]
   },
   {
-   "id": "ia",
-   "web": "ia",
+   "id": "ai",
+   "web": "ai",
    "title": "Política de IA",
    "kind": "consent",
    "summary": "Qué hace la inteligencia artificial con tus entradas, dónde funciona y qué puedes decidir.",
@@ -315,8 +316,7 @@
      "changes": {},
      "files": {
       "es": {
-       "path": "ia/261006.html",
-       "legacy": "ia-v1.html",
+       "path": "ai/261006.html",
        "sha256": "8cf33677efd68fed229e4b7d03ca2f1796ab0ca7a4c603198c3c7a9756470c46"
       }
      }
@@ -337,8 +337,7 @@
      },
      "files": {
       "es": {
-       "path": "ia/261013.html",
-       "legacy": "ia-v2.html",
+       "path": "ai/261013.html",
        "sha256": "d14acfb0a675eb4807c23e0576d8d90fa6ab0f034fe2c6d682ee4de6c017b70f"
       }
      }
@@ -359,8 +358,7 @@
      },
      "files": {
       "es": {
-       "path": "ia/261018.html",
-       "legacy": "ia-v4.html",
+       "path": "ai/261018.html",
        "sha256": "e62c261b24af7a160eed87d5dfb996b50ae5e77009266a5dfd3458bc9f4b8e3f"
       }
      }
@@ -381,8 +379,7 @@
      },
      "files": {
       "es": {
-       "path": "ia/261019.html",
-       "legacy": "ia-v5.html",
+       "path": "ai/261019.html",
        "sha256": "1584a9b8a9772639f0dc4a4a48d025856ae826c74c2b1e2ee19ad94df8d87c2b"
       }
      }
@@ -403,7 +400,7 @@
      },
      "files": {
       "es": {
-       "path": "ia/261023.html",
+       "path": "ai/261023.html",
        "sha256": "8053141f4faf3f7093d3fb61b388234f276f573b92329ee9bb0f1f6d51d4f647"
       }
      }
@@ -664,8 +661,8 @@
    ]
   },
   {
-   "id": "normas",
-   "web": "normas",
+   "id": "guidelines",
+   "web": "guidelines",
    "title": "Normas de la comunidad",
    "kind": "information",
    "summary": "Qué se puede y qué no se puede publicar en SofIA.",
@@ -677,7 +674,7 @@
      "changes": {},
      "files": {
       "es": {
-       "path": "normas/261019.html",
+       "path": "guidelines/261019.html",
        "sha256": "a7edc5c0374088191d16e83896cce80125b6420dd74f7f83a13174cdd863a98f"
       }
      }
@@ -698,7 +695,7 @@
      },
      "files": {
       "es": {
-       "path": "normas/261122.html",
+       "path": "guidelines/261122.html",
        "sha256": "683a69dcb5761e67b42e1d18532babd526f824efa5fe9bf2316a843f8291d6c7"
       }
      }
@@ -719,7 +716,7 @@
      },
      "files": {
       "es": {
-       "path": "normas/261125.html",
+       "path": "guidelines/261125.html",
        "sha256": "19cc8a1806979f8cf89363080c48a94e065531af2ac2db9080f52a17d933569a"
       }
      }

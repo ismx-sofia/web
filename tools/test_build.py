@@ -18,7 +18,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -31,7 +31,7 @@ HOST = build.HOST
 LOC = json.loads((SRC / "data" / "locales.json").read_text(encoding="utf-8"))
 PUBLISHED = [LOC["locales"][c]["file"] for c in LOC["order"]] + [LOC["locales"]["pt"]["variant"]["file"]]
 TOKENS = re.compile(r"\{\{(?:url):[^}]+\}\}|\{(?:path|label):[^}]+\}|<[^>]+>")
-APP_URLS = ["/privacy", "/terms", "/faq", "/ia", "/legal"]  # opened by the app (LegalSettingsScreen, SettingsScreen, IntelligenceSettingsScreen)
+APP_URLS = ["/privacy", "/terms", "/faq", "/ai", "/legal"]  # opened by the app (LegalSettingsScreen, SettingsScreen, IntelligenceSettingsScreen)
 AASA_PATTERNS = [r"^/user/", r"^/entry/", r"^/reader", r"^/journal", r"^/settings/", r"^/activity", r"^/notifications", r"^/search", r"^/chat"]
 
 
@@ -61,7 +61,7 @@ def resolve(out: Path, url: str) -> Path | None:
         return out / "index.html"
     target = out / path.lstrip("/")
     if path.endswith("/"):
-        return target / "index.html"
+        return target / "index.html" if (target / "index.html").is_file() else None
     if target.is_file():
         return target
     if Path(str(target) + ".html").is_file():
@@ -361,6 +361,104 @@ class BuildTest(unittest.TestCase):
                 self.assertEqual(mv["locales"]["pt-BR"]["sha256"], mv["locales"]["pt-PT"]["sha256"], "one /pt/ page, both texts")
                 self.assertEqual(int(datetime.fromisoformat(mv["effective"]).strftime("%y%m%d")), mv["version"])
         self.assertFalse((self.out / "documents.json.sig").exists(), "only the release build signs")
+        # From serial 1, core requires the kind of each document; it is the registry's.
+        self.assertEqual(m["serial"], json.loads((SRC / "data" / "documents.json").read_text(encoding="utf-8"))["serial"])
+        self.assertGreaterEqual(m["serial"], 1)
+        self.assertEqual([d["kind"] for d in m["documents"]], [d["kind"] for d in registry])
+
+    # 12g. what may be signed against the published manifest (plan 261103-cierre-legales D2, rutas-en-ingles R7): a
+    # change with a serial not above, a published version missing or withdrawn too late, a new version already in
+    # force or before published ones that do not include it, a document gone, a renamed one that changed
+    def test_documents_signable(self):
+        def docs_with(mutate=lambda reg: None):
+            t = tempfile.mkdtemp()
+            src = Path(t)
+            shutil.copytree(SRC / "documents", src / "documents")
+            shutil.copytree(SRC / "legal", src / "legal")
+            (src / "data").mkdir()
+            reg = json.loads((SRC / "data" / "documents.json").read_text(encoding="utf-8"))
+            mutate(reg)
+            (src / "data" / "documents.json").write_text(json.dumps(reg), encoding="utf-8")
+            return documents.Documents(build.Site(release=False), src=src, root=ROOT, release=False, host=HOST, page_meta=build.page_meta)
+        now = datetime.fromisoformat("2026-11-04T12:00:00+00:00")
+        here = docs_with()
+        current = json.loads(here.manifest())
+        terms = next(d for d in current["documents"] if d["id"] == "terms")
+        def published(change):
+            m = json.loads(json.dumps(current))
+            change(m)
+            return json.dumps(m)
+        doc = lambda m, i: next(d for d in m["documents"] if d["id"] == i)
+        def older(m):
+            m["serial"] -= 1
+        self.assertIn("no published manifest", " ".join(here.signable(None, now)))
+        self.assertEqual(here.signable(here.manifest(), now), [])
+        self.assertEqual(here.signable(published(older), now), [])
+        # A lower serial than the published, even with the same content (core refuses it).
+        def newer(m):
+            m["serial"] += 1
+        self.assertIn("below the published", " ".join(here.signable(published(newer), now)))
+        # A published version that changed; one that only gains a language it did not list is fine.
+        def changed(m):
+            older(m)
+            doc(m, "privacy")["versions"][0]["material"] = not doc(m, "privacy")["versions"][0]["material"]
+        self.assertIn("was published and has changed", " ".join(here.signable(published(changed), now)))
+        def fewer_languages(m):
+            older(m)
+            doc(m, "privacy")["versions"][0]["locales"].pop("it")
+        self.assertEqual(here.signable(published(fewer_languages), now), [])
+        # The same serial with other content.
+        def same_serial(m):
+            doc(m, "terms")["versions"][-1]["locales"]["es"]["changes"] = "other"
+        self.assertIn("or the same with other content", " ".join(here.signable(published(same_serial), now)))
+        # The rename: the published manifest has normas and ia with the same versions under their old paths.
+        def before_rename(m):
+            older(m)
+            for d in m["documents"]:
+                old = documents.RENAMES.get(d["id"])
+                if old:
+                    raw = json.dumps(d).replace(f"/documents/{d['id']}/", f"/documents/{old}/")
+                    d.clear(); d.update(json.loads(raw)); d["id"] = old
+        self.assertEqual(here.signable(published(before_rename), now), [])
+        def renamed_and_changed(m):
+            before_rename(m)
+            doc(m, "normas")["versions"][0]["material"] = True
+        self.assertIn("a renamed document keeps its versions", " ".join(here.signable(published(renamed_and_changed), now)))
+        # A new version: in force before it is signed; or before published ones that do not include it.
+        last, middle = terms["versions"][-1]["version"], terms["versions"][-3]["version"]
+        def without(version):
+            def change(m):
+                older(m)
+                doc(m, "terms")["versions"] = [v for v in doc(m, "terms")["versions"] if v["version"] != version]
+            return change
+        self.assertEqual(here.signable(published(without(last)), now), [])
+        late = datetime.fromisoformat(terms["versions"][-1]["effective"]) + timedelta(days=1)
+        self.assertIn("comes into force before core can see it", " ".join(here.signable(published(without(last)), late)))
+        soon = datetime.fromisoformat(terms["versions"][-1]["effective"]) - timedelta(hours=1)
+        self.assertIn("comes into force before core can see it", " ".join(here.signable(published(without(last)), soon)))
+        self.assertIn(f"comes before {last}", " ".join(here.signable(published(without(middle)), now)))
+        includes = docs_with(lambda reg: [v.setdefault("includes", []).append(middle) for d in reg["documents"] if d["id"] == "terms"
+                                          for v in d["versions"] if v["version"] > middle])
+        self.assertEqual(includes.signable(published(without(middle)), now), [])
+        # A published version missing, or withdrawn within the margin; a document gone.
+        extra = dict(terms["versions"][-1], version=261201, effective="2026-12-01T00:00:00+01:00", url="/documents/terms/261201")
+        def with_extra(m):
+            older(m)
+            doc(m, "terms")["versions"].append(extra)
+        self.assertIn("261201 was published and is neither listed nor withdrawn", " ".join(here.signable(published(with_extra), now)))
+        withdrawing = docs_with(lambda reg: [d.update(withdrawn=[261201]) for d in reg["documents"] if d["id"] == "terms"])
+        self.assertEqual(withdrawing.signable(published(with_extra), now), [])
+        self.assertIn("withdrawn less than", " ".join(withdrawing.signable(published(with_extra), datetime.fromisoformat("2026-11-30T22:00:00+00:00"))))
+        # A new version before a withdrawn one needs no `includes` from it.
+        def with_extra_without_last(m):
+            with_extra(m)
+            doc(m, "terms")["versions"] = [v for v in doc(m, "terms")["versions"] if v["version"] != last]
+        replacing = docs_with(lambda reg: [d.update(withdrawn=[261201]) for d in reg["documents"] if d["id"] == "terms"])
+        self.assertEqual(replacing.signable(published(with_extra_without_last), now), [])
+        def gone(m):
+            older(m)
+            m["documents"].append({"id": "extra", "kind": "information", "versions": []})
+        self.assertIn("the document extra was published", " ".join(here.signable(published(gone), now)))
 
     # 12d. the registry's contract: the build refuses a frozen file that changed, a version that is not the
     # Madrid date of its effective time, two versions of a document on one day, and a release without every
@@ -390,7 +488,16 @@ class BuildTest(unittest.TestCase):
             vs.append(dict(vs[-1]))
         def changes_on_first(reg, src):
             reg["documents"][0]["versions"][0]["changes"] = {"es": "x"}
-        for name, mutate in (("tampered", tamper), ("date", wrong_date), ("same day", same_day), ("first", changes_on_first)):
+        def withdrawn_and_listed(reg, src):
+            reg["documents"][0]["withdrawn"] = [reg["documents"][0]["versions"][-1]["version"]]
+        def includes_later(reg, src):
+            vs = reg["documents"][0]["versions"]
+            vs[0]["includes"] = [vs[-1]["version"]]
+        def bad_serial(reg, src):
+            reg["serial"] = -1
+        for name, mutate in (("tampered", tamper), ("date", wrong_date), ("same day", same_day), ("first", changes_on_first),
+                             ("withdrawn and listed", withdrawn_and_listed), ("includes a later one", includes_later),
+                             ("serial", bad_serial)):
             with self.subTest(name), self.assertRaises(documents.DocumentsError):
                 attempt(mutate)
         incomplete = any(v["changes"] and len(v["changes"]) < len(PUBLISHED)
@@ -438,8 +545,9 @@ class BuildTest(unittest.TestCase):
         docs = ROOT / "docs"
         if docs.exists():
             # The signature is written by the signed build only (the key is Israel's); it is checked against the
-            # manifest it signs, not against a draft build that has none.
-            c = {p.relative_to(docs): p.read_bytes() for p in docs.rglob("*") if p.is_file() and p.name != "documents.json.sig"}
+            # manifest it signs, not against a draft build that has none. Finder's .DS_Store is ignored by git.
+            c = {p.relative_to(docs): p.read_bytes() for p in docs.rglob("*")
+                 if p.is_file() and p.name not in ("documents.json.sig", ".DS_Store")}
             stale = sorted(str(k) for k in set(b) | set(c) if b.get(k) != c.get(k))
             self.assertEqual(stale, [], "docs/ is stale: run python3 tools/build.py")
             sig = docs / "documents.json.sig"

@@ -15,6 +15,9 @@ Standard library only, deterministic output (no timestamps), Python 3.11+.
 from __future__ import annotations
 
 import argparse
+import subprocess
+import urllib.request
+from datetime import datetime, timezone
 import html
 import json
 import re
@@ -40,8 +43,8 @@ LEGAL_PAGES = {
     "legal": "Aviso legal",
     "terms": "Términos y condiciones",
     "privacy": "Política de privacidad",
-    "ia": "Política de IA",
-    "normas": "Normas de la comunidad",
+    "ai": "Política de IA",
+    "guidelines": "Normas de la comunidad",
     "cookies": "Política de cookies",
     "consent-journal": "Consentimiento del diario",
     "consent-health": "Consentimiento de salud y bienestar",
@@ -615,6 +618,7 @@ class Site:
             raise BuildError(f"refusing to replace {out}: not docs/ and not a previous build")
         out.parent.mkdir(parents=True, exist_ok=True)
         tmp = Path(tempfile.mkdtemp(prefix=".build-", dir=out.parent))
+        self.target = out
         try:
             info = self._build_into(tmp)
         except BaseException:
@@ -625,11 +629,28 @@ class Site:
         tmp.rename(out)
         return info
 
+    @staticmethod
+    def published(out: Path) -> str | None:
+        """The manifest published: origin/main's after a fetch, else the one the website serves. Never the local
+        docs/ (after a build without --sign it is already the new one): with neither, there is nothing to sign
+        against and the signed build refuses."""
+        subprocess.run(["git", "fetch", "-q", "origin", "main"], cwd=ROOT, capture_output=True)
+        run = subprocess.run(["git", "show", "origin/main:docs/documents.json"], cwd=ROOT, capture_output=True)
+        if run.returncode == 0 and run.stdout.strip():
+            return run.stdout.decode("utf-8")
+        try:
+            with urllib.request.urlopen(f"{HOST}/documents.json", timeout=15) as response:
+                return response.read().decode("utf-8")
+        except Exception:
+            return None
+
     def _build_into(self, out: Path) -> dict:
         try:
             self.documents = Documents(self, src=SRC, root=ROOT, release=self.release, host=HOST, page_meta=page_meta)
         except DocumentsError as e:
             raise BuildError(str(e)) from None
+        # What is published, to sign against (before the build overwrites docs/): origin/main's, else the one here.
+        published = self.published(getattr(self, "target", out)) if self.sign else None
         files: dict[str, str] = {}
         for page in LOCALIZED_PAGES:
             for c in self.order:
@@ -661,6 +682,9 @@ class Site:
             (out / rel).parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(src, out / rel)
         if self.sign:
+            problems = self.documents.signable(published, datetime.now(timezone.utc))
+            if problems:
+                raise BuildError("the manifest must not be signed: " + "; ".join(problems))
             try:
                 (out / "documents.json.sig").write_text(self.documents.sign(out / "documents.json"), encoding="utf-8")
             except DocumentsError as e:

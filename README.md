@@ -23,7 +23,7 @@ not literal: see the brand guide in the project knowledge base (`07-identidad-y-
 `src/data/routes.json` mirrors `DeeplinkBusiness.routes` of the app and `src/data/app-labels.json` the
 Settings labels of `parameter_i18n`; update them when those change.
 
-Legal documents are published in Spanish only, at the root (`/privacy`, `/terms`, `/ia`, `/normas`,
+Legal documents are published in Spanish only, at the root (`/privacy`, `/terms`, `/ai`, `/guidelines`,
 `/cookies`, `/legal`). Each source in `src/legal/` starts with
 `<!-- page: x · title: … · description: … · version: N · lede: … -->` and is written as
 `<section id="…" data-title="…">` blocks: the build adds the hero, the numbered headings, the table of

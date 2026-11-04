@@ -77,7 +77,7 @@
  "entry.voice.transcript": "Transcribed word for word",
  "faq.a1": "Nothing, unless you want to. SofIA is free and funded by ads, always clearly labelled: the journal, the community and an AI allowance cost you nothing. If you want more AI, or SofIA without ads, there's SofIA Plus, Pro and Max, monthly subscriptions you can cancel at any time. You decide whether ads are tailored to your interests in {path:settingsTitle,settingsOptionPrivacy,settingsPrivacyAds}. What you write, your interests and your wellbeing data never travel in an ad.",
  "faq.a2": "Whoever you choose, entry by entry: just you, your circle, your followers or everyone. You can post unsigned, schedule an entry for later and make your whole journal private.",
- "faq.a3": "It transcribes your audio, summarises and organises your entries and helps you spot the patterns. It runs on SofIA's servers and, in part, on your own mobile. Your journal is never used to train models. The <a href=\"{{url:ia}}\">AI Policy</a> covers it in detail.",
+ "faq.a3": "It transcribes your audio, summarises and organises your entries and helps you spot the patterns. It runs on SofIA's servers and, in part, on your own mobile. Your journal is never used to train models. The <a href=\"{{url:ai}}\">AI Policy</a> covers it in detail.",
  "faq.a4": "For now the app is in Spanish, and you can write in whichever language you like. We're getting more languages ready.",
  "faq.a5": "Yes, both, whenever you like. We talk you through it in <a href=\"{{url:help}}\">Help</a> and <a href=\"{{url:delete-account}}\">Delete your account</a>.",
  "faq.eyebrow": "FAQ",

@@ -22,9 +22,13 @@ check /help                200 'hello@sofia.ismx.app'
 check /delete-account      200 'PROGRAMSAN'
 check /privacy             200
 check /terms               200
-check /ia                  200
+check /ai                  200
 check /legal               200 'B40623829'
-check /normas              200
+check /guidelines          200
+check /ia                  404
+check /normas              404
+check /ia-v1               404
+check /documents/normas/   404
 check /cookies             200
 check /guardian            200 'Acompañar la cuenta de un menor'
 check /en/guardian         200 'Accompanying'
