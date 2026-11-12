@@ -1,6 +1,6 @@
 {
  "_doc": "Registry of the published versions of the legal documents (plan 261022-documentos-legales). One entry per version: `id` is the document in user_legal_document_type, `web` its URL slug, `version` YYMMDD of its effective date in Europe/Madrid, `material` → requires_acceptance, `changes` the «what changes» per i18n file (none on a first version), `files` the frozen bytes per web language with their sha256 and, for the versions published before /documents, the old URL they keep serving (`legacy`). A frozen file never changes: the build refuses one whose bytes no longer match. `serial` grows with every change of what the manifest says (core refuses a lower one, or the same one with other bytes). A document may list `withdrawn` versions (out of `versions`); a version that comes before others already published lists in theirs `includes`. `reset` is the serial at which the history restarted (Israel, 04-11-2026, before launch: one version per document, the previous ones and their acceptances deleted): against a published manifest of a lower serial, signing it does not ask the old versions to stay.",
- "serial": 3,
+ "serial": 4,
  "documents": [
   {
    "id": "terms",
@@ -303,6 +303,96 @@
       "it": {
        "path": "guardian/it/261104.html",
        "sha256": "3256b0dec3fef7bbc9786579188eb4c8669dfc0c95cace8106e458887c58acda"
+      }
+     }
+    },
+    {
+     "version": 261113,
+     "effective": "2026-11-13T09:00:00Z",
+     "material": false,
+     "changes": {
+      "es": "Entre los permisos que das está ahora Explorar, con su propio texto: el Permiso para Explorar.",
+      "en": "The permissions you give now include Explore, with its own text: the Permission for Explore.",
+      "ca": "Entre els permisos que dones ara hi ha Explorar, amb el seu propi text: el Permís per a Explorar.",
+      "fr": "Parmi les autorisations que tu donnes figure désormais Explorer, avec son propre texte : l'Autorisation pour Explorer.",
+      "pt-BR": "Entre as permissões que você dá agora está o Explorar, com o seu próprio texto: a Permissão para Explorar.",
+      "pt-PT": "Entre as permissões que dás está agora o Explorar, com o seu próprio texto: a Permissão para Explorar.",
+      "de": "Zu den Berechtigungen, die du erteilst, gehört jetzt Entdecken, mit eigenem Text: der Erlaubnis für Entdecken.",
+      "it": "Tra i permessi che dai ora c'è Esplora, con il suo testo: il Permesso per Esplora."
+     },
+     "files": {
+      "es": {
+       "path": "guardian/261113.html",
+       "sha256": "aee8f8df1c350f22172357ed994c1b32c3cca951bd7a15173ee975b77ff002df"
+      },
+      "en": {
+       "path": "guardian/en/261113.html",
+       "sha256": "c853cc41b1abb632b9c53736559251cf29481995ea84e2c5b15ef28d592f86bf"
+      },
+      "ca": {
+       "path": "guardian/ca/261113.html",
+       "sha256": "ee7ded208f9d3b5fbb73bbd7b990e17718605d70eeca1686b8c92337fcf4316c"
+      },
+      "fr": {
+       "path": "guardian/fr/261113.html",
+       "sha256": "e113ab7eeb797b0b8ef36c5e3166e7492c5d2dcf798c16662fe8cfdb6f76eb0d"
+      },
+      "pt": {
+       "path": "guardian/pt/261113.html",
+       "sha256": "d406fc8416ef213235859b88d6bdfda7fac0d3fa3287c62cdba5d946113cef81"
+      },
+      "de": {
+       "path": "guardian/de/261113.html",
+       "sha256": "b6bea57d40dcaa0431ce4765af1a37fd9aff8a9ffe5e6a53b1abf3a3acdffb14"
+      },
+      "it": {
+       "path": "guardian/it/261113.html",
+       "sha256": "539a28f51e3dfae47157f154206192e295c334bb1182de4b2692f728e42c8144"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "social",
+   "web": "consent-social",
+   "title": "Permiso para Explorar",
+   "kind": "consent",
+   "summary": "Lo que permites, como madre, padre o tutor legal, al abrir Explorar a la persona menor que acompañas.",
+   "versions": [
+    {
+     "version": 261113,
+     "effective": "2026-11-13T09:00:00Z",
+     "material": true,
+     "changes": {},
+     "files": {
+      "es": {
+       "path": "consent-social/261113.html",
+       "sha256": "46affa7a203e26e00f6a460611dee9ccfd95eb82866023f022abe2cb7a20aa88"
+      },
+      "en": {
+       "path": "consent-social/en/261113.html",
+       "sha256": "eda45876a936dcc72598c7cf4e53d3411d7d755578b6966601546b03187eb8af"
+      },
+      "ca": {
+       "path": "consent-social/ca/261113.html",
+       "sha256": "522bd65d0c4a356915993fcdc175f42d8240ab3e34d18cb19c653bf7008fa8bf"
+      },
+      "fr": {
+       "path": "consent-social/fr/261113.html",
+       "sha256": "5ffab72fa971ab3b72e874b1b4a4f379c8ed352bb34a217b621a7e7efdc46948"
+      },
+      "pt": {
+       "path": "consent-social/pt/261113.html",
+       "sha256": "3380488ec9b60db8311c48ba845e9e1ed69be15e89f604e1a064776f13e8f9f9"
+      },
+      "de": {
+       "path": "consent-social/de/261113.html",
+       "sha256": "a57e32d64a45be5dc8271b442187ed90b4ede647cc20621bb71b851db03adb08"
+      },
+      "it": {
+       "path": "consent-social/it/261113.html",
+       "sha256": "636480e812f5270aedf399eb332bbe61262c86038f74b69c2dd90463141e1197"
       }
      }
     }

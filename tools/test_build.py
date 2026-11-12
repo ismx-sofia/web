@@ -893,6 +893,8 @@ class InForceTest(unittest.TestCase):
         site = self.site("2026-11-04T12:00:00Z")
         for doc in site.documents.docs:
             v = site.documents.in_force(doc, site.now)
+            if v is None:  # a document published later (consent-social, 261113): nothing in force yet
+                continue
             frozen = (SRC / "documents" / v["files"]["es"]["path"]).read_text(encoding="utf-8")
             root = self.main(site.build_legal(doc["web"]))
             for section in re.findall(r'<section id="[^"]+"[^>]*>\s*<h2>.*?</h2>', frozen, re.S):

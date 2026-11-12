@@ -47,7 +47,8 @@ RENAMES = {"guidelines": "normas", "ai": "ia"}
 WITHDRAW_MARGIN = timedelta(hours=3)
 ICONS = {"terms": "i-book", "privacy": "i-lock", "ai": "i-sparkles", "journal": "i-pencil",
          "health": "i-heart", "subscription": "i-star", "guidelines": "i-users", "cookies": "i-world",
-         "legal": "i-flag", "guardian": "i-heart-users", "crisis": "i-bell"}
+         "legal": "i-flag", "guardian": "i-heart-users", "crisis": "i-bell",
+         "social": "i-users"}
 
 
 class DocumentsError(Exception):
