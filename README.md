@@ -20,6 +20,19 @@ Languages: Spanish at the root; `/en/ /ca/ /fr/ /pt/ /de/ /it/` (ja and zh left 
 Brazilian Portuguese and switches to European Portuguese in the browser. Translations are adapted,
 not literal: see the brand guide in the project knowledge base (`07-identidad-y-comunicacion.md`).
 
+## Example entries: `tools/cards.mts`
+
+The entries the home page shows (the three ways to start, the audience demo, the stories) and the social image
+(`og.jpg`) are images drawn by core's share card renderer (`server/core/src/business/utils/card`), so they look
+like the app. What each card shows is `src/data/cards.json`; its texts are keys of `src/i18n`, which the page also
+puts in a hidden caption. One image per card and per dictionary (es, en, ca, fr, pt-BR, pt-PT, de, it) in
+`src/assets/img/cards/`; the build writes `{{card:<file>}}` with the page's language and `/pt/` swaps them to
+pt-PT in the browser. Rerun it when a card's text or the app's card changes, then build:
+
+```
+npx tsx --tsconfig ../../server/core/tsconfig.json tools/cards.mts   # from 03-code/apps/landing, ~1 min
+```
+
 `src/data/routes.json` mirrors `DeeplinkBusiness.routes` of the app and `src/data/app-labels.json` the
 Settings labels of `parameter_i18n`; update them when those change.
 

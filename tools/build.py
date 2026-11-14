@@ -78,7 +78,7 @@ LICENSES_PAGE = "licenses"
 # keeps and the release build refuses, so nothing ships before each one is resolved.
 MARKER = re.compile(r"<!--(?:(?!-->).)*?⟨.*?-->", re.S)
 
-TOKEN = re.compile(r"\{\{(t|a|steps|url|pending):([^}]*)\}\}")
+TOKEN = re.compile(r"\{\{(t|a|steps|url|pending|card):([^}]*)\}\}")
 INLINE = re.compile(r"\{(path|label):([^}]+)\}")
 HEADER = re.compile(r"^<!--\s*(.*?)\s*-->\s*", re.S)
 
@@ -185,6 +185,14 @@ class Site:
             raise BuildError(f"missing key {key!r} in {dict_name}")
         return self.inline(d[key], code, col)
 
+    @staticmethod
+    def card(name: str, file: str) -> str:
+        """An example entry drawn by tools/cards.mts, in the language of `file` (es, …, pt-BR, pt-PT)."""
+        path = f"assets/img/cards/{file}/{name}"
+        if not (SRC / path).is_file():
+            raise BuildError(f"missing image {path}: run tools/cards.mts")
+        return "/" + path
+
     def fill(self, tpl: str, code: str, dict_name: str, col: str) -> str:
         def sub(m):
             kind, arg = m.group(1), m.group(2)
@@ -198,6 +206,8 @@ class Site:
                 return "".join(f"<li{la}>{x}</li>" for x in labels)
             if kind == "url":
                 return self.url(arg, code)
+            if kind == "card":
+                return self.card(arg, self.locales[code]["file"])
             if kind == "pending":
                 self.pending.append(arg)
                 if self.release:
@@ -282,7 +292,7 @@ class Site:
                 f'<meta property="og:title" content="{html.escape(title, quote=True)}">',
                 f'<meta property="og:description" content="{html.escape(description, quote=True)}">',
                 f'<meta property="og:url" content="{HOST}{canonical}">',
-                f'<meta property="og:image" content="{HOST}/assets/img/og.jpg">',
+                f'<meta property="og:image" content="{HOST}{self.card("og.jpg", cfg["file"])}">',
                 '<meta property="og:image:width" content="1200">',
                 '<meta property="og:image:height" content="630">',
                 f'<meta property="og:locale" content="{cfg["og"]}">',

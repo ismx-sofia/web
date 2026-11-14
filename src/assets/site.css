@@ -179,7 +179,13 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 .mode-stage::before, .mode-stage::after { content: ""; position: absolute; border-radius: 50%; border: 26px solid rgba(255,255,255,.1); z-index: -1; }
 .mode-stage::before { width: 380px; height: 380px; left: -140px; top: -140px; }
 .mode-stage::after { width: 320px; height: 320px; right: -110px; bottom: -130px; }
-.panel { width: min(460px, 100%); }
+.panel { width: min(460px, 100%); display: grid; gap: 4px; justify-items: center; }
+/* An example entry: an image drawn by core's share card renderer (tools/cards.mts), with its text in the caption. The
+   image carries room for the card's shadow (60 px a side, 30 above, 96 below in a 1020-px image), so it bleeds that much. */
+.shot { margin: 0; width: 100%; }
+.shot img { display: block; width: calc(100% * 1020 / 900); max-width: none; height: auto; margin: -3.33% -6.67% -10.67%; }
+.chip.on-brand { background: rgba(255,255,255,.2); color: #fff; margin-bottom: 6px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .panel[hidden] { display: none; }
 .entry { background: rgba(255,255,255,.92); color: #0D114F; border-radius: 22px; padding: 18px 20px; box-shadow: 0 26px 50px -26px rgba(13,17,79,.7); }
 :root:not([data-theme="light"]) .entry { }
@@ -188,20 +194,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 .chip .ico { width: 14px; height: 14px; }
 .entry h3 { font-family: var(--font-entry); font-weight: 400; font-size: 23px; margin-top: 8px; line-height: 1.2; }
 .entry p { font-family: var(--font-entry); font-size: 16.5px; line-height: 1.55; margin-top: 8px; color: #23264F; }
-.entry.hand p { font-family: var(--font-hand); font-size: 20px; }
-.wave { display: flex; align-items: center; gap: 3px; height: 40px; margin-top: 12px; }
-.wave i { width: 4px; border-radius: 2px; background: #3B7BFF; }
-.play { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(140deg, #2D63DB, #6C63FF); display: grid; place-items: center; flex: none; margin-right: 10px; }
-.play::after { content: ""; border-left: 11px solid #fff; border-top: 7px solid transparent; border-bottom: 7px solid transparent; margin-left: 3px; }
-.transcript { margin-top: 10px; font-size: 13px; color: #4A4C70; display: flex; gap: 6px; align-items: center; }
-.transcript .ico { width: 15px; height: 15px; color: #3B7BFF; }
-.counter { font-size: 12.5px; color: #4A4C70; font-variant-numeric: tabular-nums; margin-top: 8px; }
-.mood { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
-.mood span { padding: 6px 12px; border-radius: 12px; background: rgba(59,123,255,.1); font-size: 13px; color: #1F3FA8; font-weight: 700; }
-.timeline { display: grid; gap: 10px; margin-top: 12px; }
-.timeline div { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 12px; align-items: baseline; font-size: 14px; }
-.timeline time { color: #4A4C70; font-variant-numeric: tabular-nums; }
-.timeline span { font-family: var(--font-entry); font-size: 15.5px; }
+.transcript { margin-top: 2px; font-size: 14px; line-height: 1.5; color: rgba(255,255,255,.94); display: flex; gap: 8px; align-items: flex-start; }
+.transcript .ico { width: 16px; height: 16px; color: #fff; flex: none; margin-top: 3px; }
+.transcript b { display: block; font-size: 12.5px; letter-spacing: .02em; color: rgba(255,255,255,.8); }
+.mood { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.mood span { padding: 6px 12px; border-radius: 12px; background: rgba(255,255,255,.2); font-size: 13px; color: #fff; font-weight: 700; }
 
 /* ---------- carousel ---------- */
 .carousel { position: relative; margin-top: 40px; }
@@ -227,13 +224,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 .feature li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 8px; align-items: start; }
 .feature li .ico { width: 20px; height: 20px; color: var(--accent); margin-top: 3px; }
 
-.moment { border-radius: var(--radius-xl); padding: 22px; background: var(--orbit); color: #0D114F; position: relative; overflow: hidden; isolation: isolate; display: grid; align-content: end; min-height: 320px; }
+.moment { border-radius: var(--radius-xl); padding: 22px 22px 18px; background: var(--orbit); color: #0D114F; position: relative; overflow: hidden; isolation: isolate; display: grid; align-content: center; justify-items: start; gap: 4px; min-height: 320px; }
+.moment .chip { background: rgba(255,255,255,.22); color: #fff; }
 .moment::before { content: ""; position: absolute; width: 300px; height: 300px; border-radius: 50%; border: 22px solid rgba(255,255,255,.12); right: -120px; top: -120px; z-index: -1; }
 .moment.b { background: linear-gradient(155deg, #6C63FF, #8E6BFF 50%, #B07BFF); }
 .moment.c { background: linear-gradient(155deg, #2D63DB, #3B7BFF 45%, #5BA2FF); }
-.moment .entry { box-shadow: 0 20px 40px -24px rgba(13,17,79,.8); }
-.moment .who { position: absolute; left: 22px; top: 20px; display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 700; font-size: 14px; }
-.moment .who i { width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6); }
 .sample { font-size: 13px; color: var(--ink-2); }
 
 /* ---------- bento ---------- */
@@ -251,10 +246,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 .aud-picker button .ico { width: 17px; height: 17px; }
 .aud-picker button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-sm); }
 .aud-view { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; align-items: center; margin-top: 6px; }
-.aud-view .entry { background: var(--bg); color: var(--ink); border: 1px solid var(--line); box-shadow: none; }
-.aud-view .entry p, .aud-view .entry h3 { color: var(--ink); }
-.aud-view .entry .m { color: var(--ink-2); }
 .aud-view .chip { background: var(--grad-soft); color: var(--ink); }
+.aud-card { display: grid; justify-items: start; gap: 6px; min-width: 0; }
 .who-sees { display: grid; gap: 10px; }
 .who-sees b { font-size: 15px; }
 .avatars { display: flex; align-items: center; }
@@ -459,8 +452,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 :root { --font-cjk: "PingFang SC", "Hiragino Sans", "Noto Sans SC", "Noto Sans TC", "Noto Sans JP", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; }
 html:lang(zh) body, html:lang(ja) body { font-family: "REM", var(--font-cjk); }
 html:lang(zh) .entry p, html:lang(zh) .entry h3, html:lang(ja) .entry p, html:lang(ja) .entry h3,
-html:lang(zh) .scr-card h5, html:lang(ja) .scr-card h5, html:lang(zh) .scr-card p, html:lang(ja) .scr-card p,
-html:lang(zh) .timeline span, html:lang(ja) .timeline span { font-family: var(--font-cjk); }
+html:lang(zh) .scr-card h5, html:lang(ja) .scr-card h5, html:lang(zh) .scr-card p, html:lang(ja) .scr-card p { font-family: var(--font-cjk); }
 html:lang(zh) .hero h1, html:lang(ja) .hero h1 { letter-spacing: -.01em; line-height: 1.12; word-break: keep-all; }
 html:lang(zh) h2, html:lang(ja) h2 { letter-spacing: 0; line-height: 1.2; }
 .lang { position: relative; }

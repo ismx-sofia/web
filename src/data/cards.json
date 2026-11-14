@@ -1,0 +1,15 @@
+{
+  "_doc": "The example entries of the home page, drawn by core's share card renderer (tools/cards.mts). Every text is a key of src/i18n, which the page also uses in the hidden caption of each image. `date` is an ISO day (written as the long date of each language) or a key; `who` is a «Name · City» key: the name heads the card and the city is its place; `color` is one of the journal colours of the app (CustomizeSettingsScreen); `stage` says what the card sits on in the page: `brand` (a gradient, the full shadow) or `light` (a white panel, a soft shadow).",
+  "cards": [
+    { "id": "write", "type": "compose", "title": "entry.coffee.title", "excerpt": "entry.coffee.text", "date": "2026-10-06", "place": "m1.who", "tags": "entry.coffee.tags", "color": "#CFE0F9", "font": "Gelasio", "stage": "brand" },
+    { "id": "talk", "type": "record", "title": "entry.voice.title", "duration": "1:42", "seed": 1, "date": "2026-10-06", "color": "#CFE0F9", "font": "Gelasio", "stage": "brand" },
+    { "id": "remember", "type": "compose", "title": "entry.memory.t1", "excerpt": "entry.memory.text", "date": "2025-10-06", "color": "#CFE0F9", "font": "Gelasio", "stage": "brand" },
+    { "id": "audience", "type": "compose", "title": "privacy.entryTitle", "excerpt": "privacy.entryText", "date": "2026-10-06", "color": "#CFE0F9", "font": "Gelasio", "stage": "light" },
+    { "id": "m1", "type": "compose", "who": "m1.who", "title": "m1.title", "excerpt": "m1.text", "date": "m1.when", "place": "m1.who", "color": "#00ccff", "font": "Gelasio", "stage": "brand" },
+    { "id": "m2", "type": "compose", "anonymous": "m2.who", "excerpt": "m2.text", "date": "m2.when", "stage": "brand" },
+    { "id": "m3", "type": "record", "who": "m3.who", "title": "m3.text", "duration": "0:58", "seed": 2, "date": "m3.date", "color": "#0000ff", "font": "Gelasio", "stage": "brand" },
+    { "id": "m4", "type": "compose", "who": "m4.who", "title": "m4.title", "excerpt": "m4.text", "date": "m4.when", "tags": "m4.tags", "color": "#ff0088", "font": "Handlee", "stage": "brand" },
+    { "id": "m5", "type": "compose", "who": "m5.who", "excerpt": "m5.text", "date": "m5.date", "color": "#ffaa00", "font": "Merienda", "stage": "brand" }
+  ],
+  "og": "write"
+}

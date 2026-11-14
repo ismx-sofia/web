@@ -20,7 +20,13 @@
 
   /* ---------- Portuguese: /pt/ is prerendered in pt-BR; the head script picked the variant ---------- */
   try {
-    if (S.variant && html.lang === S.variant.lang) { applyDict(S.variant.dict); S.aud = S.variant.aud; }
+    if (S.variant && html.lang === S.variant.lang) {
+      applyDict(S.variant.dict); S.aud = S.variant.aud;
+      /* The example entries are images drawn per language (tools/cards.mts): take the variant's. */
+      document.querySelectorAll('img[data-card]').forEach(function (img) {
+        img.src = img.getAttribute('src').replace(/\/cards\/[^/]+\//, '/cards/' + S.variant.lang + '/');
+      });
+    }
     /* A translated legal text carries both Portuguese versions; show the one the head script picked. */
     document.querySelectorAll('[data-v]').forEach(function (el) {
       var shown = el.getAttribute('data-v') === html.lang;
