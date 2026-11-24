@@ -375,7 +375,9 @@ class BuildTest(unittest.TestCase):
         (src / "data").mkdir()
         reg = json.loads((SRC / "data" / "documents.json").read_text(encoding="utf-8"))
         terms = next(d for d in reg["documents"] if d["id"] == "terms")
+        # The history is made here, on the frozen file of the first version: the registry's own later ones stay out.
         first = terms["versions"][0]
+        terms["versions"] = [first]
         for version, effective in ((261110, "2026-11-09T23:00:00Z"), (261201, "2026-11-30T23:00:00Z")):
             terms["versions"].append({**first, "version": version, "effective": effective, "changes": {"es": f"Cambio {version}"}})
         (src / "data" / "documents.json").write_text(json.dumps(reg), encoding="utf-8")
@@ -440,6 +442,7 @@ class BuildTest(unittest.TestCase):
             # The rules need a history: three more versions of the terms, announced, on the frozen file of the first.
             terms = next(d for d in reg["documents"] if d["id"] == "terms")
             first = terms["versions"][0]
+            terms["versions"] = [first]
             for version, effective in ((261122, "2026-11-21T23:00:00Z"), (261123, "2026-11-22T23:00:00Z"), (261124, "2026-11-23T23:00:00Z")):
                 terms["versions"].append({**first, "version": version, "effective": effective,
                                           "changes": {"es": f"Cambio {version}"}})

@@ -1,6 +1,6 @@
 {
  "_doc": "Registry of the published versions of the legal documents (plan 261022-documentos-legales). One entry per version: `id` is the document in user_legal_document_type, `web` its URL slug, `version` YYMMDD of its effective date in Europe/Madrid, `material` → requires_acceptance, `changes` the «what changes» per i18n file (none on a first version), `files` the frozen bytes per web language with their sha256 and, for the versions published before /documents, the old URL they keep serving (`legacy`). A frozen file never changes: the build refuses one whose bytes no longer match. `serial` grows with every change of what the manifest says (core refuses a lower one, or the same one with other bytes). A document may list `withdrawn` versions (out of `versions`); a version that comes before others already published lists in theirs `includes`. `reset` is the serial at which the history restarted (Israel, 04-11-2026, before launch: one version per document, the previous ones and their acceptances deleted): against a published manifest of a lower serial, signing it does not ask the old versions to stay.",
- "serial": 4,
+ "serial": 5,
  "documents": [
   {
    "id": "terms",
@@ -18,6 +18,27 @@
       "es": {
        "path": "terms/261104.html",
        "sha256": "562aa618a3fadb80504dfd93c98bdfd91bf9e8f54e8f02b4502262ead4d56c02"
+      }
+     }
+    },
+    {
+     "version": 261126,
+     "effective": "2026-11-25T23:00:00Z",
+     "material": false,
+     "changes": {
+      "es": "La tabla de gravedad de la sección 6 recoge los motivos nuevos de las Normas: el terrorismo y el tráfico de explosivos (crítica), el maltrato animal (alta) y el uso de obras o marcas ajenas sin permiso (baja).",
+      "en": "The severity table in section 6 includes the new reasons in the Community Guidelines: terrorism and trafficking in explosives (critical), animal cruelty (high) and using other people's works or trademarks without permission (low).",
+      "ca": "La taula de gravetat de la secció 6 recull els motius nous de les Normes: el terrorisme i el tràfic d'explosius (crítica), el maltractament animal (alta) i l'ús d'obres o marques alienes sense permís (baixa).",
+      "fr": "Le tableau de gravité de la section 6 reprend les nouveaux motifs des Règles : le terrorisme et le trafic d'explosifs (critique), la maltraitance animale (élevée) et l'utilisation d'œuvres ou de marques d'autrui sans autorisation (faible).",
+      "pt-BR": "A tabela de gravidade da seção 6 inclui os novos motivos das Normas: o terrorismo e o tráfico de explosivos (crítica), os maus-tratos a animais (alta) e o uso de obras ou marcas alheias sem permissão (baixa).",
+      "pt-PT": "A tabela de gravidade da secção 6 inclui os novos motivos das Normas: o terrorismo e o tráfico de explosivos (crítica), os maus-tratos a animais (alta) e o uso de obras ou marcas alheias sem autorização (baixa).",
+      "de": "Die Schweretabelle in Abschnitt 6 enthält die neuen Gründe der Richtlinien: Terrorismus und Handel mit Sprengstoffen (kritisch), Tierquälerei (hoch) und die Nutzung fremder Werke oder Marken ohne Erlaubnis (gering).",
+      "it": "La tabella di gravità della sezione 6 riprende i nuovi motivi delle Norme: il terrorismo e il traffico di esplosivi (critica), il maltrattamento di animali (alta) e l'uso di opere o marchi altrui senza permesso (bassa)."
+     },
+     "files": {
+      "es": {
+       "path": "terms/261126.html",
+       "sha256": "510168540837d57d443ede856dbbf10b356bda787753d69cd638096b0664911f"
       }
      }
     }
@@ -216,6 +237,27 @@
       "es": {
        "path": "guidelines/261104.html",
        "sha256": "e69dbd1836ac86ed32529bd735ef29da3da0503e9abc5f182386230c084fb25c"
+      }
+     }
+    },
+    {
+     "version": 261126,
+     "effective": "2026-11-25T23:00:00Z",
+     "material": false,
+     "changes": {
+      "es": "Ordena lo que prohíbe la ley con un motivo para cada caso: la trata de personas se separa del tráfico de drogas, armas y explosivos, y se añaden el terrorismo, el maltrato animal y el uso de obras o marcas ajenas sin permiso. Antes contaban como «otro contenido ilegal» (gravedad media); ahora el terrorismo es crítico (10 puntos), el maltrato animal alto (3) y la propiedad intelectual bajo (1).",
+      "en": "What the law prohibits now has one reason for each case: human trafficking is separated from trafficking in drugs, weapons and explosives, and terrorism, animal cruelty and using other people's works or trademarks without permission are added. They used to count as «other illegal content» (medium severity); now terrorism is critical (10 points), animal cruelty high (3) and intellectual property low (1).",
+      "ca": "Ordena el que prohibeix la llei amb un motiu per a cada cas: el tràfic de persones se separa del tràfic de drogues, armes i explosius, i s'hi afegeixen el terrorisme, el maltractament animal i l'ús d'obres o marques alienes sense permís. Abans comptaven com a «altre contingut il·legal» (gravetat mitjana); ara el terrorisme és crític (10 punts), el maltractament animal alt (3) i la propietat intel·lectual baix (1).",
+      "fr": "Ce que la loi interdit a désormais un motif pour chaque cas : la traite des êtres humains est séparée du trafic de drogues, d'armes et d'explosifs, et le terrorisme, la maltraitance animale et l'utilisation d'œuvres ou de marques d'autrui sans autorisation sont ajoutés. Ils comptaient auparavant comme « autre contenu illégal » (gravité moyenne) ; désormais, le terrorisme est critique (10 points), la maltraitance animale élevée (3) et la propriété intellectuelle faible (1).",
+      "pt-BR": "O que a lei proíbe passa a ter um motivo para cada caso: o tráfico de pessoas se separa do tráfico de drogas, armas e explosivos, e entram o terrorismo, os maus-tratos a animais e o uso de obras ou marcas alheias sem permissão. Antes contavam como «outro conteúdo ilegal» (gravidade média); agora o terrorismo é crítico (10 pontos), os maus-tratos a animais alto (3) e a propriedade intelectual baixo (1).",
+      "pt-PT": "O que a lei proíbe passa a ter um motivo para cada caso: o tráfico de pessoas separa-se do tráfico de droga, armas e explosivos, e entram o terrorismo, os maus-tratos a animais e o uso de obras ou marcas alheias sem autorização. Antes contavam como «outro conteúdo ilegal» (gravidade média); agora o terrorismo é crítico (10 pontos), os maus-tratos a animais alto (3) e a propriedade intelectual baixo (1).",
+      "de": "Was das Gesetz verbietet, hat jetzt für jeden Fall einen eigenen Grund: Menschenhandel wird vom Handel mit Drogen, Waffen und Sprengstoffen getrennt, und Terrorismus, Tierquälerei sowie die Nutzung fremder Werke oder Marken ohne Erlaubnis kommen hinzu. Bisher zählten sie als „sonstige illegale Inhalte“ (mittlere Schwere); jetzt ist Terrorismus kritisch (10 Punkte), Tierquälerei hoch (3) und geistiges Eigentum gering (1).",
+      "it": "Ciò che la legge vieta ha ora un motivo per ogni caso: la tratta di esseri umani si separa dal traffico di droghe, armi ed esplosivi, e si aggiungono il terrorismo, il maltrattamento di animali e l'uso di opere o marchi altrui senza permesso. Prima contavano come «altro contenuto illegale» (gravità media); ora il terrorismo è critico (10 punti), il maltrattamento di animali alto (3) e la proprietà intellettuale basso (1)."
+     },
+     "files": {
+      "es": {
+       "path": "guidelines/261126.html",
+       "sha256": "b6fe816a493554ce68f558ba47470b6b010b92097185b51c8b67f297f51427df"
       }
      }
     }
