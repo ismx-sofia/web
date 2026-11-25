@@ -1,6 +1,6 @@
 {
  "_doc": "Registry of the published versions of the legal documents (plan 261022-documentos-legales). One entry per version: `id` is the document in user_legal_document_type, `web` its URL slug, `version` YYMMDD of its effective date in Europe/Madrid, `material` → requires_acceptance, `changes` the «what changes» per i18n file (none on a first version), `files` the frozen bytes per web language with their sha256 and, for the versions published before /documents, the old URL they keep serving (`legacy`). A frozen file never changes: the build refuses one whose bytes no longer match. `serial` grows with every change of what the manifest says (core refuses a lower one, or the same one with other bytes). A document may list `withdrawn` versions (out of `versions`); a version that comes before others already published lists in theirs `includes`. `reset` is the serial at which the history restarted (Israel, 04-11-2026, before launch: one version per document, the previous ones and their acceptances deleted): against a published manifest of a lower serial, signing it does not ask the old versions to stay.",
- "serial": 7,
+ "serial": 8,
  "documents": [
   {
    "id": "terms",
@@ -60,6 +60,27 @@
       "es": {
        "path": "terms/261127.html",
        "sha256": "d375441c71f21ac0601822e43d3775c72885b0395d61c2f97ed21ce9318abe9a"
+      }
+     }
+    },
+    {
+     "version": 261128,
+     "effective": "2026-11-27T23:00:00Z",
+     "material": false,
+     "changes": {
+      "es": "La sección 6 explica cómo cumplimos las órdenes de las autoridades (cuándo te avisamos y que no suman puntos) y nuestra política sobre contenido terrorista: la retirada en una hora, la retirada preventiva mientras revisamos una orden y la conservación durante seis meses. La sección 12 enlaza la Guía para autoridades.",
+      "en": "Section 6 explains how we comply with orders from the authorities (when we tell you and that they add no points) and our policy on terrorist content: removal within one hour, the precautionary removal while we review an order and preservation for six months. Section 12 links to the Guide for authorities.",
+      "ca": "La secció 6 explica com complim les ordres de les autoritats (quan t'avisem i que no sumen punts) i la nostra política sobre contingut terrorista: la retirada en una hora, la retirada preventiva mentre revisem una ordre i la conservació durant sis mesos. La secció 12 enllaça la Guia per a les autoritats.",
+      "fr": "La section 6 explique comment nous exécutons les injonctions des autorités (quand nous t'informons et le fait qu'elles n'ajoutent pas de points) et notre politique sur les contenus à caractère terroriste : le retrait en une heure, le retrait préventif pendant l'examen d'une injonction et la conservation pendant six mois. La section 12 renvoie au Guide pour les autorités.",
+      "pt-BR": "A seção 6 explica como cumprimos as ordens das autoridades (quando avisamos você e que elas não somam pontos) e nossa política sobre conteúdo terrorista: a remoção em uma hora, a remoção preventiva enquanto analisamos uma ordem e a conservação por seis meses. A seção 12 traz o link para o Guia para autoridades.",
+      "pt-PT": "A secção 6 explica como cumprimos as ordens das autoridades (quando te avisamos e que não somam pontos) e a nossa política sobre conteúdo terrorista: a remoção numa hora, a remoção preventiva enquanto analisamos uma ordem e a conservação durante seis meses. A secção 12 inclui a ligação para o Guia para as autoridades.",
+      "de": "Abschnitt 6 erklärt, wie wir Anordnungen von Behörden befolgen (wann wir dich informieren und dass sie keine Punkte ergeben), und unsere Richtlinie zu terroristischen Inhalten: die Entfernung innerhalb einer Stunde, die vorsorgliche Entfernung während der Prüfung einer Anordnung und die Aufbewahrung für sechs Monate. Abschnitt 12 verlinkt den Leitfaden für Behörden.",
+      "it": "La sezione 6 spiega come diamo seguito agli ordini delle autorità (quando ti avvisiamo e che non aggiungono punti) e la nostra politica sui contenuti terroristici: la rimozione entro un'ora, la rimozione preventiva mentre esaminiamo un ordine e la conservazione per sei mesi. La sezione 12 rimanda alla Guida per le autorità."
+     },
+     "files": {
+      "es": {
+       "path": "terms/261128.html",
+       "sha256": "574bb23a73a0e382d1c70c5339b702801561882a3225fe9ce3e4007b3bf883b4"
       }
      }
     }
@@ -342,6 +363,27 @@
       "es": {
        "path": "legal/261104.html",
        "sha256": "0245032bf7cefb10d734916a633e87c8a883da162cd9eaefbed9636ba76df219"
+      }
+     }
+    },
+    {
+     "version": 261128,
+     "effective": "2026-11-27T23:00:00Z",
+     "material": false,
+     "changes": {
+      "es": "La sección 2 añade que legal@sofia.ismx.app es también nuestro punto de contacto para las órdenes de retirada de contenido terrorista y de pruebas electrónicas, y enlaza la Guía para autoridades.",
+      "en": "Section 2 adds that legal@sofia.ismx.app is also our contact point for removal orders concerning terrorist content and for electronic evidence orders, and links to the Guide for authorities.",
+      "ca": "La secció 2 afegeix que legal@sofia.ismx.app és també el nostre punt de contacte per a les ordres de retirada de contingut terrorista i de proves electròniques, i enllaça la Guia per a les autoritats.",
+      "fr": "La section 2 précise que legal@sofia.ismx.app est aussi notre point de contact pour les injonctions de retrait de contenus à caractère terroriste et pour les injonctions relatives aux preuves électroniques, et renvoie au Guide pour les autorités.",
+      "pt-BR": "A seção 2 acrescenta que legal@sofia.ismx.app também é nosso ponto de contato para ordens de remoção de conteúdo terrorista e de provas eletrônicas, e traz o link para o Guia para autoridades.",
+      "pt-PT": "A secção 2 acrescenta que legal@sofia.ismx.app é também o nosso ponto de contacto para ordens de remoção de conteúdo terrorista e de provas eletrónicas, e inclui a ligação para o Guia para as autoridades.",
+      "de": "Abschnitt 2 ergänzt, dass legal@sofia.ismx.app auch unsere Kontaktstelle für Entfernungsanordnungen zu terroristischen Inhalten und für Anordnungen zu elektronischen Beweismitteln ist, und verlinkt den Leitfaden für Behörden.",
+      "it": "La sezione 2 aggiunge che legal@sofia.ismx.app è anche il nostro punto di contatto per gli ordini di rimozione di contenuti terroristici e per gli ordini relativi alle prove elettroniche, e rimanda alla Guida per le autorità."
+     },
+     "files": {
+      "es": {
+       "path": "legal/261128.html",
+       "sha256": "b6d57acc42711559144c6d0c42da94e9907cd284c59d455cfbcf114f2fff9260"
       }
      }
     }

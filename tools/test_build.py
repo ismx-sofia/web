@@ -814,6 +814,31 @@ class BuildTest(unittest.TestCase):
         for c in aasa["applinks"]["details"][0]["components"]:
             self.assertIsNone(re.match("^" + re.escape(c["/"]).replace(r"\*", ".*") + "$", f"/{build.LICENSES_PAGE}"))
 
+    # 21b. /authorities and /en/authorities (plan 261124-autoridades A11): numbered sections with their table of
+    #      contents and the date it was updated, each language pointing at the other; every footer links the
+    #      visitor's language or the English page; the sitemap lists both; no universal link swallows it.
+    def test_authorities_page(self):
+        es, en = self.pages["authorities.html"], self.pages["en/authorities.html"]
+        for page, lang, since in ((es, "es", "Actualizada el"), (en, "en", "Updated on")):
+            self.assertIn(f'<html lang="{lang}"', page)
+            self.assertIn(since, page)
+            self.assertIn('<span class="n grad-text">1</span>', page)
+            self.assertIn('class="toc"', page)
+            self.assertIn("legal@sofia.ismx.app", page)
+            for hl, href in (("es", "/authorities"), ("en", "/en/authorities"), ("x-default", "/authorities")):
+                self.assertIn(f'<link rel="alternate" hreflang="{hl}" href="{HOST}{href}">', page)
+        self.assertIn(f'<link rel="canonical" href="{HOST}/en/authorities">', en)
+        self.assertIn('href="/authorities"', self.pages["index.html"], "the Spanish footer links the Spanish guide")
+        for page in ("en/index.html", "fr/index.html", "de/faq.html"):
+            self.assertIn('href="/en/authorities"', self.pages[page], f"{page}: a language without the guide links the English one")
+        sitemap = (self.out / "sitemap.xml").read_text(encoding="utf-8")
+        self.assertIn(f"<loc>{HOST}/authorities</loc>", sitemap)
+        self.assertIn(f"<loc>{HOST}/en/authorities</loc>", sitemap)
+        aasa = json.loads((SRC / "static" / ".well-known" / "apple-app-site-association").read_text(encoding="utf-8"))
+        for c in aasa["applinks"]["details"][0]["components"]:
+            for path in ("/authorities", "/en/authorities"):
+                self.assertIsNone(re.match("^" + re.escape(c["/"]).replace(r"\*", ".*") + "$", path), path)
+
     def test_release_refuses_incomplete_licenses(self):
         with tempfile.TemporaryDirectory() as t:
             site = build.Site(release=True)

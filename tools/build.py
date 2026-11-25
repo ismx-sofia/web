@@ -71,6 +71,17 @@ TRANSLATED_LEGAL = {
     "crisis": ("en", "ca", "fr", "pt", "de", "it"),
 }
 FALLBACK_LEGAL = "en"
+# Pages for people who are not users, in Spanish and in the languages listed (plan 261124-autoridades A11): how an
+# authority sends SofIA an order. They are not a contract, so they are not versioned: their source in src/info/ (and
+# src/info/<file>/ for a translation) is what is published, with the date it was last updated. A language without one
+# links to the English page.
+INFO_PAGES = {
+    "authorities": ("en",),
+}
+INFO_WORDS = {
+    "es": {"eyebrow": "Autoridades", "since": "Actualizada el", "toc": "En esta página", "anchor": "Enlace a esta sección"},
+    "en": {"eyebrow": "Authorities", "since": "Updated on", "toc": "On this page", "anchor": "Link to this section"},
+}
 # The open-source notices of the apps, one list per platform, written by apps/mobile/tools/licenses/build.mjs.
 LICENSE_LISTS = (("ios", "App para iPhone"), ("android", "App para Android"))
 LICENSES_PAGE = "licenses"
@@ -140,6 +151,10 @@ class Site:
 
     # ---------- urls ----------
     def url(self, page: str, code: str) -> str:
+        if page in INFO_PAGES:
+            if code == "es":
+                return f"/{page}"
+            return f"/{self.locales[code if code in INFO_PAGES[page] else FALLBACK_LEGAL]['dir']}/{page}"
         if page in TRANSLATED_LEGAL and code != "es":
             lang = code if code in TRANSLATED_LEGAL[page] else FALLBACK_LEGAL
             return f"/{self.locales[lang]['dir']}/{page}"
@@ -219,10 +234,11 @@ class Site:
     # ---------- chrome ----------
     def lang_menu(self, page: str, code: str, footer: bool) -> str:
         items = []
-        target = page if page in LOCALIZED_PAGES or page == PRIVACY_BASIC or page in TRANSLATED_LEGAL else "index"
+        target = page if page in LOCALIZED_PAGES or page == PRIVACY_BASIC or page in TRANSLATED_LEGAL or page in INFO_PAGES else "index"
+        only = TRANSLATED_LEGAL.get(target) or INFO_PAGES.get(target)
         for c in self.order:
             cfg = self.locales[c]
-            translated = target not in TRANSLATED_LEGAL or c == "es" or c in TRANSLATED_LEGAL[target]
+            translated = only is None or c == "es" or c in only
             href = self.url(target if translated else "index", c)
             cur = ' aria-current="page"' if c == code else ""
             if footer:
@@ -254,8 +270,9 @@ class Site:
                     f'<a href="{self.url(page, "es")}" hreflang="es" lang="es">Español</a></p>')
         privacy = self.url(PRIVACY_BASIC, code)
         t = t.replace("{{privacylink}}", f'href="{privacy}"' + (' hreflang="es"' if code == "es" else ""))
-        # A translated legal document is linked in the visitor's language, or in English when it has none.
-        for doc, codes in TRANSLATED_LEGAL.items():
+        # A translated legal document (or a page for authorities) is linked in the visitor's language, or in English
+        # when it has none.
+        for doc, codes in {**TRANSLATED_LEGAL, **INFO_PAGES}.items():
             lang = "es" if code == "es" else (code if code in codes else FALLBACK_LEGAL)
             t = t.replace(f"{{{{{doc}link}}}}", f'href="{self.url(doc, code)}" hreflang="{self.locales[lang]["hreflang"]}"')
         return t.replace("{{legalnote}}", note)
@@ -480,6 +497,26 @@ class Site:
         return self.document(code="es", head=head, body=f"{header}\n<main>\n{main}\n</main>\n{footer}",
                              data={"words": {"carousel": "carrusel", "card": "Ir a la tarjeta"}})
 
+    def info_alternates(self, page: str) -> list[tuple[str, str]]:
+        return ([("es", self.url(page, "es"))] + [(self.locales[c]["hreflang"], self.url(page, c)) for c in INFO_PAGES[page]]
+                + [("x-default", self.url(page, "es"))])
+
+    def build_info(self, page: str, code: str) -> str:
+        """A page for authorities (INFO_PAGES): its source with the legal frame (numbered sections, table of contents)
+        and the date it was last updated, in Spanish or in one of its translations."""
+        cfg = self.locales[code]
+        name, col = cfg["file"], cfg["col"]
+        path = SRC / "info" / (f"{page}.html" if code == "es" else f"{name}/{page}.html")
+        meta, body_tpl = page_meta(self.source(path))
+        body = self.legal_wrap(page, meta, body_tpl, INFO_WORDS[code])
+        main = self.inline(self.fill(body, code, name, col), code, col)
+        header = self.chrome("header", page, code, name, col)
+        footer = self.chrome("footer", page, code, name, col)
+        head = self.head(code=code, title=f"{meta['title']} · SofIA", description=meta["description"],
+                         canonical=self.url(page, code), alternates=self.info_alternates(page))
+        return self.document(code=code, head=head, body=f"{header}\n<main>\n{main}\n</main>\n{footer}",
+                             data={"words": {"carousel": cfg["carousel"], "card": cfg["card"]}})
+
     @staticmethod
     def text_anchor(key: str) -> str:
         return "t-" + re.sub(r"[^a-z0-9]+", "-", key.lower()).strip("-")
@@ -671,6 +708,12 @@ class Site:
             elif page != "privacy":  # listed above, with the summaries as its alternates
                 rows.append(f"  <url><loc>{HOST}/{page}</loc></url>")
         rows.append(f"  <url><loc>{HOST}/licenses</loc></url>")
+        for page in INFO_PAGES:
+            alts = self.info_alternates(page)
+            for hl, href in alts[:-1]:
+                rows.append(f"  <url><loc>{HOST}{href}</loc>")
+                rows += [f'    <xhtml:link rel="alternate" hreflang="{h2}" href="{HOST}{u2}"/>' for h2, u2 in alts]
+                rows.append("  </url>")
         rows += [f"  <url><loc>{HOST}{u}</loc></url>" for u in self.documents.sitemap_urls()]
         rows.append("</urlset>")
         return "\n".join(rows) + "\n"
@@ -729,6 +772,9 @@ class Site:
             for c in codes:
                 files[f"{self.locales[c]['dir']}/{page}.html"] = self.build_legal_translated(page, c)
         files[f"{LICENSES_PAGE}.html"] = self.build_licenses()
+        for page, codes in INFO_PAGES.items():
+            for c in ("es", *codes):
+                files[self.out_path(page, c)] = self.build_info(page, c)
         files.update(self.documents.files())
         files["documents.json"] = self.documents.manifest()
         files["404.html"] = self.build_404()

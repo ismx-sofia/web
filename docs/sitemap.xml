@@ -776,11 +776,22 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/crisis"/>
   </url>
   <url><loc>https://www.sofia.ismx.app/licenses</loc></url>
+  <url><loc>https://www.sofia.ismx.app/authorities</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/authorities"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/authorities"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/authorities"/>
+  </url>
+  <url><loc>https://www.sofia.ismx.app/en/authorities</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sofia.ismx.app/authorities"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sofia.ismx.app/en/authorities"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sofia.ismx.app/authorities"/>
+  </url>
   <url><loc>https://www.sofia.ismx.app/documents/</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/terms/</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/terms/261104</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/terms/261126</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/terms/261127</loc></url>
+  <url><loc>https://www.sofia.ismx.app/documents/terms/261128</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/privacy/</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/privacy/261104</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/privacy/261125</loc></url>
@@ -799,6 +810,7 @@
   <url><loc>https://www.sofia.ismx.app/documents/cookies/261104</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/legal/</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/legal/261104</loc></url>
+  <url><loc>https://www.sofia.ismx.app/documents/legal/261128</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/guardian/</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/guardian/261104</loc></url>
   <url><loc>https://www.sofia.ismx.app/documents/guardian/261113</loc></url>
