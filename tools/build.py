@@ -53,8 +53,6 @@ LEGAL_PAGES = {
     "subscription": "Condiciones de la suscripción",
     # Familia (plan 261020 §25): what a guardian accepts, and how SofIA acts when someone is in danger.
     "guardian": "Acompañar la cuenta de un menor",
-    # The guardian's permission that opens Explorar to the minor (audit 261112 C5).
-    "consent-social": "Permiso para Explorar",
     "crisis": "Protocolo de crisis",
 }
 # Legal documents also published in other languages, and in which (codes of locales.json). A language
@@ -67,7 +65,6 @@ TRANSLATED_LEGAL = {
     "consent-health": ("en", "ca", "fr", "pt", "de", "it"),
     # Accepted in the app by a guardian, and read by anyone in danger: every language (Israel, 22-10-2026).
     "guardian": ("en", "ca", "fr", "pt", "de", "it"),
-    "consent-social": ("en", "ca", "fr", "pt", "de", "it"),
     "crisis": ("en", "ca", "fr", "pt", "de", "it"),
 }
 FALLBACK_LEGAL = "en"

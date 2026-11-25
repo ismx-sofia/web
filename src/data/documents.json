@@ -1,6 +1,6 @@
 {
- "_doc": "Registry of the published versions of the legal documents (plan 261022-documentos-legales). One entry per version: `id` is the document in user_legal_document_type, `web` its URL slug, `version` YYMMDD of its effective date in Europe/Madrid, `material` → requires_acceptance, `changes` the «what changes» per i18n file (none on a first version), `files` the frozen bytes per web language with their sha256 and, for the versions published before /documents, the old URL they keep serving (`legacy`). A frozen file never changes: the build refuses one whose bytes no longer match. `serial` grows with every change of what the manifest says (core refuses a lower one, or the same one with other bytes). A document may list `withdrawn` versions (out of `versions`); a version that comes before others already published lists in theirs `includes`. `reset` is the serial at which the history restarted (Israel, 04-11-2026, before launch: one version per document, the previous ones and their acceptances deleted): against a published manifest of a lower serial, signing it does not ask the old versions to stay.",
- "serial": 8,
+ "_doc": "Registry of the published versions of the legal documents (plan 261022-documentos-legales). One entry per version: `id` is the document in user_legal_document_type, `web` its URL slug, `version` YYMMDD of its effective date in Europe/Madrid, `material` → requires_acceptance, `changes` the «what changes» per i18n file (none on a first version), `files` the frozen bytes per web language with their sha256 and, for the versions published before /documents, the old URL they keep serving (`legacy`). A frozen file never changes: the build refuses one whose bytes no longer match. `serial` grows with every change of what the manifest says (core refuses a lower one, or the same one with other bytes). A document may list `withdrawn` versions (out of `versions`); a version that comes before others already published lists in theirs `includes`. `removed` lists the documents taken out of the history on purpose, deleted from core in the same window by its script (plan 261123 D18: the permission for Explorar became part of «Acompañar la cuenta de un menor»): signing does not ask them to stay. `reset` is the serial at which the history restarted (Israel, 04-11-2026, before launch: one version per document, the previous ones and their acceptances deleted): against a published manifest of a lower serial, signing it does not ask the old versions to stay.",
+ "serial": 9,
  "documents": [
   {
    "id": "terms",
@@ -521,49 +521,49 @@
        "sha256": "f1f57da6046e8cce308c301bf4ee8295e16ac6d7a203add4ce43663220193da8"
       }
      }
-    }
-   ]
-  },
-  {
-   "id": "social",
-   "web": "consent-social",
-   "title": "Permiso para Explorar",
-   "kind": "consent",
-   "summary": "Lo que permites, como madre, padre o tutor legal, al abrir Explorar a la persona menor que acompañas.",
-   "versions": [
+    },
     {
-     "version": 261113,
-     "effective": "2026-11-13T09:00:00Z",
-     "material": true,
-     "changes": {},
+     "version": 261126,
+     "effective": "2026-11-26T22:00:00Z",
+     "material": false,
+     "changes": {
+      "es": "Explorar: mientras está abierto, guardamos quién lo abrió y cuándo, como prueba; al cerrarlo deja de guardarse.",
+      "en": "Explore: while it is open, we keep who opened it and when, as proof; closing it ends that.",
+      "ca": "Explorar: mentre està obert, guardem qui el va obrir i quan, com a prova; en tancar-lo, deixa de guardar-se.",
+      "fr": "Explorer : tant qu'il est ouvert, nous gardons, comme preuve, qui l'a ouvert et quand ; le fermer y met fin.",
+      "pt-BR": "Explorar: enquanto estiver aberto, guardamos, como prova, quem o abriu e quando; ao fechá-lo, deixamos de guardar.",
+      "pt-PT": "Explorar: enquanto estiver aberto, guardamos, como prova, quem o abriu e quando; ao fechá-lo, deixamos de guardar.",
+      "de": "Entdecken: Solange es geöffnet ist, speichern wir als Nachweis, wer es geöffnet hat und wann; das Schließen beendet das.",
+      "it": "Esplora: finché è aperto, conserviamo, come prova, chi lo ha aperto e quando; chiuderlo pone fine a questo."
+     },
      "files": {
       "es": {
-       "path": "consent-social/261113.html",
-       "sha256": "46affa7a203e26e00f6a460611dee9ccfd95eb82866023f022abe2cb7a20aa88"
+       "path": "guardian/261126.html",
+       "sha256": "ccd8b4f355ef90fd84bde03bb3a399542024dd836a9b27ee8434420c8bfbb132"
       },
       "en": {
-       "path": "consent-social/en/261113.html",
-       "sha256": "eda45876a936dcc72598c7cf4e53d3411d7d755578b6966601546b03187eb8af"
+       "path": "guardian/en/261126.html",
+       "sha256": "5b392a6ed932fc4467a34047a7c478ddaf4611a478e9ba45f04765afc2ee8ca0"
       },
       "ca": {
-       "path": "consent-social/ca/261113.html",
-       "sha256": "522bd65d0c4a356915993fcdc175f42d8240ab3e34d18cb19c653bf7008fa8bf"
+       "path": "guardian/ca/261126.html",
+       "sha256": "ddebb7d97e56d942e321e0297343885f92af5c6687024fbc6567fb56be9ce0f4"
       },
       "fr": {
-       "path": "consent-social/fr/261113.html",
-       "sha256": "5ffab72fa971ab3b72e874b1b4a4f379c8ed352bb34a217b621a7e7efdc46948"
+       "path": "guardian/fr/261126.html",
+       "sha256": "aa300510b2c539f5c7e93bb679947d975c004d48f8f759628f8c6ea28e8305d5"
       },
       "pt": {
-       "path": "consent-social/pt/261113.html",
-       "sha256": "3380488ec9b60db8311c48ba845e9e1ed69be15e89f604e1a064776f13e8f9f9"
+       "path": "guardian/pt/261126.html",
+       "sha256": "f7e4dc3a53d50a3ed8e10244bd1c074c82b7dd8059831f9b36bce086a9b03a2a"
       },
       "de": {
-       "path": "consent-social/de/261113.html",
-       "sha256": "a57e32d64a45be5dc8271b442187ed90b4ede647cc20621bb71b851db03adb08"
+       "path": "guardian/de/261126.html",
+       "sha256": "e5cd2f5b15fe67c36172add74828c2d32403292b6db5376f08e65c9d942d2b3f"
       },
       "it": {
-       "path": "consent-social/it/261113.html",
-       "sha256": "636480e812f5270aedf399eb332bbe61262c86038f74b69c2dd90463141e1197"
+       "path": "guardian/it/261126.html",
+       "sha256": "db2b8368c16f1fe79eba5fcd32878a108459aab5b67f7843368a0908302077df"
       }
      }
     }
@@ -615,5 +615,8 @@
    ]
   }
  ],
- "reset": 3
+ "reset": 3,
+ "removed": [
+  "social"
+ ]
 }

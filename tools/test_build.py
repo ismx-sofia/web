@@ -544,6 +544,11 @@ class BuildTest(unittest.TestCase):
             older(m)
             m["documents"].append({"id": "extra", "kind": "information", "versions": []})
         self.assertIn("the document extra was published", " ".join(here.signable(published(gone), now)))
+        # A document removed on purpose (`removed`, plan 261123 D18) may leave; one removed and still listed may not.
+        removing = docs_with(lambda reg: reg.update(removed=["extra"]))
+        self.assertEqual(removing.signable(published(gone), now), [])
+        listed = docs_with(lambda reg: reg.update(removed=["terms"]))
+        self.assertIn("the document terms is removed and still in the manifest", " ".join(listed.signable(here.manifest(), now)))
 
     # 12d. the registry's contract: the build refuses a frozen file that changed, a version that is not the
     # Madrid date of its effective time, two versions of a document on one day, and a release without every
@@ -921,7 +926,7 @@ class InForceTest(unittest.TestCase):
         site = self.site("2026-11-04T12:00:00Z")
         for doc in site.documents.docs:
             v = site.documents.in_force(doc, site.now)
-            if v is None:  # a document published later (consent-social, 261113): nothing in force yet
+            if v is None:  # a document published later than that day: nothing in force yet
                 continue
             frozen = (SRC / "documents" / v["files"]["es"]["path"]).read_text(encoding="utf-8")
             root = self.main(site.build_legal(doc["web"]))

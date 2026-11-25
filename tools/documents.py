@@ -43,6 +43,9 @@ KINDS = {"contract": "Contrato", "consent": "Consentimiento", "information": "In
 # The icon of each document in the index (symbols of templates/icons.html).
 # Documents renamed in the manifest (new id → the id it was published with): their versions are the same ones.
 RENAMES = {"guidelines": "normas", "ai": "ia"}
+# The routes of documents removed from the registry (`removed`) → the route that carries what they said: links of the
+# frozen versions that cite them point there (plan 261123 D18: the permission for Explorar is part of Acompañar).
+REMOVED_ROUTES = {"consent-social": "guardian"}
 # A withdrawal, or a new version, must reach core before its instant: a pass (an hour) and the Pages deployment.
 WITHDRAW_MARGIN = timedelta(hours=3)
 ICONS = {"terms": "i-book", "privacy": "i-lock", "ai": "i-sparkles", "journal": "i-pencil",
@@ -85,6 +88,9 @@ class Documents:
         # What core keeps as the highest accepted: it refuses a lower one, or the same one with other bytes.
         self.serial = registry.get("serial", 0)
         self.registry_reset = registry.get("reset")
+        # Documents taken out of the history on purpose (`removed`, by id): the one place a published document may leave
+        # the manifest, in the same window as core's script that deletes it (plan 261123 D18).
+        self.registry_removed = set(registry.get("removed", []))
         # «What changes» is written per i18n file: the app picks the one of its language.
         self.change_locales = site.change_locales()
         self.web_dirs = {c: site.locales[c]["dir"] for c in site.order}
@@ -204,6 +210,9 @@ class Documents:
         for new, old in RENAMES.items():
             text = re.sub(rf'href="/{old}(?=["#])', f'href="/{new}', text)
             text = re.sub(rf'href="((?:/[a-z-]+)?)/documents/{old}/', rf'href="\1/documents/{new}/', text)
+        for old, new in REMOVED_ROUTES.items():
+            text = re.sub(rf'href="((?:/[a-z-]+)?)/{old}(?=["#])', rf'href="\1/{new}', text)
+            text = re.sub(rf'href="((?:/[a-z-]+)?)/documents/{old}/[^"]*"', rf'href="\1/{new}"', text)
         return text
 
     def frozen_page(self, doc, v, code="es") -> dict:
@@ -403,7 +412,8 @@ class Documents:
         reset = self.registry_reset
         if reset and new.get("serial", 0) == reset and old.get("serial", 0) < reset:
             return problems + [f"the document {gone} was published and is no longer in the manifest"
-                               for gone in sorted(set(olds) - {d["id"] for d in new["documents"]} - set(RENAMES.values()))]
+                               for gone in sorted(set(olds) - {d["id"] for d in new["documents"]} - set(RENAMES.values())
+                                                  - self.registry_removed)]
         renamed = {n: o for n, o in RENAMES.items() if o in olds and n not in olds}
         for doc in new["documents"]:
             before = olds.get(doc["id"]) or olds.get(renamed.get(doc["id"], ""))
@@ -445,8 +455,10 @@ class Documents:
                         continue
                     if later > v["version"] and v["version"] not in includes.get(later, set()):
                         problems.append(f"{doc['id']} {v['version']} comes before {later}, already published, which does not list it in includes")
-        for gone in set(olds) - {d["id"] for d in new["documents"]} - set(renamed.values()):
+        for gone in set(olds) - {d["id"] for d in new["documents"]} - set(renamed.values()) - self.registry_removed:
             problems.append(f"the document {gone} was published and is no longer in the manifest")
+        for kept in self.registry_removed & {d["id"] for d in new["documents"]}:
+            problems.append(f"the document {kept} is removed and still in the manifest")
         return problems
 
     def sign(self, manifest: Path) -> str:
