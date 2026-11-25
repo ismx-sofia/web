@@ -1,6 +1,6 @@
 {
  "_doc": "Registry of the published versions of the legal documents (plan 261022-documentos-legales). One entry per version: `id` is the document in user_legal_document_type, `web` its URL slug, `version` YYMMDD of its effective date in Europe/Madrid, `material` → requires_acceptance, `changes` the «what changes» per i18n file (none on a first version), `files` the frozen bytes per web language with their sha256 and, for the versions published before /documents, the old URL they keep serving (`legacy`). A frozen file never changes: the build refuses one whose bytes no longer match. `serial` grows with every change of what the manifest says (core refuses a lower one, or the same one with other bytes). A document may list `withdrawn` versions (out of `versions`); a version that comes before others already published lists in theirs `includes`. `reset` is the serial at which the history restarted (Israel, 04-11-2026, before launch: one version per document, the previous ones and their acceptances deleted): against a published manifest of a lower serial, signing it does not ask the old versions to stay.",
- "serial": 6,
+ "serial": 7,
  "documents": [
   {
    "id": "terms",
@@ -81,6 +81,27 @@
       "es": {
        "path": "privacy/261104.html",
        "sha256": "f3bee7d50526909792871d9a57987923526035764af5569a6c5499db55910fb6"
+      }
+     }
+    },
+    {
+     "version": 261125,
+     "effective": "2026-11-25T22:00:00Z",
+     "material": true,
+     "changes": {
+      "es": "Cuando llegas a la edad a la que decides tú un permiso, el que dio tu tutor deja de contar ese día: lo que dependía de él queda en pausa, sin borrar nada, hasta que lo des tú, y te lo recordamos. Tus datos solo se borran si quitas la salud o la inteligencia artificial, o si das de baja la cuenta. Y tu tutor puede abrirte la parte social donde la ley de tu país lo permite con su permiso, nunca antes de los 13 años.",
+      "en": "When you reach the age at which you decide a permission yourself, the one your guardian gave stops counting that day: what depended on it is paused, with nothing deleted, until you give it, and we remind you. Your data is only deleted if you remove health or artificial intelligence, or if you close your account. And your guardian can open the social part for you where the law of your country allows it with their permission, never before 13.",
+      "ca": "Quan arribes a l'edat a la qual decideixes tu un permís, el que va donar el teu tutor deixa de comptar aquell dia: el que en depenia queda en pausa, sense esborrar res, fins que el donis tu, i t'ho recordem. Les teves dades només s'esborren si treus la salut o la intel·ligència artificial, o si dones de baixa el compte. I el teu tutor et pot obrir la part social on la llei del teu país ho permet amb el seu permís, mai abans dels 13 anys.",
+      "fr": "Quand tu atteins l'âge auquel tu décides toi-même d'une autorisation, celle qu'a donnée ton tuteur cesse de compter ce jour-là : ce qui en dépendait est mis en pause, sans rien effacer, jusqu'à ce que tu la donnes, et nous te le rappelons. Tes données ne sont effacées que si tu retires la santé ou l'intelligence artificielle, ou si tu supprimes ton compte. Et ton tuteur peut t'ouvrir la partie sociale là où la loi de ton pays le permet avec son autorisation, jamais avant 13 ans.",
+      "pt-BR": "Quando você chega à idade em que decide sozinho uma permissão, a que seu responsável deu deixa de valer nesse dia: o que dependia dela fica em pausa, sem apagar nada, até que você a dê, e nós lembramos você. Seus dados só são apagados se você tirar a saúde ou a inteligência artificial, ou se excluir a conta. E seu responsável pode abrir a parte social para você onde a lei do seu país permite com a permissão dele, nunca antes dos 13 anos.",
+      "pt-PT": "Quando chegas à idade em que decides tu uma permissão, a que o teu tutor deu deixa de contar nesse dia: o que dependia dela fica em pausa, sem apagar nada, até que a dês tu, e lembramos-te disso. Os teus dados só são apagados se tirares a saúde ou a inteligência artificial, ou se eliminares a conta. E o teu tutor pode abrir-te a parte social onde a lei do teu país o permite com a permissão dele, nunca antes dos 13 anos.",
+      "de": "Wenn du das Alter erreichst, in dem du eine Berechtigung selbst entscheidest, zählt die von deinem Vormund erteilte ab diesem Tag nicht mehr: Was davon abhing, wird pausiert, ohne etwas zu löschen, bis du sie erteilst, und wir erinnern dich daran. Deine Daten werden nur gelöscht, wenn du Gesundheit oder künstliche Intelligenz entfernst oder dein Konto löschst. Und dein Vormund kann dir den sozialen Bereich öffnen, wo das Gesetz deines Landes es mit seiner Erlaubnis zulässt, nie vor 13 Jahren.",
+      "it": "Quando raggiungi l'età in cui decidi tu un permesso, quello dato dal tuo tutore smette di valere quel giorno: ciò che ne dipendeva resta in pausa, senza cancellare nulla, finché non lo dai tu, e te lo ricordiamo. I tuoi dati si cancellano solo se togli la salute o l'intelligenza artificiale, o se elimini l'account. E il tuo tutore può aprirti la parte sociale dove la legge del tuo paese lo consente con il suo permesso, mai prima dei 13 anni."
+     },
+     "files": {
+      "es": {
+       "path": "privacy/261125.html",
+       "sha256": "6ec9757c9a3cafdddb7875bdd42e77071cee070d1e6c0eb22cbf8ac88a7cf1b4"
       }
      }
     }
@@ -411,6 +432,51 @@
       "it": {
        "path": "guardian/it/261113.html",
        "sha256": "539a28f51e3dfae47157f154206192e295c334bb1182de4b2692f728e42c8144"
+      }
+     }
+    },
+    {
+     "version": 261125,
+     "effective": "2026-11-25T22:00:00Z",
+     "material": false,
+     "changes": {
+      "es": "El permiso para Explorar pasa a este texto: donde la ley de su país lo permite, puedes abrirle Explorar (nunca antes de los 13 años) y cerrarlo cuando quieras. Y desde la edad a la que la persona menor decide sola un permiso, el que diste tú deja de contar ese día: lo que dependía de él queda en pausa, sin borrar nada, hasta que lo dé ella.",
+      "en": "The permission for Explore moves into this text: where the law of their country allows it, you can open Explore for them (never before 13) and close it whenever you want. And from the age at which the minor decides a permission alone, the one you gave stops counting that day: what depended on it is paused, with nothing deleted, until they give it themselves.",
+      "ca": "El permís per a Explorar passa a aquest text: on la llei del seu país ho permet, li pots obrir Explorar (mai abans dels 13 anys) i tancar-lo quan vulguis. I des de l'edat a la qual la persona menor decideix sola un permís, el que vas donar tu deixa de comptar aquell dia: el que en depenia queda en pausa, sense esborrar res, fins que el doni ella.",
+      "fr": "L'autorisation pour Explorer passe dans ce texte : là où la loi de son pays le permet, tu peux lui ouvrir Explorer (jamais avant 13 ans) et le fermer quand tu veux. Et dès l'âge auquel la personne mineure décide seule d'une autorisation, celle que tu as donnée cesse de compter ce jour-là : ce qui en dépendait est mis en pause, sans rien effacer, jusqu'à ce qu'elle la donne elle-même.",
+      "pt-BR": "A permissão para Explorar passa para este texto: onde a lei do país dela permite, você pode abrir o Explorar para ela (nunca antes dos 13 anos) e fechá-lo quando quiser. E a partir da idade em que a pessoa menor decide sozinha uma permissão, a que você deu deixa de valer nesse dia: o que dependia dela fica em pausa, sem apagar nada, até que ela mesma a dê.",
+      "pt-PT": "A permissão para Explorar passa para este texto: onde a lei do país dela o permite, podes abrir-lhe o Explorar (nunca antes dos 13 anos) e fechá-lo quando quiseres. E a partir da idade em que a pessoa menor decide sozinha uma permissão, a que deste deixa de contar nesse dia: o que dependia dela fica em pausa, sem apagar nada, até que ela própria a dê.",
+      "de": "Die Erlaubnis für Entdecken steht jetzt in diesem Text: Wo das Gesetz seines Landes es erlaubt, kannst du ihm Entdecken öffnen (nie vor 13 Jahren) und es jederzeit schließen. Und ab dem Alter, in dem die minderjährige Person eine Berechtigung allein entscheidet, zählt die von dir erteilte ab diesem Tag nicht mehr: Was davon abhing, wird pausiert, ohne etwas zu löschen, bis sie sie selbst erteilt.",
+      "it": "Il permesso per Esplora passa in questo testo: dove la legge del suo paese lo consente, puoi aprirgli Esplora (mai prima dei 13 anni) e chiuderlo quando vuoi. E dall'età in cui la persona minorenne decide da sola un permesso, quello che hai dato tu smette di valere quel giorno: ciò che ne dipendeva resta in pausa, senza cancellare nulla, finché non lo dà lei."
+     },
+     "files": {
+      "es": {
+       "path": "guardian/261125.html",
+       "sha256": "08b7050841e7e004fc4dae3935bad65f34bc9539948578a92bfbb6289caa35a3"
+      },
+      "en": {
+       "path": "guardian/en/261125.html",
+       "sha256": "562dd9bfbe3cfaff97245fe1fdbd61f6f76cc7466b4d02325a4d1db656d06e7d"
+      },
+      "ca": {
+       "path": "guardian/ca/261125.html",
+       "sha256": "856dbebdc8097a6cfc07a93bd0b47e53b08bad86d0f85f7bfa8772c7db4bba73"
+      },
+      "fr": {
+       "path": "guardian/fr/261125.html",
+       "sha256": "0045cc55dab85c72a4daeb80b9d87993a3652a4c3d6a778dbe5a5c9796925b3f"
+      },
+      "pt": {
+       "path": "guardian/pt/261125.html",
+       "sha256": "b8f63906e10bff7fcfb47e72ceb0b4354d0051284b0190b6c0b456ebe7e7e9a5"
+      },
+      "de": {
+       "path": "guardian/de/261125.html",
+       "sha256": "767e250888924c42d7a81196e56548e82ac36e7121495657911576c641d4ad0f"
+      },
+      "it": {
+       "path": "guardian/it/261125.html",
+       "sha256": "f1f57da6046e8cce308c301bf4ee8295e16ac6d7a203add4ce43663220193da8"
       }
      }
     }
