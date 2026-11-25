@@ -1,6 +1,6 @@
 {
  "_doc": "Registry of the published versions of the legal documents (plan 261022-documentos-legales). One entry per version: `id` is the document in user_legal_document_type, `web` its URL slug, `version` YYMMDD of its effective date in Europe/Madrid, `material` → requires_acceptance, `changes` the «what changes» per i18n file (none on a first version), `files` the frozen bytes per web language with their sha256 and, for the versions published before /documents, the old URL they keep serving (`legacy`). A frozen file never changes: the build refuses one whose bytes no longer match. `serial` grows with every change of what the manifest says (core refuses a lower one, or the same one with other bytes). A document may list `withdrawn` versions (out of `versions`); a version that comes before others already published lists in theirs `includes`. `reset` is the serial at which the history restarted (Israel, 04-11-2026, before launch: one version per document, the previous ones and their acceptances deleted): against a published manifest of a lower serial, signing it does not ask the old versions to stay.",
- "serial": 5,
+ "serial": 6,
  "documents": [
   {
    "id": "terms",
@@ -39,6 +39,27 @@
       "es": {
        "path": "terms/261126.html",
        "sha256": "510168540837d57d443ede856dbbf10b356bda787753d69cd638096b0664911f"
+      }
+     }
+    },
+    {
+     "version": 261127,
+     "effective": "2026-11-26T23:00:00Z",
+     "material": false,
+     "changes": {
+      "es": "Todo reporte lo revisa una persona de nuestro equipo: el sistema automatizado ya no decide sobre ninguno. Y en lo que prohíbe la ley, en promover el daño, en las estafas y en el acoso sexual el sistema nunca aplica una medida por sí solo: lo decide siempre una persona, que valora también si hay que avisar a las autoridades.",
+      "en": "Every report is reviewed by a person on our team: the automated system no longer decides on any. And for what the law prohibits, promoting harm, scams and sexual harassment, the system never applies a measure on its own: a person always decides, and also weighs whether to tell the authorities.",
+      "ca": "Tot report el revisa una persona del nostre equip: el sistema automatitzat ja no en decideix cap. I en el que prohibeix la llei, en promoure el dany, en les estafes i en l'assetjament sexual el sistema mai no aplica una mesura tot sol: ho decideix sempre una persona, que valora també si cal avisar les autoritats.",
+      "fr": "Chaque signalement est examiné par une personne de notre équipe : le système automatisé ne décide plus d'aucun. Et pour ce que la loi interdit, la promotion de l'automutilation ou de la violence, les escroqueries et le harcèlement sexuel, le système n'applique jamais une mesure seul : une personne décide toujours et évalue aussi s'il faut prévenir les autorités.",
+      "pt-BR": "Toda denúncia é revisada por uma pessoa da nossa equipe: o sistema automatizado já não decide sobre nenhuma. E no que a lei proíbe, em promover danos, nos golpes e no assédio sexual, o sistema nunca aplica uma medida sozinho: quem decide é sempre uma pessoa, que avalia também se é preciso avisar as autoridades.",
+      "pt-PT": "Todas as denúncias são revistas por uma pessoa da nossa equipa: o sistema automatizado já não decide sobre nenhuma. E no que a lei proíbe, em promover danos, nas burlas e no assédio sexual, o sistema nunca aplica uma medida sozinho: quem decide é sempre uma pessoa, que avalia também se é preciso avisar as autoridades.",
+      "de": "Jede Meldung prüft eine Person aus unserem Team: Das automatisierte System entscheidet über keine mehr. Und bei dem, was das Gesetz verbietet, bei der Förderung von Schaden, bei Betrug und bei sexueller Belästigung ergreift das System nie allein eine Maßnahme: Es entscheidet immer eine Person, die auch prüft, ob die Behörden zu informieren sind.",
+      "it": "Ogni segnalazione la esamina una persona del nostro team: il sistema automatizzato non decide più su nessuna. E per ciò che la legge vieta, per la promozione del danno, le truffe e le molestie sessuali il sistema non applica mai una misura da solo: decide sempre una persona, che valuta anche se avvisare le autorità."
+     },
+     "files": {
+      "es": {
+       "path": "terms/261127.html",
+       "sha256": "d375441c71f21ac0601822e43d3775c72885b0395d61c2f97ed21ce9318abe9a"
       }
      }
     }
